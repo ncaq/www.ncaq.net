@@ -2,3 +2,8 @@ html
 {
     background-color: #002b36;
 }
+
+img
+{
+    width:100%;
+}
