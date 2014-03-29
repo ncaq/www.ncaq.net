@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="420.62399"
+   height="97.344002"
+   id="svg3866">
+  <defs
+     id="defs3868" />
+  <metadata
+     id="metadata3871">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer4">
+    <rect
+       width="637.14288"
+       height="358.57144"
+       x="-98.571426"
+       y="-115.51314"
+       id="rect3880"
+       style="fill:#ffffff;fill-opacity:1;stroke:#00ffff" />
+  </g>
+  <g
+     transform="translate(-59.469713,-348.03074)"
+     id="layer1">
+    <text
+       x="54.285713"
+       y="443.79074"
+       id="text3874"
+       xml:space="preserve"
+       style="font-size:144px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Ricty;-inkscape-font-specification:Ricty"><tspan
+         x="54.285713"
+         y="443.79074"
+         id="tspan3876">GitHub</tspan></text>
+  </g>
+</svg>
