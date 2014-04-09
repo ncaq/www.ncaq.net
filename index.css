@@ -1,9 +1,23 @@
 html
 {
+    color: #839496;
     background-color: #002b36;
+    font-size: xx-large;
 }
 
 img
 {
-    width:100%;
+    width: 100%;
+}
+
+section#profile
+{
+    width: 50%;
+    float: left;
+}
+
+nav#cover
+{
+    width: 50%;
+    float: right;
 }
