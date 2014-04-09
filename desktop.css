@@ -1,0 +1,11 @@
+section#profile
+{
+    width: 50%;
+    float: left;
+}
+
+nav#cover
+{
+    width: 50%;
+    float: right;
+}
