@@ -1,11 +1,11 @@
 section#profile
 {
-    width: 50%;
+    width: 80%;
     float: left;
 }
 
 nav#cover
 {
-    width: 50%;
+    width: 20%;
     float: right;
 }
