@@ -1,13 +1,13 @@
-section#profile
+.profile
 {
     width: 80%;
     float: left;
-    word-wrap:break-word;
+    word-wrap: break-word;
 }
 
-nav#cover
+.cover
 {
     width: 20%;
     float: right;
-    word-wrap:break-word;
+    word-wrap: break-word;
 }
