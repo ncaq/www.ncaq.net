@@ -1,11 +1,9 @@
-html
-{
-    color: #839496;
-    background-color: #002b36;
-    font-size: xx-large;
+body {
+  font-size: xx-large;
 }
 
-img
-{
-    width: 100%;
+img {
+  width: 100%;
 }
+
+/*# sourceMappingURL=base.css.map */
