@@ -1,13 +1,13 @@
 .profile {
   width: 80%;
   float: left;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .cover {
   width: 20%;
   float: right;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /*# sourceMappingURL=desktop.css.map */
