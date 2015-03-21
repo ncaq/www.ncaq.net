@@ -1,6 +1,7 @@
 body {
   font-family: monospace sans-serif;
   font-size: large;
+  overflow-wrap: break-word;
 }
 
 img {
