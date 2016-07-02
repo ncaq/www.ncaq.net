@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,QACA;EACI,KAAK,EAAE,GAAG;EACV,KAAK,EAAE,IAAI;;;AAGf,MACA;EACI,KAAK,EAAE,GAAG;EACV,KAAK,EAAE,KAAK",
-"sources": ["desktop.scss"],
-"names": [],
-"file": "desktop.css"
-}
