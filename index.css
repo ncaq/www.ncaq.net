@@ -1,0 +1,30 @@
+body {
+  background-color: #002b36;
+  border-color: #586e75;
+  color: #839496;
+  font-family: monospace sans-serif;
+  font-size: large;
+  overflow-wrap: break-word; }
+
+h1, h2, h3, h4, h5, h6, blockquote {
+  background-color: #073642;
+  border-color: #839496;
+  color: #93a1a1; }
+
+code, pre {
+  background-color: #002b36;
+  color: #839496; }
+
+a {
+  color: #268bd2; }
+  a :visited {
+    color: #6c71c4; }
+
+@media (min-device-aspect-ratio: 4 / 3) {
+  body {
+    display: flex; }
+
+  footer {
+    margin-left: 1rem; } }
+
+/*# sourceMappingURL=index.css.map */
