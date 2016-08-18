@@ -22,7 +22,8 @@ a {
 
 nav ul {
   list-style-type: none;
-  padding-left: 0; }
+  padding-left: 0;
+  text-align: center; }
 
 @media (min-device-aspect-ratio: 4 / 3) {
   body {
