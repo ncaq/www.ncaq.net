@@ -20,6 +20,10 @@ a {
   a :visited {
     color: #6c71c4; }
 
+nav ul {
+  list-style-type: none;
+  padding-left: 0; }
+
 @media (min-device-aspect-ratio: 4 / 3) {
   body {
     display: flex; }
