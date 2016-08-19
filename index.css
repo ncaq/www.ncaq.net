@@ -19,6 +19,9 @@ a {
   a :visited {
     color: #6c71c4; }
 
+section {
+  padding-left: 1rem; }
+
 nav ul {
   text-align: center;
   list-style-type: none; }
