@@ -14,7 +14,6 @@ $violet:  #6c71c4;
 $blue:    #268bd2;
 $cyan:    #2aa198;
 $green:   #859900;
-
 body {
     background-color: $base03;
     border-color: $base01;
@@ -24,36 +23,34 @@ body {
     font-size: large;
     overflow-wrap: break-word;
 }
-
 h1, h2, h3, h4, h5, h6, blockquote {
     background-color: $base02;
     border-color: $base0;
     color: $base1;
 }
-
 code, pre {
     background-color: $base03;
     color: $base0;
 }
-
 a {
     color: $blue;
     :visited {
         color: $violet;
     }
 }
-
 nav ul {
-    list-style-type: none;
-    padding-left: 0;
     text-align: center;
+    list-style-type: none;
 }
-
+.mail:before {
+    content: '📧';
+}
+.tel:before {
+    content: '📞';
+}
 @media (min-device-aspect-ratio: 4/3) {
     body {
         display: flex;
-    }
-    footer {
-        margin-left: 1rem;
+        justify-content: space-around;
     }
 }
