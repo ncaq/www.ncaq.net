@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   background-color: #002b36;
   border-color: #586e75;
@@ -21,15 +22,18 @@ a {
     color: #6c71c4; }
 
 nav ul {
-  list-style-type: none;
-  padding-left: 0;
-  text-align: center; }
+  text-align: center;
+  list-style-type: none; }
+
+.mail:before {
+  content: '📧'; }
+
+.tel:before {
+  content: '📞'; }
 
 @media (min-device-aspect-ratio: 4 / 3) {
   body {
-    display: flex; }
-
-  footer {
-    margin-left: 1rem; } }
+    display: flex;
+    justify-content: space-around; } }
 
 /*# sourceMappingURL=index.css.map */
