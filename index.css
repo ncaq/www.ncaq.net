@@ -24,7 +24,8 @@ section {
 
 nav ul {
   text-align: center;
-  list-style-type: none; }
+  list-style-type: none;
+  padding-left: 0; }
   nav ul li {
     border: solid #073642; }
 
