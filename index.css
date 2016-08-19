@@ -25,12 +25,17 @@ section {
 nav ul {
   text-align: center;
   list-style-type: none; }
+  nav ul li {
+    border: solid #073642; }
 
 .mail:before {
   content: '📧'; }
 
 .tel:before {
   content: '📞'; }
+
+.miiverse {
+  font-size: xx-large; }
 
 @media (min-device-aspect-ratio: 4 / 3) {
   body {

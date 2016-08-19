@@ -42,12 +42,18 @@ section {
 nav ul {
     text-align: center;
     list-style-type: none;
+    li {
+        border: solid $base02;
+    }
 }
 .mail:before {
     content: '📧';
 }
 .tel:before {
     content: '📞';
+}
+.miiverse {
+    font-size: xx-large;
 }
 @media (min-device-aspect-ratio: 4/3) {
     body {
