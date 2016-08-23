@@ -2,7 +2,7 @@
 body {
   background-color: #002b36;
   color: #839496;
-  font-family: monospace sans-serif;
+  font-family: monospace, sans-serif;
   font-size: large;
   overflow-wrap: break-word; }
 
