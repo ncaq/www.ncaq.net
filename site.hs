@@ -9,7 +9,7 @@ import           Text.Pandoc
 main :: IO ()
 main = hakyll $ do
     match "css/*" $ route idRoute >> compile compressCssCompiler
-    match "images/*" $ route idRoute >> compile copyFileCompiler
+    match "file/*" $ route idRoute >> compile copyFileCompiler
     match "templates/*" $ compile templateCompiler
 
     match "entry/*" $ do
