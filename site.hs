@@ -4,6 +4,7 @@ import           Data.List
 import           Data.Monoid
 import           Hakyll
 import           System.FilePath
+import           Text.Pandoc
 
 main :: IO ()
 main = hakyll $ do
@@ -13,7 +14,7 @@ main = hakyll $ do
 
     match "entry/*" $ do
         route cleanRoute
-        compile $ pandocCompiler >>=
+        compile $ pandocCompilerCustom >>=
             loadAndApplyTemplate "templates/entry.html" entryContext >>=
             loadAndApplyTemplate "templates/default.html" entryContext >>=
             relativizeUrls >>=
@@ -27,6 +28,13 @@ main = hakyll $ do
                 applyAsTemplate indexContext >>=
                 loadAndApplyTemplate "templates/default.html" indexContext >>=
                 relativizeUrls
+
+pandocCompilerCustom :: Compiler (Item String)
+pandocCompilerCustom = pandocCompilerWith defaultHakyllReaderOptions
+    defaultHakyllWriterOptions { writerTableOfContents = True
+                               , writerSectionDivs = True
+                               , writerHtml5 = True
+                               }
 
 entryContext :: Context String
 entryContext = field "date" fileDate <> defaultContext

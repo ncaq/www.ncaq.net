@@ -18,3 +18,4 @@ executable blog
   build-depends:       base
                      , filepath
                      , hakyll
+                     , pandoc
