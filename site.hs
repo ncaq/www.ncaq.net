@@ -16,6 +16,7 @@ main = hakyll $ do
         route cleanRoute
         compile $ pandocCompilerCustom >>=
             loadAndApplyTemplate "templates/entry.html" entryContext >>=
+            saveSnapshot "content" >>=
             loadAndApplyTemplate "templates/default.html" entryContext >>=
             relativizeUrls >>=
             cleanIndexUrls
@@ -29,6 +30,14 @@ main = hakyll $ do
                 loadAndApplyTemplate "templates/default.html" indexContext >>=
                 relativizeUrls
 
+    create ["feed.atom"] $ do
+        route idRoute
+        compile $ do
+            let feedContext = entryContext <> bodyField "description"
+            entry <- loadAllSnapshots "entry/*" "content"
+            renderAtom feedConfiguration feedContext entry >>=
+                cleanIndexUrls
+
 pandocCompilerCustom :: Compiler (Item String)
 pandocCompilerCustom = pandocCompilerWith defaultHakyllReaderOptions
     defaultHakyllWriterOptions { writerNumberSections = True
@@ -38,13 +47,23 @@ pandocCompilerCustom = pandocCompilerWith defaultHakyllReaderOptions
                                }
 
 entryContext :: Context String
-entryContext = field "date" fileDate <> defaultContext
+entryContext = field "published" fileDate <> field "date" fileDate <> field "updated" fileDate <>
+    defaultContext
 
 fileDate :: Item String -> Compiler String
 fileDate = pure . toFilePath . cleanIdentifier . itemIdentifier
 
 cleanIdentifier :: Identifier -> Identifier
 cleanIdentifier = fromFilePath . dropExtension . takeFileName . toFilePath
+
+feedConfiguration :: FeedConfiguration
+feedConfiguration = FeedConfiguration
+    { feedTitle       = "ncaq blog"
+    , feedDescription = "ncaq blog"
+    , feedAuthorName  = "ncaq"
+    , feedAuthorEmail = "ncaq@ncaq.net"
+    , feedRoot        = "https://blog.ncaq.net"
+    }
 
 -- | based on <https://github.com/crodjer/rohanjain.in/blob/master/site.hs>
 -- <https://www.rohanjain.in/hakyll-clean-urls/>
