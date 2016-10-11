@@ -31,7 +31,8 @@ main = hakyll $ do
 
 pandocCompilerCustom :: Compiler (Item String)
 pandocCompilerCustom = pandocCompilerWith defaultHakyllReaderOptions
-    defaultHakyllWriterOptions { writerTableOfContents = True
+    defaultHakyllWriterOptions { writerNumberSections = True
+                               , writerTableOfContents = True
                                , writerSectionDivs = True
                                , writerHtml5 = True
                                }
