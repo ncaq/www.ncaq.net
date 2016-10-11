@@ -22,15 +22,20 @@ main = hakyll $ do
     match "index.html" $ do
         route idRoute
         compile $ do
-            entry <- loadAll "entry/*" >>= recentFirst
-            let indexContext = listField "entry" entryContext (return entry) <> defaultContext
+            let indexContext = listField "entry" entryContext (loadAll "entry/*") <> defaultContext
             getResourceBody >>=
                 applyAsTemplate indexContext >>=
                 loadAndApplyTemplate "templates/default.html" indexContext >>=
                 relativizeUrls
 
 entryContext :: Context String
-entryContext = dateField "date" "%F" <> defaultContext
+entryContext = field "date" fileDate <> defaultContext
+
+fileDate :: Item String -> Compiler String
+fileDate = pure . toFilePath . cleanIdentifier . itemIdentifier
+
+cleanIdentifier :: Identifier -> Identifier
+cleanIdentifier = fromFilePath . dropExtension . takeFileName . toFilePath
 
 -- | based on <https://github.com/crodjer/rohanjain.in/blob/master/site.hs>
 -- <https://www.rohanjain.in/hakyll-clean-urls/>
