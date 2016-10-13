@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
+import           Control.Applicative
 import           Data.List
 import           Data.Monoid
 import           Hakyll
@@ -18,7 +19,6 @@ main = hakyll $ do
             loadAndApplyTemplate "templates/entry.html" entryContext >>=
             saveSnapshot "content" >>=
             loadAndApplyTemplate "templates/default.html" entryContext >>=
-            relativizeUrls >>=
             cleanIndexUrls
 
     match "index.html" $ do
@@ -28,15 +28,14 @@ main = hakyll $ do
             getResourceBody >>=
                 applyAsTemplate indexContext >>=
                 loadAndApplyTemplate "templates/default.html" indexContext >>=
-                relativizeUrls
+                cleanIndexUrls
 
     create ["feed.atom"] $ do
         route idRoute
         compile $ do
             let feedContext = entryContext <> bodyField "description"
             entry <- loadAllSnapshots "entry/*" "content"
-            renderAtom feedConfiguration feedContext entry >>=
-                cleanIndexUrls
+            renderAtom feedConfiguration feedContext entry >>= cleanIndexUrls
 
 pandocCompilerCustom :: Compiler (Item String)
 pandocCompilerCustom = pandocCompilerWith defaultHakyllReaderOptions
@@ -48,6 +47,7 @@ pandocCompilerCustom = pandocCompilerWith defaultHakyllReaderOptions
 
 entryContext :: Context String
 entryContext = field "published" fileDate <> field "date" fileDate <> field "updated" fileDate <>
+    field "url" (fmap (maybe empty (cleanIndex . toUrl)) . getRoute . itemIdentifier) <>
     defaultContext
 
 fileDate :: Item String -> Compiler String
@@ -76,7 +76,5 @@ cleanIndexUrls :: Item String -> Compiler (Item String)
 cleanIndexUrls = return . fmap (withUrls cleanIndex)
 
 cleanIndex :: String -> String
-cleanIndex url
-    | idx `isSuffixOf` url = take (length url - length idx) url
-    | otherwise            = url
-  where idx = "index.html"
+cleanIndex url | "/index.html" `isSuffixOf` url = dropFileName url
+               | otherwise = url
