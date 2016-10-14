@@ -39,7 +39,9 @@ main = hakyll $ do
 
 pandocCompilerCustom :: Compiler (Item String)
 pandocCompilerCustom = pandocCompilerWith defaultHakyllReaderOptions
-    defaultHakyllWriterOptions { writerNumberSections = True
+    defaultHakyllWriterOptions { writerStandalone = True
+                               , writerTemplate = unlines ["$toc$", "$body$"]
+                               , writerNumberSections = True
                                , writerTableOfContents = True
                                , writerSectionDivs = True
                                , writerHtml5 = True
