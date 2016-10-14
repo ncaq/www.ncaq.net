@@ -1,4 +1,3 @@
-@charset "UTF-8";
 body {
   background-color: #002b36;
   color: #839496;
@@ -29,12 +28,6 @@ nav ul {
   padding-left: 0; }
   nav ul li {
     border: solid #073642; }
-
-.mail:before {
-  content: '📧'; }
-
-.tel:before {
-  content: '📞'; }
 
 .miiverse {
   font-size: xx-large; }
