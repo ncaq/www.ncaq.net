@@ -38,7 +38,7 @@ nav ul {
 .miiverse {
   font-size: xx-large; }
 
-@media (min-device-aspect-ratio: 4 / 3) {
+@media (min-width: 700px) {
   body {
     display: flex;
     justify-content: space-around; } }
