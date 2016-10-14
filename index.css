@@ -4,7 +4,8 @@ body {
   color: #839496;
   font-family: Ricty, Inconsolata, Consolas, Meiryo, monospace, sans-serif;
   font-size: large;
-  overflow-wrap: break-word; }
+  overflow-wrap: break-word;
+  width: 95%; }
 
 h1, h2, h3, h4, h5, h6, blockquote {
   background-color: #073642;
