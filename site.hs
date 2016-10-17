@@ -19,17 +19,17 @@ main = hakyll $ do
         compile $ pandocCompilerCustom >>=
             loadAndApplyTemplate "templates/entry.html" entryContext >>=
             saveSnapshot "content" >>=
-            loadAndApplyTemplate "templates/default.html" entryContext >>=
+            defaultTemplate >>=
             cleanIndexUrls
 
     match "index.html" $ do
         route idRoute
-        compile $ do
-            let indexContext = listField "entry" entryContext (loadAll "entry/*") <> defaultContext
-            getResourceBody >>=
-                applyAsTemplate indexContext >>=
-                loadAndApplyTemplate "templates/default.html" indexContext >>=
-                cleanIndexUrls
+        let indexContext = listField "entry" entryContext (loadAll "entry/*") <> defaultContext
+        compile $ getResourceBody >>=
+            applyAsTemplate indexContext >>=
+            defaultTemplate >>=
+            cleanIndexUrls
+
     match "*.md" $ do
         route cleanRoute
         compile $ pandocCompilerCustom >>=
@@ -53,6 +53,9 @@ pandocCompilerCustom = pandocCompilerWith defaultHakyllReaderOptions
                                , writerSectionDivs = True
                                , writerHtml5 = True
                                }
+
+defaultTemplate :: Item String -> Compiler (Item String)
+defaultTemplate = loadAndApplyTemplate "templates/default.html" defaultContext
 
 entryContext :: Context String
 entryContext = field "published" fileDate <> field "date" fileDate <> field "updated" fileDate <>
