@@ -30,6 +30,12 @@ main = hakyll $ do
                 applyAsTemplate indexContext >>=
                 loadAndApplyTemplate "templates/default.html" indexContext >>=
                 cleanIndexUrls
+    match "*.md" $ do
+        route cleanRoute
+        compile $ pandocCompilerCustom >>=
+            saveSnapshot "content" >>=
+            defaultTemplate >>=
+            cleanIndexUrls
 
     create ["feed.atom"] $ do
         route idRoute
