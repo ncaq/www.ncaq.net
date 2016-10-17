@@ -24,7 +24,8 @@ main = hakyll $ do
 
     match "index.html" $ do
         route idRoute
-        let indexContext = listField "entry" entryContext (loadAll "entry/*") <> defaultContext
+        let indexContext = listField "entry" entryContext (reverse <$> loadAll "entry/*") <>
+                defaultContext
         compile $ getResourceBody >>=
             applyAsTemplate indexContext >>=
             defaultTemplate >>=
