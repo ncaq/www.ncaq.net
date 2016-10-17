@@ -60,11 +60,11 @@ cleanIdentifier = fromFilePath . dropExtension . takeFileName . toFilePath
 
 feedConfiguration :: FeedConfiguration
 feedConfiguration = FeedConfiguration
-    { feedTitle       = "ncaq blog"
-    , feedDescription = "ncaq blog"
+    { feedTitle       = "www.ncaq.net"
+    , feedDescription = "www.ncaq.net entry"
     , feedAuthorName  = "ncaq"
     , feedAuthorEmail = "ncaq@ncaq.net"
-    , feedRoot        = "https://blog.ncaq.net"
+    , feedRoot        = "https://www.ncaq.net"
     }
 
 -- | based on <https://github.com/crodjer/rohanjain.in/blob/master/site.hs>
