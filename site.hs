@@ -22,7 +22,7 @@ main = hakyll $ do
             loadAndApplyTemplate "templates/entry.html" entryContext >>=
             saveSnapshot "content" >>=
             defaultTemplate >>=
-            cleanIndexUrls
+            cleanUrls
 
     match "index.html" $ do
         route idRoute
@@ -31,14 +31,14 @@ main = hakyll $ do
         compile $ getResourceBody >>=
             applyAsTemplate indexContext >>=
             defaultTemplate >>=
-            cleanIndexUrls
+            cleanUrls
 
     create ["feed.atom"] $ do
         route idRoute
         compile $ do
             let feedContext = entryContext <> bodyField "description"
             entry <- loadAllSnapshots "entry/*" "content"
-            renderAtom feedConfiguration feedContext entry >>= cleanIndexUrls
+            renderAtom feedConfiguration feedContext entry >>= cleanUrls
 
 pandocCompilerCustom :: Compiler (Item String)
 pandocCompilerCustom = pandocCompilerWith defaultHakyllReaderOptions
@@ -54,9 +54,8 @@ defaultTemplate :: Item String -> Compiler (Item String)
 defaultTemplate = loadAndApplyTemplate "templates/default.html" defaultContext
 
 entryContext :: Context String
-entryContext = mconcat entryDate <> mconcat [urlAround, defaultContext]
-  where urlAround = field "url" (fmap (maybe empty (cleanIndex . toUrl)) . getRoute . itemIdentifier)
-        entryDate = f <$> ["date", "published", "updated"]
+entryContext = mconcat entryDate <> mconcat [defaultContext]
+  where entryDate = f <$> ["date", "published", "updated"]
           where f k = field k (pure . fromMaybe empty . mItemDate)
         mItemDate i = let l = splitOneOf "-" f
                       in if (3 <= length l) then Just f else Nothing
@@ -76,12 +75,16 @@ feedConfiguration = FeedConfiguration
 -- <https://www.rohanjain.in/hakyll-clean-urls/>
 
 cleanRoute :: Routes
-cleanRoute = customRoute createIndexRoute
+cleanRoute = customRoute createIndexRoute `composeRoutes` customRoute (hyphenToSlash . toFilePath)
   where createIndexRoute ident = takeBaseName (dropExtension (toFilePath ident)) </> "index.html"
 
-cleanIndexUrls :: Item String -> Compiler (Item String)
-cleanIndexUrls = return . fmap (withUrls cleanIndex)
+cleanUrls :: Item String -> Compiler (Item String)
+cleanUrls = return . fmap (withUrls cleanUrlString)
 
-cleanIndex :: String -> String
-cleanIndex url | "/index.html" `isSuffixOf` url = dropFileName url
-               | otherwise = url
+cleanUrlString :: String -> String
+cleanUrlString = hyphenToSlash . cleanIndex
+  where cleanIndex url | "/index.html" `isSuffixOf` url = dropFileName url
+                       | otherwise = url
+
+hyphenToSlash :: String -> String
+hyphenToSlash url = (\c -> if c == '-' then '/' else c) <$> url
