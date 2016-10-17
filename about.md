@@ -1,0 +1,162 @@
+---
+title: about
+---
+
+# name
+
+* ncaq
+* Haaaa_N
+* エヌユル
+
+# link
+
+~~~ {.github-card data-width="100%" data-user="ncaq"}
+~~~
+
+~~~ {.g-person data-theme="dark" data-layout="landscape" data-rel="author" data-href="https://plus.google.com/+ncaqnet"}
+~~~
+
+![[hatena](https://profile.hatena.ne.jp/Haaaa_N/)](https://www.hatena.ne.jp/images/portal/logo-portal-top2@2x.png)
+
+<a href="https://steamcommunity.com/id/ncaq/"><img src="https://steamcommunity-a.akamaihd.net/public/shared/images/header/globalheader_logo.png" alt="steam"></a>
+<a href="https://miiverse.nintendo.net/users/ncaq_U">Miiverse</a>
+
+# like
+
+## programming
+
+* [Haskell](https://www.haskell.org/)
+* [Rust](https://www.rust-lang.org/)
+* [D](https://dlang.org/)
+* [C++](https://isocpp.org/)
+* [Emacs Lisp](https://www.gnu.org/software/emacs/manual/html_node/elisp/)
+* [Web](https://whatwg.org/)
+* [HTML](https://html.spec.whatwg.org/multipage/)
+* [CSS](https://drafts.csswg.org/)
+* [JavaScript](https://github.com/tc39/ecma262)
+
+## software
+
+* [Gentoo](https://www.gentoo.org/)
+* [Firefox](https://www.mozilla.org/firefox/)
+* [LilyTerm](http://lilyterm.luna.com.tw/)
+* [Zsh](https://www.zsh.org/)
+* [GNU Emacs](https://www.gnu.org/software/emacs/)
+* [GNU Parallel](https://www.gnu.org/software/parallel/)
+
+## otherwise
+
+* ゲーム
+* ネットサーフィン
+* ネット小説
+* 世界史
+* 倫理
+* 検索
+* 読書
+* 雑学
+
+# 経歴
+
+関西出身の両親から大阪の病院で生まれ,東京→大阪→埼玉と親の転勤に付き合い,大部分は埼玉で育つ.
+
+小学校時代は読書ばかりしており,授業中に机の下で本を読んでいるような子供だった.
+
+中学校時代は教師に質問をすると教師が怒って教室から出て行き親に抗議をしにいくような理不尽な環境や,中学校特有の人間関係に馴染めず,早々に不登校児になった.
+
+不登校時代は興味の赴くままWiiやPCでネットサーフィンを延々としていた.
+その時期に2chの[ソフトウェア板](https://potato.2ch.net/software/)からソフトウェアに興味を持った.
+特にwebブラウザに興味を持つようになり,様々なwebブラウザを試してみた.
+そこで,operaのuser css機能を知った.
+当時のwebサイトは大量のヘッドラインがあることが多く,デザインに不満を持つようになり,ヘッダを消したり不要なサイドカラムを消したくなった.
+そして,自分でcssを書くようになった.
+これが私のコードの書き始めである.
+
+そのように暮らしていたら中学も不登校のまま卒業することになり,親がなんとか高校に行かせようと様々な高校のオープンキャンパスに私を連れて行った.
+その当時[クラーク記念国際高等学校 秋葉原ITキャンパス](https://www.clark.ed.jp/kanto/it/)では[NScripter](http://www.nscripter.com/)を使った簡単なノベルゲームの作成をオープンキャンパスで行っていた.
+私は自分でゲームを作れることに感動してこの高校に通うことにした.
+
+高校時代はNScripterでテトリスを作ったり,
+C++と[DXライブラリ](http://dxlib.o.oo7.jp/)でオセロゲームやRTSを作ったり,
+C++の改良版を探してD言語を知って感動したり,
+C#とXNAを学習してる最中に開発が終了して絶望したり,
+同級生にUbuntuやLinux MintやFreeBSDを紹介されて楽しんだり,
+GNU/Linuxをメイン環境にしたのでVisual Studioが使えなくなったのでC++を書くのに適した環境を作るためにEmacs Lispを書いたり,
+書いたEmacs Lispを管理するためにgitやsshを学習したり,
+[すごいHaskellたのしく学ぼう!](https://estore.ohmsha.co.jp/titles/978427406885P)を読みふけったり,
+D言語で[glfw](http://www.glfw.org/)と[OpenGL](https://www.opengl.org/)だけでFPSを作ろうとして,
+無謀かつ時代錯誤にも[OpenGLプログラミングガイド](https://www.amazon.co.jp/dp/4894717239)を買い,カメラと弾発射機構を作っただけで挫折したりした.
+
+大学受験は中学に行っていなかった影響もあり,英語,化学,物理が致命的に出来なかった.
+幸い膨大な読書のおかげで現代文と倫理だけは無勉強でも出来たので,数学と生物だけを勉強することでセンター3科目受験を試みることにした.
+その結果なんとか[専修大学 ネットワーク情報学部](https://www.senshu-u.ac.jp/sc_grsc/network.html)に合格し,現在に至る.
+
+現在は主にwebとセキュリティとプログラミング言語に興味があり,英語と数学を学習しながら,webサービスを作成している.
+
+# キーボード配列
+
+キーボード配列にはこだわりがあり,高校時代からDvorak配列を使用するようになった.
+
+ローマ字テーブルにはしばらく[jlod配列](http://www.mikage.to/jlod/)を使用していたが,改良したくなり参考にしてnlod配列を開発した.
+
+<div class="github-card" data-width="100%" data-github="ncaq/nlod"/>
+
+# 精神障害
+
+私は現在精神障害者手帳3級を持っている.
+
+## 強迫性障害
+
+私は物心ついた頃から強迫性障害を患っている.
+
+具体的には以下のような症状があった.
+
+* ドアが閉まっているか頻繁に確かめる
+* 右足と左足をきっちり同じ分量使いたくなる
+* コンピュータゲームで武器を装備して外し,装備して外しを繰り返す
+* ウインドウの最大化と元に戻すを何度も繰り返す
+* 本やwebページを何度も始めから読み直す
+* 無意味に何度もメニューボタンを押したりスライドしたりする
+* プログラミングでの命名や設計が気に入らず,変える意味はあまり無いのにそれについてずっと考えてしまい,他の作業が手につかない
+
+これらの行動を,論理的には無意味だとわかっているのにも関らず,行ってしまうのが強迫性障害の症状である.
+私が意味不明な行動を取っていたら見なかったことにしてくれるとありがたい.
+
+一時期は症状が酷すぎて,コンピュータゲームすらまともにできない精神状態であった.
+
+医師にSNRIを処方してもらってからは随分とマシになったが,未だにこの障害は十分残っている.
+
+しかし,私は強迫性障害持ちでなければ,プログラマになることはなかったかもしれない.
+何故ならば,他人のwebサイトのデザインが気に入らないあまり,user cssを書きだしたのは明らかに強迫性障害のせいだからだ.
+
+## 発達障害
+
+私は発達障害者である.
+
+過去に1度IQを検査してもらい,以下の結果が出た.
+
+* 全検査IQ: 112
+* 言語性IQ: 128
+* 動作性IQ: 90
+
+私はこれを障**害**であると考えている,動作性IQが低いとリズムゲーやアクションゲームがうまく出来なくて困るからだ.
+しかし,その代わりに言語能力がそこそこ発達しているので,全て含めて自分であると最近は受け入れている.
+
+## 学習障害
+
+### 漢字が書けない
+
+私は小学校低学年程度の漢字もきちんと覚えておらず,漢字テストでは点数1桁の常連であった.
+自分の住所の漢字も調べないと思い出せない.
+
+しかし,今は文字を手書きすること自体が少なくなり,キーボードを使うので,ほとんど問題にならなくなった.
+
+読むのには問題はない.むしろ得意な方である.
+
+### 暗算ができない
+
+私は暗算がほとんどできない.
+1桁同士の暗算でも数秒かかる程度には遅延する.
+だから私は算数が大の苦手であった.
+
+しかし,今は単純計算はコンピュータにやらせるので問題なくなった.
+mozcの電卓機能,ghci,maximaなどを使っている.
