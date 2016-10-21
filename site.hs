@@ -1,7 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 
+import           Clay                hiding (empty, reverse)
 import           Control.Applicative
-import           Data.List
+import           Data.List           (isSuffixOf)
 import           Data.List.Split
 import           Data.Maybe
 import           Data.Monoid
@@ -59,13 +60,14 @@ applyDefaultTemplate :: Item String -> Compiler (Item String)
 applyDefaultTemplate = loadAndApplyTemplate "templates/default.html" defaultContext
 
 entryContext :: Context String
-entryContext = mconcat [url, mconcat entryDate, defaultContext]
-  where url = field "url" (fmap (maybe empty $ cleanUrlString . toUrl) . getRoute . itemIdentifier)
+entryContext = mconcat [cleanUrlField, mconcat entryDate, defaultContext]
+  where cleanUrlField = field "path" (fmap (maybe empty $ cleanUrlString . toUrl) .
+                                     getRoute . itemIdentifier)
         entryDate = f <$> ["date", "published", "updated"]
           where f k = field k (pure . fromMaybe empty . mItemDate)
-        mItemDate i = let l = splitOneOf "-" f
-                      in if (3 <= length l) then Just f else Nothing
-          where f = toFilePath $ cleanIdentifier $ itemIdentifier i
+        mItemDate item = let l = splitOneOf "-" f
+                         in if (3 <= length l) then Just f else Nothing
+          where f = toFilePath $ cleanIdentifier $ itemIdentifier item
                 cleanIdentifier = fromFilePath . dropExtension . takeFileName . toFilePath
 
 feedConfiguration :: FeedConfiguration
@@ -86,24 +88,24 @@ cleanUrls = return . fmap (withUrls cleanUrlString)
 
 cleanUrlString :: String -> String
 cleanUrlString = hyphenToSlash . cleanIndex
-  where cleanIndex url | "/index.html" `isSuffixOf` url = dropFileName url
-                       | otherwise = url
+  where cleanIndex path | "/index.html" `isSuffixOf` path = dropFileName path
+                        | otherwise = path
 
 hyphenToSlash :: String -> String
-hyphenToSlash url = (\c -> if c == '-' then '/' else c) <$> url
+hyphenToSlash path = (\c -> if c == '-' then '/' else c) <$> path
 
 indentHtml :: Item String -> Compiler (Item String)
-indentHtml = withItemBody (\b -> unsafeCompiler $ (\(_, o, _) -> o) <$>
-                            readProcessWithExitCode "tidy"
-                            [ "--tidy-mark", "n"
-                            , "--wrap", "0"
-                            , "-indent"
-                            ] b)
+indentHtml = withItemBody (\bo -> unsafeCompiler $ (\(_, o, _) -> o) <$>
+                              readProcessWithExitCode "tidy"
+                              [ "--tidy-mark", "n"
+                              , "--wrap", "0"
+                              , "-indent"
+                              ] bo)
 
 indentXml :: Item String -> Compiler (Item String)
-indentXml = withItemBody (\b -> unsafeCompiler $ (\(_, o, _) -> o) <$>
-                            readProcessWithExitCode "tidy"
-                            [ "--indent-cdata" , "y"
-                            , "-xml"
-                            , "-indent"
-                            ] b)
+indentXml = withItemBody (\bo -> unsafeCompiler $ (\(_, o, _) -> o) <$>
+                             readProcessWithExitCode "tidy"
+                             [ "--indent-cdata" , "y"
+                             , "-xml"
+                             , "-indent"
+                             ] bo)
