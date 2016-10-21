@@ -1,21 +1,21 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-import           Clay                hiding (empty, reverse)
+import           Clay                (render)
 import           Control.Applicative
 import           Data.List           (isSuffixOf)
 import           Data.List.Split
 import           Data.Maybe
 import           Data.Monoid
+import           Data.Text.Lazy      (unpack)
 import           Hakyll
+import           Style
 import           System.FilePath
 import           System.Process
 import           Text.Pandoc
 
 main :: IO ()
 main = hakyll $ do
-    match "css/*" $ route idRoute >> compile compressCssCompiler
     match "favicon.*" $ route idRoute >> compile copyFileCompiler
-    match "file/*" $ route idRoute >> compile copyFileCompiler
     match "templates/*" $ compile templateCompiler
 
     match "**.md" $ do
@@ -36,6 +36,8 @@ main = hakyll $ do
             applyDefaultTemplate >>=
             cleanUrls >>=
             indentHtml
+
+    create ["default.css"] $ compile $ makeItem $ unpack $ render defaultCss
 
     create ["feed.atom"] $ do
         route idRoute
