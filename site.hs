@@ -21,7 +21,7 @@ main = hakyll $ do
         compile $ pandocCompilerCustom >>=
             loadAndApplyTemplate "templates/entry.html" entryContext >>=
             saveSnapshot "content" >>=
-            defaultTemplate >>=
+            applyDefaultTemplate >>=
             cleanUrls
 
     match "index.html" $ do
@@ -30,7 +30,7 @@ main = hakyll $ do
                 defaultContext
         compile $ getResourceBody >>=
             applyAsTemplate indexContext >>=
-            defaultTemplate >>=
+            applyDefaultTemplate >>=
             cleanUrls
 
     create ["feed.atom"] $ do
@@ -50,8 +50,8 @@ pandocCompilerCustom = pandocCompilerWith defaultHakyllReaderOptions
                                , writerHtml5 = True
                                }
 
-defaultTemplate :: Item String -> Compiler (Item String)
-defaultTemplate = loadAndApplyTemplate "templates/default.html" defaultContext
+applyDefaultTemplate :: Item String -> Compiler (Item String)
+applyDefaultTemplate = loadAndApplyTemplate "templates/default.html" defaultContext
 
 entryContext :: Context String
 entryContext = mconcat entryDate <> mconcat [defaultContext]
