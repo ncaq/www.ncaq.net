@@ -7,6 +7,7 @@ import           Data.Maybe
 import           Data.Monoid
 import           Hakyll
 import           System.FilePath
+import           System.Process
 import           Text.Pandoc
 
 main :: IO ()
@@ -22,7 +23,8 @@ main = hakyll $ do
             loadAndApplyTemplate "templates/entry.html" entryContext >>=
             saveSnapshot "content" >>=
             applyDefaultTemplate >>=
-            cleanUrls
+            cleanUrls >>=
+            cleanHtml
 
     match "index.html" $ do
         route idRoute
@@ -31,14 +33,17 @@ main = hakyll $ do
         compile $ getResourceBody >>=
             applyAsTemplate indexContext >>=
             applyDefaultTemplate >>=
-            cleanUrls
+            cleanUrls >>=
+            cleanHtml
 
     create ["feed.atom"] $ do
         route idRoute
         compile $ do
             let feedContext = entryContext <> bodyField "description"
             entry <- loadAllSnapshots "entry/*" "content"
-            renderAtom feedConfiguration feedContext entry >>= cleanUrls
+            renderAtom feedConfiguration feedContext entry >>=
+                cleanUrls >>=
+                cleanXml
 
 pandocCompilerCustom :: Compiler (Item String)
 pandocCompilerCustom = pandocCompilerWith defaultHakyllReaderOptions
@@ -85,3 +90,19 @@ cleanUrlString = hyphenToSlash . cleanIndex
 
 hyphenToSlash :: String -> String
 hyphenToSlash url = (\c -> if c == '-' then '/' else c) <$> url
+
+cleanHtml :: Item String -> Compiler (Item String)
+cleanHtml = withItemBody (\b -> unsafeCompiler $ (\(_, o, _) -> o) <$>
+                            readProcessWithExitCode "tidy"
+                            [ "--tidy-mark", "n"
+                            , "--wrap", "0"
+                            , "-indent"
+                            ] b)
+
+cleanXml :: Item String -> Compiler (Item String)
+cleanXml = withItemBody (\b -> unsafeCompiler $ (\(_, o, _) -> o) <$>
+                            readProcessWithExitCode "tidy"
+                            [ "--indent-cdata" , "y"
+                            , "-xml"
+                            , "-indent"
+                            ] b)
