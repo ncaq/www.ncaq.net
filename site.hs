@@ -71,9 +71,6 @@ feedConfiguration = FeedConfiguration
     , feedRoot        = "https://www.ncaq.net"
     }
 
--- | based on <https://github.com/crodjer/rohanjain.in/blob/master/site.hs>
--- <https://www.rohanjain.in/hakyll-clean-urls/>
-
 cleanRoute :: Routes
 cleanRoute = customRoute createIndexRoute `composeRoutes` customRoute (hyphenToSlash . toFilePath)
   where createIndexRoute ident = takeBaseName (dropExtension (toFilePath ident)) </> "index.html"
