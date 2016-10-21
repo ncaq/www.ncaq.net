@@ -2,6 +2,9 @@ resolver: lts-5.18
 
 packages:
 - '.'
+- location:
+    git: https://github.com/sebastiaanvisser/clay.git
+    commit: 766740ec8c7c9a89440aa1123354ef90b713914a
 
 extra-deps: []
 
