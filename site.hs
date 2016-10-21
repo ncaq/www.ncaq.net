@@ -24,7 +24,7 @@ main = hakyll $ do
             saveSnapshot "content" >>=
             applyDefaultTemplate >>=
             cleanUrls >>=
-            cleanHtml
+            indentHtml
 
     match "index.html" $ do
         route idRoute
@@ -34,7 +34,7 @@ main = hakyll $ do
             applyAsTemplate indexContext >>=
             applyDefaultTemplate >>=
             cleanUrls >>=
-            cleanHtml
+            indentHtml
 
     create ["feed.atom"] $ do
         route idRoute
@@ -43,7 +43,7 @@ main = hakyll $ do
             entry <- loadAllSnapshots "entry/*" "content"
             renderAtom feedConfiguration feedContext entry >>=
                 cleanUrls >>=
-                cleanXml
+                indentXml
 
 pandocCompilerCustom :: Compiler (Item String)
 pandocCompilerCustom = pandocCompilerWith defaultHakyllReaderOptions
@@ -92,16 +92,16 @@ cleanUrlString = hyphenToSlash . cleanIndex
 hyphenToSlash :: String -> String
 hyphenToSlash url = (\c -> if c == '-' then '/' else c) <$> url
 
-cleanHtml :: Item String -> Compiler (Item String)
-cleanHtml = withItemBody (\b -> unsafeCompiler $ (\(_, o, _) -> o) <$>
+indentHtml :: Item String -> Compiler (Item String)
+indentHtml = withItemBody (\b -> unsafeCompiler $ (\(_, o, _) -> o) <$>
                             readProcessWithExitCode "tidy"
                             [ "--tidy-mark", "n"
                             , "--wrap", "0"
                             , "-indent"
                             ] b)
 
-cleanXml :: Item String -> Compiler (Item String)
-cleanXml = withItemBody (\b -> unsafeCompiler $ (\(_, o, _) -> o) <$>
+indentXml :: Item String -> Compiler (Item String)
+indentXml = withItemBody (\b -> unsafeCompiler $ (\(_, o, _) -> o) <$>
                             readProcessWithExitCode "tidy"
                             [ "--indent-cdata" , "y"
                             , "-xml"
