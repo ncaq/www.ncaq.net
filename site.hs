@@ -59,8 +59,9 @@ applyDefaultTemplate :: Item String -> Compiler (Item String)
 applyDefaultTemplate = loadAndApplyTemplate "templates/default.html" defaultContext
 
 entryContext :: Context String
-entryContext = mconcat entryDate <> mconcat [defaultContext]
-  where entryDate = f <$> ["date", "published", "updated"]
+entryContext = mconcat [url, mconcat entryDate, defaultContext]
+  where url = field "url" (fmap (maybe empty $ cleanUrlString . toUrl) . getRoute . itemIdentifier)
+        entryDate = f <$> ["date", "published", "updated"]
           where f k = field k (pure . fromMaybe empty . mItemDate)
         mItemDate i = let l = splitOneOf "-" f
                       in if (3 <= length l) then Just f else Nothing
