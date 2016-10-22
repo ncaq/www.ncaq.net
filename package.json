@@ -1,6 +1,7 @@
 {
   "name": "www.ncaq.net",
   "dependencies": {
-    "highlight.js": "^9.7.0"
+    "highlight.js": "^9.7.0",
+    "typescript": "^2.0.3"
   }
 }
