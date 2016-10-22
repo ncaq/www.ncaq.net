@@ -16,7 +16,7 @@ import           Text.Pandoc
 main :: IO ()
 main = hakyll $ do
     match "favicon.*" $ route idRoute >> compile copyFileCompiler
-    match "node_modules/" $ route idRoute >> compile copyFileCompiler
+    match "node_modules/**" $ route idRoute >> compile copyFileCompiler
     match "templates/*" $ compile templateCompiler
 
     match "**.md" $ do
