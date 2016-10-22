@@ -71,7 +71,7 @@ applyDefaultTemplate = loadAndApplyTemplate "templates/default.html" defaultCont
 
 entryContext :: Context String
 entryContext = mconcat [cleanUrlField, mconcat entryDate, defaultContext]
-  where cleanUrlField = field "path" (fmap (maybe empty $ (hyphenToSlash . cleanUrlString) . toUrl) .
+  where cleanUrlField = field "url" (fmap (maybe empty $ (hyphenToSlash . cleanUrlString) . toUrl) .
                                      getRoute . itemIdentifier)
         entryDate = f <$> ["date", "published", "updated"]
           where f k = field k (pure . fromMaybe empty . mItemDate)
