@@ -1,5 +1,5 @@
 name:                www-ncaq-net
-version:             0.1.0.0
+version:             0.1.0
 synopsis:            www.ncaq.net from Hakyll project template from stack
 description:         Please see README.md
 homepage:            https://github.com/ncaq/www.ncaq.net#readme
