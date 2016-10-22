@@ -19,7 +19,7 @@ main = hakyll $ do
     match "node_modules/**" $ route idRoute >> compile copyFileCompiler
     match "templates/*" $ compile templateCompiler
 
-    match "**.md" $ do
+    match ("*.md" .&&. "entry/*.md") $ do
         route cleanRoute
         compile $ pandocCompilerCustom >>=
             loadAndApplyTemplate "templates/entry.html" entryContext >>=
