@@ -37,7 +37,7 @@ main = hakyll $ do
             cleanUrls >>=
             indentHtml
 
-    create ["default.css"] $ compile $ makeItem $ unpack $ render defaultCss
+    create ["default.css"] $ route idRoute >> (compile $ makeItem $ unpack $ render defaultCss)
 
     create ["feed.atom"] $ do
         route idRoute
