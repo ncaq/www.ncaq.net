@@ -1,6 +1,7 @@
 {
   "name": "www.ncaq.net",
   "dependencies": {
+    "sanitize.css": "^4.1.0",
     "typescript": "^2.0.3"
   }
 }
