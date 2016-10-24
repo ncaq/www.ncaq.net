@@ -14,8 +14,19 @@ try {
     console.error(e);
 }
 
-try {
+declare namespace hljs {
+    export function initHighlighting(): void;
+}
 
+try {
+    let hljsWaitLoad = () => {
+        if (typeof hljs !== "undefined") {
+            hljs.initHighlighting();
+        } else {
+            setTimeout(hljsWaitLoad, 1000);
+        }
+    };
+    hljsWaitLoad();
 } catch (e) {
     console.error(e);
 }
