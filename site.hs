@@ -14,7 +14,7 @@ import           System.Process
 import           Text.Pandoc
 
 main :: IO ()
-main = hakyll $ do
+main = hakyllWith conf $ do
     match "favicon.*" $ route idRoute >> compile copyFileCompiler
     match "file/**" $ route idRoute >> compile copyFileCompiler
     match "templates/*" $ compile templateCompiler
@@ -56,10 +56,16 @@ main = hakyll $ do
                 cleanUrls >>=
                 indentXml
 
+conf :: Configuration
+conf = def
+    { deployCommand = "rsync -vcazh --delete --progress _site/ ncaq@ncaq.net:/var/www/www.ncaq.net"
+    }
+
 pandocCompilerCustom :: Compiler (Item String)
 pandocCompilerCustom = pandocCompilerWith defaultHakyllReaderOptions
     defaultHakyllWriterOptions { writerStandalone = True
-                               , writerTemplate = unlines ["<div class=\"toc\">$toc$</div>", "$body$"]
+                               , writerTemplate = unlines [ "<div class=\"toc\">$toc$</div>"
+                                                          , "$body$"]
                                , writerNumberSections = True
                                , writerTableOfContents = True
                                , writerSectionDivs = True
