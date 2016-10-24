@@ -36,8 +36,8 @@ defaultCss = do
     ".flex" |> li ? marginRight (rem 1)
     query all [M.minWidth (px 768)] $ do
         ".flex-d" ? flexbody
-        ".flex-d" |> div ? width (pct 100)
-        ".flex-d" |> footer ? width (pct 30)
+        ".flex-d" |> div ? minWidth (pct 70)
+        ".flex-d" |> footer ? minWidth (pct 30)
   where base03  = rgb   0  43  54
         base02  = rgb   7  54  66
         base01  = rgb  88 110 117
