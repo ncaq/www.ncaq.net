@@ -8,19 +8,6 @@ title: about
 * Haaaa_N
 * エヌユル
 
-# link
-
-~~~ {.github-card data-width="100%" data-user="ncaq"}
-~~~
-
-~~~ {.g-person data-theme="dark" data-layout="landscape" data-rel="author" data-href="https://plus.google.com/+ncaqnet"}
-~~~
-
-![[hatena](https://profile.hatena.ne.jp/Haaaa_N/)](https://www.hatena.ne.jp/images/portal/logo-portal-top2@2x.png)
-
-<a href="https://steamcommunity.com/id/ncaq/"><img src="https://steamcommunity-a.akamaihd.net/public/shared/images/header/globalheader_logo.png" alt="steam"></a>
-<a href="https://miiverse.nintendo.net/users/ncaq_U">Miiverse</a>
-
 # like
 
 ## programming
@@ -98,7 +85,8 @@ D言語で[glfw](http://www.glfw.org/)と[OpenGL](https://www.opengl.org/)だけ
 
 ローマ字テーブルにはしばらく[jlod配列](http://www.mikage.to/jlod/)を使用していたが,改良したくなり参考にしてnlod配列を開発した.
 
-<div class="github-card" data-width="100%" data-github="ncaq/nlod"/>
+~~~ {.github-card data-width="100%" data-github="ncaq/nlod"}
+~~~
 
 # 精神障害
 
