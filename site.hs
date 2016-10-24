@@ -82,8 +82,8 @@ entryContext = mconcat [cleanUrlField, mconcat entryDate, defaultContext]
 
 feedConfiguration :: FeedConfiguration
 feedConfiguration = FeedConfiguration
-    { feedTitle       = "www.ncaq.net"
-    , feedDescription = "www.ncaq.net entry"
+    { feedTitle       = "ncaq"
+    , feedDescription = "ncaq"
     , feedAuthorName  = "ncaq"
     , feedAuthorEmail = "ncaq@ncaq.net"
     , feedRoot        = "https://www.ncaq.net"
