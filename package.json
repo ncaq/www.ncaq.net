@@ -1,6 +1,8 @@
 {
   "name": "www.ncaq.net",
   "dependencies": {
+    "highlight.js": "^9.7.0",
+    "node-jsdom": "^3.1.5",
     "sanitize.css": "^4.1.0",
     "typescript": "^2.0.3"
   },
