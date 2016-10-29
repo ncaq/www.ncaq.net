@@ -3,5 +3,8 @@
   "dependencies": {
     "sanitize.css": "^4.1.0",
     "typescript": "^2.0.3"
+  },
+  "scripts": {
+    "default.js": "tsc --outFile /dev/stdout"
   }
 }

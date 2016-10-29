@@ -39,12 +39,8 @@ main = hakyllWith conf $ do
             cleanUrls >>=
             indentHtml
 
-    match "default.ts" $ do
-        route $ setExtension "js"
-        path <- preprocess $ head . lines <$> readProcess "npm" ["bin"] ""
-        compile $ getResourceBody >>=
-            withItemBody (\bo -> unsafeCompiler $
-                             readProcess (path <> "/tsc") ["--outFile", "/dev/stdout"] bo)
+    create ["default.js"] $ route idRoute >>
+        (compile $ unsafeCompiler (readProcess "npm" ["run", "-s", "default.js"] "") >>= makeItem)
 
     create ["default.css"] $ route idRoute >> (compile $ makeItem $ unpack $ render defaultCss)
 
