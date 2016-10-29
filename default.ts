@@ -13,3 +13,21 @@ try {
 } catch (e) {
     console.error(e);
 }
+
+declare namespace hljs {
+    export function initHighlighting(): void;
+}
+
+try {
+    const hljsWaitLoad = () => {
+        try {
+            const hljs = require("highlight.js");
+            hljs.initHighlighting();
+        } catch (e) {
+            setTimeout(hljsWaitLoad, 100);
+        }
+    };
+    hljsWaitLoad();
+} catch (e) {
+    console.error(e);
+}

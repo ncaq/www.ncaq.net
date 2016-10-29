@@ -16,7 +16,6 @@ import           Text.Pandoc
 main :: IO ()
 main = hakyllWith conf $ do
     match "favicon.*" $ route idRoute >> compile copyFileCompiler
-    match "file/**" $ route idRoute >> compile copyFileCompiler
     match "node_modules/**" $ route idRoute >> compile copyFileCompiler
     match "templates/*" $ compile templateCompiler
 
@@ -39,10 +38,13 @@ main = hakyllWith conf $ do
             cleanUrls >>=
             indentHtml
 
+    create ["default.css"] $ route idRoute >> (compile $ makeItem $ unpack $ render defaultCss)
+
     create ["default.js"] $ route idRoute >>
         (compile $ unsafeCompiler (readProcess "npm" ["run", "-s", "default.js"] "") >>= makeItem)
 
-    create ["default.css"] $ route idRoute >> (compile $ makeItem $ unpack $ render defaultCss)
+    create ["bundle.js"] $ route idRoute >>
+        (compile $ unsafeCompiler (readProcess "npm" ["run", "-s", "bundle.js"] "") >>= makeItem)
 
     create ["feed.atom"] $ do
         route idRoute
