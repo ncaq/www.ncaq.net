@@ -23,7 +23,7 @@ try {
         if (typeof hljs !== "undefined") {
             hljs.initHighlighting();
         } else {
-            setTimeout(hljsWaitLoad, 1000);
+            setTimeout(hljsWaitLoad, 100);
         }
     };
     hljsWaitLoad();
