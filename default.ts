@@ -19,15 +19,8 @@ declare namespace hljs {
 }
 
 try {
-    const hljsWaitLoad = () => {
-        try {
-            const hljs = require("highlight.js");
-            hljs.initHighlighting();
-        } catch (e) {
-            setTimeout(hljsWaitLoad, 100);
-        }
-    };
-    hljsWaitLoad();
+    const hljs = require("highlight.js");
+    hljs.initHighlighting();
 } catch (e) {
     console.error(e);
 }
