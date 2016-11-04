@@ -25,6 +25,7 @@ defaultCss = do
     h2 ? fontSizeCustom xLarge
     h3 ? fontSizeCustom large
     h4 <> h5 <> h6 ? fontSizeCustom medium
+    img ? maxWidth (pct 100)
     pre <> code ? do
         fontFamily ["Ricty", "Inconsolata", "Consolas"] [monospace]
         border solid (px 1) base0
