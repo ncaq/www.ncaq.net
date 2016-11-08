@@ -49,7 +49,7 @@ main = hakyllWith conf $ do
         route idRoute
         compile $ do
             let feedContext = entryContext <> bodyField "description"
-            entry <- loadAllSnapshots "entry/*" "content"
+            entry <- reverse <$> loadAllSnapshots "entry/*" "content"
             renderAtom feedConfiguration feedContext entry >>=
                 cleanUrls >>=
                 indentXml
