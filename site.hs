@@ -44,9 +44,6 @@ main = hakyllWith conf $ do
     create ["default.js"] $ route idRoute >>
         (compile $ unsafeCompiler (readProcess "npm" ["run", "-s", "default.js"] "") >>= makeItem)
 
-    create ["bundle.js"] $ route idRoute >>
-        (compile $ unsafeCompiler (readProcess "npm" ["run", "-s", "bundle.js"] "") >>= makeItem)
-
     create ["feed.atom"] $ do
         route idRoute
         compile $ do

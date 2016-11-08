@@ -4,11 +4,11 @@
     "@types/browserify": "^12.0.30",
     "browserify": "^13.1.1",
     "highlight.js": "^9.7.0",
+    "tsify": "^2.0.2",
     "tslint": "^3.15.1",
     "typescript": "^2.0.3"
   },
   "scripts": {
-    "default.js": "tsc --outFile /dev/stdout",
-    "bundle.js": "browserify -r highlight.js"
+    "default.js": "browserify default.ts -p [ tsify ]"
   }
 }
