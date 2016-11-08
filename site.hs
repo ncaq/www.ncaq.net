@@ -41,8 +41,9 @@ main = hakyllWith conf $ do
 
     create ["default.css"] $ route idRoute >> (compile $ makeItem $ unpack $ render defaultCss)
 
-    create ["default.js"] $ route idRoute >>
-        (compile $ unsafeCompiler (readProcess "npm" ["run", "-s", "default.js"] "") >>= makeItem)
+    match "default.ts" $ do
+        route $ setExtension "js"
+        compile $ unsafeCompiler (readProcess "npm" ["run", "-s", "default.js"] "") >>= makeItem
 
     create ["feed.atom"] $ do
         route idRoute
