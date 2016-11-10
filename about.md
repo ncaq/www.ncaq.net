@@ -2,15 +2,15 @@
 title: about
 ---
 
-# name
+# 名前
 
 * ncaq
 * Haaaa_N
 * エヌユル
 
-# like
+# 趣味
 
-## programming
+## プログラミング
 
 * [Haskell](https://www.haskell.org/)
 * [Rust](https://www.rust-lang.org/)
@@ -22,7 +22,7 @@ title: about
 * [CSS](https://drafts.csswg.org/)
 * [JavaScript](https://github.com/tc39/ecma262)
 
-## software
+## ソフトウェア
 
 * [Gentoo](https://www.gentoo.org/)
 * [Firefox](https://www.mozilla.org/firefox/)
@@ -31,7 +31,7 @@ title: about
 * [GNU Emacs](https://www.gnu.org/software/emacs/)
 * [GNU Parallel](https://www.gnu.org/software/parallel/)
 
-## otherwise
+## その他
 
 * ゲーム
 * ネットサーフィン
@@ -41,6 +41,12 @@ title: about
 * 検索
 * 読書
 * 雑学
+
+# 資格
+
+* 情報セキュリティスペシャリスト
+* 歴史能力検定世界史3級
+* 精神障害者手帳3級
 
 # 経歴
 
@@ -79,18 +85,7 @@ D言語で[glfw](http://www.glfw.org/)と[OpenGL](https://www.opengl.org/)だけ
 
 現在は主にwebとセキュリティとプログラミング言語に興味があり,英語と数学を学習しながら,webサービスを作成している.
 
-# キーボード配列
-
-キーボード配列にはこだわりがあり,高校時代からDvorak配列を使用するようになった.
-
-ローマ字テーブルにはしばらく[jlod配列](http://www.mikage.to/jlod/)を使用していたが,改良したくなり参考にしてnlod配列を開発した.
-
-~~~ {.github-card data-width="100%" data-github="ncaq/nlod"}
-~~~
-
 # 精神障害
-
-私は現在精神障害者手帳3級を持っている.
 
 ## 強迫性障害
 
@@ -116,7 +111,7 @@ D言語で[glfw](http://www.glfw.org/)と[OpenGL](https://www.opengl.org/)だけ
 しかし,私は強迫性障害持ちでなければ,プログラマになることはなかったかもしれない.
 何故ならば,他人のwebサイトのデザインが気に入らないあまり,user cssを書きだしたのは明らかに強迫性障害のせいだからだ.
 
-## 発達障害
+## 自閉症スペクトラム
 
 私は発達障害者である.
 
