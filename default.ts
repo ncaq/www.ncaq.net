@@ -14,10 +14,6 @@ try {
     console.error(e);
 }
 
-declare namespace hljs {
-    export function initHighlighting(): void;
-}
-
 try {
     const hljs = require("highlight.js");
     hljs.initHighlighting();

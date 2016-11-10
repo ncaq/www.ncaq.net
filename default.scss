@@ -1,0 +1,79 @@
+/*
+solarized credit
+Copyright (c) 2011 Ethan Schoonover
+http://ethanschoonover.com/solarized
+*/
+
+$base03:    #002b36;
+$base02:    #073642;
+$base01:    #586e75;
+$base00:    #657b83;
+$base0:     #839496;
+$base1:     #93a1a1;
+$base2:     #eee8d5;
+$base3:     #fdf6e3;
+$yellow:    #b58900;
+$orange:    #cb4b16;
+$red:       #dc322f;
+$magenta:   #d33682;
+$violet:    #6c71c4;
+$blue:      #268bd2;
+$cyan:      #2aa198;
+$green:     #859900;
+
+$gray-dark:     $base0;
+$gray:          $base1;
+$gray-light:    $base2;
+$gray-lighter:  $base3;
+
+$brand-primary: $blue;
+$brand-success: $green;
+$brand-info:    $cyan;
+$brand-warning: $yellow;
+$brand-danger:  $red;
+
+$body-bg: $base03;
+
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, Meiryo, Roboto, Arial, sans-serif;
+
+$card-cap-bg: $base01;
+$card-bg: $base02;
+
+$code-color: $base1;
+$code-bg: $base02;
+
+@import 'node_modules/bootstrap/scss/bootstrap-flex';
+
+a:visited {
+    color: $violet;
+}
+
+pre {
+    border: solid 1px;
+}
+
+footer {
+    background-color: $base02;
+    color: $base1;
+}
+
+figure img {
+    @extend .img-fluid;
+}
+
+figure {
+    @extend .figure;
+}
+
+figure img {
+    @extend .figure-img;
+}
+
+figcaption {
+    @extend .figure-caption;
+}
+
+.toc {
+    border: solid 1px;
+    display: table;
+}
