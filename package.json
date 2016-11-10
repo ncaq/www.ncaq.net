@@ -2,6 +2,7 @@
   "name": "www.ncaq.net",
   "dependencies": {
     "@types/browserify": "^12.0.30",
+    "bootstrap": "^4.0.0-alpha.5",
     "browserify": "^13.1.1",
     "highlight.js": "^9.7.0",
     "tsify": "^2.0.2",
@@ -9,6 +10,7 @@
     "typescript": "^2.0.3"
   },
   "scripts": {
+    "default.css": "cat default.scss node_modules/highlight.js/styles/solarized-dark.css|sass --stdin --scss",
     "default.js": "browserify default.ts -p [ tsify ]"
   }
 }

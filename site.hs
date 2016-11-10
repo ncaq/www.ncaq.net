@@ -1,6 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-import           Clay                (render)
 import           Control.Applicative
 import           Data.List           (isSuffixOf)
 import           Data.List.Split
@@ -8,7 +7,6 @@ import           Data.Maybe
 import           Data.Monoid
 import           Data.Text.Lazy      (unpack)
 import           Hakyll
-import           Style
 import           System.FilePath
 import           System.Process
 import           Text.Pandoc
@@ -17,7 +15,6 @@ main :: IO ()
 main = hakyllWith conf $ do
     match "favicon.*" $ route idRoute >> compile copyFileCompiler
     match "file/**" $ route idRoute >> compile copyFileCompiler
-    match "node_modules/**" $ route idRoute >> compile copyFileCompiler
     match "templates/*" $ compile templateCompiler
 
     match ("*.md" .||. "entry/*.md") $ do
@@ -39,7 +36,9 @@ main = hakyllWith conf $ do
             cleanUrls >>=
             indentHtml
 
-    create ["default.css"] $ route idRoute >> (compile $ makeItem $ unpack $ render defaultCss)
+    match "default.scss" $ do
+        route $ setExtension "css"
+        compile $ unsafeCompiler (readProcess "npm" ["run", "-s", "default.css"] "") >>= makeItem
 
     match "default.ts" $ do
         route $ setExtension "js"
