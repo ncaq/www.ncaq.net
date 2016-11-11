@@ -5,6 +5,7 @@ import           Data.List           (isSuffixOf)
 import           Data.List.Split
 import           Data.Maybe
 import           Data.Monoid
+import qualified Data.Set            as S
 import           Data.Text.Lazy      (unpack)
 import           Hakyll
 import           System.FilePath
@@ -59,13 +60,15 @@ conf = def
     }
 
 pandocCompilerCustom :: Compiler (Item String)
-pandocCompilerCustom = pandocCompilerWith defaultHakyllReaderOptions
+pandocCompilerCustom = pandocCompilerWith
+    defaultHakyllReaderOptions { readerExtensions = S.insert Ext_ignore_line_breaks $ readerExtensions defaultHakyllReaderOptions }
     defaultHakyllWriterOptions { writerStandalone = True
                                , writerTemplate = unlines [ "<div class=\"toc\">$toc$</div>"
                                                           , "$body$"]
                                , writerNumberSections = True
                                , writerTableOfContents = True
                                , writerSectionDivs = True
+                               , writerExtensions = S.insert Ext_ignore_line_breaks $ writerExtensions defaultHakyllWriterOptions
                                , writerHtml5 = True
                                }
 
