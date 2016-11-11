@@ -10,7 +10,7 @@
     "typescript": "^2.0.3"
   },
   "scripts": {
-    "default.css": "cat default.scss node_modules/highlight.js/styles/solarized-dark.css|sass --stdin --scss",
+    "default.css": "cat default.scss node_modules/highlight.js/styles/solarized-dark.css|sass -I . --stdin --scss",
     "default.js": "browserify default.ts -p [ tsify ]"
   }
 }
