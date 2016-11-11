@@ -16,9 +16,11 @@ executable www-ncaq-net
   default-language:    Haskell2010
   ghc-options:         -threaded
   build-depends:       base
+                     , containers
                      , filepath
                      , hakyll
                      , pandoc
                      , process
                      , split
                      , text
+
