@@ -36,6 +36,8 @@ $body-bg: $base03;
 
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, Meiryo, Roboto, Arial, sans-serif;
 
+$blockquote-border-color: $gray;
+
 $card-cap-bg: $base01;
 $card-bg: $base02;
 
@@ -44,17 +46,47 @@ $code-bg: $base02;
 
 @import 'node_modules/bootstrap/scss/bootstrap-flex';
 
+@mixin primary {
+    background-color: $base03;
+    border-color: $base00;
+    color: $base0;
+}
+
+@mixin secondary {
+    @include border-minimum;
+    background-color: $base03;
+    border-color: $base02;
+    color: $base01;
+}
+
+@mixin highlight {
+    @include border-minimum;
+    background-color: $base02;
+    border-color: $base0;
+    color: $base1;
+}
+
+@mixin border-minimum {
+    border-style: solid;
+    border-width: 1px;
+}
+
 a:visited {
     color: $violet;
 }
 
 pre {
-    border: solid 1px;
+    @extend .rounded;
+    @include border-minimum;
+    @include highlight;
 }
 
-footer {
-    background-color: $base02;
-    color: $base1;
+header, footer, h1, h2, h3, h4, h5, h6 {
+    @include highlight;
+}
+
+blockquote {
+    @extend .blockquote;
 }
 
 figure img {
@@ -74,6 +106,6 @@ figcaption {
 }
 
 .toc {
-    border: solid 1px;
+    @include border-minimum;
     display: table;
 }
