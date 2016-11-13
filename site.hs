@@ -23,13 +23,14 @@ main = hakyllWith conf $ do
         compile $ pandocCompilerCustom >>=
             loadAndApplyTemplate "templates/entry.html" entryContext >>=
             saveSnapshot "content" >>=
-            loadAndApplyTemplate "templates/default.html" entryContext >>=
+            loadAndApplyTemplate "templates/default.html" (addTitleSuffix <> entryContext) >>=
             cleanUrls >>=
             indentHtml
 
     match "index.html" $ do
         route idRoute
         let indexContext = listField "entry" entryContext (reverse <$> loadAll "entry/*") <>
+                constField "title" "ncaq" <>
                 defaultContext
         compile $ getResourceBody >>=
             applyAsTemplate indexContext >>=
@@ -82,6 +83,10 @@ entryContext = mconcat [cleanUrlField, mconcat entryDate, defaultContext]
                          in if (3 <= length l) then Just f else Nothing
           where f = toFilePath $ cleanIdentifier $ itemIdentifier item
                 cleanIdentifier = fromFilePath . dropExtension . takeFileName . toFilePath
+
+addTitleSuffix :: Context a
+addTitleSuffix = field "title" (\item -> (<> " - ncaq") . fromJust <$>
+                                   getMetadataField (itemIdentifier item) "title")
 
 feedConfiguration :: FeedConfiguration
 feedConfiguration = FeedConfiguration
