@@ -23,7 +23,7 @@ main = hakyllWith conf $ do
         compile $ pandocCompilerCustom >>=
             loadAndApplyTemplate "templates/entry.html" entryContext >>=
             saveSnapshot "content" >>=
-            applyDefaultTemplate >>=
+            loadAndApplyTemplate "templates/default.html" entryContext >>=
             cleanUrls >>=
             indentHtml
 
@@ -33,7 +33,7 @@ main = hakyllWith conf $ do
                 defaultContext
         compile $ getResourceBody >>=
             applyAsTemplate indexContext >>=
-            applyDefaultTemplate >>=
+            loadAndApplyTemplate "templates/default.html" indexContext >>=
             cleanUrls >>=
             indentHtml
 
@@ -71,9 +71,6 @@ pandocCompilerCustom = pandocCompilerWith
                                , writerExtensions = S.insert Ext_ignore_line_breaks $ writerExtensions defaultHakyllWriterOptions
                                , writerHtml5 = True
                                }
-
-applyDefaultTemplate :: Item String -> Compiler (Item String)
-applyDefaultTemplate = loadAndApplyTemplate "templates/default.html" defaultContext
 
 entryContext :: Context String
 entryContext = mconcat [cleanUrlField, mconcat entryDate, defaultContext]
