@@ -86,13 +86,6 @@ $code-bg: $base02;
     color: $base0;
 }
 
-@mixin secondary {
-    @include border-minimum;
-    background-color: $base03;
-    border-color: $base02;
-    color: $base01;
-}
-
 @mixin highlight {
     @include border-minimum;
     background-color: $base02;
