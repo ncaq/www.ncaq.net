@@ -32,6 +32,8 @@ $brand-info:    $cyan;
 $brand-warning: $yellow;
 $brand-danger:  $red;
 
+$enable-flex: true;
+
 $body-bg: $base03;
 
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, Meiryo, Roboto, Arial, sans-serif;
@@ -44,7 +46,32 @@ $card-bg: $base02;
 $code-color: $base1;
 $code-bg: $base02;
 
-@import 'node_modules/bootstrap/scss/bootstrap-flex';
+// Core variables and mixins
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+// Reset and dependencies
+@import "node_modules/bootstrap/scss/normalize";
+@import "node_modules/bootstrap/scss/print";
+
+// Core CSS
+@import "node_modules/bootstrap/scss/reboot";
+@import "node_modules/bootstrap/scss/type";
+@import "node_modules/bootstrap/scss/images";
+@import "node_modules/bootstrap/scss/code";
+@import "node_modules/bootstrap/scss/grid";
+@import "node_modules/bootstrap/scss/tables";
+@import "node_modules/bootstrap/scss/forms";
+@import "node_modules/bootstrap/scss/buttons";
+
+// Components
+@import "node_modules/bootstrap/scss/nav";
+@import "node_modules/bootstrap/scss/navbar";
+@import "node_modules/bootstrap/scss/card";
+@import "node_modules/bootstrap/scss/close";
+
+// Utility classes
+@import "node_modules/bootstrap/scss/utilities";
 
 @mixin primary {
     background-color: $base03;
@@ -77,7 +104,6 @@ a:visited {
 
 pre {
     @extend .rounded;
-    @include border-minimum;
     @include highlight;
 }
 
@@ -89,16 +115,13 @@ blockquote {
     @extend .blockquote;
 }
 
-figure img {
-    @extend .img-fluid;
-}
-
 figure {
     @extend .figure;
 }
 
 figure img {
     @extend .figure-img;
+    @extend .img-fluid;
 }
 
 figcaption {
