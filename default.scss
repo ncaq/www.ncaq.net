@@ -40,6 +40,13 @@ $font-family-sans-serif: -apple-system, BlinkMacSystemFont, Meiryo, Roboto, Aria
 
 $blockquote-border-color: $gray;
 
+$navbar-dark-color:          $base3;
+$navbar-dark-hover-color:    rgba($base3, 0.75);
+$navbar-dark-active-color:   rgba($base3, 1);
+$navbar-dark-disabled-color: rgba($base3, 0.25);
+$navbar-dark-toggler-bg:     $base00;
+$navbar-dark-toggler-border: $base0;
+
 $card-cap-bg: $base01;
 $card-bg: $base02;
 
@@ -109,6 +116,10 @@ pre {
 
 header, footer, h1, h2, h3, h4, h5, h6 {
     @include highlight;
+}
+
+header img {
+    height: 1em;
 }
 
 blockquote {
