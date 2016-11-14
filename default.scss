@@ -132,3 +132,7 @@ figcaption {
     @include border-minimum;
     display: table;
 }
+
+.nav-item {
+    line-height: 3em;
+}
