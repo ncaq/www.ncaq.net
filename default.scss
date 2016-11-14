@@ -101,12 +101,6 @@ a:visited {
     color: $violet;
 }
 
-pre {
-    @extend .rounded;
-    @include border-minimum;
-    @include highlight;
-}
-
 header, footer, h1, h2, h3, h4, h5, h6 {
     @include highlight;
 }
@@ -116,8 +110,28 @@ h1, h2, h3, h4, h5, h6 {
     border-width: 0 0 thin 0;
 }
 
-header img {
-    height: 1em;
+header {
+    img {
+        height: 1em;
+    }
+    .gsc-control-cse {
+        @include highlight;
+        border: 0;
+        padding: 0;
+    }
+    input.gsc-search-button, .gsc-selected-option-container {
+        @include highlight;
+    }
+}
+
+footer .nav-item {
+    line-height: 3em;
+}
+
+pre {
+    @extend .rounded;
+    @include border-minimum;
+    @include highlight;
 }
 
 blockquote {
@@ -126,11 +140,10 @@ blockquote {
 
 figure {
     @extend .figure;
-}
-
-figure img {
-    @extend .figure-img;
-    @extend .img-fluid;
+    img {
+        @extend .figure-img;
+        @extend .img-fluid;
+    }
 }
 
 figcaption {
@@ -140,8 +153,4 @@ figcaption {
 .toc {
     @include border-minimum;
     display: table;
-}
-
-.nav-item {
-    line-height: 3em;
 }
