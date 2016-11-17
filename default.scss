@@ -111,9 +111,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 header {
-    img {
-        height: 1em;
-    }
     .gsc-control-cse {
         @include highlight;
         border: 0;
@@ -148,6 +145,12 @@ figure {
 
 figcaption {
     @extend .figure-caption;
+}
+
+.nav, .navbar {
+    img {
+        height: 1em;
+    }
 }
 
 .toc {
