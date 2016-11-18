@@ -152,8 +152,3 @@ figcaption {
         height: 1em;
     }
 }
-
-.toc {
-    @include border-minimum;
-    display: table;
-}
