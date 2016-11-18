@@ -115,9 +115,10 @@ indentHtml = withItemBody (\bo -> unsafeCompiler $ (\(_, o, _) -> o) <$>
                               ] bo)
 
 indentXml :: Item String -> Compiler (Item String)
-indentXml = withItemBody (\bo -> unsafeCompiler $ (\(_, o, _) -> o) <$>
-                             readProcessWithExitCode "tidy"
+indentXml = withItemBody (\bo -> unsafeCompiler $ readProcess "tidy"
                              [ "--indent-cdata" , "y"
+                             , "--wrap", "0"
+                             , "-quiet"
                              , "-xml"
                              , "-indent"
                              ] bo)
