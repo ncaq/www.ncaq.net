@@ -61,11 +61,7 @@ pandocCompilerCustom :: Compiler (Item String)
 pandocCompilerCustom = pandocCompilerWith
     defaultHakyllReaderOptions { readerExtensions = S.insert Ext_ignore_line_breaks $
                                    readerExtensions defaultHakyllReaderOptions }
-    defaultHakyllWriterOptions { writerStandalone = True
-                               , writerTemplate = unlines [ "<div class=\"toc\">$toc$</div>"
-                                                          , "$body$"]
-                               , writerTableOfContents = True
-                               , writerSectionDivs = True
+    defaultHakyllWriterOptions { writerSectionDivs = True
                                , writerExtensions = S.insert Ext_ignore_line_breaks $
                                    writerExtensions defaultHakyllWriterOptions
                                , writerHtml5 = True
