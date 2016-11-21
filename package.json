@@ -2,6 +2,8 @@
   "name": "www.ncaq.net",
   "dependencies": {
     "@types/browserify": "^12.0.30",
+    "@types/google.analytics": "0.0.28",
+    "@types/highlight.js": "^9.1.8",
     "bootstrap": "^4.0.0-alpha.5",
     "browserify": "^13.1.1",
     "highlight.js": "^9.7.0",
