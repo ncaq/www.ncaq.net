@@ -83,9 +83,9 @@ entryContext = mconcat [ cleanUrlField
                 cleanIdentifier = fromFilePath . dropExtension . takeFileName . toFilePath
 
 teaserFieldByResource :: Int -> String -> Snapshot -> Context String
-teaserFieldByResource l key snapshot = field key $
-    \item -> take l . stripTags . transPlain . itemBody <$> loadSnapshot (itemIdentifier item) snapshot
-  where transPlain h = either (error . show) id (writePlain def <$> readHtml def h)
+teaserFieldByResource l key snapshot = field key $ \item ->
+    take l . stripTags . trans . itemBody <$> loadSnapshot (itemIdentifier item) snapshot
+  where trans h = either (error . show) id (writePlain def <$> readHtml def h)
 
 addTitleSuffix :: Context a
 addTitleSuffix = field "title" (\item -> (<> " - ncaq") . fromJust <$>
