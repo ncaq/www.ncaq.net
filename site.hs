@@ -9,7 +9,6 @@ import qualified Data.Set            as S
 import           Data.Text.Lazy      (unpack)
 import           Hakyll
 import           System.FilePath
-import           System.Process
 import           Text.Pandoc
 
 main :: IO ()
@@ -39,11 +38,11 @@ main = hakyllWith conf $ do
 
     match "default.scss" $ do
         route $ setExtension "css"
-        compile $ unsafeCompiler (readProcess "npm" ["run", "-s", "default.css"] "") >>= makeItem
+        compile $ unixFilter "npm" ["run", "-s", "default.css"] "" >>= makeItem
 
     match "default.ts" $ do
         route $ setExtension "js"
-        compile $ unsafeCompiler (readProcess "npm" ["run", "-s", "default.js"] "") >>= makeItem
+        compile $ unixFilter "npm" ["run", "-s", "default.js"] "" >>= makeItem
 
     create ["feed.atom"] $ do
         route idRoute
@@ -78,6 +77,9 @@ entryContext = mconcat [cleanUrlField, mconcat entryDate, defaultContext]
           where f = toFilePath $ cleanIdentifier $ itemIdentifier item
                 cleanIdentifier = fromFilePath . dropExtension . takeFileName . toFilePath
 
+teaserFieldByResource :: Int -> String -> Context String
+teaserFieldByResource l key = field key $ \item -> take l . itemBody <$> getResourceString
+
 addTitleSuffix :: Context a
 addTitleSuffix = field "title" (\item -> (<> " - ncaq") . fromJust <$>
                                    getMetadataField (itemIdentifier item) "title")
@@ -107,18 +109,16 @@ hyphenToSlash :: String -> String
 hyphenToSlash path = (\c -> if c == '-' then '/' else c) <$> path
 
 indentHtml :: Item String -> Compiler (Item String)
-indentHtml = withItemBody (\bo -> unsafeCompiler $ (\(_, o, _) -> o) <$>
-                              readProcessWithExitCode "tidy"
+indentHtml = withItemBody (\bo -> unixFilter "tidy"
                               [ "--tidy-mark", "n"
                               , "--wrap", "0"
                               , "-indent"
                               ] bo)
 
 indentXml :: Item String -> Compiler (Item String)
-indentXml = withItemBody (\bo -> unsafeCompiler $ readProcess "tidy"
-                             [ "--indent-cdata" , "y"
-                             , "--wrap", "0"
-                             , "-quiet"
-                             , "-xml"
-                             , "-indent"
-                             ] bo)
+indentXml = withItemBody (\bo -> unixFilter "tidy" [ "--indent-cdata" , "y"
+                                                   , "--wrap", "0"
+                                                   , "-quiet"
+                                                   , "-xml"
+                                                   , "-indent"
+                                                   ] bo)
