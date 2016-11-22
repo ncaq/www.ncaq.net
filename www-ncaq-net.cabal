@@ -20,7 +20,6 @@ executable www-ncaq-net
                      , filepath
                      , hakyll
                      , pandoc
-                     , process
                      , split
                      , text
 
