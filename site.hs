@@ -28,7 +28,9 @@ main = hakyllWith conf $ do
 
     match "index.html" $ do
         route idRoute
-        let indexContext = listField "entry" entryContext (reverse <$> loadAll "entry/*") <>
+        let indexContext = listField "entry"
+                entryContext
+                (reverse <$> loadAll "entry/*") <>
                 constField "title" "ncaq" <> defaultContext
         compile $ getResourceBody >>=
             applyAsTemplate indexContext >>=
@@ -67,7 +69,10 @@ pandocCompilerCustom = pandocCompilerWith
                                }
 
 entryContext :: Context String
-entryContext = mconcat [cleanUrlField, mconcat entryDate, defaultContext]
+entryContext = mconcat [ cleanUrlField
+                       , mconcat entryDate
+                       , teaserFieldByResource 190 "teaser" "content"
+                       , defaultContext]
   where cleanUrlField = field "url" (fmap (maybe empty $ (hyphenToSlash . cleanUrlString) . toUrl) .
                                      getRoute . itemIdentifier)
         entryDate = f <$> ["date", "published", "updated"]
@@ -77,8 +82,12 @@ entryContext = mconcat [cleanUrlField, mconcat entryDate, defaultContext]
           where f = toFilePath $ cleanIdentifier $ itemIdentifier item
                 cleanIdentifier = fromFilePath . dropExtension . takeFileName . toFilePath
 
-teaserFieldByResource :: Int -> String -> Context String
-teaserFieldByResource l key = field key $ \item -> take l . itemBody <$> getResourceString
+teaserFieldByResource :: Int -> String -> Snapshot -> Context String
+teaserFieldByResource l key snapshot = field key $
+    \item -> take l . stripTags . transPlain . itemBody <$> loadSnapshot (itemIdentifier item) snapshot
+
+transPlain :: String -> String
+transPlain h = either (error . show) id (writePlain def <$> readHtml def h)
 
 addTitleSuffix :: Context a
 addTitleSuffix = field "title" (\item -> (<> " - ncaq") . fromJust <$>
