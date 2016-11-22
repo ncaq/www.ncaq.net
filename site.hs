@@ -20,8 +20,8 @@ main = hakyllWith conf $ do
     match ("*.md" .||. "entry/*.md") $ do
         route cleanRoute
         compile $ pandocCompilerCustom >>=
-            loadAndApplyTemplate "templates/entry.html" entryContext >>=
             saveSnapshot "content" >>=
+            loadAndApplyTemplate "templates/entry.html" entryContext >>=
             loadAndApplyTemplate "templates/default.html" (addTitleSuffix <> entryContext) >>=
             cleanUrls >>=
             indentHtml
