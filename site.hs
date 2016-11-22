@@ -31,7 +31,7 @@ main = hakyllWith conf $ do
         let indexContext = listField "entry"
                 entryContext
                 (reverse <$> loadAll "entry/*") <>
-                constField "title" "ncaq" <> defaultContext
+                constField "title" "ncaq" <> constField "teaser" "index" <> defaultContext
         compile $ getResourceBody >>=
             applyAsTemplate indexContext >>=
             loadAndApplyTemplate "templates/default.html" indexContext >>=
