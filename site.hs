@@ -110,7 +110,8 @@ hyphenToSlash path = (\c -> if c == '-' then '/' else c) <$> path
 
 indentHtml :: Item String -> Compiler (Item String)
 indentHtml = withItemBody (\bo -> unixFilter "tidy"
-                              [ "--tidy-mark", "n"
+                              [ "--drop-empty-elements", "n"
+                              , "--tidy-mark", "n"
                               , "--wrap", "0"
                               , "-indent"
                               ] bo)
