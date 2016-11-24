@@ -62,7 +62,8 @@ pandocCompilerCustom :: Compiler (Item String)
 pandocCompilerCustom = pandocCompilerWith
     defaultHakyllReaderOptions { readerExtensions = S.insert Ext_ignore_line_breaks $
                                    readerExtensions defaultHakyllReaderOptions }
-    defaultHakyllWriterOptions { writerSectionDivs = True
+    defaultHakyllWriterOptions { writerHTMLMathMethod = MathJax ""
+                               , writerSectionDivs = True
                                , writerExtensions = S.insert Ext_ignore_line_breaks $
                                    writerExtensions defaultHakyllWriterOptions
                                , writerHtml5 = True
