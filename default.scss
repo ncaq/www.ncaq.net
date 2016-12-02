@@ -50,6 +50,8 @@ $navbar-dark-toggler-border: $base0;
 $card-cap-bg: $base01;
 $card-bg: $base02;
 
+$tag-color: $base0;
+
 $code-color: $base1;
 $code-bg: $base02;
 
@@ -75,6 +77,7 @@ $code-bg: $base02;
 @import "node_modules/bootstrap/scss/nav";
 @import "node_modules/bootstrap/scss/navbar";
 @import "node_modules/bootstrap/scss/card";
+@import "node_modules/bootstrap/scss/tags";
 @import "node_modules/bootstrap/scss/close";
 
 // Utility classes
