@@ -52,10 +52,17 @@ $card-bg: $base02;
 
 $tag-color: $base0;
 
+$list-group-bg: $base03;
+$list-group-border-color: $base00;
+$list-group-hover-bg: $base02;
+$list-group-link-color: $base0;
+$list-group-link-heading-color: $base0;
+
 $code-color: $base1;
 $code-bg: $base02;
 
 // Core variables and mixins
+@import "node_modules/bootstrap/scss/custom";
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
 
@@ -74,10 +81,23 @@ $code-bg: $base02;
 @import "node_modules/bootstrap/scss/buttons";
 
 // Components
+@import "node_modules/bootstrap/scss/animation";
+@import "node_modules/bootstrap/scss/dropdown";
+@import "node_modules/bootstrap/scss/button-group";
+@import "node_modules/bootstrap/scss/input-group";
+@import "node_modules/bootstrap/scss/custom-forms";
 @import "node_modules/bootstrap/scss/nav";
 @import "node_modules/bootstrap/scss/navbar";
 @import "node_modules/bootstrap/scss/card";
+@import "node_modules/bootstrap/scss/breadcrumb";
+@import "node_modules/bootstrap/scss/pagination";
 @import "node_modules/bootstrap/scss/tags";
+@import "node_modules/bootstrap/scss/jumbotron";
+@import "node_modules/bootstrap/scss/alert";
+@import "node_modules/bootstrap/scss/progress";
+@import "node_modules/bootstrap/scss/media";
+@import "node_modules/bootstrap/scss/list-group";
+@import "node_modules/bootstrap/scss/responsive-embed";
 @import "node_modules/bootstrap/scss/close";
 
 // Utility classes
