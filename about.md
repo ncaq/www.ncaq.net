@@ -8,30 +8,51 @@ title: about
 * Haaaa_N
 * エヌユル
 
-# 趣味
+# そこそこ使ったプログラミング言語
 
-## プログラミング
+## 好みかつよく使う
 
-* [Haskell](https://www.haskell.org/)
-* [Rust](https://www.rust-lang.org/)
-* [D](https://dlang.org/)
-* [C++](https://isocpp.org/)
-* [Emacs Lisp](https://www.gnu.org/software/emacs/manual/html_node/elisp/)
-* [Web](https://whatwg.org/)
-* [HTML](https://html.spec.whatwg.org/multipage/)
-* [CSS](https://drafts.csswg.org/)
-* [JavaScript](https://github.com/tc39/ecma262)
+* Haskell
+* TypeScript
+* JavaScript
+* C++
+* Emacs Lisp
+* Zsh
 
-## ソフトウェア
+## 好みだがあまり使わない
+
+* D
+* Prolog
+* Rust
+* Scheme
+
+## 好みじゃないがよく使う
+
+* Bash
+* Ruby
+* TeX
+
+## 好みじゃないしあまり使わない
+
+* ActionScript
+* C#
+* CoffeeScript
+* Go
+* Java
+* PHP
+* R
+* Scala
+
+# 使用する主なソフトウェア
 
 * [Gentoo](https://www.gentoo.org/)
 * [Firefox](https://www.mozilla.org/firefox/)
 * [LilyTerm](http://lilyterm.luna.com.tw/)
 * [Zsh](https://www.zsh.org/)
 * [GNU Emacs](https://www.gnu.org/software/emacs/)
-* [GNU Parallel](https://www.gnu.org/software/parallel/)
+* [mikutter](http://mikutter.hachune.net/)
 
-## その他
+# その他趣味
 
 * ゲーム
 * ネットサーフィン
@@ -44,24 +65,25 @@ title: about
 
 # 資格
 
+* ネットワークスペシャリスト
 * 情報セキュリティスペシャリスト
 * 歴史能力検定世界史3級
 * 精神障害者手帳3級
 
 # 経歴
 
-関西出身の両親から大阪の病院で生まれ,東京→大阪→埼玉と親の転勤に付き合い,大部分は埼玉で育つ.
+関西出身の両親を持ち,東京→大阪→埼玉と親の転勤に付き合い,大部分は埼玉で育つ.
 
 小学校時代は読書ばかりしており,授業中に机の下で本を読んでいるような子供だった.
 
-中学校時代は教師に質問をすると教師が怒って教室から出て行き親に抗議をしにいくような理不尽な環境や,中学校特有の人間関係に馴染めず,早々に不登校児になった.
+中学校時代は教師に質問をすると教師が怒って教室から出て行き親に抗議をしにいくという不可解な状況を理解できず,不登校児になった.
 
 不登校時代は興味の赴くままWiiやPCでネットサーフィンを延々としていた.
 その時期に2chの[ソフトウェア板](https://potato.2ch.net/software/)からソフトウェアに興味を持った.
 特にwebブラウザに興味を持つようになり,様々なwebブラウザを試してみた.
-そこで,operaのuser css機能を知った.
+そこでoperaのuser css機能を知った.
 当時のwebサイトは大量のヘッドラインがあることが多く,デザインに不満を持つようになり,ヘッダを消したり不要なサイドカラムを消したくなった.
-そして,自分でcssを書くようになった.
+そして自分でcssを書くようになった.
 これが私のコードの書き始めである.
 
 そのように暮らしていたら中学も不登校のまま卒業することになり,親がなんとか高校に行かせようと様々な高校のオープンキャンパスに私を連れて行った.
@@ -81,7 +103,7 @@ D言語で[glfw](http://www.glfw.org/)と[OpenGL](https://www.opengl.org/)だけ
 
 大学受験は中学に行っていなかった影響もあり,英語,化学,物理が致命的に出来なかった.
 幸い膨大な読書のおかげで現代文と倫理だけは無勉強でも出来たので,数学と生物だけを勉強することでセンター3科目受験を試みることにした.
-その結果なんとか[専修大学 ネットワーク情報学部](https://www.senshu-u.ac.jp/sc_grsc/network.html)に合格し,現在に至る.
+その結果なんとか[専修大学 ネットワーク情報学部](https://www.senshu-u.ac.jp/sc_grsc/network.html)に合格し現在に至る.
 
 現在は主にwebとセキュリティとプログラミング言語に興味があり,英語と数学を学習しながら,webサービスを作成している.
 
