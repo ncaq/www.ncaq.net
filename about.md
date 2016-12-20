@@ -13,15 +13,16 @@ title: about
 ## 好みかつよく使う
 
 * Haskell
-* TypeScript
-* JavaScript
 * C++
 * Emacs Lisp
+* TypeScript
 * Zsh
 
 ## 好みだがあまり使わない
 
 * D
+* NScripter
+* Perl6
 * Prolog
 * Rust
 * Scheme
@@ -29,19 +30,27 @@ title: about
 ## 好みじゃないがよく使う
 
 * Bash
+* JavaScript
 * Ruby
 * TeX
 
 ## 好みじゃないしあまり使わない
 
 * ActionScript
+* Brainfuck
 * C#
 * CoffeeScript
+* Common Lisp
+* Erlang
 * Go
 * Java
 * PHP
+* Perl
+* Python
 * R
 * Scala
+* Whitespace
+* XSLT
 
 # 使用する主なソフトウェア
 
