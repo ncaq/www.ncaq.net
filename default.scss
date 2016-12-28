@@ -175,12 +175,3 @@ figcaption {
         height: 1em;
     }
 }
-
-body .gist {
-    .gist-file, .gist-data, .highlight, .blob-num, .blob-code-inner, .gist-meta {
-        @include primary;
-        .pl-s, .pl-sr, .pl-pds {
-            color: $blue;
-        }
-    }
-}
