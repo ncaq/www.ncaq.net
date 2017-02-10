@@ -72,7 +72,7 @@ pandocCompilerCustom = pandocCompilerWith
 entryContext :: Context String
 entryContext = mconcat [ cleanUrlField
                        , mconcat entryDate
-                       , teaserFieldByResource 300 "teaser" "content"
+                       , teaserFieldByResource 195 "teaser" "content"
                        , defaultContext]
   where cleanUrlField = field "url" (fmap (maybe empty $ (hyphenToSlash . cleanUrlString) . toUrl) .
                                      getRoute . itemIdentifier)
