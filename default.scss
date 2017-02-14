@@ -118,6 +118,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 header {
+    nav {
+        font-size: 150%;
+    }
     .gsc-control-cse {
         @include highlight;
         border: 0;
@@ -154,7 +157,7 @@ figcaption {
     @extend .figure-caption;
 }
 
-li, .navbar {
+li, .nav, .navbar {
     img {
         height: 1em;
     }
