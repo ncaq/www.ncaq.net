@@ -1,8 +1,11 @@
-<div class="list-group">
-  $for(entry)$
-  <a href="$url$" class="list-group-item list-group-item-action">
-    <header class="list-group-item-heading">$title$<time class="tag tag-default tag-pill float-xs-right">$date$</time></header>
-    <p class="list-group-item-text">$teaser$</p>
-  </a>
-  $endfor$
-</div>
+$for(entry)$
+<a href="$url$">
+  <div class="card">
+    <div class="card-block">
+      <h5 class="card-title">$title$</h5>
+      <h6 class="card-subtitle"><time>$date$</time></h6>
+      <p class="card-text">$teaser$</p>
+    </div>
+  </div>
+</a>
+$endfor$
