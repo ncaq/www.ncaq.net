@@ -32,8 +32,6 @@ $brand-info:    $cyan;
 $brand-warning: $yellow;
 $brand-danger:  $red;
 
-$enable-flex: true;
-
 $body-bg: $base03;
 
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, Meiryo, sans-serif;
@@ -62,7 +60,6 @@ $code-color: $base1;
 $code-bg: $base02;
 
 // Core variables and mixins
-@import "node_modules/bootstrap/scss/custom";
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
 
@@ -81,24 +78,11 @@ $code-bg: $base02;
 @import "node_modules/bootstrap/scss/buttons";
 
 // Components
-@import "node_modules/bootstrap/scss/animation";
-@import "node_modules/bootstrap/scss/dropdown";
-@import "node_modules/bootstrap/scss/button-group";
-@import "node_modules/bootstrap/scss/input-group";
-@import "node_modules/bootstrap/scss/custom-forms";
 @import "node_modules/bootstrap/scss/nav";
 @import "node_modules/bootstrap/scss/navbar";
 @import "node_modules/bootstrap/scss/card";
-@import "node_modules/bootstrap/scss/breadcrumb";
-@import "node_modules/bootstrap/scss/pagination";
-@import "node_modules/bootstrap/scss/tags";
-@import "node_modules/bootstrap/scss/jumbotron";
-@import "node_modules/bootstrap/scss/alert";
-@import "node_modules/bootstrap/scss/progress";
-@import "node_modules/bootstrap/scss/media";
+@import "node_modules/bootstrap/scss/badge";
 @import "node_modules/bootstrap/scss/list-group";
-@import "node_modules/bootstrap/scss/responsive-embed";
-@import "node_modules/bootstrap/scss/close";
 
 // Utility classes
 @import "node_modules/bootstrap/scss/utilities";
@@ -144,7 +128,7 @@ header {
     }
 }
 
-footer .nav-item {
+footer {
     line-height: 3em;
 }
 
@@ -170,7 +154,7 @@ figcaption {
     @extend .figure-caption;
 }
 
-.nav, .navbar {
+li, .navbar {
     img {
         height: 1em;
     }
