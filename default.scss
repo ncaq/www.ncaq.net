@@ -123,6 +123,12 @@ header {
     }
 }
 
+li, .nav, .navbar {
+    img {
+        height: 1em;
+    }
+}
+
 footer {
     line-height: 3em;
 }
@@ -151,8 +157,7 @@ blockquote {
 figure {
     @extend .figure;
     img {
-        @extend .figure-img;
-        @extend .img-fluid;
+        @extend .figure-img, .img-fluid;
     }
 }
 
@@ -160,8 +165,6 @@ figcaption {
     @extend .figure-caption;
 }
 
-li, .nav, .navbar {
-    img {
-        height: 1em;
-    }
+table {
+    @extend .table, .table-bordered;
 }
