@@ -28,10 +28,11 @@ main = hakyllWith conf $ do
 
     match "index.html" $ do
         route idRoute
-        let indexContext = listField "entry"
-                entryContext
-                (reverse <$> loadAll "entry/*") <>
-                constField "title" "ncaq" <> constField "teaser" "index" <> defaultContext
+        let indexContext = listField "entry" entryContext (reverse <$> loadAll "entry/*") <>
+                constField "title" "ncaq" <>
+                constField "date" "" <>
+                constField "teaser" "index" <>
+                defaultContext
         compile $ getResourceBody >>=
             applyAsTemplate indexContext >>=
             loadAndApplyTemplate "templates/default.html" indexContext >>=
