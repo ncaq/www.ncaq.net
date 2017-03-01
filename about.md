@@ -5,7 +5,6 @@ title: about
 # 名前
 
 * ncaq
-* Haaaa_N
 * エヌユル
 
 # そこそこ使ったプログラミング言語
@@ -34,6 +33,7 @@ title: about
 * Python
 * R
 * Ruby
+* SQL
 * TeX
 
 ## 好みじゃないしあまり使わない
