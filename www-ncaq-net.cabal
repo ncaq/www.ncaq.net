@@ -20,6 +20,7 @@ executable www-ncaq-net
                      , filepath
                      , hakyll
                      , pandoc
+                     , regex-compat
+                     , regex-posix
                      , split
                      , text
-

@@ -10,13 +10,15 @@ import           Data.Text.Lazy      (unpack)
 import           Hakyll
 import           System.FilePath
 import           Text.Pandoc
+import qualified Text.Regex          as R
+import qualified Text.Regex.Posix    as R
 
 main :: IO ()
 main = hakyllWith conf $ do
-    match "*.txt" $ route idRoute >> compile copyFileCompiler
-    match "favicon.*" $ route idRoute >> compile copyFileCompiler
-    match "file/*" $ route idRoute >> compile copyFileCompiler
     match "templates/*" $ compile templateCompiler
+    match ("*.ico" .||. "*.png" .||. "*.svg" .||. "*.txt") $ do
+        route idRoute
+        compile copyFileCompiler
 
     match ("*.md" .||. "entry/*.md") $ do
         route cleanRoute
@@ -27,9 +29,13 @@ main = hakyllWith conf $ do
             cleanUrls >>=
             indentHtml
 
+    match "entry/*" $ do
+        route ((gsubRoute "entry/" (const "")) `composeRoutes` customDateRoute)
+        compile copyFileCompiler
+
     match "index.html" $ do
         route idRoute
-        let indexContext = listField "entry" entryContext (reverse <$> loadAll "entry/*") <>
+        let indexContext = listField "entry" entryContext (reverse <$> loadAll "entry/*.md") <>
                 constField "title" "ncaq" <>
                 constField "date" "" <>
                 constField "teaser" "index" <>
@@ -52,7 +58,7 @@ main = hakyllWith conf $ do
         route idRoute
         compile $ do
             let feedContext = entryContext <> bodyField "description"
-            entry <- reverse <$> loadAllSnapshots "entry/*" "content"
+            entry <- reverse <$> loadAllSnapshots "entry/*.md" "content"
             renderAtom feedConfiguration feedContext entry >>=
                 cleanUrls >>=
                 indentXml
@@ -76,7 +82,7 @@ entryContext = mconcat [ cleanUrlField
                        , mconcat entryDate
                        , teaserFieldByResource 195 "teaser" "content"
                        , defaultContext]
-  where cleanUrlField = field "url" (fmap (maybe empty $ (hyphenToSlash . cleanUrlString) . toUrl) .
+  where cleanUrlField = field "url" (fmap (maybe empty $ (replaceDate . cleanUrlString) . toUrl) .
                                      getRoute . itemIdentifier)
         entryDate = f <$> ["date", "published", "updated"]
           where f k = field k (pure . fromMaybe empty . mItemDate)
@@ -104,8 +110,14 @@ feedConfiguration = FeedConfiguration
     }
 
 cleanRoute :: Routes
-cleanRoute = customRoute createIndexRoute `composeRoutes` customRoute (hyphenToSlash . toFilePath)
+cleanRoute = customRoute createIndexRoute `composeRoutes` customDateRoute
   where createIndexRoute ident = takeBaseName (dropExtension (toFilePath ident)) </> "index.html"
+
+customDateRoute :: Routes
+customDateRoute = customRoute (replaceDate . toFilePath)
+
+replaceDate :: String -> String
+replaceDate input = R.subRegex (R.mkRegex "^([0-9]+)-([0-9]+)-([0-9]+).") input "\\1/\\2/\\3/"
 
 cleanUrls :: Item String -> Compiler (Item String)
 cleanUrls = return . fmap (withUrls cleanUrlString)
@@ -114,9 +126,6 @@ cleanUrlString :: String -> String
 cleanUrlString = cleanIndex
   where cleanIndex path | "/index.html" `isSuffixOf` path = dropFileName path
                         | otherwise = path
-
-hyphenToSlash :: String -> String
-hyphenToSlash path = (\c -> if c == '-' then '/' else c) <$> path
 
 indentHtml :: Item String -> Compiler (Item String)
 indentHtml = withItemBody (\bo -> unixFilter "tidy"
