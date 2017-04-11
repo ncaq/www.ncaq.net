@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="160mm" height="90mm" viewBox="0 0 16000 9000" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke-width="28.222" stroke-linejoin="round" xml:space="preserve">
+ <path fill="rgb(255,255,255)" stroke="none" d="M 8000,8999 L 0,8999 0,0 15999,0 15999,8999 8000,8999 Z"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 8219,8164 L 760,8164 760,383 15679,383 15679,8164 8219,8164 Z"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 15679,8163 L 760,8163"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 15679,7051 L 760,7051"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 15679,5939 L 760,5939"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 15679,4827 L 760,4827"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 15679,3717 L 760,3717"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 15679,2605 L 760,2605"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 15679,1493 L 760,1493"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 15679,382 L 760,382"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 760,8313 L 760,8163"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 760,8313 L 760,8163"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 4490,8313 L 4490,8163"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 4490,8313 L 4490,8163"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 8219,8313 L 8219,8163"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 8219,8313 L 8219,8163"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 11949,8313 L 11949,8163"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 11949,8313 L 11949,8163"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 15679,8313 L 15679,8163"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 15679,8313 L 15679,8163"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 760,8163 L 15679,8163"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 610,8163 L 760,8163"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 610,8163 L 760,8163"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 610,7051 L 760,7051"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 610,7051 L 760,7051"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 610,5939 L 760,5939"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 610,5939 L 760,5939"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 610,4827 L 760,4827"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 610,4827 L 760,4827"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 610,3717 L 760,3717"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 610,3717 L 760,3717"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 610,2605 L 760,2605"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 610,2605 L 760,2605"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 610,1493 L 760,1493"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 610,1493 L 760,1493"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 610,382 L 760,382"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 610,382 L 760,382"/>
+ <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 760,8163 L 760,382"/>
+ <path fill="rgb(0,69,134)" stroke="none" d="M 12881,8163 L 14746,8163 14746,1776 12881,1776 12881,8163 Z"/>
+ <path fill="rgb(0,69,134)" stroke="none" d="M 9151,8163 L 11016,8163 11016,7603 9151,7603 9151,8163 Z"/>
+ <path fill="rgb(0,69,134)" stroke="none" d="M 5422,8163 L 7287,8163 7287,7733 5422,7733 5422,8163 Z"/>
+ <path fill="rgb(0,69,134)" stroke="none" d="M 1692,8163 L 3557,8163 3557,8128 1692,8128 1692,8163 Z"/>
+ <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="353px" font-weight="400"><tspan class="TextPosition" x="2260" y="8737"><tspan fill="rgb(0,0,0)" stroke="none">Rust</tspan></tspan></tspan></text>
+ <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="353px" font-weight="400"><tspan class="TextPosition" x="5801" y="8737"><tspan fill="rgb(0,0,0)" stroke="none">Python</tspan></tspan></tspan></text>
+ <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="353px" font-weight="400"><tspan class="TextPosition" x="9679" y="8737"><tspan fill="rgb(0,0,0)" stroke="none">Ruby</tspan></tspan></tspan></text>
+ <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="353px" font-weight="400"><tspan class="TextPosition" x="13409" y="8737"><tspan fill="rgb(0,0,0)" stroke="none">Perl6</tspan></tspan></tspan></text>
+ <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="353px" font-weight="400"><tspan class="TextPosition" x="321" y="8286"><tspan fill="rgb(0,0,0)" stroke="none">0</tspan></tspan></tspan></text>
+ <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="353px" font-weight="400"><tspan class="TextPosition" x="321" y="7174"><tspan fill="rgb(0,0,0)" stroke="none">1</tspan></tspan></tspan></text>
+ <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="353px" font-weight="400"><tspan class="TextPosition" x="321" y="6062"><tspan fill="rgb(0,0,0)" stroke="none">2</tspan></tspan></tspan></text>
+ <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="353px" font-weight="400"><tspan class="TextPosition" x="321" y="4950"><tspan fill="rgb(0,0,0)" stroke="none">3</tspan></tspan></tspan></text>
+ <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="353px" font-weight="400"><tspan class="TextPosition" x="321" y="3839"><tspan fill="rgb(0,0,0)" stroke="none">4</tspan></tspan></tspan></text>
+ <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="353px" font-weight="400"><tspan class="TextPosition" x="321" y="2727"><tspan fill="rgb(0,0,0)" stroke="none">5</tspan></tspan></tspan></text>
+ <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="353px" font-weight="400"><tspan class="TextPosition" x="321" y="1615"><tspan fill="rgb(0,0,0)" stroke="none">6</tspan></tspan></tspan></text>
+ <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="353px" font-weight="400"><tspan class="TextPosition" x="321" y="504"><tspan fill="rgb(0,0,0)" stroke="none">7</tspan></tspan></tspan></text>
+</svg>
