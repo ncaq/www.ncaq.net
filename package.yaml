@@ -1,0 +1,23 @@
+name: www-ncaq-net
+version: '0.1.0'
+synopsis: www.ncaq.net from Hakyll project template from stack
+github: ncaq/www.ncaq.net.git
+category: Web
+author: ncaq
+maintainer: ncaq@ncaq.net
+copyright: © ncaq
+license: GPL-3
+dependencies:
+- base
+- containers
+- filepath
+- hakyll
+- pandoc
+- regex-compat
+- regex-posix
+- split
+- text
+executables:
+  www-ncaq-net:
+    main: site.hs
+    ghc-options: -threaded

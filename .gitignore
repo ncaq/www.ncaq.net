@@ -1,27 +1,9 @@
-# Created by https://www.gitignore.io/api/haskell
+*.cabal
 
-### Haskell ###
-dist
-cabal-dev
-*.o
-*.hi
-*.chi
-*.chs.h
-*.dyn_o
-*.dyn_hi
-.hpc
-.hsenv
-.cabal-sandbox/
-cabal.sandbox.config
-*.prof
-*.aux
-*.hp
+.sass-cache/
 .stack-work/
 _cache/
 _site/
-TAGS
-
-# web
-
-.sass-cache/
 node_modules/
+
+TAGS
