@@ -1,7 +1,7 @@
 name: www-ncaq-net
-version: '0.1.0'
+version: '0.1.1'
 synopsis: www.ncaq.net from Hakyll project template from stack
-github: ncaq/www.ncaq.net.git
+github: ncaq/www.ncaq.net
 category: Web
 author: ncaq
 maintainer: ncaq@ncaq.net
