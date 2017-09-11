@@ -21,22 +21,28 @@ $blue:      #268bd2;
 $cyan:      #2aa198;
 $green:     #859900;
 
-$gray-dark:     $base0;
-$gray:          $base1;
-$gray-light:    $base2;
-$gray-lighter:  $base3;
+$gray-100: $base3;
+$gray-200: $base2;
+$gray-300: $base1;
+$gray-400: $base0;
+$gray-500: #adb5bd;
+$gray-600: $base00;
+$gray-700: $base01;
+$gray-800: $base02;
+$gray-900: $base03;
 
-$brand-primary: $blue;
-$brand-success: $green;
-$brand-info:    $cyan;
-$brand-warning: $yellow;
-$brand-danger:  $red;
+$blue:    $blue;
+$purple:  $violet;
+$red:     $red;
+$orange:  $orange;
+$yellow:  $yellow;
+$green:   $green;
+$cyan:    $cyan;
 
-$body-bg: $base03;
+$body-bg:    $base03;
+$body-color: $base0;
 
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, Meiryo, sans-serif;
-
-$blockquote-border-color: $gray;
 
 $navbar-dark-color:          $base3;
 $navbar-dark-hover-color:    rgba($base3, 0.75);
@@ -45,7 +51,7 @@ $navbar-dark-disabled-color: rgba($base3, 0.25);
 $navbar-dark-toggler-bg:     $base00;
 $navbar-dark-toggler-border: $base0;
 
-$card-cap-bg: $base01;
+$card-cap-bg: $base02;
 $card-bg: $base02;
 
 $badge-color: $base0;
@@ -60,32 +66,7 @@ $code-color: $base1;
 $code-bg: $base02;
 
 // Core variables and mixins
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/mixins";
-
-// Reset and dependencies
-@import "node_modules/bootstrap/scss/normalize";
-@import "node_modules/bootstrap/scss/print";
-
-// Core CSS
-@import "node_modules/bootstrap/scss/reboot";
-@import "node_modules/bootstrap/scss/type";
-@import "node_modules/bootstrap/scss/images";
-@import "node_modules/bootstrap/scss/code";
-@import "node_modules/bootstrap/scss/grid";
-@import "node_modules/bootstrap/scss/tables";
-@import "node_modules/bootstrap/scss/forms";
-@import "node_modules/bootstrap/scss/buttons";
-
-// Components
-@import "node_modules/bootstrap/scss/nav";
-@import "node_modules/bootstrap/scss/navbar";
-@import "node_modules/bootstrap/scss/card";
-@import "node_modules/bootstrap/scss/badge";
-@import "node_modules/bootstrap/scss/list-group";
-
-// Utility classes
-@import "node_modules/bootstrap/scss/utilities";
+@import "node_modules/bootstrap/scss/bootstrap";
 
 @mixin primary {
     background-color: $base03;
@@ -156,6 +137,8 @@ pre {
 
 blockquote {
     @extend .blockquote;
+    border-left: medium solid;
+    padding-left: 1rem;
 }
 
 figure {
