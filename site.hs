@@ -6,12 +6,10 @@ import           Data.List.Split
 import           Data.Maybe
 import           Data.Monoid
 import qualified Data.Set            as S
-import           Data.Text.Lazy      (unpack)
 import           Hakyll
 import           System.FilePath
 import           Text.Pandoc
 import qualified Text.Regex          as R
-import qualified Text.Regex.Posix    as R
 
 main :: IO ()
 main = hakyllWith conf $ do
@@ -30,7 +28,7 @@ main = hakyllWith conf $ do
             indentHtml
 
     match "entry/*" $ do
-        route ((gsubRoute "entry/" (const "")) `composeRoutes` customDateRoute)
+        route (gsubRoute "entry/" (const "") `composeRoutes` customDateRoute)
         compile copyFileCompiler
 
     match "index.html" $ do
@@ -87,7 +85,7 @@ entryContext = mconcat [ cleanUrlField
         entryDate = f <$> ["date", "published", "updated"]
           where f k = field k (pure . fromMaybe empty . mItemDate)
         mItemDate item = let l = splitOneOf "-" f
-                         in if (3 <= length l) then Just f else Nothing
+                         in if 3 <= length l then Just f else Nothing
           where f = toFilePath $ cleanIdentifier $ itemIdentifier item
                 cleanIdentifier = fromFilePath . dropExtension . takeFileName . toFilePath
 
@@ -128,17 +126,18 @@ cleanUrlString = cleanIndex
                         | otherwise = path
 
 indentHtml :: Item String -> Compiler (Item String)
-indentHtml = withItemBody (\bo -> unixFilter "tidy"
-                              [ "--drop-empty-elements", "n"
-                              , "--tidy-mark", "n"
-                              , "--wrap", "0"
-                              , "-indent"
-                              ] bo)
+indentHtml = withItemBody $ unixFilter "tidy"
+    [ "--drop-empty-elements", "n"
+    , "--tidy-mark", "n"
+    , "--wrap", "0"
+    , "-indent"
+    ]
 
 indentXml :: Item String -> Compiler (Item String)
-indentXml = withItemBody (\bo -> unixFilter "tidy" [ "--indent-cdata" , "y"
-                                                   , "--wrap", "0"
-                                                   , "-quiet"
-                                                   , "-xml"
-                                                   , "-indent"
-                                                   ] bo)
+indentXml = withItemBody $ unixFilter "tidy"
+    [ "--indent-cdata" , "y"
+    , "--wrap", "0"
+    , "-quiet"
+    , "-xml"
+    , "-indent"
+    ]
