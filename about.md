@@ -5,61 +5,52 @@ title: about
 # 名前
 
 * ncaq
-* Haaaa_N
 * エヌユル
 
 # そこそこ使ったプログラミング言語
 
-## 好みかつよく使う
+## だいすき
 
 * Haskell
+
+## すき
+
 * C++
+* D
+* Elm
 * Emacs Lisp
+* JavaScript
+* Perl6
+* Prolog
+* PureScript
+* Rust
+* Scheme
 * TypeScript
 * Zsh
 
-## 好みだがあまり使わない
+## ほどほど
 
-* D
-* NScripter
-* Perl6
-* Prolog
-* Rust
-* Scheme
-
-## 好みじゃないがよく使う
-
+* ActionScript
 * Bash
-* JavaScript
+* C#
+* CoffeeScript
+* Common Lisp
+* Java
+* NScripter
+* PHP
+* Perl
+* Python
 * Python
 * R
 * Ruby
 * SQL
 * TeX
-
-## 好みじゃないしあまり使わない
-
-* ActionScript
-* C#
-* CoffeeScript
-* Common Lisp
-* Java
-* PHP
-* Perl
 * XSLT
-
-# 使用する主なソフトウェア
-
-* [Gentoo](https://www.gentoo.org/)
-* [Firefox](https://www.mozilla.org/firefox/)
-* [LilyTerm](http://lilyterm.luna.com.tw/)
-* [Zsh](https://www.zsh.org/)
-* [Emacs](https://www.gnu.org/software/emacs/)
-* [Mikutter](http://mikutter.hachune.net/)
 
 # その他趣味
 
 * ゲーム
+* アニメ
 * ネットサーフィン
 * ネット小説
 * 倫理
@@ -79,76 +70,97 @@ title: about
 
 ## 1996年
 
-関西出身の両親から産まれる.
+* 関西出身の両親から産まれました
 
 ## 2003年
 
-埼玉に引っ越す.
-
-小学校時代は読書ばかりしており,授業中に机の下で本を読んでいるような子供でした.
-登下校中に歩きながら読書をしていて,いつもそれを先生に注意されて,私はそれを無視していました.
+* 埼玉に引っ越しました
+* 小学校時代は読書ばかりしており,授業中に机の下で本を読んでいるような子供でした
+* 登下校中に歩きながら読書をしていて,いつもそれを先生に注意されていました
 
 ## 2009年
 
-中学校に入ると,教師に質問をすると嘲笑されたり,怒鳴られたりする環境に馴染めず,不登校児になりました.
-
-不登校時代は興味の赴くままWiiやPCでネットサーフィンを延々としていました.
-その時期に2chの[ソフトウェア板](https://potato.2ch.net/software/)でソフトウェアに興味を持ちました.
-特にwebブラウザに興味を持つようになり,様々なwebブラウザを試してみました.
-そこでoperaのuser css機能を知りました.
-当時のwebサイトは大量のヘッドラインがあることが多く,デザインに不満を持つようになり,ヘッダを消したり不要なサイドカラムを消したくなりました.
-そして自分でcssを書くようになりました.
-
-そのように暮らしていたら中学も不登校のまま卒業することになって,親がなんとか高校に行かせようと様々な高校のオープンキャンパスに私を連れて行きました.
-そこで[クラーク記念国際高等学校 秋葉原ITキャンパス](https://www.clark.ed.jp/kanto/it/)のオープンキャンパスで簡単なノベルゲームの作成をしました.
-私は自分でゲームを作れることに感動してこの高校に通うことにしました.
+* 中学校に進学して,教師や生徒に虐められて,不登校児になりました
+* WiiやPCでネットサーフィンを延々としていました
+* 2chの[ソフトウェア板](https://potato.2ch.net/software/)でソフトウェアに興味を持ちました
+* 特にwebブラウザに興味を持つようになり,様々なwebブラウザを試してみました
+* そこでOperaのUser CSS機能を知りました
+* 当時のwebサイトは大量のヘッドラインがあることが多く,デザインに不満を持つようになり,ヘッダを消したり不要なサイドカラムを消したくなりました
+* 自分でCSSを書くようになりました
+* 中学も不登校のまま卒業することになって,親が高校に行かせようと様々な高校のオープンキャンパスに私を連れて行きました
+* [クラーク記念国際高等学校 秋葉原ITキャンパス](https://www.clark.ed.jp/kanto/it/)のオープンキャンパスで簡単なノベルゲームの作成をして,私は自分でゲームを作れることに感動して,この高校に通うことにしました
 
 ## 2011年
 
-* [NScripter](http://www.nscripter.com/)でテトリスを作った
-* C++と[DXライブラリ](http://dxlib.o.oo7.jp/)でオセロゲームを作った
+* [NScripter](http://www.nscripter.com/)でテトリスを作りました[ncaq/NoveIf: NScripterを使って作成したテトリスです](https://github.com/ncaq/NoveIf)
+* C++と[DXライブラリ](http://dxlib.o.oo7.jp/)でオセロゲームを作りました
 
 ## 2012年
 
-* RTSを作った
-* C++の改良版を探してD言語を知って感動した
-* C#とXNAを学習してる最中に開発が終了して絶望した
-* 同級生にUbuntuやLinux MintやFreeBSDを紹介された
+* RTSを作りました
+* C#とXNAを学習してる最中に開発が終了して絶望しました
+* C++の改良版を探してD言語を知って感動しました
+* 同級生にUbuntuやLinux MintやFreeBSDを紹介されました
 
 ## 2013年
 
-* GNU/Linuxをメイン環境にしたので,Visual Studioが使えなくなったので,C++を書くのに適した環境を作るためにEmacs Lispを書いた
-* Emacs Lispを管理するためにgitやsshを学習した
-* [すごいHaskellたのしく学ぼう!](https://estore.ohmsha.co.jp/titles/978427406885P)を読みふけった
-* D言語で[glfw](http://www.glfw.org/)だけでFPSを作ろうとして[OpenGLプログラミングガイド](https://www.amazon.co.jp/dp/4894717239)を買ってカメラと弾発射機構を作って挫折した
+* GNU/Linuxをメイン環境にしたので,Visual Studioが使えなくなったので,Emacs Lispを書きました[ncaq/.emacs.d: Emacsの設定ディレクトリ](https://github.com/ncaq/.emacs.d)
+* Emacs Lispを管理するためにgitやsshやzshを学習しました[ncaq/.zsh.d](https://github.com/ncaq/.zsh.d)
+* [すごいHaskellたのしく学ぼう!](https://estore.ohmsha.co.jp/titles/978427406885P)を読みふけりました
+* D言語で[glfw](http://www.glfw.org/)だけでFPSを作ろうとして[OpenGLプログラミングガイド](https://www.amazon.co.jp/dp/4894717239)を買ってカメラと弾発射機構を作って挫折しました[ncaq/dogd: FPS(開発中止)](https://github.com/ncaq/dogd)
+* [ncaq/auto-sudoedit: sudo tramp when rootfire](https://github.com/ncaq/auto-sudoedit)
+* [ncaq/recentf-remove-sudo-tramp-prefix: emacs extension](https://github.com/ncaq/recentf-remove-sudo-tramp-prefix)
+* [ncaq/symbolword-mode: word split overhaul](https://github.com/ncaq/symbolword-mode)
+* [ncaq/ncaq-emacs-utils](https://github.com/ncaq/ncaq-emacs-utils)
 * ITパスポート合格
 * 精神障害者手帳3級合格
 
 ## 2014年
 
-大学受験をしました.
-膨大な読書のおかげで,現代文と倫理だけは無勉強でも出来たので,数学と生物だけを勉強してセンター利用受験をしました.
-その結果,[専修大学 ネットワーク情報学部](https://www.senshu-u.ac.jp/sc_grsc/network.html)になんとか合格しました(前期は落ちて後期に受かった).
-
-* 英語と数学などの教養科目と闘う
-* プログラミングの課題で遊ぶ
+* 大学受験をしました
+    * 膨大な読書のおかげで,現代文と倫理だけは無勉強でも出来たので,数学と生物だけを勉強してセンター利用受験をしました
+    * その結果,[専修大学 ネットワーク情報学部](https://www.senshu-u.ac.jp/sc_grsc/network.html)になんとか合格しました(前期は落ちて後期に受かった)
+* 英語と数学などの教養科目と闘いました
+* プログラミングの課題で遊ぶ[ncaq/poker: コマンドライン用ポーカー](https://github.com/ncaq/poker)
+* [ncaq/wikipedia_solarized_dark_for_programmer](https://github.com/ncaq/wikipedia_solarized_dark_for_programmer)
 * 基本情報技術者合格
 
 ## 2015年
 
 * 応用情報技術者合格
-* Javaをそこそこ深く学習する
-* Ruby on Railsによるwebサービス開発
+* [ncaq/to-safe-name: replace depend os file character name.](https://github.com/ncaq/to-safe-name)
+* [ncaq/run-or-raise: focus or exec command script for generic window manager](https://github.com/ncaq/run-or-raise)
+* [ncaq/uniq-deep: alternative of unix uniq command. 'uniq-deep' detect repeated lines unless they are adjacent.](https://github.com/ncaq/uniq-deep)
+* [ncaq/nlod: mozcまたはgoogle日本語入力用のdvorak向けローマ字テーブル.jlodを改良.](https://github.com/ncaq/nlod)
+* YesodでPDFをSVGに変換するwebアプリケーションを作りました
+* Javaの学習
+    * [ncaq/radixconv: GUIを用いた基数変換器](https://github.com/ncaq/radixconv)
+    * [ncaq/chat.sd: チャットツール](https://github.com/ncaq/chat.sd)
+* Ruby on Railsによるwebアプリケーション開発の学習[ncaq/ticketol: チケット予約サービス](https://github.com/ncaq/ticketol)
+* [ncaq/haskell-import-graph: create haskell import graph for graphviz](https://github.com/ncaq/haskell-import-graph)
 
 ## 2016年
 
-* yesodによるwebサービス開発に取り組む
+* Yesodによるゲーム販売webアプリケーション開発
+* 分散情報システムでmaudeを学習[ncaq/sub-maude: maude language subset](https://github.com/ncaq/sub-maude)
+* [ncaq/unown-expl: pokemon exp programming language](https://github.com/ncaq/unown-expl)
 * 情報セキュリティスペシャリスト合格
 * ネットワークスペシャリスト合格
+* このサイトをhakyllで作成[ncaq/www.ncaq.net: ncaq website](https://github.com/ncaq/www.ncaq.net)
+* [ncaq/mikutter_sub_parts_image_flex: mikutterで画像をシンプルにインライン表示するプラグイン](https://github.com/ncaq/mikutter_sub_parts_image_flex)
+* [ncaq/mikutter_header_client: viaをheaderに表示します](https://github.com/ncaq/mikutter_header_client)
+* テキスト処理で適当なプログラミング言語を実装[ncaq/prohell: prolog like programming language](https://github.com/ncaq/prohell)
 
 ## 2017年
 
 * 専修大学ネットワーク情報学部学部長賞受賞
+* 就職活動で精神を病んだ結果,様々な騒動を引き起こして迷惑をかけました
+* [ncaq/dic-nico-intersection-pixiv: ニコニコ大百科とピクシブ百科事典の積集合の辞書](https://github.com/ncaq/dic-nico-intersection-pixiv)
+* [ncaq/try-pandoc-with-file: try pandoc! with file](https://github.com/ncaq/try-pandoc-with-file)
+* [ncaq/yesod-recaptcha2: recaptcha2 for yesod](https://github.com/ncaq/yesod-recaptcha2)
+* [ncaq/yesod-form-bootstrap4: yesod-form for bootstrap version 4](https://github.com/ncaq/yesod-form-bootstrap4)
+* [ncaq/string-transform: simple and easy haskell string transform](https://github.com/ncaq/string-transform)
+* Haskellによるコマンドラインツールを作成
 
 # 精神障害
 
@@ -171,7 +183,7 @@ title: about
 医師にSNRIを処方してもらってからは随分とマシになりましたが,この障害は十分残っています.
 
 しかし,私は強迫性障害持ちでなければ,プログラマになることはなかったかもしれません.
-何故なら,他人のwebサイトのデザインが気に入らないあまり,user cssを書きだしたのは,明らかに強迫性障害のせいだからです.
+何故なら,他人のwebサイトのデザインが気に入らないあまり,User CSSを書きだしたのは,明らかに強迫性障害のせいだからです.
 
 ## 発達障害
 
@@ -211,4 +223,4 @@ title: about
 だから私は算数が大の苦手でした.
 
 しかし,プログラマは計算はコンピュータにやらせるものです.
-mozcの電卓機能,ghci,maximaなどを使っています.
+mozcの電卓機能, ghci, maximaなどを使っています.
