@@ -7,6 +7,8 @@ title: about
 * ncaq
 * エヌユル
 
+* Haaaa_N
+
 # そこそこ使ったプログラミング言語
 
 ## だいすき
@@ -17,16 +19,13 @@ title: about
 
 * C++
 * D
-* Elm
 * Emacs Lisp
-* JavaScript
 * Perl6
 * Prolog
 * PureScript
 * Rust
 * Scheme
 * TypeScript
-* Zsh
 
 ## ほどほど
 
@@ -35,17 +34,19 @@ title: about
 * C#
 * CoffeeScript
 * Common Lisp
+* Elm
 * Java
+* JavaScript
+* Maude
 * NScripter
 * PHP
-* Perl
-* Python
 * Python
 * R
 * Ruby
 * SQL
 * TeX
 * XSLT
+* Zsh
 
 # その他趣味
 
