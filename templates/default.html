@@ -35,13 +35,8 @@
       <main>
         $body$
       </main>
-      <div class="social">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="ncaq">Tweet</a>
-        <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" /></a>
-        <span class="fb-like" data-layout="button_count" data-show-faces="true" data-share="true">fb-like</span>
-        <span class="g-plusone">g-plusone</span>
-      </div>
       <div id="disqus_thread"></div>
+      <div id="zenback-widget-loader"></div>
       <footer>
         <div class="row">
           <ul class="list-group col-md">
@@ -70,14 +65,14 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({messageStyle: "none"});</script>
 
     <script async="async" src="/default.js"></script>
-    <script async="async" src="https://apis.google.com/js/platform.js"></script>
-    <script async="async" src="https://b.st-hatena.com/js/bookmark_button.js"></script>
-    <script async="async" src="https://b.st-hatena.com/js/comment-widget.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML"></script>
-    <script async="async" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&amp;version=v2.8"></script>
     <script async="async" src="https://cse.google.com/cse.js?cx=004447714709742723527:gfxoo7p4yao"></script>
     <script async="async" src="https://platform.twitter.com/widgets.js"></script>
     <script async="async" src="https://www-ncaq-net.disqus.com/embed.js"></script>
     <script async="async" src="https://www.google-analytics.com/analytics.js"></script>
+
+    <script>
+     !function(d,i){if(!d.getElementById(i)){var r=Math.ceil((new Date()*1)*Math.random());var j=d.createElement("script");j.id=i;j.async=true;j.src="//w.zenback.jp/v1/?base_uri=https%3A//www.ncaq.net&nsid=150519642517992353%3A%3A150519658624061243&rand="+r;d.body.appendChild(j);}}(document,"zenback-widget-js");
+    </script>
   </body>
 </html>
