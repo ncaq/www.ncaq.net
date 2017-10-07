@@ -98,13 +98,11 @@ h1 {
     border-width: 0 0 thin 0;
 }
 
-header {
-    nav {
-        font-size: 150%;
-    }
+header nav {
+    font-size: 150%;
 }
 
-li, .nav, .navbar {
+.nav, .list-group-item {
     img {
         height: 1em;
     }
