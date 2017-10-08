@@ -87,7 +87,12 @@ entryContext = mconcat
   where cleanUrlField = field "url"
             (fmap (maybe empty $ (replaceDate . cleanUrlString) . toUrl) . getRoute . itemIdentifier)
         entryDate = f <$> ["date", "published", "updated"]
-          where f k = field k (pure . fromMaybe empty . mItemDate)
+          where f key = field key (\item -> do
+                                          mMeta <- getMetadataField (itemIdentifier item) key
+                                          case mMeta of
+                                              Nothing -> return $ fromMaybe empty $ mItemDate item
+                                              Just meta -> return meta
+                                  )
         mItemDate item = let l = splitOneOf "-" f
                          in if 3 <= length l then Just f else Nothing
           where f = toFilePath $ cleanIdentifier $ itemIdentifier item
