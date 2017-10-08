@@ -66,22 +66,26 @@ conf = def { deployCommand = "rsync -vcazh --chmod=D755,F644 --delete --progress
 
 pandocCompilerCustom :: Compiler (Item String)
 pandocCompilerCustom = pandocCompilerWith
-    defaultHakyllReaderOptions { readerExtensions = S.insert Ext_ignore_line_breaks $
-                                   readerExtensions defaultHakyllReaderOptions }
-    defaultHakyllWriterOptions { writerHTMLMathMethod = MathJax ""
-                               , writerSectionDivs = True
-                               , writerExtensions = S.insert Ext_ignore_line_breaks $
-                                   writerExtensions defaultHakyllWriterOptions
-                               , writerHtml5 = True
-                               }
+    defaultHakyllReaderOptions
+    { readerExtensions = S.insert Ext_ignore_line_breaks
+        $ readerExtensions defaultHakyllReaderOptions }
+    defaultHakyllWriterOptions
+    { writerHTMLMathMethod = MathJax ""
+    , writerSectionDivs = True
+    , writerExtensions = S.insert Ext_ignore_line_breaks
+        $ writerExtensions defaultHakyllWriterOptions
+    , writerHtml5 = True
+    }
 
 entryContext :: Context String
-entryContext = mconcat [ cleanUrlField
-                       , mconcat entryDate
-                       , teaserFieldByResource 195 "teaser" "content"
-                       , defaultContext]
-  where cleanUrlField = field "url" (fmap (maybe empty $ (replaceDate . cleanUrlString) . toUrl) .
-                                     getRoute . itemIdentifier)
+entryContext = mconcat
+    [ cleanUrlField
+    , mconcat entryDate
+    , teaserFieldByResource 195 "teaser" "content"
+    , defaultContext
+    ]
+  where cleanUrlField = field "url"
+            (fmap (maybe empty $ (replaceDate . cleanUrlString) . toUrl) . getRoute . itemIdentifier)
         entryDate = f <$> ["date", "published", "updated"]
           where f k = field k (pure . fromMaybe empty . mItemDate)
         mItemDate item = let l = splitOneOf "-" f
@@ -94,8 +98,8 @@ teaserFieldByResource l key snapshot = field key $ \item ->
     take l . escapeHtml . stripTags . itemBody <$> loadSnapshot (itemIdentifier item) snapshot
 
 addTitleSuffix :: Context a
-addTitleSuffix = field "title" (\item -> (<> " - ncaq") . fromJust <$>
-                                   getMetadataField (itemIdentifier item) "title")
+addTitleSuffix = field "title" (\item -> (<> " - ncaq") . fromJust
+                                   <$> getMetadataField (itemIdentifier item) "title")
 
 feedConfiguration :: FeedConfiguration
 feedConfiguration = FeedConfiguration
