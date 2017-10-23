@@ -14,7 +14,7 @@ import qualified Text.Regex          as R
 main :: IO ()
 main = hakyllWith conf $ do
     match "templates/*" $ compile templateCompiler
-    match ("*.ico" .||. "*.png" .||. "*.svg" .||. "*.txt") $ do
+    match ("*.ico" .||. "*.png" .||. "*.svg" .||. "*.txt" .||. "asset/*") $ do
         route idRoute
         compile copyFileCompiler
 
@@ -26,10 +26,6 @@ main = hakyllWith conf $ do
             loadAndApplyTemplate "templates/default.html" (addTitleSuffix <> entryContext) >>=
             cleanUrls >>=
             indentHtml
-
-    match "entry/*" $ do
-        route (gsubRoute "entry/" (const "") `composeRoutes` customDateRoute)
-        compile copyFileCompiler
 
     match "index.html" $ do
         route idRoute
