@@ -108,7 +108,7 @@ title: about
 * GNU/Linuxをメイン環境にしたので,Visual Studioが使えなくなったので,Emacs Lispを書きました[ncaq/.emacs.d: Emacsの設定ディレクトリ](https://github.com/ncaq/.emacs.d)
 * Emacs Lispを管理するためにgitやsshやzshを学習しました[ncaq/.zsh.d](https://github.com/ncaq/.zsh.d)
 * [すごいHaskellたのしく学ぼう!](https://estore.ohmsha.co.jp/titles/978427406885P)を読みふけりました
-* D言語で[glfw](http://www.glfw.org/)だけでFPSを作ろうとして[OpenGLプログラミングガイド](https://www.amazon.co.jp/dp/4894717239)を買ってカメラと弾発射機構を作って挫折しました[ncaq/dogd: FPS(開発中止)](https://github.com/ncaq/dogd)
+* D言語で[glfw](http://www.glfw.org/)だけでFPSを作ろうとして[OpenGLプログラミングガイド](http://amzn.to/2yZShev)を買ってカメラと弾発射機構を作って挫折しました[ncaq/dogd: FPS(開発中止)](https://github.com/ncaq/dogd)
 * [ncaq/auto-sudoedit: sudo tramp when rootfire](https://github.com/ncaq/auto-sudoedit)
 * [ncaq/recentf-remove-sudo-tramp-prefix: emacs extension](https://github.com/ncaq/recentf-remove-sudo-tramp-prefix)
 * [ncaq/symbolword-mode: word split overhaul](https://github.com/ncaq/symbolword-mode)
