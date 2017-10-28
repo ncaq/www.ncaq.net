@@ -1,6 +1,6 @@
 ---
 title: プライバシー ポリシー
-date: 2017-10-09
+date: 2017-10-28
 ---
 
 * 当サイトの運営者: エヌユル <ncaq@ncaq.net>
@@ -10,6 +10,7 @@ date: 2017-10-09
 * Googleの広告最適化を無効化するには[広告設定](https://adssettings.google.com/authenticated)か[Digital Advertising Alliance's Consumer Choice Tool for Web](http://optout.aboutads.info/#!/)を参照してください
 * Google アナリティクスを使用しています
 * Google アドセンスを使用しています
+* Amazon.co.jpアソシエイトを使用しています
 * [Zenback](https://zenback.jp/)による広告が自動挿入されています
 * [Disqus](https://disqus.com/)による広告が自動挿入されることがあります
 * 法令等への協力が必要な場合,IPアドレスなどのアクセス情報を第三者に譲渡することがあります
