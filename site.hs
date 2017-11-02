@@ -96,7 +96,7 @@ entryContext = mconcat
 
 teaserFieldByResource :: Int -> String -> Snapshot -> Context String
 teaserFieldByResource l key snapshot = field key $ \item ->
-    take l . escapeHtml . stripTags . itemBody <$> loadSnapshot (itemIdentifier item) snapshot
+    escapeHtml . take l . stripTags . itemBody <$> loadSnapshot (itemIdentifier item) snapshot
 
 addTitleSuffix :: Context a
 addTitleSuffix = field "title" (\item -> (<> " - ncaq") . fromJust
