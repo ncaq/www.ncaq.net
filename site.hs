@@ -78,6 +78,7 @@ entryContext = mconcat
     [ cleanUrlField
     , mconcat entryDate
     , teaserFieldByResource 195 "teaser" "content"
+    , titleWbr
     , defaultContext
     ]
   where cleanUrlField = field "url"
@@ -93,6 +94,9 @@ entryContext = mconcat
                          in if 3 <= length l then Just f else Nothing
           where f = toFilePath $ cleanIdentifier $ itemIdentifier item
                 cleanIdentifier = fromFilePath . dropExtension . takeFileName . toFilePath
+        titleWbr = field "title_wbr"
+            (\item -> (\mTitle -> R.subRegex (R.mkRegex ",") (fromJust mTitle) ",<wbr>") <$>
+                getMetadataField (itemIdentifier item) "title")
 
 teaserFieldByResource :: Int -> String -> Snapshot -> Context String
 teaserFieldByResource l key snapshot = field key $ \item ->
