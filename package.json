@@ -15,5 +15,6 @@
   "scripts": {
     "default.css": "cat default.scss node_modules/highlight.js/styles/solarized-dark.css|sass -I . --style compressed --stdin --scss",
     "default.js": "browserify default.ts -p [ tsify ]|uglifyjs --compress -"
-  }
+  },
+  "license": "MIT"
 }
