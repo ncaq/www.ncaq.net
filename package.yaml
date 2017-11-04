@@ -13,8 +13,7 @@ dependencies:
 - filepath
 - hakyll
 - pandoc
-- regex-compat
-- regex-posix
+- regex-compat-tdfa
 - split
 - text
 executables:
