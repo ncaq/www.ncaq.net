@@ -2,7 +2,6 @@
   "name": "www.ncaq.net",
   "dependencies": {
     "@types/browserify": "^12.0.30",
-    "@types/google.analytics": "0.0.28",
     "@types/highlight.js": "^9.1.8",
     "bootstrap": "^4.0.0-beta",
     "browserify": "^13.1.1",
@@ -10,12 +9,11 @@
     "highlight.js": "^9.7.0",
     "tsify": "^2.0.2",
     "tslint": "^3.15.1",
-    "typescript": "^2.0.3",
-    "uglify-js": "^2.7.4"
+    "typescript": "^2.0.3"
   },
   "scripts": {
     "default.css": "cat default.scss node_modules/highlight.js/styles/solarized-dark.css|dart-sass --stdin",
-    "default.js": "browserify default.ts -p [ tsify ]|uglifyjs --compress -"
+    "default.js": "browserify default.ts -p [ tsify ]"
   },
   "license": "MIT"
 }
