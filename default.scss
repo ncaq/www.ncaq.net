@@ -85,6 +85,10 @@ $code-bg: $base02;
     border-width: thin;
 }
 
+body {
+    overflow-wrap: break-word;
+}
+
 a:visited {
     color: $violet;
 }
