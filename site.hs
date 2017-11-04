@@ -42,11 +42,11 @@ main = hakyllWith conf $ do
 
     match "default.scss" $ do
         route $ setExtension "css"
-        compile $ unixFilter "npm" ["run", "-s", "default.css"] "" >>= makeItem
+        compile $ unixFilter "yarn" ["run", "-s", "default.css"] "" >>= makeItem
 
     match "default.ts" $ do
         route $ setExtension "js"
-        compile $ unixFilter "npm" ["run", "-s", "default.js"] "" >>= makeItem
+        compile $ unixFilter "yarn" ["run", "-s", "default.js"] "" >>= makeItem
 
     create ["feed.atom"] $ do
         route idRoute
