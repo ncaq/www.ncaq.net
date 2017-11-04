@@ -144,7 +144,8 @@ blockquote {
 figure {
     @extend .figure;
     img {
-        @extend .figure-img, .img-fluid;
+        @extend .figure-img;
+        @extend .img-fluid;
     }
 }
 
@@ -153,5 +154,6 @@ figcaption {
 }
 
 table {
-    @extend .table, .table-bordered;
+    @extend .table;
+    @extend .table-bordered;
 }
