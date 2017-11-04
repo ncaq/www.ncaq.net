@@ -6,7 +6,7 @@ category: Web
 author: ncaq
 maintainer: ncaq@ncaq.net
 copyright: © ncaq
-license: GPL-3
+license: MIT
 dependencies:
 - base
 - containers
