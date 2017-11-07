@@ -91,7 +91,9 @@ entryContext = mconcat
                                               Just meta -> return meta
                                   )
         mItemDate item = case splitOneOf "-" f of
-            year : month : day : _ -> Just $ concat [year, "-", month, "-", day]
+            [year, month, day, hour, minute, second] ->
+                Just $ concat [year, "-", month, "-", day, "T", hour, ":", minute, ":", second]
+            [year, month, day] -> Just $ concat [year, "-", month, "-", day]
             _ -> Nothing
           where f = toFilePath $ cleanIdentifier $ itemIdentifier item
                 cleanIdentifier = fromFilePath . dropExtension . takeFileName . toFilePath
