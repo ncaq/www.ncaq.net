@@ -90,8 +90,9 @@ entryContext = mconcat
                                               Nothing -> return $ fromMaybe empty $ mItemDate item
                                               Just meta -> return meta
                                   )
-        mItemDate item = let l = splitOneOf "-" f
-                         in if 3 <= length l then Just f else Nothing
+        mItemDate item = case splitOneOf "-" f of
+            year : month : day : _ -> Just $ concat [year, "-", month, "-", day]
+            _ -> Nothing
           where f = toFilePath $ cleanIdentifier $ itemIdentifier item
                 cleanIdentifier = fromFilePath . dropExtension . takeFileName . toFilePath
         titleWbr = field "title_wbr"
