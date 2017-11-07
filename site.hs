@@ -123,7 +123,7 @@ customDateRoute :: Routes
 customDateRoute = customRoute (replaceDate . toFilePath)
 
 replaceDate :: String -> String
-replaceDate input = R.subRegex (R.mkRegex "^([0-9]+)-([0-9]+)-([0-9]+).") input "\\1/\\2/\\3/"
+replaceDate input = R.subRegex (R.mkRegex "-") input "/"
 
 cleanUrls :: Item String -> Compiler (Item String)
 cleanUrls = return . fmap (withUrls cleanUrlString)
