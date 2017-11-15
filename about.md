@@ -129,7 +129,7 @@ title: about
 ## 2015年
 
 * 応用情報技術者合格
-* [ncaq/to-safe-name: replace depend os file character name.](https://github.com/ncaq/to-safe-name)
+* [ncaq/to-safe-name: replace windows and android special char](https://github.com/ncaq/to-safe-name)
 * [ncaq/run-or-raise: focus or exec command script for generic window manager](https://github.com/ncaq/run-or-raise)
 * [ncaq/uniq-deep: alternative of unix uniq command. 'uniq-deep' detect repeated lines unless they are adjacent.](https://github.com/ncaq/uniq-deep)
 * [ncaq/nlod: mozcまたはgoogle日本語入力用のdvorak向けローマ字テーブル.jlodを改良.](https://github.com/ncaq/nlod)
@@ -142,26 +142,26 @@ title: about
 
 ## 2016年
 
-* Yesodによるゲーム販売webアプリケーション開発
-* 分散情報システムでmaudeを学習[ncaq/sub-maude: maude language subset](https://github.com/ncaq/sub-maude)
-* [ncaq/unown-expl: pokemon exp programming language](https://github.com/ncaq/unown-expl)
+* ゲーム販売webアプリケーション[SYAKERAKE](https://www.syakerake.jp/)の開発を本格的に開始しました,HaskellとYesodを使って初期はフルスタックに全部担当しました
+* 分散情報システムで[Maude](http://maude.cs.illinois.edu/w/index.php?title=The_Maude_System)を学習[ncaq/sub-maude: Maude language subset](https://github.com/ncaq/sub-maude)
+* [ncaq/unown-expl: Pokemon exp programming language](https://github.com/ncaq/unown-expl)
 * 情報セキュリティスペシャリスト合格
 * ネットワークスペシャリスト合格
-* このサイトをhakyllで作成[ncaq/www.ncaq.net: ncaq website](https://github.com/ncaq/www.ncaq.net)
+* このサイトをHakyllで作成[ncaq/www.ncaq.net: ncaq website](https://github.com/ncaq/www.ncaq.net)
 * [ncaq/mikutter_sub_parts_image_flex: mikutterで画像をシンプルにインライン表示するプラグイン](https://github.com/ncaq/mikutter_sub_parts_image_flex)
 * [ncaq/mikutter_header_client: viaをheaderに表示します](https://github.com/ncaq/mikutter_header_client)
-* テキスト処理で適当なプログラミング言語を実装[ncaq/prohell: prolog like programming language](https://github.com/ncaq/prohell)
+* テキスト処理で適当なプログラミング言語を実装[ncaq/prohell: Prolog like programming language](https://github.com/ncaq/prohell)
 
 ## 2017年
 
 * 専修大学ネットワーク情報学部学部長賞受賞
 * 就職活動で精神を病んだ結果,様々な騒動を引き起こして迷惑をかけました
-* [ncaq/dic-nico-intersection-pixiv: ニコニコ大百科とピクシブ百科事典の積集合の辞書](https://github.com/ncaq/dic-nico-intersection-pixiv)
+* [ncaq/dic-nico-intersection-pixiv: ニコニコ大百科とピクシブ百科事典の共通部分の辞書](https://github.com/ncaq/dic-nico-intersection-pixiv)
 * [ncaq/try-pandoc-with-file: try pandoc! with file](https://github.com/ncaq/try-pandoc-with-file)
 * [ncaq/yesod-recaptcha2: recaptcha2 for yesod](https://github.com/ncaq/yesod-recaptcha2)
 * [ncaq/yesod-form-bootstrap4: yesod-form for bootstrap version 4](https://github.com/ncaq/yesod-form-bootstrap4)
 * [ncaq/string-transform: simple and easy haskell string transform](https://github.com/ncaq/string-transform)
-* Haskellによるコマンドラインツールを作成
+* HaskellとPythonでSlackにGitの差分を投稿するコマンドラインツールslitを作成しました
 
 # 精神障害
 
