@@ -1,5 +1,6 @@
 ---
 title: about
+date: 2017-11-17
 ---
 
 # 名前
@@ -162,6 +163,7 @@ title: about
 * [ncaq/yesod-form-bootstrap4: yesod-form for bootstrap version 4](https://github.com/ncaq/yesod-form-bootstrap4)
 * [ncaq/string-transform: simple and easy haskell string transform](https://github.com/ncaq/string-transform)
 * HaskellとPythonでSlackにGitの差分を投稿するコマンドラインツールslitを作成しました
+* 障害年金2級16号に認定されました[障害年金の給付が行われることになりました日本生きろ - ncaq](https://www.ncaq.net/2017/11/16/21/06/59/)
 
 # 精神障害
 
