@@ -32,6 +32,7 @@ main = hakyllWith conf $ do
         let indexContext = listField "entry" entryContext (reverse <$> loadAll "entry/*.md") <>
                 constField "title" "ncaq" <>
                 constField "date" "" <>
+                constField "type" "website" <>
                 constField "teaser" "index" <>
                 defaultContext
         compile $ getResourceBody >>=
@@ -79,6 +80,7 @@ entryContext :: Context String
 entryContext = mconcat
     [ cleanUrlField
     , mconcat entryDate
+    , constField "type" "article"
     , teaserFieldByResource 195 "teaser" "content"
     , titleWbr
     , defaultContext
