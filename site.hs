@@ -58,7 +58,9 @@ main = hakyllWith conf $ do
                 indentXml
 
 conf :: Configuration
-conf = def { deployCommand = "rsync -vcazh --chmod=D755,F644 --delete --progress _site/ ncaq@ncaq.net:/var/www/www.ncaq.net" }
+conf = def
+    { deployCommand = "rsync --verbose --checksum --archive --chmod=D755,F644 --delete --compress --human-readable --progress _site/ ncaq@ncaq.net:/var/www/www.ncaq.net"
+    }
 
 pandocCompilerCustom :: Compiler (Item String)
 pandocCompilerCustom = pandocCompilerWith
