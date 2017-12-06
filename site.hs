@@ -109,7 +109,11 @@ entryContext = mconcat
 
 teaserFieldByResource :: Int -> String -> Snapshot -> Context String
 teaserFieldByResource l key snapshot = field key $ \item ->
-    escapeHtml . take l . stripTags . itemBody <$> loadSnapshot (itemIdentifier item) snapshot
+    dropWarningHtmlEntity . take l . stripTags . itemBody <$>
+    loadSnapshot (itemIdentifier item) snapshot
+
+dropWarningHtmlEntity :: String -> String
+dropWarningHtmlEntity entity = R.subRegex (R.mkRegex "&[^&;]*$") entity ""
 
 addTitleSuffix :: Context a
 addTitleSuffix = field "title" $ \item ->
