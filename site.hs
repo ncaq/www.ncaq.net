@@ -112,8 +112,8 @@ teaserFieldByResource l key snapshot = field key $ \item ->
     escapeHtml . take l . stripTags . itemBody <$> loadSnapshot (itemIdentifier item) snapshot
 
 addTitleSuffix :: Context a
-addTitleSuffix = field "title" (\item -> (<> " - ncaq") . fromJust
-                                   <$> getMetadataField (itemIdentifier item) "title")
+addTitleSuffix = field "title" $ \item ->
+    (<> " - ncaq") . fromJust <$> getMetadataField (itemIdentifier item) "title"
 
 feedConfiguration :: FeedConfiguration
 feedConfiguration = FeedConfiguration
