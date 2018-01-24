@@ -83,11 +83,17 @@ entryContext = mconcat
     [ cleanUrlField
     , mconcat entryDate
     , constField "type" "article"
-    , teaserFieldByResource 195 "teaser" "content"
+    , titleEscape
     , titleWbr
+    , teaserFieldByResource 195 "teaser" "content"
     , defaultContext
     ]
-  where cleanUrlField = field "url"
+  where titleEscape = field "title"
+            (\item -> escapeHtml . fromJust <$> getMetadataField (itemIdentifier item) "title")
+        titleWbr = field "title_wbr"
+            (\item -> (\mTitle -> R.subRegex (R.mkRegex ",") (fromJust mTitle) ",<wbr>") <$>
+                getMetadataField (itemIdentifier item) "title")
+        cleanUrlField = field "url"
             (fmap (maybe empty $ (replaceDate . cleanUrlString) . toUrl) . getRoute . itemIdentifier)
         entryDate = f <$> ["date", "published", "updated"]
           where f key = field key (\item -> do
@@ -103,9 +109,6 @@ entryContext = mconcat
             _ -> Nothing
           where f = toFilePath $ cleanIdentifier $ itemIdentifier item
                 cleanIdentifier = fromFilePath . dropExtension . takeFileName . toFilePath
-        titleWbr = field "title_wbr"
-            (\item -> (\mTitle -> R.subRegex (R.mkRegex ",") (fromJust mTitle) ",<wbr>") <$>
-                getMetadataField (itemIdentifier item) "title")
 
 teaserFieldByResource :: Int -> String -> Snapshot -> Context String
 teaserFieldByResource l key snapshot = field key $ \item ->
