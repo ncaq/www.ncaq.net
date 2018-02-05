@@ -1,15 +1,15 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE PackageImports    #-}
 
 import           Control.Applicative
-import           Data.List           (isSuffixOf)
+import           Data.List                      (isSuffixOf)
 import           Data.List.Split
 import           Data.Maybe
 import           Data.Monoid
-import qualified Data.Set            as S
 import           Hakyll
 import           System.FilePath
 import           Text.Pandoc
-import qualified Text.Regex          as R
+import qualified "regex-compat-tdfa" Text.Regex as R
 
 main :: IO ()
 main = hakyllWith conf $ do
@@ -64,19 +64,19 @@ conf = def
     }
 
 pandocCompilerCustom :: Compiler (Item String)
-pandocCompilerCustom = pandocCompilerWith
-    defaultHakyllReaderOptions
-    { readerExtensions = S.insert Ext_ignore_line_breaks $
-        readerExtensions defaultHakyllReaderOptions
-    , readerSmart = False
-    }
-    defaultHakyllWriterOptions
-    { writerHTMLMathMethod = MathJax ""
-    , writerSectionDivs = True
-    , writerExtensions = S.insert Ext_ignore_line_breaks $
-        writerExtensions defaultHakyllWriterOptions
-    , writerHtml5 = True
-    }
+pandocCompilerCustom = let extensions =
+                               disableExtension Ext_smart $
+                               enableExtension Ext_ignore_line_breaks $
+                               readerExtensions defaultHakyllReaderOptions
+                       in pandocCompilerWith
+                          defaultHakyllReaderOptions
+                          { readerExtensions = extensions
+                          }
+                          defaultHakyllWriterOptions
+                          { writerHTMLMathMethod = MathJax ""
+                          , writerSectionDivs = True
+                          , writerExtensions = extensions
+                          }
 
 entryContext :: Context String
 entryContext = mconcat
