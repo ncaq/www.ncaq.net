@@ -9,7 +9,6 @@ copyright: © ncaq
 license: MIT
 dependencies:
 - base
-- containers
 - filepath
 - hakyll
 - pandoc
