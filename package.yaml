@@ -18,4 +18,10 @@ dependencies:
 executables:
   www-ncaq-net:
     main: site.hs
-    ghc-options: -threaded
+    ghc-options:
+    - -Wall
+    - -fwarn-tabs
+    - -threaded
+    - -O2
+    - -rtsopts
+    - -with-rtsopts=-N
