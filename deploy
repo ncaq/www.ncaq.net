@@ -1,2 +1,7 @@
 #!/usr/bin/env zsh
-stack build && stack exec -- www-ncaq-net build && stack exec -- www-ncaq-net deploy
+
+set -eux
+
+stack build
+stack exec -- www-ncaq-net build
+stack exec -- www-ncaq-net deploy
