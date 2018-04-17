@@ -1,6 +1,6 @@
 ---
 title: about
-date: 2018-03-28
+date: 2018-04-18
 ---
 
 # 名前
@@ -233,4 +233,6 @@ mozcの電卓機能, ghci, maximaなどを使っています.
 ## 2018年
 
 * ElectronとReactを使ったデスクトップアプリ作成に取り組む
-* 専修大学卒業
+* 専修大学ネットワーク情報学部卒業(認定プログラム: ネットワークシステム)
+* [Syake株式会社](https://syake.co.jp/)継続
+* [UNIPRO Inc.](https://unipro.co.jp/)入社
