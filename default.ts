@@ -1,6 +1,2 @@
-try {
-    const hljs = require("highlight.js");
-    hljs.initHighlighting();
-} catch (e) {
-    console.error(e);
-}
+import * as hljs from "highlight.js";
+hljs.initHighlighting();
