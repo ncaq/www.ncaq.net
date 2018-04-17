@@ -2,26 +2,9 @@
 # yarn lockfile v1
 
 
-"@types/browserify@^12.0.30":
-  version "12.0.33"
-  resolved "https://registry.yarnpkg.com/@types/browserify/-/browserify-12.0.33.tgz#e61971c0f985bf1f7709048326493f10b0dd78bd"
-  dependencies:
-    "@types/insert-module-globals" "*"
-    "@types/node" "*"
-
 "@types/highlight.js@^9.1.8":
   version "9.12.2"
   resolved "https://registry.yarnpkg.com/@types/highlight.js/-/highlight.js-9.12.2.tgz#6ee7cd395effe5ec80b515d3ff1699068cd0cd1d"
-
-"@types/insert-module-globals@*":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@types/insert-module-globals/-/insert-module-globals-7.0.0.tgz#8d158de4a6384e8daa13b3d63eebab6d5f67777d"
-  dependencies:
-    "@types/node" "*"
-
-"@types/node@*":
-  version "8.0.47"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.47.tgz#968e596f91acd59069054558a00708c445ca30c2"
 
 JSONStream@^1.0.3:
   version "1.3.1"

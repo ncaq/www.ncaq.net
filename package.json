@@ -1,7 +1,6 @@
 {
   "name": "www.ncaq.net",
   "dependencies": {
-    "@types/browserify": "^12.0.30",
     "@types/highlight.js": "^9.1.8",
     "bootstrap": "^4.1.0",
     "browserify": "^16.2.0",
