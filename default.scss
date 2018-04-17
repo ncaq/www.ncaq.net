@@ -131,17 +131,6 @@ footer {
     line-height: 3em;
 }
 
-.gsc-control-cse {
-    @include highlight;
-    border: 0;
-    padding: 0;
-}
-
-input.gsc-search-button, .gsc-selected-option-container {
-    @include highlight;
-    color: $base1 !important;
-}
-
 pre {
     @extend .rounded;
     @include border-minimum;
@@ -166,7 +155,7 @@ figcaption {
     @extend .figure-caption;
 }
 
-table {
+main table {
     @extend .table;
     @extend .table-bordered;
 }
