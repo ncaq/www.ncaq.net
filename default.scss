@@ -114,6 +114,19 @@ h1 {
     }
 }
 
+.social {
+    @extend .d-flex;
+    @extend .flex-wrap;
+}
+
+.social > * {
+    @extend .mr-1;
+}
+
+.fb-like span {
+    @extend .align-top;
+}
+
 footer {
     line-height: 3em;
 }
