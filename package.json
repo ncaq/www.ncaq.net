@@ -11,7 +11,8 @@
     "typescript": "^2.8.1"
   },
   "scripts": {
-    "default.css": "cat default.scss node_modules/highlight.js/styles/solarized-dark.css|dart-sass --stdin",
+    "default.css":
+      "cat default.scss node_modules/highlight.js/styles/solarized-dark.css|dart-sass --stdin",
     "default.js": "browserify default.ts -p [ tsify ]"
   },
   "license": "MIT"
