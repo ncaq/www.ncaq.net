@@ -66,6 +66,7 @@ pandocCompilerCustom
   = let extensions =
           disableExtension Ext_smart $
           enableExtension Ext_ignore_line_breaks $
+          enableExtension Ext_auto_identifiers $
           readerExtensions defaultHakyllReaderOptions
         transform (CodeBlock (_identifier, classes, _keyValue) str)
           = let fileExtension = takeExtension (unwords classes)
