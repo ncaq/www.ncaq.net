@@ -4,22 +4,22 @@ Copyright (c) 2011 Ethan Schoonover
 http://ethanschoonover.com/solarized
 */
 
-$base03:    #002b36;
-$base02:    #073642;
-$base01:    #586e75;
-$base00:    #657b83;
-$base0:     #839496;
-$base1:     #93a1a1;
-$base2:     #eee8d5;
-$base3:     #fdf6e3;
-$yellow:    #b58900;
-$orange:    #cb4b16;
-$red:       #dc322f;
-$magenta:   #d33682;
-$violet:    #6c71c4;
-$blue:      #268bd2;
-$cyan:      #2aa198;
-$green:     #859900;
+$base03: #002b36;
+$base02: #073642;
+$base01: #586e75;
+$base00: #657b83;
+$base0: #839496;
+$base1: #93a1a1;
+$base2: #eee8d5;
+$base3: #fdf6e3;
+$yellow: #b58900;
+$orange: #cb4b16;
+$red: #dc322f;
+$magenta: #d33682;
+$violet: #6c71c4;
+$blue: #268bd2;
+$cyan: #2aa198;
+$green: #859900;
 
 $gray-100: $base3;
 $gray-200: $base2;
@@ -31,24 +31,24 @@ $gray-700: $base01;
 $gray-800: $base02;
 $gray-900: $base03;
 
-$blue:    $blue;
-$purple:  $violet;
-$red:     $red;
-$orange:  $orange;
-$yellow:  $yellow;
-$green:   $green;
-$cyan:    $cyan;
+$blue: $blue;
+$purple: $violet;
+$red: $red;
+$orange: $orange;
+$yellow: $yellow;
+$green: $green;
+$cyan: $cyan;
 
-$body-bg:    $base03;
+$body-bg: $base03;
 $body-color: $base0;
 
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, Meiryo, sans-serif;
 
-$navbar-dark-color:          $base3;
-$navbar-dark-hover-color:    rgba($base3, 0.75);
-$navbar-dark-active-color:   rgba($base3, 1);
+$navbar-dark-color: $base3;
+$navbar-dark-hover-color: rgba($base3, 0.75);
+$navbar-dark-active-color: rgba($base3, 1);
 $navbar-dark-disabled-color: rgba($base3, 0.25);
-$navbar-dark-toggler-bg:     $base00;
+$navbar-dark-toggler-bg: $base00;
 $navbar-dark-toggler-border: $base0;
 
 $card-cap-bg: $base02;
@@ -69,93 +69,363 @@ $code-bg: $base02;
 @import "node_modules/bootstrap/scss/bootstrap";
 
 @mixin primary {
-    background-color: $base03;
-    border-color: $base00;
-    color: $base0;
+  background-color: $base03;
+  border-color: $base00;
+  color: $base0;
 }
 
 @mixin highlight {
-    background-color: $base02;
-    border-color: $base0;
-    color: $base1;
+  background-color: $base02;
+  border-color: $base0;
+  color: $base1;
 }
 
 @mixin border-minimum {
-    border-style: solid;
-    border-width: thin;
+  border-style: solid;
+  border-width: thin;
 }
 
 body {
-    overflow-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 a:visited {
-    color: $violet;
+  color: $violet;
 }
 
-header, footer, h1, h2, h3, h4, h5, h6 {
-    @include highlight;
+header,
+footer,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include highlight;
 }
 
 h1 {
-    border-style: solid;
-    border-width: 0 0 thin 0;
+  border-style: solid;
+  border-width: 0 0 thin 0;
 }
 
 @include media-breakpoint-up(md) {
-    header nav {
-        font-size: 200%;
-    }
+  header nav {
+    font-size: 200%;
+  }
 }
 
-.nav, .list-group-item {
-    img {
-        height: 1em;
-    }
+.nav,
+.list-group-item {
+  img {
+    height: 1em;
+  }
 }
 
 .social {
-    @extend .d-flex;
-    @extend .flex-wrap;
+  @extend .d-flex;
+  @extend .flex-wrap;
 }
 
 .social > * {
-    @extend .mr-1;
+  @extend .mr-1;
 }
 
 .fb-like span {
-    @extend .align-top;
+  @extend .align-top;
 }
 
 footer {
-    line-height: 3em;
+  line-height: 3em;
 }
 
 pre {
-    @extend .rounded;
-    @include border-minimum;
-    @include highlight;
+  @extend .rounded;
+  @include border-minimum;
+  @include highlight;
 }
 
 blockquote {
-    @extend .blockquote;
-    border-left: medium solid;
-    padding-left: 1rem;
+  @extend .blockquote;
+  border-left: medium solid;
+  padding-left: 1rem;
 }
 
 figure {
-    @extend .figure;
-    img {
-        @extend .figure-img;
-        @extend .img-fluid;
-    }
+  @extend .figure;
+  img {
+    @extend .figure-img;
+    @extend .img-fluid;
+  }
 }
 
 figcaption {
-    @extend .figure-caption;
+  @extend .figure-caption;
 }
 
 main table {
-    @extend .table;
-    @extend .table-bordered;
+  @extend .table;
+  @extend .table-bordered;
+}
+
+/*
+  this code generate by https://github.com/gthank/solarized-dark-pygments.
+  solarized-dark-pygments is MIT License.
+  Below is the copylight.
+
+Copyright (c) 2011 Hank Gay
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
+
+.highlight {
+  .hll {
+    background-color: #ffffcc;
+  }
+  .c {
+    color: #586e75;
+  } /* Comment */
+  .err {
+    color: #93a1a1;
+  } /* Error */
+  .esc {
+    color: #93a1a1;
+  } /* Escape */
+  .g {
+    color: #93a1a1;
+  } /* Generic */
+  .k {
+    color: #859900;
+  } /* Keyword */
+  .l {
+    color: #93a1a1;
+  } /* Literal */
+  .n {
+    color: #93a1a1;
+  } /* Name */
+  .o {
+    color: #859900;
+  } /* Operator */
+  .x {
+    color: #cb4b16;
+  } /* Other */
+  .p {
+    color: #93a1a1;
+  } /* Punctuation */
+  .ch {
+    color: #586e75;
+  } /* Comment.Hashbang */
+  .cm {
+    color: #586e75;
+  } /* Comment.Multiline */
+  .cp {
+    color: #859900;
+  } /* Comment.Preproc */
+  .cpf {
+    color: #586e75;
+  } /* Comment.PreprocFile */
+  .c1 {
+    color: #586e75;
+  } /* Comment.Single */
+  .cs {
+    color: #859900;
+  } /* Comment.Special */
+  .gd {
+    color: #2aa198;
+  } /* Generic.Deleted */
+  .ge {
+    color: #93a1a1;
+    font-style: italic;
+  } /* Generic.Emph */
+  .gr {
+    color: #dc322f;
+  } /* Generic.Error */
+  .gh {
+    color: #cb4b16;
+  } /* Generic.Heading */
+  .gi {
+    color: #859900;
+  } /* Generic.Inserted */
+  .go {
+    color: #93a1a1;
+  } /* Generic.Output */
+  .gp {
+    color: #93a1a1;
+  } /* Generic.Prompt */
+  .gs {
+    color: #93a1a1;
+    font-weight: bold;
+  } /* Generic.Strong */
+  .gu {
+    color: #cb4b16;
+  } /* Generic.Subheading */
+  .gt {
+    color: #93a1a1;
+  } /* Generic.Traceback */
+  .kc {
+    color: #cb4b16;
+  } /* Keyword.Constant */
+  .kd {
+    color: #268bd2;
+  } /* Keyword.Declaration */
+  .kn {
+    color: #859900;
+  } /* Keyword.Namespace */
+  .kp {
+    color: #859900;
+  } /* Keyword.Pseudo */
+  .kr {
+    color: #268bd2;
+  } /* Keyword.Reserved */
+  .kt {
+    color: #dc322f;
+  } /* Keyword.Type */
+  .ld {
+    color: #93a1a1;
+  } /* Literal.Date */
+  .m {
+    color: #2aa198;
+  } /* Literal.Number */
+  .s {
+    color: #2aa198;
+  } /* Literal.String */
+  .na {
+    color: #93a1a1;
+  } /* Name.Attribute */
+  .nb {
+    color: #b58900;
+  } /* Name.Builtin */
+  .nc {
+    color: #268bd2;
+  } /* Name.Class */
+  .no {
+    color: #cb4b16;
+  } /* Name.Constant */
+  .nd {
+    color: #268bd2;
+  } /* Name.Decorator */
+  .ni {
+    color: #cb4b16;
+  } /* Name.Entity */
+  .ne {
+    color: #cb4b16;
+  } /* Name.Exception */
+  .nf {
+    color: #268bd2;
+  } /* Name.Function */
+  .nl {
+    color: #93a1a1;
+  } /* Name.Label */
+  .nn {
+    color: #93a1a1;
+  } /* Name.Namespace */
+  .nx {
+    color: #93a1a1;
+  } /* Name.Other */
+  .py {
+    color: #93a1a1;
+  } /* Name.Property */
+  .nt {
+    color: #268bd2;
+  } /* Name.Tag */
+  .nv {
+    color: #268bd2;
+  } /* Name.Variable */
+  .ow {
+    color: #859900;
+  } /* Operator.Word */
+  .w {
+    color: #93a1a1;
+  } /* Text.Whitespace */
+  .mb {
+    color: #2aa198;
+  } /* Literal.Number.Bin */
+  .mf {
+    color: #2aa198;
+  } /* Literal.Number.Float */
+  .mh {
+    color: #2aa198;
+  } /* Literal.Number.Hex */
+  .mi {
+    color: #2aa198;
+  } /* Literal.Number.Integer */
+  .mo {
+    color: #2aa198;
+  } /* Literal.Number.Oct */
+  .sa {
+    color: #2aa198;
+  } /* Literal.String.Affix */
+  .sb {
+    color: #586e75;
+  } /* Literal.String.Backtick */
+  .sc {
+    color: #2aa198;
+  } /* Literal.String.Char */
+  .dl {
+    color: #2aa198;
+  } /* Literal.String.Delimiter */
+  .sd {
+    color: #93a1a1;
+  } /* Literal.String.Doc */
+  .s2 {
+    color: #2aa198;
+  } /* Literal.String.Double */
+  .se {
+    color: #cb4b16;
+  } /* Literal.String.Escape */
+  .sh {
+    color: #93a1a1;
+  } /* Literal.String.Heredoc */
+  .si {
+    color: #2aa198;
+  } /* Literal.String.Interpol */
+  .sx {
+    color: #2aa198;
+  } /* Literal.String.Other */
+  .sr {
+    color: #dc322f;
+  } /* Literal.String.Regex */
+  .s1 {
+    color: #2aa198;
+  } /* Literal.String.Single */
+  .ss {
+    color: #2aa198;
+  } /* Literal.String.Symbol */
+  .bp {
+    color: #268bd2;
+  } /* Name.Builtin.Pseudo */
+  .fm {
+    color: #268bd2;
+  } /* Name.Function.Magic */
+  .vc {
+    color: #268bd2;
+  } /* Name.Variable.Class */
+  .vg {
+    color: #268bd2;
+  } /* Name.Variable.Global */
+  .vi {
+    color: #268bd2;
+  } /* Name.Variable.Instance */
+  .vm {
+    color: #268bd2;
+  } /* Name.Variable.Magic */
+  .il {
+    color: #2aa198;
+  } /* Literal.Number.Integer.Long */
 }
