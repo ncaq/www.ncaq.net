@@ -45,10 +45,6 @@ main = hakyllWith conf $ do
     route $ setExtension "css"
     compile $ unixFilter "yarn" ["run", "-s", "default.css"] "" >>= makeItem
 
-  match "default.ts" $ do
-    route $ setExtension "js"
-    compile $ unixFilter "yarn" ["run", "-s", "default.js"] "" >>= makeItem
-
   create ["feed.atom"] $ do
     route idRoute
     compile $ do
@@ -66,19 +62,31 @@ conf = def
   }
 
 pandocCompilerCustom :: Compiler (Item String)
-pandocCompilerCustom = let extensions =
-                             disableExtension Ext_smart $
-                             enableExtension Ext_ignore_line_breaks $
-                             readerExtensions defaultHakyllReaderOptions
-                       in pandocCompilerWith
-                          defaultHakyllReaderOptions
-                          { readerExtensions = extensions
-                          }
-                          defaultHakyllWriterOptions
-                          { writerHTMLMathMethod = MathJax ""
-                          , writerSectionDivs = True
-                          , writerExtensions = extensions
-                          }
+pandocCompilerCustom
+  = let extensions =
+          disableExtension Ext_smart $
+          enableExtension Ext_ignore_line_breaks $
+          readerExtensions defaultHakyllReaderOptions
+        transform (CodeBlock (_identifier, classes, _keyValue) str)
+          = let fileExtension = takeExtension (unwords classes)
+                fileKind = if null fileExtension then unwords classes else tail fileExtension
+            in RawBlock (Format "html") <$>
+               unixFilter "pygmentize"
+               (["-f", "html"] <>
+               if null fileKind then [] else ["-l", fileKind])
+               str
+        transform x = return x
+    in pandocCompilerWithTransformM
+       defaultHakyllReaderOptions
+       { readerExtensions = extensions
+       }
+       defaultHakyllWriterOptions
+       { writerHTMLMathMethod = MathJax ""
+       , writerSectionDivs = True
+       , writerExtensions = extensions
+       , writerHighlightStyle = Nothing
+       }
+       (bottomUpM transform)
 
 entryContext :: Context String
 entryContext = mconcat

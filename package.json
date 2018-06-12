@@ -1,19 +1,11 @@
 {
   "name": "www.ncaq.net",
   "dependencies": {
-    "@types/highlight.js": "^9.1.8",
     "bootstrap": "^4.1.0",
-    "browserify": "^16.2.0",
-    "dart-sass": "^1.2.0",
-    "highlight.js": "^9.7.0",
-    "tsify": "^4.0.0",
-    "tslint": "^5.9.1",
-    "typescript": "^2.8.1"
+    "dart-sass": "^1.2.0"
   },
   "scripts": {
-    "default.css":
-      "cat default.scss node_modules/highlight.js/styles/solarized-dark.css|dart-sass --stdin",
-    "default.js": "browserify default.ts -p [ tsify ]"
+    "default.css": "dart-sass default.scss"
   },
   "license": "MIT"
 }
