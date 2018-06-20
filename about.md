@@ -1,6 +1,6 @@
 ---
 title: about
-date: 2018-04-18
+date: 2018-06-20
 ---
 
 # 名前
@@ -213,7 +213,7 @@ mozcの電卓機能, ghci, maximaなどを使っています.
 * 分散情報システムで[Maude](http://maude.cs.illinois.edu/w/index.php?title=The_Maude_System)を学習[ncaq/sub-maude: Maude language subset](https://github.com/ncaq/sub-maude)
 * [ncaq/unown-expl: Pokemon exp programming language](https://github.com/ncaq/unown-expl)
 * 情報セキュリティスペシャリスト合格
-* ネットワークスペシャリスト合格
+* ネットワークスペシャリスト合格[ネットワークスペシャリスト試験に合格したので学習方法などを書いておきます - ncaq](https://www.ncaq.net/2016/12/31/)
 * このサイトをHakyllで作成[ncaq/www.ncaq.net: ncaq website](https://github.com/ncaq/www.ncaq.net)
 * [ncaq/mikutter_sub_parts_image_flex: mikutterで画像をシンプルにインライン表示するプラグイン](https://github.com/ncaq/mikutter_sub_parts_image_flex)
 * [ncaq/mikutter_header_client: viaをheaderに表示します](https://github.com/ncaq/mikutter_header_client)
@@ -229,7 +229,7 @@ mozcの電卓機能, ghci, maximaなどを使っています.
 * [ncaq/yesod-form-bootstrap4: yesod-form for bootstrap version 4](https://github.com/ncaq/yesod-form-bootstrap4)
 * [ncaq/string-transform: simple and easy haskell string transform](https://github.com/ncaq/string-transform)
 * HaskellとPythonでSlackにGitの差分を投稿するコマンドラインツールslitを作成しました
-* 障害年金2級16号に認定されました[障害年金の給付が行われることになりました日本生きろ - ncaq](https://www.ncaq.net/2017/11/16/21/06/59/)
+* 障害年金2級16号合格[障害年金の給付が行われることになりました日本生きろ - ncaq](https://www.ncaq.net/2017/11/16/21/06/59/)
 
 ## 2018年
 
@@ -237,4 +237,4 @@ mozcの電卓機能, ghci, maximaなどを使っています.
 * 専修大学ネットワーク情報学部卒業(認定プログラム: ネットワークシステム)
 * [Syake株式会社](https://syake.co.jp/)継続
 * [UNIPRO Inc.](https://unipro.co.jp/)入社
-* データベーススペシャリスト合格
+* データベーススペシャリスト合格[データベーススペシャリスト試験に2回目の挑戦で合格しました - ncaq](https://www.ncaq.net/2018/06/20/15/19/54/)
