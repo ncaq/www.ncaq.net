@@ -144,6 +144,10 @@ pre {
   @include border-minimum;
 }
 
+code {
+  background: $base02;
+}
+
 blockquote {
   @extend .blockquote;
   border-left: medium solid;
