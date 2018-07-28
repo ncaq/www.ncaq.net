@@ -32,8 +32,9 @@ main = hakyllWith conf $ do
     let indexContext = listField "entry" entryContext (reverse <$> loadAll "entry/*.md") <>
           constField "title" "ncaq" <>
           constField "date" "" <>
+          constField "updated" "" <>
           constField "type" "website" <>
-          constField "teaser" "index" <>
+          constField "og-description" "ncaq website index" <>
           defaultContext
     compile $ getResourceBody >>=
       applyAsTemplate indexContext >>=
@@ -96,7 +97,8 @@ entryContext = mconcat
   , constField "type" "article"
   , titleEscape
   , titleWbr
-  , teaserFieldByResource 195 "teaser" "content"
+  , teaserFieldByResource 500 "teaser" "content"
+  , teaserFieldByResource 180 "og-description" "content"
   , defaultContext
   ]
   where titleEscape = field "title"
