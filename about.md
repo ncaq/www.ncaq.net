@@ -1,6 +1,7 @@
 ---
 title: about
-date: 2018-06-20
+date: 2016-10-17T22:33:29
+updated: 2018-07-28T15:33:22
 ---
 
 # 名前
@@ -229,6 +230,7 @@ mozcの電卓機能, ghci, maximaなどを使っています.
 * [ncaq/yesod-form-bootstrap4: yesod-form for bootstrap version 4](https://github.com/ncaq/yesod-form-bootstrap4)
 * [ncaq/string-transform: simple and easy haskell string transform](https://github.com/ncaq/string-transform)
 * HaskellとPythonでSlackにGitの差分を投稿するコマンドラインツールslitを作成しました
+* 院試に落ちて大学院を諦めた[大学院の入試に行って,教員に苦笑いされてきました - ncaq](https://www.ncaq.net/2017/08/22/)
 * 障害年金2級16号合格[障害年金の給付が行われることになりました日本生きろ - ncaq](https://www.ncaq.net/2017/11/16/21/06/59/)
 
 ## 2018年
