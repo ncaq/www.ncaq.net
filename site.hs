@@ -5,7 +5,6 @@ import           Control.Applicative
 import           Data.List                      (isSuffixOf)
 import           Data.List.Split
 import           Data.Maybe
-import           Data.Monoid
 import           Hakyll
 import           System.FilePath
 import           Text.Pandoc
