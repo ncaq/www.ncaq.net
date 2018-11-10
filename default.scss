@@ -166,6 +166,10 @@ figcaption {
   @extend .figure-caption;
 }
 
+video {
+  width: 100%;
+}
+
 main table {
   @extend .table;
   @extend .table-bordered;
