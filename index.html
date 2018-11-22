@@ -1,3 +1,6 @@
+<script src="/index.js">
+</script>
+
 $for(entry)$
 <a href="$url$">
   <div class="card mb-3">
@@ -9,5 +12,8 @@ $for(entry)$
       <p class="card-text">$teaser$</p>
     </div>
   </div>
+  <script>
+   insertNativeFeedAd("$url$");
+  </script>
 </a>
 $endfor$
