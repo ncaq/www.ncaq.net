@@ -45,6 +45,10 @@ main = hakyllWith conf $ do
     route $ setExtension "css"
     compile $ unixFilter "yarn" ["run", "-s", "default.css"] "" >>= makeItem
 
+  match "index.ts" $ do
+    route $ setExtension "js"
+    compile $ unixFilter "yarn" ["run", "-s", "index.js"] "" >>= makeItem
+
   create ["feed.atom"] $ do
     route idRoute
     compile $ do

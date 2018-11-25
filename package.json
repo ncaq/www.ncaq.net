@@ -1,11 +1,16 @@
 {
   "name": "www.ncaq.net",
   "dependencies": {
-    "bootstrap": "^4.1.0",
-    "dart-sass": "^1.2.0"
+    "bootstrap": "^4.1.3",
+    "dart-sass": "^1.15.1",
+    "prettier": "^1.15.2",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.16.0",
+    "typescript": "^3.1.6"
   },
   "scripts": {
-    "default.css": "dart-sass default.scss"
+    "default.css": "dart-sass default.scss",
+    "index.js": "tsc --outFile /dev/stdout index.ts"
   },
   "license": "MIT"
 }
