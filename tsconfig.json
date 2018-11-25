@@ -1,13 +1,13 @@
 {
-    "compilerOptions": {
-        "target": "es5",
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
 
-        "noImplicitAny": true,
-        "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "noImplicitUseStrict": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "strictNullChecks": true
-    }
+    "strict": true,
+
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
+  }
 }
