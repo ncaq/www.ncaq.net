@@ -17,6 +17,14 @@ main = hakyllWith conf $ do
     route idRoute
     compile copyFileCompiler
 
+  match "default.scss" $ do
+    route $ setExtension "css"
+    compile $ unixFilter "yarn" ["run", "-s", "default.css"] "" >>= makeItem
+
+  match "index.ts" $ do
+    route $ setExtension "js"
+    compile $ unixFilter "yarn" ["run", "-s", "index.js"] "" >>= makeItem
+
   match ("*.md" .||. "entry/*.md") $ do
     route cleanRoute
     compile $ pandocCompilerCustom >>=
@@ -40,14 +48,6 @@ main = hakyllWith conf $ do
       loadAndApplyTemplate "templates/default.html" indexContext >>=
       cleanUrls >>=
       indentHtml
-
-  match "default.scss" $ do
-    route $ setExtension "css"
-    compile $ unixFilter "yarn" ["run", "-s", "default.css"] "" >>= makeItem
-
-  match "index.ts" $ do
-    route $ setExtension "js"
-    compile $ unixFilter "yarn" ["run", "-s", "index.js"] "" >>= makeItem
 
   create ["feed.atom"] $ do
     route idRoute
