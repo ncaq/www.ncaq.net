@@ -51,7 +51,7 @@ main = hakyllWith conf $ do
 
   create ["sitemap.xml"] $ do
     route idRoute
-    let sitemapContext = listField "entry" entryContext (reverse <$> loadAll "entry/*.md")
+    let sitemapContext = listField "entry" entryContext (reverse <$> loadAll ("*.md" .||. "entry/*.md"))
     compile $ getResourceBody >>=
       applyAsTemplate sitemapContext >>=
       cleanUrls >>=
