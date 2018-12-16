@@ -1,6 +1,7 @@
 ---
 title: GitHub README
-date: 2018-04-30
+date: 2018-04-30T22:57:30+09:00
+updated: 2018-04-30T22:57:30+09:00
 ---
 
 GitHub向けのREADMEです.
