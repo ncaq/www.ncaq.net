@@ -129,7 +129,7 @@ entryContext = mconcat
                                   )
         mItemDate item = case splitOneOf "-" f of
           [year, month, day, hour, minute, second] ->
-            Just $ concat [year, "-", month, "-", day, "T", hour, ":", minute, ":", second]
+            Just $ concat [year, "-", month, "-", day, "T", hour, ":", minute, ":", second, "+09:00"]
           [year, month, day] ->
             Just $ concat [year, "-", month, "-", day]
           _ -> Nothing
