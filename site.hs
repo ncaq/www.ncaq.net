@@ -49,6 +49,14 @@ main = hakyllWith conf $ do
       cleanUrls >>=
       indentHtml
 
+  create ["sitemap.xml"] $ do
+    route idRoute
+    let sitemapContext = listField "entry" entryContext (reverse <$> loadAll "entry/*.md")
+    compile $ getResourceBody >>=
+      applyAsTemplate sitemapContext >>=
+      cleanUrls >>=
+      indentXml
+
   create ["feed.atom"] $ do
     route idRoute
     compile $ do
