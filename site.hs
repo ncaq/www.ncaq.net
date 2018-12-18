@@ -76,9 +76,10 @@ conf = def
 pandocCompilerCustom :: Compiler (Item String)
 pandocCompilerCustom
   = let extensions =
-          disableExtension Ext_smart $
-          enableExtension Ext_ignore_line_breaks $
-          enableExtension Ext_auto_identifiers $
+          disableExtension Ext_pandoc_title_block $ -- 大したこと無いように見えて結構パフォーマンスに影響する
+          disableExtension Ext_smart $              -- 記号を変に変えられるのは困る
+          enableExtension Ext_ignore_line_breaks $  -- 日本語だとスペースを入れると意味が変わってしまう
+          enableExtension Ext_auto_identifiers $    -- 一応自動見出しを入れる
           readerExtensions defaultHakyllReaderOptions
         transform (CodeBlock (_identifier, classes, _keyValue) str)
           = let fileExtension = takeExtension (unwords classes)
