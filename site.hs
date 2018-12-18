@@ -31,7 +31,6 @@ main = hakyllWith conf $ do
       saveSnapshot "content" >>=
       loadAndApplyTemplate "templates/entry.html" entryContext >>=
       loadAndApplyTemplate "templates/default.html" (addTitleSuffix <> entryContext) >>=
-      cleanUrls >>=
       indentHtml
 
   match "index.html" $ do
@@ -46,7 +45,6 @@ main = hakyllWith conf $ do
     compile $ getResourceBody >>=
       applyAsTemplate indexContext >>=
       loadAndApplyTemplate "templates/default.html" indexContext >>=
-      cleanUrls >>=
       indentHtml
 
   create ["sitemap.xml"] $ do
@@ -54,7 +52,6 @@ main = hakyllWith conf $ do
     let sitemapContext = listField "entry" entryContext (reverse <$> loadAll ("*.md" .||. "entry/*.md"))
     compile $ getResourceBody >>=
       applyAsTemplate sitemapContext >>=
-      cleanUrls >>=
       indentXml
 
   create ["feed.atom"] $ do
@@ -63,7 +60,6 @@ main = hakyllWith conf $ do
       let feedContext = entryContext <> bodyField "description"
       entry <- take 20 . reverse <$> loadAllSnapshots "entry/*.md" "content"
       renderAtom feedConfiguration feedContext entry >>=
-        cleanUrls >>=
         indentXml
 
 conf :: Configuration
@@ -168,9 +164,6 @@ customDateRoute = customRoute (replaceDate . toFilePath)
 
 replaceDate :: String -> String
 replaceDate input = R.subRegex (R.mkRegex "-") input "/"
-
-cleanUrls :: Item String -> Compiler (Item String)
-cleanUrls = return . fmap (withUrls cleanUrlString)
 
 cleanUrlString :: String -> String
 cleanUrlString = cleanIndex
