@@ -159,6 +159,7 @@ figure {
   img {
     @extend .figure-img;
     @extend .img-fluid;
+    max-height: 90vh;
   }
 }
 
@@ -167,7 +168,8 @@ figcaption {
 }
 
 video {
-  width: 100%;
+  max-width: 100%;
+  max-height: 90vh;
 }
 
 main table {
