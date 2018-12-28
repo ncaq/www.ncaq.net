@@ -23,7 +23,7 @@ updated: 2018-12-28T15:24:14+09:00
 * PureScript
 * Rust
 
-# かなりすき
+## かなりすき
 
 * C++
 * Emacs Lisp
