@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2018-12-16T21:09:15+09:00
+updated: 2018-12-28T15:24:14+09:00
 ---
 
 # 名前
@@ -13,21 +13,30 @@ updated: 2018-12-16T21:09:15+09:00
 
 # そこそこ使ったプログラミング言語
 
-## だいすき
+## 相当すき
 
 * Haskell
 
-## すき
+## だいすき
+
+* D
+* PureScript
+* Rust
+
+# かなりすき
 
 * C++
-* D
 * Emacs Lisp
 * Perl6
 * Prolog
-* PureScript
-* Rust
 * Scheme
 * TypeScript
+
+## すき
+
+* Elm
+* JavaScript
+* Ruby
 
 ## ほどほど
 
@@ -36,15 +45,14 @@ updated: 2018-12-16T21:09:15+09:00
 * C#
 * CoffeeScript
 * Common Lisp
-* Elm
+* Delphi
+* Erlang
 * Java
-* JavaScript
 * Maude
 * NScripter
 * PHP
 * Python
 * R
-* Ruby
 * SQL
 * TeX
 * XSLT
@@ -240,3 +248,4 @@ mozcの電卓機能, ghci, maximaなどを使っています.
 * [Syake株式会社](https://syake.co.jp/)継続
 * [UNIPRO Inc.](https://unipro.co.jp/)入社
 * データベーススペシャリスト合格[データベーススペシャリスト試験に2回目の挑戦で合格しました - ncaq](https://www.ncaq.net/2018/06/20/15/19/54/)
+* Rustによるネットワーク配信システムを開発中
