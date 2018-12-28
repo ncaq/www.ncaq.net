@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2018-12-28T15:24:14+09:00
+updated: 2018-12-29T00:10:46+09:00
 ---
 
 # 名前
@@ -13,26 +13,27 @@ updated: 2018-12-28T15:24:14+09:00
 
 # そこそこ使ったプログラミング言語
 
-## 相当すき
+## だいすき
 
 * Haskell
 
-## だいすき
+## かなりすき
 
 * D
 * PureScript
 * Rust
 
-## かなりすき
+## すき
 
 * C++
 * Emacs Lisp
 * Perl6
 * Prolog
+* Scala
 * Scheme
 * TypeScript
 
-## すき
+## 結構すき
 
 * Elm
 * JavaScript
