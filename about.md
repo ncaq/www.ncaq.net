@@ -249,4 +249,4 @@ mozcの電卓機能, ghci, maximaなどを使っています.
 * [Syake株式会社](https://syake.co.jp/)継続
 * [UNIPRO Inc.](https://unipro.co.jp/)入社
 * データベーススペシャリスト合格[データベーススペシャリスト試験に2回目の挑戦で合格しました - ncaq](https://www.ncaq.net/2018/06/20/15/19/54/)
-* Rustによるネットワーク配信システムを開発中
+* Rustによるネットワーク配信システムの開発を始める
