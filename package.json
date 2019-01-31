@@ -9,8 +9,7 @@
     "typescript": "^3.2.2"
   },
   "scripts": {
-    "default.css": "dart-sass default.scss",
-    "index.js": "tsc --outFile /dev/stdout index.ts"
+    "default.css": "dart-sass default.scss"
   },
   "license": "MIT"
 }
