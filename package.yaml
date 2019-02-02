@@ -8,20 +8,20 @@ maintainer: ncaq@ncaq.net
 copyright: © ncaq
 license: MIT
 dependencies:
-- base
-- filepath
-- hakyll
-- pandoc
-- regex-compat-tdfa
-- split
-- text
+  - base
+  - filepath
+  - hakyll
+  - pandoc
+  - regex-compat-tdfa
+  - split
+  - text
 executables:
   www-ncaq-net:
     main: site.hs
     ghc-options:
-    - -Wall
-    - -fwarn-tabs
-    - -threaded
-    - -O2
-    - -rtsopts
-    - -with-rtsopts=-N
+      - -Wall
+      - -fwarn-tabs
+      - -threaded
+      - -O2
+      - -rtsopts
+      - -with-rtsopts=-N
