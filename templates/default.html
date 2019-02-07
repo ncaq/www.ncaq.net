@@ -4,8 +4,13 @@
     <meta charset="utf-8" />
     <title>$title$</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    $if(date)$
     <meta name="date" content="$date$" />
+    $endif$
+    <!-- prettierの自動改行消し避け  -->
+    $if(updated)$
     <meta name="updated" content="$updated$" />
+    $endif$
     <meta
       name="google-site-verification"
       content="F2w0ad_9TYxlSSYJnKjdCt8oco11oOfYHYMuCsvfLYw"

@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.ncaq.net/</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ncaq.net/feed.atom</loc>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.ncaq.net/sitemap.xml</loc>
+    <changefreq>hourly</changefreq>
+  </url>
   $for(entry)$
   <url>
     <loc>https://www.ncaq.net$url$</loc>
+    $if(updated)$
     <lastmod>$updated$</lastmod>
+    $else$
+    <lastmod>$date$</lastmod>
+    $endif$
   </url>
   $endfor$
 </urlset>

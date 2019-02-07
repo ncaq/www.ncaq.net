@@ -33,8 +33,6 @@ main = hakyllWith conf $ do
     route idRoute
     let indexContext = listField "entry" entryContext (reverse <$> loadAll "entry/*.md") <>
           constField "title" "ncaq" <>
-          constField "date" "" <>
-          constField "updated" "" <>
           constField "type" "website" <>
           constField "og-description" "ncaq website index" <>
           defaultContext
@@ -118,7 +116,7 @@ entryContext = mconcat
         cleanUrlField = field "url"
           (fmap (maybe empty $ (replaceDate . cleanUrlString) . toUrl) .
            getRoute . itemIdentifier)
-        entryDate = f <$> ["date", "published", "updated"]
+        entryDate = f <$> ["date", "published"]
           where f key = field key (\item -> do
                                       mMeta <- getMetadataField (itemIdentifier item) key
                                       case mMeta of
