@@ -45,7 +45,8 @@ main = hakyllWith conf $ do
 
   create ["sitemap.xml"] $ do
     route idRoute
-    let sitemapContext = listField "entry" entryContext (reverse <$> loadAll ("*.md" .||. "entry/*.md"))
+    let sitemapContext =
+          listField "entry" entryContext (reverse <$> loadAll ("*.md" .||. "entry/*.md"))
     compile $ getResourceBody >>=
       applyAsTemplate sitemapContext >>=
       indentXml
@@ -68,10 +69,14 @@ conf = def
 pandocCompilerCustom :: Compiler (Item String)
 pandocCompilerCustom
   = let extensions =
-          disableExtension Ext_pandoc_title_block $ -- 大したこと無いように見えて結構パフォーマンスに影響する
-          disableExtension Ext_smart $              -- 記号を変に変えられるのは困る
-          enableExtension Ext_ignore_line_breaks $  -- 日本語だとスペースを入れると意味が変わってしまう
-          enableExtension Ext_auto_identifiers $    -- 一応自動見出しを入れる
+          -- 大したこと無いように見えて結構パフォーマンスに影響する
+          disableExtension Ext_pandoc_title_block $
+          -- 記号を変に変えられるのは困る
+          disableExtension Ext_smart $
+          -- 日本語だとスペースを入れると意味が変わってしまう
+          enableExtension Ext_ignore_line_breaks $
+          -- 一応自動見出しを入れる
+          enableExtension Ext_auto_identifiers $
           readerExtensions defaultHakyllReaderOptions
         transform (CodeBlock (_identifier, classes, _keyValue) str)
           = let fileExtension = takeExtension (unwords classes)
@@ -143,11 +148,11 @@ addTitleSuffix = field "title" $ \item ->
 
 feedConfiguration :: FeedConfiguration
 feedConfiguration = FeedConfiguration
-  { feedTitle     = "ncaq"
+  { feedTitle       = "ncaq"
   , feedDescription = "ncaq"
   , feedAuthorName  = "ncaq"
   , feedAuthorEmail = "ncaq@ncaq.net"
-  , feedRoot    = "https://www.ncaq.net"
+  , feedRoot        = "https://www.ncaq.net"
   }
 
 cleanRoute :: Routes
