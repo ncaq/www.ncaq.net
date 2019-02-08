@@ -2,7 +2,10 @@ $for(entry)$
 <a class="entry-link" href="$url$">
   <div class="card mb-3">
     <div class="card-header">
-      <time>$date$</time>
+      <time datetime="$date$">$date$</time>
+      : $if(updated)$
+      <time datetime="$updated$">$updated$</time>
+      $endif$
     </div>
     <div class="card-body">
       <h5 class="card-title">$title_wbr$</h5>
