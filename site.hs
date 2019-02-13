@@ -35,6 +35,7 @@ main = hakyllWith conf $ do
           constField "title" "ncaq" <>
           constField "type" "website" <>
           constField "og-description" "ncaq website index" <>
+          cleanUrlField <>
           defaultContext
     compile $ getResourceBody >>=
       applyAsTemplate indexContext >>=
@@ -113,9 +114,6 @@ entryContext = mconcat
         titleWbr = field "title_wbr"
           (\item -> (\mTitle -> R.subRegex (R.mkRegex ",") (fromJust mTitle) ",<wbr>") <$>
             getMetadataField (itemIdentifier item) "title")
-        cleanUrlField = field "url"
-          (fmap (maybe empty $ (replaceDate . cleanUrlString) . toUrl) .
-           getRoute . itemIdentifier)
         entryDate = f <$> ["date", "published"]
           where f key = field key (\item -> do
                                       mMeta <- getMetadataField (itemIdentifier item) key
@@ -163,6 +161,11 @@ customDateRoute = customRoute (replaceDate . toFilePath)
 
 replaceDate :: String -> String
 replaceDate input = R.subRegex (R.mkRegex "-") input "/"
+
+cleanUrlField :: Context a
+cleanUrlField = field "url"
+  (fmap (maybe empty $ (replaceDate . cleanUrlString) . toUrl) .
+   getRoute . itemIdentifier)
 
 cleanUrlString :: String -> String
 cleanUrlString = cleanIndex
