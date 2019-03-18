@@ -78,8 +78,8 @@ pandocCompilerCustom
           enableExtension Ext_auto_identifiers $
           readerExtensions defaultHakyllReaderOptions
         transform (CodeBlock (_identifier, classes, _keyValue) str)
-          = let fileExtension = takeExtension (unwords classes)
-                fileKind = if null fileExtension then unwords classes else tail fileExtension
+          = let fileName = unwords classes
+                fileKind = if null fileName then unwords classes else fileName
             in RawBlock (Format "html") <$>
                unixFilter "pygmentize"
                (["-f", "html"] <>
