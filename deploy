@@ -2,6 +2,7 @@
 
 set -eux
 
+git pull
 stack build
 stack exec -- www-ncaq-net build
 stack exec -- www-ncaq-net deploy
