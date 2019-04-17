@@ -60,7 +60,7 @@ main = hakyllWith conf $ do
 
 conf :: Configuration
 conf = def
-  { deployCommand = "rsync --info=ALL --checksum --archive --chmod=D755,F644 " <>
+  { deployCommand = "rsync --info=COPY,DEL,FLIST,MISC,NAME,STATS,SYMSAFE,REMOVE --checksum --archive --chmod=D755,F644 " <>
     "--delete --compress --human-readable --progress " <>
     "_site/ ncaq@ncaq.net:/var/www/www.ncaq.net"
   }
