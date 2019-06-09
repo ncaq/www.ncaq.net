@@ -7,6 +7,7 @@ author: ncaq
 maintainer: ncaq@ncaq.net
 copyright: © ncaq
 license: MIT
+
 dependencies:
   - base
   - filepath
@@ -15,13 +16,28 @@ dependencies:
   - regex-compat-tdfa
   - split
   - text
+
 executables:
   www-ncaq-net:
     main: site.hs
     ghc-options:
       - -Wall
-      - -fwarn-tabs
-      - -threaded
+      # - -Wall-missed-specialisations
+      - -Widentities
+      # - -Wimplicit-prelude
+      - -Wincomplete-record-updates
+      - -Wincomplete-uni-patterns
+      # - -Wmissed-specialisations
+      # - -Wmissing-export-lists
+      - -Wmissing-exported-signatures
+      - -Wmissing-home-modules
+      # - -Wmissing-import-lists
+      # - -Wmissing-local-signatures
+      # - -Wmonomorphism-restriction
+      # - -Wpartial-fields
+      - -Wredundant-constraints
+      - -Wcompat
       - -O2
+      - -threaded
       - -rtsopts
       - -with-rtsopts=-N
