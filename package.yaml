@@ -11,7 +11,7 @@ license: MIT
 dependencies:
   - base
   - filepath
-  - hakyll
+  - hakyll >=4.12.5.2
   - pandoc
   - regex-compat-tdfa
   - split

@@ -5,19 +5,12 @@
 
 packages:
 - completed:
-    size: 357711
-    url: https://github.com/ncaq/hakyll/archive/48040f8d486ad9a86e63efc6ae4523968d18fc73.tar.gz
-    cabal-file:
-      size: 8644
-      sha256: e405d207e155e9f0122a8f2f99f687bd28191895dc010647e5b4ce0b1d6f90e3
-    name: hakyll
-    version: 4.12.4.0
-    sha256: b44e20161c5d0204c14a4b0c6c4b3bd241b486386e5711b708495a5ae09c21d7
+    hackage: hakyll-4.12.5.2@sha256:435eec729639a4bf0d58f3c7c71929600f4130f10241275d5e7df856cc8aae90,8677
     pantry-tree:
-      size: 10802
-      sha256: 86e436182e9e2bea8d60d2d2caf74242724e9dc27ba9b5e8efe7903f8ea61606
+      size: 7631
+      sha256: bd0cbe9051fae2b109d4b8955fd55a710b61c5dfd8b132d444c72c8f9e65c855
   original:
-    url: https://github.com/ncaq/hakyll/archive/48040f8d486ad9a86e63efc6ae4523968d18fc73.tar.gz
+    hackage: hakyll-4.12.5.2@sha256:435eec729639a4bf0d58f3c7c71929600f4130f10241275d5e7df856cc8aae90,8677
 snapshots:
 - completed:
     size: 509471
