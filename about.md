@@ -205,8 +205,8 @@ mozcの電卓機能, ghci, maximaなどを使っています.
 ## 2014年
 
 * 大学受験をしました
-    * 膨大な読書のおかげで,現代文と倫理だけは無勉強でも出来たので,数学と生物だけを勉強してセンター利用受験をしました
-    * その結果[専修大学 ネットワーク情報学部](https://www.senshu-u.ac.jp/sc_grsc/network.html)になんとか合格しました(前期は落ちて後期に受かった)
+  * 膨大な読書のおかげで,現代文と倫理だけは無勉強でも出来たので,数学と生物だけを勉強してセンター利用受験をしました
+  * その結果[専修大学 ネットワーク情報学部](https://www.senshu-u.ac.jp/sc_grsc/network.html)になんとか合格しました(前期は落ちて後期に受かった)
 * 英語と数学などの教養科目と闘いました
 * プログラミングの課題で遊ぶ[ncaq/poker: コマンドライン用ポーカー](https://github.com/ncaq/poker)
 * [ncaq/wikipedia_solarized_dark_for_programmer](https://github.com/ncaq/wikipedia_solarized_dark_for_programmer)
@@ -221,8 +221,8 @@ mozcの電卓機能, ghci, maximaなどを使っています.
 * [ncaq/nlod: mozcまたはgoogle日本語入力用のdvorak向けローマ字テーブル.jlodを改良.](https://github.com/ncaq/nlod)
 * YesodでPDFをSVGに変換するwebアプリケーションを作りました
 * Javaの学習
-    * [ncaq/radixconv: GUIを用いた基数変換器](https://github.com/ncaq/radixconv)
-    * [ncaq/chat.sd: チャットツール](https://github.com/ncaq/chat.sd)
+  * [ncaq/radixconv: GUIを用いた基数変換器](https://github.com/ncaq/radixconv)
+  * [ncaq/chat.sd: チャットツール](https://github.com/ncaq/chat.sd)
 * Ruby on Railsによるwebアプリケーション開発の学習[ncaq/ticketol: チケット予約サービス](https://github.com/ncaq/ticketol)
 * [ncaq/haskell-import-graph: create haskell import graph for graphviz](https://github.com/ncaq/haskell-import-graph)
 
