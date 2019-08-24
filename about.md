@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2019-02-10T18:48:19+09:00
+updated: 2019-08-24T20:56:01+09:00
 ---
 
 # 名前
@@ -81,6 +81,19 @@ updated: 2019-02-10T18:48:19+09:00
 * 精神障害者手帳3級
 * 障害基礎年金2級16号
 
+# 主なOSS
+
+* [ncaq/dic-nico-intersection-pixiv: ニコニコ大百科とピクシブ百科事典の共通部分の辞書](https://github.com/ncaq/dic-nico-intersection-pixiv)
+* [ncaq/goodbye-rfc-2822-date-time: I hate the date and time notation method like RFC 2822. This extension converts time notation to native language as much as possible.](https://github.com/ncaq/goodbye-rfc-2822-date-time)
+* [ncaq/nlod: JLODを改良したMozc/Google日本語入力向けのDvorakローマ字テーブル](https://github.com/ncaq/nlod)
+* [ncaq/auto-sudoedit: automatic do sudo by tramp when need root file](https://github.com/ncaq/auto-sudoedit)
+* [ncaq/flycheck-ensime: display ensime error message for flycheck buffer.](https://github.com/ncaq/flycheck-ensime)
+* [ncaq/recentf-remove-sudo-tramp-prefix: normalize recentf history](https://github.com/ncaq/recentf-remove-sudo-tramp-prefix)
+* [ncaq/haskell-import-graph: create haskell import graph for graphviz](https://github.com/ncaq/haskell-import-graph)
+* [ncaq/string-transform: simple and easy haskell string transform](https://github.com/ncaq/string-transform)
+* [ncaq/yesod-form-bootstrap4: yesod-form for bootstrap version 4](https://github.com/ncaq/yesod-form-bootstrap4)
+* [ncaq/yesod-recaptcha2: recaptcha2 for yesod](https://github.com/ncaq/yesod-recaptcha2)
+
 # 精神障害
 
 ## 強迫性障害
@@ -137,7 +150,8 @@ User CSSを書きだしたのは明らかに強迫性障害のせいだからで
 #### 漢字が書けない
 
 私は小学校低学年程度の漢字も書けないことが多いです.
-漢字テストでは点数1桁の常連でした.
+漢字のテストでは書きの部分は点数1桁の常連でした.
+読むことは人並み程度には出来ます.
 
 しかし今は漢字を手書きすること自体が少なくなり,
 かな漢字変換システムを使うので,
@@ -259,3 +273,8 @@ mozcの電卓機能, ghci, maximaなどを使っています.
 * [UNIPRO Inc.](https://unipro.co.jp/)入社
 * データベーススペシャリスト合格[データベーススペシャリスト試験に2回目の挑戦で合格しました - ncaq](https://www.ncaq.net/2018/06/20/15/19/54/)
 * Rustによるネットワーク配信システムの開発を始める
+
+## 2019年
+
+* [ncaq/goodbye-rfc-2822-date-time: I hate the date and time notation method like RFC 2822. This extension converts time notation to native language as much as possible.](https://github.com/ncaq/goodbye-rfc-2822-date-time)
+* プロジェクトマネージャになる
