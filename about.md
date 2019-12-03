@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2019-08-24T20:56:01+09:00
+updated: 2019-12-03T21:43:58+09:00
 ---
 
 # 名前
@@ -78,7 +78,7 @@ updated: 2019-08-24T20:56:01+09:00
 * 基本情報技術者
 * ITパスポート
 * 歴史能力検定世界史3級
-* 精神障害者手帳3級
+* 精神障害者手帳2級
 * 障害基礎年金2級16号
 
 # 主なOSS
@@ -278,3 +278,5 @@ mozcの電卓機能, ghci, maximaなどを使っています.
 
 * [ncaq/goodbye-rfc-2822-date-time: I hate the date and time notation method like RFC 2822. This extension converts time notation to native language as much as possible.](https://github.com/ncaq/goodbye-rfc-2822-date-time)
 * プロジェクトマネージャになる
+* 自然言語処理ソフトウェアをJavaにScalaをねじ込んで書き始める
+* [精神障害者保健福祉手帳を更新して2級にしましたけどよく考えたらメリットが見いだせません - ncaq](https://www.ncaq.net/2019/12/03/20/14/47/)
