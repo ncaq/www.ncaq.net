@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2019-12-03T21:43:58+09:00
+updated: 2020-02-10T17:23:11+09:00
 ---
 
 # 名前
@@ -29,8 +29,8 @@ updated: 2019-12-03T21:43:58+09:00
 * C++
 * Elm
 * Emacs Lisp
-* Perl6
 * Prolog
+* Raku(Perl6)
 * Scheme
 * TypeScript
 
