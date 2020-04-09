@@ -132,7 +132,7 @@ User CSSを書きだしたのは明らかに強迫性障害のせいだからで
 * 言語性IQ: 128
 * 動作性IQ: 90
 
-[発達障害者です,ウェクスラー成人知能検査(IQテスト,通称WAIS)の詳細な結果を貰ってきました,本人が自己分析を行います - ncaq](https://www.ncaq.net/2017/02/08/)
+[発達障害者です, ウェクスラー成人知能検査(IQテスト, 通称WAIS)の詳細な結果を貰ってきました, 本人が自己分析を行います - ncaq](https://www.ncaq.net/2017/02/08/)
 
 ### 自閉症スペクトラム(ASD)
 
@@ -205,7 +205,7 @@ mozcの電卓機能, ghci, maximaなどを使っています.
 
 ## 2013年
 
-* GNU/Linuxをメイン環境にしたので,Visual Studioが使えなくなったので,Emacs Lispを書きました[ncaq/.emacs.d: Emacsの設定ディレクトリ](https://github.com/ncaq/.emacs.d)
+* GNU/Linuxをメイン環境にしたので, Visual Studioが使えなくなったので, Emacs Lispを書きました[ncaq/.emacs.d: Emacsの設定ディレクトリ](https://github.com/ncaq/.emacs.d)
 * Emacs Lispを管理するためにgitやsshやzshを学習しました[ncaq/.zsh.d](https://github.com/ncaq/.zsh.d)
 * [すごいHaskellたのしく学ぼう!](https://estore.ohmsha.co.jp/titles/978427406885P)を読みふけりました
 * D言語で[glfw](http://www.glfw.org/)だけでFPSを作ろうとして[OpenGLプログラミングガイド](http://amzn.to/2yZShev)を買ってカメラと弾発射機構を作って挫折しました[ncaq/dogd: FPS(開発中止)](https://github.com/ncaq/dogd)
@@ -242,7 +242,7 @@ mozcの電卓機能, ghci, maximaなどを使っています.
 
 ## 2016年
 
-* ゲーム販売webアプリケーション[SYAKERAKE](https://www.syakerake.jp/)の開発を本格的に開始しました,HaskellとYesodを使って初期はフルスタックに全部担当しました
+* ゲーム販売webアプリケーション[SYAKERAKE](https://www.syakerake.jp/)の開発を本格的に開始しました, HaskellとYesodを使って初期はフルスタックに全部担当しました
 * 分散情報システムで[Maude](http://maude.cs.illinois.edu/w/index.php?title=The_Maude_System)を学習[ncaq/sub-maude: Maude language subset](https://github.com/ncaq/sub-maude)
 * [ncaq/unown-expl: Pokemon exp programming language](https://github.com/ncaq/unown-expl)
 * 情報セキュリティスペシャリスト合格
@@ -262,7 +262,7 @@ mozcの電卓機能, ghci, maximaなどを使っています.
 * [ncaq/yesod-form-bootstrap4: yesod-form for bootstrap version 4](https://github.com/ncaq/yesod-form-bootstrap4)
 * [ncaq/string-transform: simple and easy haskell string transform](https://github.com/ncaq/string-transform)
 * HaskellとPythonでSlackにGitの差分を投稿するコマンドラインツールslitを作成しました
-* 院試に落ちて大学院を諦めた[大学院の入試に行って,教員に苦笑いされてきました - ncaq](https://www.ncaq.net/2017/08/22/)
+* 院試に落ちて大学院を諦めた[大学院の入試に行って, 教員に苦笑いされてきました - ncaq](https://www.ncaq.net/2017/08/22/)
 * 障害年金2級16号合格[障害年金の給付が行われることになりました日本生きろ - ncaq](https://www.ncaq.net/2017/11/16/21/06/59/)
 
 ## 2018年
