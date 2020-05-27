@@ -1,14 +1,15 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE PackageImports    #-}
 
 import           Control.Applicative
-import           Data.List                      (isSuffixOf)
+import           Data.List             (isSuffixOf)
 import           Data.List.Split
 import           Data.Maybe
+import           Data.String.Transform
+import qualified Data.Text             as T
 import           Hakyll
 import           System.FilePath
 import           Text.Pandoc
-import qualified "regex-compat-tdfa" Text.Regex as R
+import qualified Text.Regex            as R
 
 main :: IO ()
 main = hakyllWith conf $ do
@@ -78,13 +79,12 @@ pandocCompilerCustom
           enableExtension Ext_auto_identifiers $
           readerExtensions defaultHakyllReaderOptions
         transform (CodeBlock (_identifier, classes, _keyValue) str)
-          = let fileName = unwords classes
-                fileKind = if null fileName then unwords classes else fileName
-            in RawBlock (Format "html") <$>
-               unixFilter "pygmentize"
-               (["-f", "html"] <>
-               if null fileKind then [] else ["-l", fileKind])
-               str
+          = let fileName = T.unwords classes
+                fileKind = if T.null fileName then T.unwords classes else fileName
+            in RawBlock (Format "html") . toTextStrict
+               <$> unixFilter "pygmentize"
+               (["-f", "html"] <> if T.null fileKind then [] else ["-l", toString fileKind])
+               (toString str)
         transform x = return x
     in pandocCompilerWithTransformM
        defaultHakyllReaderOptions

@@ -15,6 +15,7 @@ dependencies:
   - pandoc
   - regex-compat-tdfa
   - split
+  - string-transform
   - text
 
 executables:
