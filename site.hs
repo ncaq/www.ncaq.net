@@ -132,7 +132,7 @@ entryContext = mconcat
 
 teaserFieldByResource :: Int -> String -> Snapshot -> Context String
 teaserFieldByResource l key snapshot = field key $ \item ->
-  dropWarningHtmlEntity . take l . stripTags . itemBody <$>
+  dropWarningHtmlEntity . take l . escapeHtml . stripTags . itemBody <$>
   loadSnapshot (itemIdentifier item) snapshot
 
 dropWarningHtmlEntity :: String -> String
