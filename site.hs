@@ -105,8 +105,8 @@ entryContext = mconcat
   , constField "type" "article"
   , titleEscape
   , titleWbr
-  , teaserFieldByResource 500 "teaser" "content"
-  , teaserFieldByResource 180 "og-description" "content"
+  , teaserFieldByResource 500 "teaser" "content" id
+  , teaserFieldByResource 180 "og-description" "content" (toString . T.replace "\"" "&quot;" . toTextStrict)
   , defaultContext
   ]
   where titleEscape = field "title"
@@ -130,9 +130,9 @@ entryContext = mconcat
           where f = toFilePath $ cleanIdentifier $ itemIdentifier item
                 cleanIdentifier = fromFilePath . dropExtension . takeFileName . toFilePath
 
-teaserFieldByResource :: Int -> String -> Snapshot -> Context String
-teaserFieldByResource l key snapshot = field key $ \item ->
-  dropWarningHtmlEntity . take l . escapeHtml . stripTags . itemBody <$>
+teaserFieldByResource :: Int -> String -> Snapshot -> (String -> String) -> Context a
+teaserFieldByResource size key snapshot escape = field key $ \item ->
+  dropWarningHtmlEntity . take size . escape . stripTags . itemBody <$>
   loadSnapshot (itemIdentifier item) snapshot
 
 dropWarningHtmlEntity :: String -> String
