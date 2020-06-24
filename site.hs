@@ -74,7 +74,7 @@ pandocCompilerCustom
           -- 記号を変に変えられるのは困る
           disableExtension Ext_smart $
           -- 日本語だとスペースを入れると意味が変わってしまう
-          enableExtension Ext_ignore_line_breaks $
+          enableExtension Ext_east_asian_line_breaks $
           -- 一応自動見出しを入れる
           enableExtension Ext_auto_identifiers $
           readerExtensions defaultHakyllReaderOptions
