@@ -9,6 +9,7 @@ import qualified Data.Text             as T
 import           Hakyll
 import           System.FilePath
 import           Text.Pandoc
+import           Text.Pandoc.Shared    (eastAsianLineBreakFilter)
 import qualified Text.Regex            as R
 
 main :: IO ()
@@ -69,13 +70,11 @@ conf = def
 pandocCompilerCustom :: Compiler (Item String)
 pandocCompilerCustom
   = let extensions =
-          -- 大したこと無いように見えて結構パフォーマンスに影響する
+          -- 大したこと無いように見えて結構パフォーマンスに影響するので無効化します
           disableExtension Ext_pandoc_title_block $
-          -- 記号を変に変えられるのは困る
+          -- 記号を変に変えられるのは困るので無効化します
           disableExtension Ext_smart $
-          -- 日本語だとスペースを入れると意味が変わってしまう
-          enableExtension Ext_east_asian_line_breaks $
-          -- 一応自動見出しを入れる
+          -- 一応自動見出しを入れます
           enableExtension Ext_auto_identifiers $
           readerExtensions defaultHakyllReaderOptions
         transform (CodeBlock (_identifier, classes, _keyValue) str)
@@ -96,7 +95,7 @@ pandocCompilerCustom
        , writerExtensions = extensions
        , writerHighlightStyle = Nothing
        }
-       (bottomUpM transform)
+       (bottomUpM transform . eastAsianLineBreakFilter) -- 東アジアの文字列に余計な空白が入らないようにする
 
 entryContext :: Context String
 entryContext = mconcat
