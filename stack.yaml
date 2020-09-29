@@ -1,4 +1,1 @@
-extra-deps:
-  - file-embed-0.0.11.2@sha256:544b15a7de92f1e81e38ae5c3ea3ddc537a3ee9ce89cc3555ef0af420ea57d70,1327
-  - hakyll-4.13.3.0@sha256:7d8903f03974691aec049a6188ace8d93457563bad9f078c6faf4c9156e27a33,8867
-resolver: lts-15.14
+resolver: lts-16.16
