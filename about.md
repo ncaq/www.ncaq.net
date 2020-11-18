@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2020-07-25T20:44:07+09:00
+updated: 2020-11-18T21:11:52+09:00
 ---
 
 # 名前
@@ -9,43 +9,44 @@ updated: 2020-07-25T20:44:07+09:00
 * ncaq
 * エヌユル
 
-* Haaaa_N
-
 # そこそこ使ったプログラミング言語
 
 ## だいすき
 
 * Haskell
+* Rust
+* Scala
 
 ## かなりすき
 
 * D
+* Elm
+* Emacs Lisp
 * PureScript
-* Rust
-* Scala
+* Raku
+* TypeScript
 
 ## すき
 
 * C++
-* Elm
-* Emacs Lisp
 * Prolog
-* Raku
+* Ruby
 * Scheme
-* TypeScript
 
 ## 結構すき
 
+* C#
 * Common Lisp
 * JavaScript
-* Ruby
+* Python
+* SQL
+* TeX
 * Zsh
 
 ## ほどほど
 
 * ActionScript
 * Bash
-* C#
 * CoffeeScript
 * Delphi
 * Erlang
@@ -53,10 +54,8 @@ updated: 2020-07-25T20:44:07+09:00
 * Maude
 * NScripter
 * PHP
-* Python
 * R
-* SQL
-* TeX
+* Visual Basic
 * XSLT
 
 # その他趣味
@@ -224,8 +223,8 @@ mozcの電卓機能, ghci, maximaなどを使っています。
 * [ncaq/to-safe-name: replace windows and android special char](https://github.com/ncaq/to-safe-name)
 * [ncaq/run-or-raise: focus or exec command script for generic window manager](https://github.com/ncaq/run-or-raise)
 * [ncaq/uniq-deep: alternative of unix uniq command. 'uniq-deep' detect repeated lines unless they are adjacent.](https://github.com/ncaq/uniq-deep)
-* [ncaq/nlod: mozcまたはgoogle日本語入力用のdvorak向けローマ字テーブル.jlodを改良.](https://github.com/ncaq/nlod)
-* YesodでPDFをSVGに変換するwebアプリケーションを作りました
+* [ncaq/nlod: JLODを改良したMozc/Google日本語入力向けのDvorakローマ字テーブル](https://github.com/ncaq/nlod)
+* YesodでPDFをSVGに変換するしてスライドを閲覧出来るようにするwebアプリケーションを途中まで作りました(PDFのリンクなどを含むテキストが抽出困難だったので開発中止)
 * Javaの学習
   * [ncaq/radixconv: GUIを用いた基数変換器](https://github.com/ncaq/radixconv)
   * [ncaq/chat.sd: チャットツール](https://github.com/ncaq/chat.sd)
@@ -234,15 +233,15 @@ mozcの電卓機能, ghci, maximaなどを使っています。
 
 ## 2016年
 
-* ゲーム販売webアプリケーション[SYAKERAKE](https://www.syakerake.jp/)の開発を本格的に開始しました、HaskellとYesodを使って初期はフルスタックに全部担当しました
-* 分散情報システムで[Maude](http://maude.cs.illinois.edu/w/index.php?title=The_Maude_System)を学習[ncaq/sub-maude: Maude language subset](https://github.com/ncaq/sub-maude)
+* ゲーム販売webアプリケーション[SYAKERAKE](https://www.syakerake.jp/)の開発を本格的に開始しました。Haskellと[Yesod](https://www.yesodweb.com/)を使って初期はフルスタックに全部担当しました。[ゲーム販売webアプリケーションSYAKERAKEを支える技術, HaskellとYesodで作られています - ncaq](https://www.ncaq.net/2017/12/03/00/00/00/)
+* 分散情報システムの講義中に[Maude](http://maude.cs.illinois.edu/w/index.php?title=The_Maude_System)を学習[ncaq/sub-maude: Maude language subset](https://github.com/ncaq/sub-maude)
 * [ncaq/unown-expl: Pokemon exp programming language](https://github.com/ncaq/unown-expl)
 * 情報セキュリティスペシャリスト合格
 * ネットワークスペシャリスト合格[ネットワークスペシャリスト試験に合格したので学習方法などを書いておきます - ncaq](https://www.ncaq.net/2016/12/31/)
-* このサイトをHakyllで作成[ncaq/www.ncaq.net: ncaq website](https://github.com/ncaq/www.ncaq.net)
+* このサイトを[Hakyll](https://jaspervdj.be/hakyll/)で作成[ncaq/www.ncaq.net: ncaq website](https://github.com/ncaq/www.ncaq.net)
 * [ncaq/mikutter_sub_parts_image_flex: mikutterで画像をシンプルにインライン表示するプラグイン](https://github.com/ncaq/mikutter_sub_parts_image_flex)
 * [ncaq/mikutter_header_client: viaをheaderに表示します](https://github.com/ncaq/mikutter_header_client)
-* テキスト処理で適当なプログラミング言語を実装[ncaq/prohell: Prolog like programming language](https://github.com/ncaq/prohell)
+* テキスト処理の講義でPrologのような動作をするプログラミング言語を実装[ncaq/prohell: Prolog like programming language](https://github.com/ncaq/prohell)
 
 ## 2017年
 
@@ -254,7 +253,7 @@ mozcの電卓機能, ghci, maximaなどを使っています。
 * [ncaq/yesod-form-bootstrap4: yesod-form for bootstrap version 4](https://github.com/ncaq/yesod-form-bootstrap4)
 * [ncaq/string-transform: simple and easy haskell string transform](https://github.com/ncaq/string-transform)
 * HaskellとPythonでSlackにGitの差分を投稿するコマンドラインツールslitを作成しました
-* 院試に落ちて大学院を諦めた[大学院の入試に行って, 教員に苦笑いされてきました - ncaq](https://www.ncaq.net/2017/08/22/)
+* 院試に落ちて大学院を諦めました[大学院の入試に行って, 教員に苦笑いされてきました - ncaq](https://www.ncaq.net/2017/08/22/)
 * 障害年金2級16号合格[障害年金の給付が行われることになりました日本生きろ - ncaq](https://www.ncaq.net/2017/11/16/21/06/59/)
 
 ## 2018年
@@ -264,17 +263,19 @@ mozcの電卓機能, ghci, maximaなどを使っています。
 * [Syake株式会社](https://syake.co.jp/)継続
 * [UNIPRO Inc.](https://unipro.co.jp/)入社
 * データベーススペシャリスト合格[データベーススペシャリスト試験に2回目の挑戦で合格しました - ncaq](https://www.ncaq.net/2018/06/20/15/19/54/)
-* Rustによるネットワーク配信システムの開発を始める
+* Rustと[Actix Web](https://github.com/actix/actix-web)とTypeScriptとReactによるネットワーク配信管理システムの開発
 
 ## 2019年
 
 * [ncaq/goodbye-rfc-2822-date-time: I hate the date and time notation method like RFC 2822. This extension converts time notation to native language as much as possible.](https://github.com/ncaq/goodbye-rfc-2822-date-time)
 * プロジェクトマネージャになる
-* 自然言語処理ソフトウェアをJavaにScalaをねじ込んで書き始める
+* 自然言語処理ソフトウェアをJavaにScalaをねじ込んで書き始める[経験5年のHaskellユーザがScalaを仕事で半年使ってみた - ncaq](https://www.ncaq.net/2020/11/18/19/02/59/)
 * [精神障害者保健福祉手帳を更新して2級にしましたけどよく考えたらメリットが見いだせません - ncaq](https://www.ncaq.net/2019/12/03/20/14/47/)
 
 ## 2020年
 
+* SYAKERAKEを大学生の頃に作ったインフラからAWS CDKを使用したコンテナベースのインフラに改修する
 * プロジェクトマネージャから離れる
-* 非決定性有限パーサを武器に自然言語と戦う
 * UNIPROから[pluszero](https://plus-zero.co.jp/)に転籍
+* 社内向けAWS管理ソフトウェアをTypeScriptとAWS LambdaとAmazon DynamoDBで書きました
+* Officeアドイン(VBA)プロジェクトに参入する
