@@ -162,9 +162,6 @@ figure {
   @extend .figure;
   img {
     @extend .figure-img;
-    @extend .img-fluid;
-    max-width: 95vw;
-    max-height: 90vh;
   }
 }
 
@@ -172,14 +169,17 @@ figcaption {
   @extend .figure-caption;
 }
 
-video {
-  max-width: 100%;
-  max-height: 90vh;
-}
+main {
+  img,
+  video {
+    max-width: 100%;
+    max-height: 90vh;
+  }
 
-main table {
-  @extend .table;
-  @extend .table-bordered;
+  table {
+    @extend .table;
+    @extend .table-bordered;
+  }
 }
 
 /*
