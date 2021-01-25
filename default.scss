@@ -163,6 +163,7 @@ figure {
   img {
     @extend .figure-img;
     @extend .img-fluid;
+    max-width: 95vw;
     max-height: 90vh;
   }
 }
