@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+set -eux
+
+git pull
+stack build
+stack exec -- www-ncaq-net watch
