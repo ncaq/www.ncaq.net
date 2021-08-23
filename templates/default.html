@@ -3,6 +3,19 @@
   <head>
     <meta charset="utf-8" />
 
+    <script
+      async="async"
+      src="https://www.googletagmanager.com/gtag/js?id=UA-82769478-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-82769478-1");
+    </script>
+
     <title>$title$</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     $if(date)$
@@ -34,19 +47,6 @@
     <link rel="icon" href="/favicon.png" type="image/png" />
 
     <link rel="stylesheet" href="/default.css" />
-
-    <script
-      async="async"
-      src="https://www.googletagmanager.com/gtag/js?id=UA-82769478-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "UA-82769478-1");
-    </script>
 
     <script
       data-ad-client="ca-pub-8393549016688364"
