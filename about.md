@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2021-04-18T17:14:58+09:00
+updated: 2021-09-21T20:08:59+09:00
 ---
 
 # 名前
@@ -88,7 +88,7 @@ updated: 2021-04-18T17:14:58+09:00
 * [ncaq/dic-nico-intersection-pixiv: ニコニコ大百科とピクシブ百科事典の共通部分のIME辞書](https://github.com/ncaq/dic-nico-intersection-pixiv)
 * [ncaq/nlod: JLODを改良したMozc/Google日本語入力向けのDvorakローマ字テーブル](https://github.com/ncaq/nlod)
 * [ncaq/goodbye-rfc-2822-date-time: I hate the date and time notation method like RFC 2822. This extension converts time notation to native language as much as possible.](https://github.com/ncaq/goodbye-rfc-2822-date-time)
-* [ncaq/string-transform: simple and easy haskell string transform](https://github.com/ncaq/string-transform)
+* [ncaq/google-search-title-qualified: Google will omit the title of the web page. With this add-on, the original title is used as much as possible.](https://github.com/ncaq/google-search-title-qualified)
 * [ncaq/haskell-import-graph: create haskell import graph for graphviz](https://github.com/ncaq/haskell-import-graph)
 * [ncaq/yesod-form-bootstrap4: yesod-form for bootstrap version 4](https://github.com/ncaq/yesod-form-bootstrap4)
 * [ncaq/yesod-recaptcha2: recaptcha2 for yesod](https://github.com/ncaq/yesod-recaptcha2)
@@ -317,3 +317,5 @@ TwitterやSlackなどで会話をする時は、
 * VBAプロジェクトが終わる
 * ネットワーク配信管理システムの改善を行う
 * 自然言語処理ソフトウェアをHaskellで書き始める
+* [ncaq/uBlacklistRule: uBlacklist向けのルールです。](https://github.com/ncaq/uBlacklistRule/)
+* [ncaq/google-search-title-qualified: Google will omit the title of the web page. With this add-on, the original title is used as much as possible.](https://github.com/ncaq/google-search-title-qualified)
