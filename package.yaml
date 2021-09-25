@@ -10,12 +10,12 @@ license: MIT
 
 dependencies:
   - base
+  - convertible
   - filepath
   - hakyll >=4.12.5.2
   - pandoc
   - regex-compat-tdfa
   - split
-  - string-transform
   - text
 
 executables:

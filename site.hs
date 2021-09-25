@@ -4,7 +4,7 @@ import           Control.Applicative
 import           Data.List             (isSuffixOf)
 import           Data.List.Split
 import           Data.Maybe
-import           Data.String.Transform
+import           Data.Convertible
 import qualified Data.Text             as T
 import           Hakyll
 import           System.FilePath
@@ -80,10 +80,10 @@ pandocCompilerCustom
         transform (CodeBlock (_identifier, classes, _keyValue) str)
           = let fileName = T.unwords classes
                 fileKind = if T.null fileName then T.unwords classes else fileName
-            in RawBlock (Format "html") . toTextStrict
+            in RawBlock (Format "html") . convert
                <$> unixFilter "pygmentize"
-               (["-f", "html"] <> if T.null fileKind then [] else ["-l", toString fileKind])
-               (toString str)
+               (["-f", "html"] <> if T.null fileKind then [] else ["-l", convert fileKind])
+               (convert str)
         transform x = return x
     in pandocCompilerWithTransformM
        defaultHakyllReaderOptions
@@ -105,7 +105,7 @@ entryContext = mconcat
   , titleEscape
   , titleWbr
   , teaserFieldByResource 500 "teaser" "content" id
-  , teaserFieldByResource 180 "og-description" "content" (toString . T.replace "\"" "&quot;" . toTextStrict)
+  , teaserFieldByResource 180 "og-description" "content" (convert . T.replace "\"" "&quot;" . convert)
   , defaultContext
   ]
   where titleEscape = field "title"
