@@ -126,6 +126,12 @@ h1 {
   }
 }
 
+.my-social-links {
+  td:nth-child(1) {
+    font-size: 200%;
+  }
+}
+
 .social {
   @extend .d-flex;
   @extend .flex-wrap;
