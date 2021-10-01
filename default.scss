@@ -136,6 +136,10 @@ h1 {
   }
 }
 
+.3ds-icon {
+  color: $red;
+}
+
 .social {
   @extend .d-flex;
   @extend .flex-wrap;
