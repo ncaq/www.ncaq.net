@@ -173,7 +173,8 @@ cleanUrlString = cleanIndex
 
 indentHtml :: Item String -> Compiler (Item String)
 indentHtml = withItemBody $ unixFilter "tidy"
-  [ "--drop-empty-elements", "n"
+  [ "--mute-id", "y"
+  , "--drop-empty-elements", "n"
   , "--tidy-mark", "n"
   , "--wrap", "0"
   , "-indent"
@@ -181,7 +182,8 @@ indentHtml = withItemBody $ unixFilter "tidy"
 
 indentXml :: Item String -> Compiler (Item String)
 indentXml = withItemBody $ unixFilter "tidy"
-  [ "--indent-cdata" , "y"
+  [ "--mute-id", "y"
+  , "--indent-cdata" , "y"
   , "--wrap", "0"
   , "-quiet"
   , "-xml"
