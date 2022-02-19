@@ -1,5 +1,5 @@
 /*
-solarized credit
+Solarizedのカラーテーマを利用しています。
 Copyright (c) 2011 Ethan Schoonover
 [Solarized](https://ethanschoonover.com/solarized/)
  */
@@ -185,6 +185,26 @@ figcaption {
 }
 
 main {
+  // 大きさなどだけでは見出しレベルが分かりにくいため、Markdown形式で見た目を装飾する。
+  h1::before {
+    content: "# ";
+  }
+  h2::before {
+    content: "## ";
+  }
+  h3::before {
+    content: "### ";
+  }
+  h4::before {
+    content: "#### ";
+  }
+  h5::before {
+    content: "##### ";
+  }
+  h6::before {
+    content: "###### ";
+  }
+
   img,
   video {
     max-width: 100%;
