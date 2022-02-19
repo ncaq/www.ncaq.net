@@ -105,7 +105,7 @@ entryContext = mconcat
   , constField "type" "article"
   , titleEscape
   , titleWbr
-  , teaserFieldByResource 500 "teaser" "content" id
+  , teaserFieldByResource 256 "teaser" "content" id
   , teaserFieldByResource 180 "og-description" "content" (convert . T.replace "\"" "&quot;" . convert)
   , defaultContext
   ]
