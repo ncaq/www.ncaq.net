@@ -179,15 +179,12 @@ indentHtml = withItemBody $ unixFilter "tidy"
   , "--drop-empty-elements", "n"
   , "--tidy-mark", "n"
   , "--wrap", "0"
-  , "-indent"
   ]
 
 indentXml :: Item String -> Compiler (Item String)
 indentXml = withItemBody $ unixFilter "tidy"
   [ "--mute-id", "y"
-  , "--indent-cdata" , "y"
   , "--wrap", "0"
   , "-quiet"
   , "-xml"
-  , "-indent"
   ]
