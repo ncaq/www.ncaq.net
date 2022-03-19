@@ -15,6 +15,7 @@ import qualified Text.Regex            as R
 main :: IO ()
 main = hakyllWith conf $ do
   match "templates/*" $ compile templateCompiler
+
   match ("*.ico" .||. "*.png" .||. "*.svg" .||. "*.txt" .||. "asset/*") $ do
     route idRoute
     compile copyFileCompiler
@@ -69,34 +70,34 @@ conf = def
   }
 
 pandocCompilerCustom :: Compiler (Item String)
-pandocCompilerCustom
-  = let extensions =
-          -- 大したこと無いように見えて結構パフォーマンスに影響するので無効化します
-          disableExtension Ext_pandoc_title_block $
-          -- 記号を変に変えられるのは困るので無効化します
-          disableExtension Ext_smart $
-          -- 一応自動見出しを入れます
-          enableExtension Ext_auto_identifiers $
-          readerExtensions defaultHakyllReaderOptions
-        transform (CodeBlock (_identifier, classes, _keyValue) str)
-          = let fileName = T.unwords classes
-                fileKind = if T.null fileName then T.unwords classes else fileName
-            in RawBlock (Format "html") . convert
-               <$> unixFilter "pygmentize"
-               (["-f", "html"] <> if T.null fileKind then [] else ["-l", convert fileKind])
-               (convert str)
-        transform x = return x
-    in pandocCompilerWithTransformM
-       defaultHakyllReaderOptions
-       { readerExtensions = extensions
-       }
-       defaultHakyllWriterOptions
-       { writerHTMLMathMethod = MathJax ""
-       , writerSectionDivs = True
-       , writerExtensions = extensions
-       , writerHighlightStyle = Nothing
-       }
-       (bottomUpM transform . eastAsianLineBreakFilter) -- 東アジアの文字列に余計な空白が入らないようにする
+pandocCompilerCustom =
+  let extensions =
+        -- 大したこと無いように見えて結構パフォーマンスに影響するので無効化します
+        disableExtension Ext_pandoc_title_block $
+        -- 記号を変に変えられるのは困るので無効化します
+        disableExtension Ext_smart $
+        -- 一応自動見出しを入れます
+        enableExtension Ext_auto_identifiers $
+        readerExtensions defaultHakyllReaderOptions
+      transform (CodeBlock (_identifier, classes, _keyValue) str) =
+        let fileName = T.unwords classes
+            fileKind = if T.null fileName then T.unwords classes else fileName
+        in RawBlock (Format "html") . convert <$>
+           unixFilter "pygmentize"
+           (["-f", "html"] <> if T.null fileKind then [] else ["-l", convert fileKind])
+           (convert str)
+      transform x = return x
+  in pandocCompilerWithTransformM
+     defaultHakyllReaderOptions
+     { readerExtensions = extensions
+     }
+     defaultHakyllWriterOptions
+     { writerHTMLMathMethod = MathJax ""
+     , writerSectionDivs = True
+     , writerExtensions = extensions
+     , writerHighlightStyle = Nothing
+     }
+     (bottomUpM transform . eastAsianLineBreakFilter) -- 東アジアの文字列に余計な空白が入らないようにする
 
 entryContext :: Context String
 entryContext = mconcat
