@@ -30,7 +30,7 @@ main = hakyllWith conf $ do
       saveSnapshot "content" >>=
       loadAndApplyTemplate "templates/entry.html" entryContext >>=
       loadAndApplyTemplate "templates/default.html" (addTitleSuffix <> entryContext) >>=
-      indentHtml
+      tidyHtml
 
   match "index.html" $ do
     route idRoute
@@ -43,7 +43,7 @@ main = hakyllWith conf $ do
     compile $ getResourceBody >>=
       applyAsTemplate indexContext >>=
       loadAndApplyTemplate "templates/default.html" indexContext >>=
-      indentHtml
+      tidyHtml
 
   create ["sitemap.xml"] $ do
     route idRoute
@@ -52,7 +52,7 @@ main = hakyllWith conf $ do
         not404 item = toFilePath (itemIdentifier item) /= "404.md"
     compile $ getResourceBody >>=
       applyAsTemplate sitemapContext >>=
-      indentXml
+      tidyXml
 
   create ["feed.atom"] $ do
     route idRoute
@@ -60,7 +60,7 @@ main = hakyllWith conf $ do
       let feedContext = entryContext <> bodyField "description"
       entry <- take 20 . reverse <$> loadAllSnapshots "entry/*.md" "content"
       renderAtom feedConfiguration feedContext entry >>=
-        indentXml
+        tidyXml
 
 conf :: Configuration
 conf = def
@@ -173,18 +173,27 @@ cleanUrlString = cleanIndex
   where cleanIndex path | "/index.html" `isSuffixOf` path = dropFileName path
                         | otherwise = path
 
-indentHtml :: Item String -> Compiler (Item String)
-indentHtml = withItemBody $ unixFilter "tidy"
-  [ "--mute-id", "y"
-  , "--drop-empty-elements", "n"
-  , "--tidy-mark", "n"
-  , "--wrap", "0"
-  ]
+-- | HTMLとして正しいかをチェックだけして、
+-- 内容は変更せずに返します。
+tidyHtml :: Item String -> Compiler (Item String)
+tidyHtml item = check item >> pure item
+  where check =
+          withItemBody $ unixFilter "tidy"
+          [ "--errors"
+          , "--mute-id", "y"
+          , "--drop-empty-elements", "n"
+          , "--tidy-mark", "n"
+          , "--wrap", "0"
+          ]
 
-indentXml :: Item String -> Compiler (Item String)
-indentXml = withItemBody $ unixFilter "tidy"
-  [ "--mute-id", "y"
-  , "--wrap", "0"
-  , "-quiet"
-  , "-xml"
-  ]
+-- | XMLとして正しいかをチェックだけして、
+-- 内容は変更せずに返します。
+tidyXml :: Item String -> Compiler (Item String)
+tidyXml item = check item >> pure item
+  where check =
+          withItemBody $ unixFilter "tidy"
+          [ "--errors"
+          , "--mute-id", "y"
+          , "--wrap", "0"
+          , "-xml"
+          ]
