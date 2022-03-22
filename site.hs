@@ -181,9 +181,11 @@ tidyHtml item = check item >> pure item
           withItemBody $ unixFilter "tidy"
           [ "--errors"
           , "--mute-id", "y"
+          , "--wrap", "0"
           , "--drop-empty-elements", "n"
           , "--tidy-mark", "n"
-          , "--wrap", "0"
+          -- 古いtidyではHTML属性情報が正しくないことがあるので、チェックを諦めます。
+          , "--warn-proprietary-attributes", "n"
           ]
 
 -- | XMLとして正しいかをチェックだけして、
