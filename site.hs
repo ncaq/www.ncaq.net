@@ -105,16 +105,12 @@ entryContext = mconcat
   , mconcat entryDate
   , constField "type" "article"
   , titleEscape
-  , titleWbr
   , teaserFieldByResource 256 "teaser" "content" id
   , teaserFieldByResource 180 "og-description" "content" (convert . T.replace "\"" "&quot;" . convert)
   , defaultContext
   ]
   where titleEscape = field "title"
           (\item -> escapeHtml . fromJust <$> getMetadataField (itemIdentifier item) "title")
-        titleWbr = field "title_wbr"
-          (\item -> (\mTitle -> R.subRegex (R.mkRegex ",") (fromJust mTitle) ",<wbr>") <$>
-            getMetadataField (itemIdentifier item) "title")
         entryDate = f <$> ["date", "published"]
           where f key = field key (\item -> do
                                       mMeta <- getMetadataField (itemIdentifier item) key
