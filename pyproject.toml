@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "www.ncaq.net"
+version = "0.1.1.0"
+description = ""
+authors = ["ncaq <ncaq@ncaq.net>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Pygments = "^2.11.2"
+jsx-lexer = "^1.0.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
