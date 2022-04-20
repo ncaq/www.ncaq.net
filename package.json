@@ -1,6 +1,4 @@
 {
-  "name": "www.ncaq.net",
-  "license": "MIT",
   "scripts": {
     "default.css": "sass default.scss"
   },
