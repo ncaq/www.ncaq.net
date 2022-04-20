@@ -83,8 +83,8 @@ pandocCompilerCustom =
         let fileName = T.unwords classes
             fileKind = if T.null fileName then T.unwords classes else fileName
         in RawBlock (Format "html") . convert <$>
-           unixFilter "pygmentize"
-           (["-f", "html"] <> if T.null fileKind then [] else ["-l", convert fileKind])
+           unixFilter "poetry"
+           (["run", "pygmentize", "-f", "html"] <> if T.null fileKind then [] else ["-l", convert fileKind])
            (convert str)
       transform x = return x
   in pandocCompilerWithTransformM
