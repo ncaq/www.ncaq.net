@@ -5,7 +5,7 @@ description = ""
 authors = ["ncaq <ncaq@ncaq.net>"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.9"
 Pygments = "^2.11.2"
 jsx-lexer = "^1.0.0"
 
