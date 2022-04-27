@@ -1,8 +1,9 @@
 #!/bin/zsh
-
 set -eux
 
 git pull
+pyenv install --skip-existing
+poetry install
 stack build
 stack exec -- www-ncaq-net build
 stack exec -- www-ncaq-net deploy
