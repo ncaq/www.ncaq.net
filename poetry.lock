@@ -11,16 +11,16 @@ Pygments = ">=2.7"
 
 [[package]]
 name = "pygments"
-version = "2.11.2"
+version = "2.12.0"
 description = "Pygments is a syntax highlighting package written in Python."
 category = "main"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.6"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.8"
-content-hash = "ac0254eecccb1f78931cb306bb8de30981428749a6d65f289b35ccdb39bb0f9f"
+python-versions = "^3.9"
+content-hash = "093b95a515428d92acbbe6d9dbd5490fad2f135388d988faa44cf0e0edf991ca"
 
 [metadata.files]
 jsx-lexer = [
@@ -28,6 +28,6 @@ jsx-lexer = [
     {file = "jsx_lexer-1.0.0-py2.py3-none-any.whl", hash = "sha256:491783c7ae75f2cbde18f66c1362e93afd6e281078482215b70c1a8dfa61e57b"},
 ]
 pygments = [
-    {file = "Pygments-2.11.2-py3-none-any.whl", hash = "sha256:44238f1b60a76d78fc8ca0528ee429702aae011c265fe6a8dd8b63049ae41c65"},
-    {file = "Pygments-2.11.2.tar.gz", hash = "sha256:4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a"},
+    {file = "Pygments-2.12.0-py3-none-any.whl", hash = "sha256:dc9c10fb40944260f6ed4c688ece0cd2048414940f1cea51b8b226318411c519"},
+    {file = "Pygments-2.12.0.tar.gz", hash = "sha256:5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb"},
 ]
