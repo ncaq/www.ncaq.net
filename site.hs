@@ -67,7 +67,7 @@ conf = def
   { deployCommand =
     unwords
     [ "rsync"
-    , "--info=COPY,DEL,FLIST,MISC,NAME,STATS,SYMSAFE,REMOVE"
+    , "--verbose"
     , "--checksum"
     , "--recursive"
     , "--links"
