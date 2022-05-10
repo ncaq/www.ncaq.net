@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2022-02-03T16:24:26+09:00
+updated: 2022-05-10T10:42:20+09:00
 ---
 
 # 名前
@@ -320,3 +320,8 @@ TwitterやSlackなどで会話をする時は、
 * 自然言語処理ソフトウェアをHaskellで書き始める
 * [ncaq/uBlacklistRule: uBlacklist向けのルールです。](https://github.com/ncaq/uBlacklistRule/)
 * [ncaq/google-search-title-qualified: Google will omit the title of the web page. With this add-on, the original title is used as much as possible.](https://github.com/ncaq/google-search-title-qualified)
+
+## 2022年
+
+* Haskellでの自然言語処理を続行
+* [yesodweb/serversession: Secure, modular server-side sessions.](https://github.com/yesodweb/serversession)のPR作ってたらメンテナになりました
