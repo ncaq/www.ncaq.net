@@ -2,15 +2,15 @@
 
 import           Control.Applicative
 import           Data.Convertible
-import           Data.List           (isSuffixOf)
-import           Data.List.Split
+import qualified Data.List           as L
+import qualified Data.List.Split     as L
 import           Data.Maybe
 import qualified Data.Text           as T
 import           Hakyll
 import           System.FilePath
 import           Text.Pandoc
 import           Text.Pandoc.Shared  (eastAsianLineBreakFilter)
-import qualified Text.Regex          as R
+import           Text.Regex.TDFA     hiding (empty, match)
 
 main :: IO ()
 main = hakyllWith conf $ do
@@ -130,7 +130,7 @@ entryContext = mconcat
                                         Nothing   -> return $ fromMaybe empty $ mItemDate item
                                         Just meta -> return meta
                                   )
-        mItemDate item = case splitOneOf "-" f of
+        mItemDate item = case L.splitOneOf "-" f of
           [year, month, day, hour, minute, second] ->
             Just $ concat [year, "-", month, "-", day, "T", hour, ":", minute, ":", second, "+09:00"]
           [year, month, day] ->
@@ -144,8 +144,12 @@ teaserFieldByResource size key snapshot escape = field key $ \item ->
   dropWarningHtmlEntity . take size . escape . stripTags . itemBody <$>
   loadSnapshot (itemIdentifier item) snapshot
 
+-- | HTMLエスケープされた記号が中途半端に残って別の意味になるのを防ぐため、
+-- 切り取った箇所の末尾がHTMLエスケープっぽかったら削除します。
 dropWarningHtmlEntity :: String -> String
-dropWarningHtmlEntity entity = R.subRegex (R.mkRegex "&[^&;]*$") entity ""
+dropWarningHtmlEntity entity =
+  let (safety, _match, _after) = entity =~ ("&[^&;]*$" :: String) :: (String, String, String)
+  in safety
 
 addTitleSuffix :: Context a
 addTitleSuffix = field "title" $ \item ->
@@ -168,8 +172,13 @@ cleanRoute = customRoute createIndexRoute `composeRoutes` customDateRoute
 customDateRoute :: Routes
 customDateRoute = customRoute (replaceDate . toFilePath)
 
+-- | 日付の区切り文字をディレクトリパスの区切り文字に変換する。
 replaceDate :: String -> String
-replaceDate input = R.subRegex (R.mkRegex "-") input "/"
+replaceDate = replace '-' '/'
+  where replace _ _ [] = []
+        replace from to (x : xs)
+          | x == from = to : replace from to xs
+          | otherwise = x  : replace from to xs
 
 cleanUrlField :: Context a
 cleanUrlField = field "url"
@@ -178,7 +187,7 @@ cleanUrlField = field "url"
 
 cleanUrlString :: String -> String
 cleanUrlString = cleanIndex
-  where cleanIndex path | "/index.html" `isSuffixOf` path = dropFileName path
+  where cleanIndex path | "/index.html" `L.isSuffixOf` path = dropFileName path
                         | otherwise = path
 
 -- | HTMLとして正しいかをチェックだけして、

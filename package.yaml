@@ -14,7 +14,7 @@ dependencies:
   - filepath
   - hakyll >=4.12.5.2
   - pandoc
-  - regex-compat-tdfa
+  - regex-tdfa
   - split
   - text
 
