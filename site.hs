@@ -1,16 +1,16 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 import           Control.Applicative
-import           Data.List             (isSuffixOf)
+import           Data.Convertible
+import           Data.List           (isSuffixOf)
 import           Data.List.Split
 import           Data.Maybe
-import           Data.Convertible
-import qualified Data.Text             as T
+import qualified Data.Text           as T
 import           Hakyll
 import           System.FilePath
 import           Text.Pandoc
-import           Text.Pandoc.Shared    (eastAsianLineBreakFilter)
-import qualified Text.Regex            as R
+import           Text.Pandoc.Shared  (eastAsianLineBreakFilter)
+import qualified Text.Regex          as R
 
 main :: IO ()
 main = hakyllWith conf $ do
@@ -127,7 +127,7 @@ entryContext = mconcat
           where f key = field key (\item -> do
                                       mMeta <- getMetadataField (itemIdentifier item) key
                                       case mMeta of
-                                        Nothing -> return $ fromMaybe empty $ mItemDate item
+                                        Nothing   -> return $ fromMaybe empty $ mItemDate item
                                         Just meta -> return meta
                                   )
         mItemDate item = case splitOneOf "-" f of
