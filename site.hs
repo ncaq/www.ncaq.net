@@ -26,7 +26,8 @@ main = hakyllWith conf $ do
 
   match ("*.md" .||. "entry/*.md") $ do
     route cleanRoute
-    compile $ pandocCompilerCustom >>=
+    compile $
+      pandocCompilerCustom >>=
       saveSnapshot "content" >>=
       loadAndApplyTemplate "templates/entry.html" entryContext >>=
       loadAndApplyTemplate "templates/default.html" (addTitleSuffix <> entryContext) >>=
@@ -34,13 +35,15 @@ main = hakyllWith conf $ do
 
   match "index.html" $ do
     route idRoute
-    let indexContext = listField "entry" entryContext (reverse <$> loadAll "entry/*.md") <>
+    let indexContext =
+          listField "entry" entryContext (reverse <$> loadAll "entry/*.md") <>
           constField "title" "ncaq" <>
           constField "type" "website" <>
           constField "og-description" "ncaq website index" <>
           cleanUrlField <>
           defaultContext
-    compile $ getResourceBody >>=
+    compile $
+      getResourceBody >>=
       applyAsTemplate indexContext >>=
       loadAndApplyTemplate "templates/default.html" indexContext >>=
       tidyHtml
@@ -50,7 +53,8 @@ main = hakyllWith conf $ do
     let sitemapContext =
           listField "entry" entryContext (reverse . filter not404 <$> loadAll ("*.md" .||. "entry/*.md"))
         not404 item = toFilePath (itemIdentifier item) /= "404.md"
-    compile $ getResourceBody >>=
+    compile $
+      getResourceBody >>=
       applyAsTemplate sitemapContext >>=
       tidyXml
 
@@ -59,8 +63,7 @@ main = hakyllWith conf $ do
     compile $ do
       let feedContext = entryContext <> bodyField "description"
       entry <- take 20 . reverse <$> loadAllSnapshots "entry/*.md" "content"
-      renderAtom feedConfiguration feedContext entry >>=
-        tidyXml
+      renderAtom feedConfiguration feedContext entry >>= tidyXml
 
 conf :: Configuration
 conf = def
