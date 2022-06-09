@@ -1,0 +1,23 @@
+<div class="gcse-search"></div>
+
+$for(entry)$
+<a class="entry-link" href="$url$">
+  <div class="card mb-3">
+    <div class="card-header">
+      <time datetime="$date$">$date$</time>
+      $if(updated)$ :
+      <time datetime="$updated$">$updated$</time>
+      $endif$
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">$title$</h5>
+      <p class="card-text nocontent">$teaser$</p>
+    </div>
+  </div>
+</a>
+$endfor$
+
+<script
+  async="async"
+  src="https://cse.google.com/cse.js?cx=004447714709742723527:gfxoo7p4yao"
+></script>

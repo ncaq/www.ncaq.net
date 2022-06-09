@@ -1,20 +1,7 @@
 <div class="gcse-search"></div>
 
-$for(entry)$
-<a class="entry-link" href="$url$">
-  <div class="card mb-3">
-    <div class="card-header">
-      <time datetime="$date$">$date$</time>
-      $if(updated)$ :
-      <time datetime="$updated$">$updated$</time>
-      $endif$
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">$title$</h5>
-      <p class="card-text nocontent">$teaser$</p>
-    </div>
-  </div>
-</a>
+$for(entry-index)$
+<a href="$body$">$body$年の記事</a>
 $endfor$
 
 <script

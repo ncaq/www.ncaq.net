@@ -7,13 +7,28 @@ import qualified Data.List.Split     as L
 import           Data.Maybe
 import qualified Data.Text           as T
 import           Hakyll
+import           System.Directory
 import           System.FilePath
 import           Text.Pandoc
 import           Text.Pandoc.Shared  (eastAsianLineBreakFilter)
 import           Text.Regex.TDFA     hiding (empty, match)
 
 main :: IO ()
-main = hakyllWith conf $ do
+main =
+  pre >>=
+  hakyllRun
+
+-- | `Rules`は内部的には`IO`をベースに持ちますが、
+-- unsafe系以外で持ち上げる方法が見つからないので、
+-- 別コンテキストで処理します。
+pre :: IO (String, [String])
+pre = do
+  entryIndex <- readFile "entry-index.html"
+  years <- yearInEntry
+  return (entryIndex, years)
+
+hakyllRun :: (String, [String]) -> IO ()
+hakyllRun (entryIndex, years) = hakyllWith conf $ do
   match "templates/*" $ compile templateCompiler
 
   match ("*.ico" .||. "*.png" .||. "*.svg" .||. "*.txt" .||. "asset/*") $ do
@@ -36,7 +51,7 @@ main = hakyllWith conf $ do
   match "index.html" $ do
     route idRoute
     let indexContext =
-          listField "entry" entryContext (reverse <$> loadAll "entry/*.md") <>
+          listField "entry-index" defaultContext (pure $ (\x -> Item (fromFilePath x) x) <$> years) <>
           constField "title" "ncaq" <>
           constField "type" "website" <>
           constField "og-description" "ncaq website index" <>
@@ -47,6 +62,22 @@ main = hakyllWith conf $ do
       applyAsTemplate indexContext >>=
       loadAndApplyTemplate "templates/default.html" indexContext >>=
       tidyHtml
+
+  let entryIndexOfYear year = do
+        create [fromFilePath $ year <> "/index.html"] $ do
+          route $ constRoute $ year <> "/index.html"
+          let indexContext =
+                listField "entry" entryContext (reverse <$> loadAll (fromGlob $ "entry/" <> year <> "*.md")) <>
+                constField "title" (year <> "年の記事一覧 - ncaq") <>
+                constField "type" "website" <>
+                constField "og-description" (year <> "年の記事一覧 - ncaq") <>
+                cleanUrlField <>
+                defaultContext
+          compile $
+            makeItem entryIndex >>=
+            applyAsTemplate indexContext >>=
+            loadAndApplyTemplate "templates/default.html" indexContext
+  mapM_ entryIndexOfYear years
 
   create ["sitemap.xml"] $ do
     route idRoute
@@ -219,3 +250,14 @@ tidyXml item = check item >> pure item
           , "--wrap", "0"
           , "-xml"
           ]
+
+-- | entryディレクトリ下にある記事が存在する年をリストで返却する。
+-- 0埋めされてる可能性も考慮して`Int`ではなくあえて`String`。
+-- Hakyllのフレームワークに乗りたかった気持ちはあるが、
+-- メタデータではなくContext下で取り出す方法がよくわからなかった。
+-- 規則性があるので今回はこれで問題ないと判断した。
+yearInEntry :: IO [String]
+yearInEntry = do
+  entryList <- L.sort <$> listDirectory "entry"
+  let getYear = L.takeWhile (/= '-')
+  return $ reverse $ L.nub $ getYear <$> entryList
