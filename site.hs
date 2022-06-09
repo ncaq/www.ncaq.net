@@ -161,7 +161,7 @@ addTitleSuffix = field "title" $ \item ->
 feedConfiguration :: FeedConfiguration
 feedConfiguration = FeedConfiguration
   { feedTitle       = "ncaq"
-  , feedDescription = "ncaq"
+  , feedDescription = "www.ncaq.net entry"
   , feedAuthorName  = "ncaq"
   , feedAuthorEmail = "ncaq@ncaq.net"
   , feedRoot        = "https://www.ncaq.net"
