@@ -83,7 +83,8 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
   create ["sitemap.xml"] $ do
     route idRoute
     let sitemapContext =
-          listField "entry" entryContext (reverse . filter not404 <$> loadAll ("*.md" .||. "entry/*.md"))
+          listField "entry" entryContext (reverse . filter not404 <$> loadAll ("*.md" .||. "entry/*.md")) <>
+          listField "entry-index" defaultContext (pure $ (\x -> Item (fromFilePath x) x) <$> years)
         not404 item = toFilePath (itemIdentifier item) /= "404.md"
     compile $
       getResourceBody >>=
