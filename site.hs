@@ -51,6 +51,7 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
   match "index.html" $ do
     route idRoute
     let indexContext =
+          listField "entry" entryContext (L.take 5 . reverse <$> loadAll (fromGlob "entry/*.md")) <>
           listField "entry-index" defaultContext (pure $ (\x -> Item (fromFilePath x) x) <$> years) <>
           constField "title" "ncaq" <>
           constField "type" "website" <>
