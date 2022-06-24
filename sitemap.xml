@@ -3,10 +3,6 @@
   <url>
     <loc>https://www.ncaq.net/</loc>
   </url>
-  <url>
-    <loc>https://www.ncaq.net/feed.atom</loc>
-    <changefreq>hourly</changefreq>
-  </url>
   $for(entry-index)$
   <url>
     <loc>https://www.ncaq.net/$body$/</loc>
