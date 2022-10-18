@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2022-05-16T12:58:36+09:00
+updated: 2022-10-18T23:03:34+09:00
 ---
 
 # 名前
@@ -41,6 +41,7 @@ updated: 2022-05-16T12:58:36+09:00
 * JavaScript
 * Python
 * SQL
+* Swift
 * TeX
 * Zsh
 
@@ -328,3 +329,5 @@ TwitterやSlackなどで会話をする時は、
 
 * Haskellでの自然言語処理を続行
 * [yesodweb/serversession: Secure, modular server-side sessions.](https://github.com/yesodweb/serversession)のPR作ってたらメンテナになりました
+* NestJS+Reactでの企業向け動画保存・配信サービス
+* SwiftでのiOSアプリケーション
