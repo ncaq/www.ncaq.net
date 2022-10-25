@@ -37,7 +37,7 @@ updated: 2022-10-25T14:15:34+09:00
 * Ruby
 * Swift
 
-## ほどほど
+## ふつう
 
 * Bash
 * Erlang
@@ -52,7 +52,7 @@ updated: 2022-10-25T14:15:34+09:00
 * XSLT
 * Zsh
 
-## すきじゃない
+## あんまり
 
 * ActionScript
 * CoffeeScript
