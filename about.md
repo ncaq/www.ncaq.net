@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2022-10-18T23:03:34+09:00
+updated: 2022-10-25T14:15:34+09:00
 ---
 
 # 名前
@@ -20,45 +20,45 @@ updated: 2022-10-18T23:03:34+09:00
 
 ## かなりすき
 
+* C++
 * D
 * Elm
 * Emacs Lisp
+* Prolog
 * PureScript
-* Raku
+* Scheme
 * TypeScript
 
 ## すき
 
-* C++
-* Prolog
-* Ruby
-* Scheme
-
-## 結構すき
-
 * C#
 * Common Lisp
-* JavaScript
-* Python
-* SQL
+* Raku
+* Ruby
 * Swift
-* TeX
-* Zsh
 
 ## ほどほど
 
-* ActionScript
 * Bash
-* CoffeeScript
-* Delphi
 * Erlang
 * Java
+* JavaScript
 * Maude
 * NScripter
-* PHP
+* Python
 * R
-* Visual Basic
+* SQL
+* TeX
 * XSLT
+* Zsh
+
+# すきじゃない
+
+* ActionScript
+* CoffeeScript
+* Delphi
+* PHP
+* Visual Basic
 
 # その他趣味
 
