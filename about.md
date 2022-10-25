@@ -52,7 +52,7 @@ updated: 2022-10-25T14:15:34+09:00
 * XSLT
 * Zsh
 
-# すきじゃない
+## すきじゃない
 
 * ActionScript
 * CoffeeScript
