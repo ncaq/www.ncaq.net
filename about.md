@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2022-10-25T14:15:34+09:00
+updated: 2022-11-10T20:43:23+09:00
 ---
 
 # 名前
@@ -45,6 +45,7 @@ updated: 2022-10-25T14:15:34+09:00
 * JavaScript
 * Maude
 * NScripter
+* PHP
 * Python
 * R
 * SQL
@@ -57,7 +58,6 @@ updated: 2022-10-25T14:15:34+09:00
 * ActionScript
 * CoffeeScript
 * Delphi
-* PHP
 * Visual Basic
 
 # その他趣味
