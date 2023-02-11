@@ -55,7 +55,7 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
           listField "entry-index" defaultContext (pure $ (\x -> Item (fromFilePath x) x) <$> years) <>
           constField "title" "ncaq" <>
           constField "type" "website" <>
-          constField "og-description" "ncaq website index" <>
+          constField "og-description" "ncaq website root" <>
           cleanUrlField <>
           defaultContext
     compile $
