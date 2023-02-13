@@ -60,7 +60,7 @@ $code-color: $base0;
 $pre-color: $base0;
 
 // Core variables and mixins
-@import "node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/bootstrap";
 
 @mixin primary {
   background-color: $base03;

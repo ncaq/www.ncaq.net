@@ -112,7 +112,8 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
 
 conf :: Configuration
 conf = def
-  { deployCommand =
+  { providerDirectory = "site"
+  , deployCommand =
     unwords
     [ "rsync"
     , "--verbose"

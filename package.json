@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "default.css": "sass default.scss"
+    "default.css": "sass site/default.scss"
   },
   "devDependencies": {
     "bootstrap": "^4.6.0",
