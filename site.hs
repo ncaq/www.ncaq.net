@@ -18,9 +18,10 @@ main =
   pre >>=
   hakyllRun
 
--- | `Rules`は内部的には`IO`をベースに持ちますが、
+-- | 年一覧をスマートにページネーションする方法がわからなかったので`IO`でごり押しする。
+-- `Rules`は内部的には`IO`をベースに持つが、
 -- unsafe系以外で持ち上げる方法が見つからないので、
--- 別コンテキストで処理します。
+-- 別コンテキストで処理する。
 pre :: IO (String, [String])
 pre = do
   entryIndex <- readFile "entry-index.html"
@@ -227,7 +228,7 @@ cleanUrlString = cleanIndex
                         | otherwise = path
 
 -- | HTMLとして正しいかをチェックだけして、
--- 内容は変更せずに返します。
+-- 内容は変更せずに返す。
 tidyHtml :: Item String -> Compiler (Item String)
 tidyHtml item = check item >> pure item
   where check =
@@ -242,7 +243,7 @@ tidyHtml item = check item >> pure item
           ]
 
 -- | XMLとして正しいかをチェックだけして、
--- 内容は変更せずに返します。
+-- 内容は変更せずに返す。
 tidyXml :: Item String -> Compiler (Item String)
 tidyXml item = check item >> pure item
   where check =
