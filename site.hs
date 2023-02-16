@@ -1,5 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
-
+{-|
+Copyright : © ncaq
+License   : MIT
+-}
 import           Control.Applicative
 import           Data.Convertible
 import qualified Data.List           as L
