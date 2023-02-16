@@ -3,6 +3,8 @@
 Copyright : © ncaq
 License   : MIT
 -}
+module Main (main) where
+
 import           Control.Applicative
 import           Data.Convertible
 import qualified Data.List           as L
