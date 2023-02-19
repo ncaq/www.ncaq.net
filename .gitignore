@@ -377,6 +377,6 @@ cython_debug/
 # ライブラリではなくアプリケーションなので自動生成cabalは除外。
 *.cabal
 
-# Hakyllの生成する中間ファイル。
+# Hakyllの生成するファイル。
 _cache/
 _site/
