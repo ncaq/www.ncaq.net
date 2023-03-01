@@ -118,21 +118,7 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
 conf :: Configuration
 conf = def
   { providerDirectory = "site"
-  , deployCommand =
-    unwords
-    [ "rsync"
-    , "--verbose"
-    , "--checksum"
-    , "--recursive"
-    , "--links"
-    , "--chmod=D755,F644"
-    , "--delete"
-    , "--compress"
-    , "--human-readable"
-    , "--progress"
-    , "_site/"
-    , "ncaq@ncaq.net:/var/www/www.ncaq.net"
-    ]
+  , deployCommand = "yarn wrangler pages publish _site"
   }
 
 pandocCompilerCustom :: Compiler (Item String)
