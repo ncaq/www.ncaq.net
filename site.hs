@@ -48,7 +48,7 @@ hakyllRun :: (String, [String]) -> IO ()
 hakyllRun (entryIndex, years) = hakyllWith conf $ do
   match "templates/*" $ compile templateCompiler
 
-  match ("*.ico" .||. "*.png" .||. "*.svg" .||. "*.txt" .||. "asset/*") $ do
+  match ("_headers" .||. "*.ico" .||. "*.png" .||. "*.svg" .||. "*.txt" .||. "asset/*") $ do
     route idRoute
     compile copyFileCompiler
 
