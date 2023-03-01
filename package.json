@@ -7,6 +7,7 @@
   "devDependencies": {
     "bootstrap": "^4.6.0",
     "prettier": "^2.8.4",
-    "sass": "^1.58.3"
+    "sass": "^1.58.3",
+    "wrangler": "^2.12.0"
   }
 }
