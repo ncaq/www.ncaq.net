@@ -1,5 +1,9 @@
-# Created by https://www.toptal.com/developers/gitignore/api/haskell,node,sass,python,emacs
-# Edit at https://www.toptal.com/developers/gitignore?templates=haskell,node,sass,python,emacs
+# Created by https://www.toptal.com/developers/gitignore/api/direnv,emacs,haskell,node,sass,python
+# Edit at https://www.toptal.com/developers/gitignore?templates=direnv,emacs,haskell,node,sass,python
+
+### direnv ###
+.direnv
+.envrc
 
 ### Emacs ###
 # -*- mode: gitignore; -*-
@@ -317,7 +321,15 @@ ipython_config.py
 #   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
 #poetry.lock
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+# pdm
+#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
+#pdm.lock
+#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
+#   in version control.
+#   https://pdm.fming.dev/#use-with-ide
+.pdm.toml
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
 __pypackages__/
 
 # Celery stuff
@@ -366,13 +378,20 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
+### Python Patch ###
+# Poetry local configuration file - https://python-poetry.org/docs/configuration/#local-configuration
+poetry.toml
+
+# ruff
+.ruff_cache/
+
 ### Sass ###
 .sass-cache/
 *.css.map
 *.sass.map
 *.scss.map
 
-# End of https://www.toptal.com/developers/gitignore/api/haskell,node,sass,python,emacs
+# End of https://www.toptal.com/developers/gitignore/api/direnv,emacs,haskell,node,sass,python
 
 # ライブラリではなくアプリケーションなので自動生成cabalは除外。
 *.cabal
