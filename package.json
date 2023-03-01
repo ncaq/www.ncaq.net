@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "default.css": "sass site/default.scss"
+    "default.css": "sass site/default.scss",
+    "fix": "yarn lint --write",
+    "lint": "shopt -s nullglob && prettier --ignore-path .gitignore --check **/*.{js,jsx,ts,tsx,json,html,css,less,sass,scss,yml,yaml}"
   },
   "devDependencies": {
     "bootstrap": "^4.6.0",
