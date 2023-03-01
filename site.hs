@@ -118,7 +118,7 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
 conf :: Configuration
 conf = def
   { providerDirectory = "site"
-  , deployCommand = "yarn wrangler pages publish _site"
+  , deployCommand = "yarn wrangler pages publish _site --project-name www-ncaq-net"
   }
 
 pandocCompilerCustom :: Compiler (Item String)
