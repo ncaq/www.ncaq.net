@@ -56,6 +56,15 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
     route $ setExtension "css"
     compile $ unixFilter "yarn" ["run", "-s", "default.css"] "" >>= makeItem
 
+  match "404.md" $ do
+    route $ setExtension "html"
+    compile $
+      pandocCompilerCustom >>=
+      saveSnapshot "content" >>=
+      loadAndApplyTemplate "templates/entry.html" entryContext >>=
+      loadAndApplyTemplate "templates/default.html" (addTitleSuffix <> entryContext) >>=
+      tidyHtml
+
   match ("*.md" .||. "entry/*.md") $ do
     route cleanRoute
     compile $
