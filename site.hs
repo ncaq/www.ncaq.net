@@ -48,13 +48,22 @@ hakyllRun :: (String, [String]) -> IO ()
 hakyllRun (entryIndex, years) = hakyllWith conf $ do
   match "templates/*" $ compile templateCompiler
 
-  match ("*.ico" .||. "*.png" .||. "*.svg" .||. "*.txt" .||. "asset/*") $ do
+  match ("_headers" .||. "*.ico" .||. "*.png" .||. "*.svg" .||. "*.txt" .||. "asset/*") $ do
     route idRoute
     compile copyFileCompiler
 
   match "default.scss" $ do
     route $ setExtension "css"
     compile $ unixFilter "yarn" ["run", "-s", "default.css"] "" >>= makeItem
+
+  match "404.md" $ do
+    route $ setExtension "html"
+    compile $
+      pandocCompilerCustom >>=
+      saveSnapshot "content" >>=
+      loadAndApplyTemplate "templates/entry.html" entryContext >>=
+      loadAndApplyTemplate "templates/default.html" (addTitleSuffix <> entryContext) >>=
+      tidyHtml
 
   match ("*.md" .||. "entry/*.md") $ do
     route cleanRoute
@@ -118,21 +127,7 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
 conf :: Configuration
 conf = def
   { providerDirectory = "site"
-  , deployCommand =
-    unwords
-    [ "rsync"
-    , "--verbose"
-    , "--checksum"
-    , "--recursive"
-    , "--links"
-    , "--chmod=D755,F644"
-    , "--delete"
-    , "--compress"
-    , "--human-readable"
-    , "--progress"
-    , "_site/"
-    , "ncaq@ncaq.net:/var/www/www.ncaq.net"
-    ]
+  , deployCommand = "yarn wrangler pages publish _site --project-name www-ncaq-net"
   }
 
 pandocCompilerCustom :: Compiler (Item String)

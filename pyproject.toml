@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "www.ncaq.net"
+name = "www-ncaq-net"
 version = "0.1.1.0"
 description = ""
 authors = ["ncaq <ncaq@ncaq.net>"]
