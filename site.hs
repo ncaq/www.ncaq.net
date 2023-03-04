@@ -44,6 +44,7 @@ yearInEntry = do
   let getYear = L.takeWhile (/= '-')
   return $ reverse $ L.nub $ getYear <$> entryList
 
+-- | 下準備が終わった後hakyllを実際に起動する。
 hakyllRun :: (String, [String]) -> IO ()
 hakyllRun (entryIndex, years) = hakyllWith conf $ do
   match "templates/*" $ compile templateCompiler
@@ -58,6 +59,7 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
 
   let entryIndexField = listField "entry-index" defaultContext (pure $ (\x -> Item (fromFilePath x) x) <$> years)
 
+  -- 404はCloudflare Pages的に404/index.htmlではなく404.htmlである必要があるため特別に処理する。
   match "404.md" $ do
     route $ setExtension "html"
     compile $
@@ -67,6 +69,7 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
       loadAndApplyTemplate "templates/default.html" (addTitleWithSuffix <> entryIndexField <> entryContext) >>=
       tidyHtml
 
+  -- 大多数の記事。
   match ("*.md" .||. "entry/*.md") $ do
     route cleanRoute
     compile $
@@ -76,6 +79,7 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
       loadAndApplyTemplate "templates/default.html" (addTitleWithSuffix <> entryIndexField <> entryContext) >>=
       tidyHtml
 
+  -- サイトのトップレベル。
   match "index.html" $ do
     route idRoute
     let indexContext =
@@ -92,6 +96,8 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
       loadAndApplyTemplate "templates/default.html" indexContext >>=
       tidyHtml
 
+  -- 年ごとの記事一覧。
+  -- 何でも良いけれど適当に区切らないとGoogleがインデックスを拒否する。
   let entryIndexOfYear year = do
         create [fromFilePath $ year <> "/index.html"] $ do
           route $ constRoute $ year <> "/index.html"
@@ -109,6 +115,7 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
             loadAndApplyTemplate "templates/default.html" indexContext
   mapM_ entryIndexOfYear years
 
+  -- ファイル以外の情報を元にサイトマップを毎回更新する。
   create ["sitemap.xml"] $ do
     route idRoute
     let sitemapContext =
@@ -120,6 +127,8 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
       applyAsTemplate sitemapContext >>=
       tidyXml
 
+  -- ファイル以外の情報を元にフィードを毎回更新する。
+  --フィード対象はentry以下のみ。
   create ["feed.atom"] $ do
     route idRoute
     compile $ do
@@ -127,22 +136,25 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
       entry <- take 20 . reverse <$> loadAllSnapshots "entry/*.md" "content"
       renderAtom feedConfiguration feedContext entry >>= tidyXml
 
+-- | Hakyllに渡す設定。
 conf :: Configuration
 conf = def
   { providerDirectory = "site"
   , deployCommand = "yarn wrangler pages publish _site --project-name www-ncaq-net"
   }
 
+-- | Pandocの設定。
 pandocCompilerCustom :: Compiler (Item String)
 pandocCompilerCustom =
   let extensions =
-        -- 大したこと無いように見えて結構パフォーマンスに影響するので無効化します
+        -- 大したこと無いように見えて結構パフォーマンスに影響するので無効化する。
         disableExtension Ext_pandoc_title_block $
-        -- 記号を変に変えられるのは困るので無効化します
+        -- 記号を変に変えられるのは困るので無効化する。
         disableExtension Ext_smart $
-        -- 一応自動見出しを入れます
+        -- 一応自動見出し向けのidを入れる。
         enableExtension Ext_auto_identifiers $
         readerExtensions defaultHakyllReaderOptions
+      -- pygmentizeでシンタックスハイライト。
       transform (CodeBlock (_identifier, classes, _keyValue) str) =
         let fileName = T.unwords classes
             fileKind = if T.null fileName then T.unwords classes else fileName
@@ -157,12 +169,15 @@ pandocCompilerCustom =
      }
      defaultHakyllWriterOptions
      { writerHTMLMathMethod = MathJax ""
-     , writerSectionDivs = True
+     , writerSectionDivs = True -- HTML sectionの方を使う。
      , writerExtensions = extensions
-     , writerHighlightStyle = Nothing
+     , writerHighlightStyle = Nothing -- 対応言語が多いPygmentでシンタックスハイライトを行うためPandoc側では不要。
      }
-     (bottomUpM transform . eastAsianLineBreakFilter) -- 東アジアの文字列に余計な空白が入らないようにする
+     -- 東アジアの文字列に余計な空白が入らないようにする。
+     -- 何故かコマンドラインオプションでは有効にならない。
+     (bottomUpM transform . eastAsianLineBreakFilter)
 
+-- | Markdownの記事として独立しているページ向けのコンテキスト。
 entryContext :: Context String
 entryContext = mconcat
   [ cleanUrlField
@@ -170,7 +185,7 @@ entryContext = mconcat
   , constField "type" "article"
   , titleEscape
   , teaserFieldByResource 256 "teaser" "content" id
-  , teaserFieldByResource 180 "og-description" "content" (convert . T.replace "\"" "&quot;" . convert)
+  , teaserFieldByResource 180 "og-description" "content" escapeDoubleQuote
   , defaultContext
   ]
   where titleEscape = field "title"
@@ -191,23 +206,32 @@ entryContext = mconcat
           where f = toFilePath $ cleanIdentifier $ itemIdentifier item
                 cleanIdentifier = fromFilePath . dropExtension . takeFileName . toFilePath
 
+-- | 記事一覧などに利用するために記事の冒頭を指定された文字数で切り取ってキーに設定する。
 teaserFieldByResource :: Int -> String -> Snapshot -> (String -> String) -> Context a
 teaserFieldByResource size key snapshot escape = field key $ \item ->
   dropWarningHtmlEntity . take size . escape . stripTags . itemBody <$>
   loadSnapshot (itemIdentifier item) snapshot
 
 -- | HTMLエスケープされた記号が中途半端に残って別の意味になるのを防ぐため、
--- 切り取った箇所の末尾がHTMLエスケープっぽかったら削除します。
+-- 切り取った箇所の末尾がHTMLエスケープっぽかったら削除する。
+-- 実装が非常に雑。
 dropWarningHtmlEntity :: String -> String
 dropWarningHtmlEntity entity =
   let (safety, _match, _after) = entity =~ ("&[^&;]*$" :: String) :: (String, String, String)
   in safety
+
+-- | ダブルクオートを雑にエスケープする。
+-- 雑すぎるのでユーザが入力する可能性のある値を入れる場合許容できないが、
+-- 今回は私が自分で入力する値だけが入るので許容する。
+escapeDoubleQuote :: String -> String
+escapeDoubleQuote = convert . T.replace "\"" "&quot;" . convert
 
 -- | サイトの名前込みのタイトルを設定する。
 addTitleWithSuffix :: Context a
 addTitleWithSuffix = field "title" $ \item ->
   (<> " - ncaq") . fromJust <$> getMetadataField (itemIdentifier item) "title"
 
+-- | RSS Feed配信向けの設定。
 feedConfiguration :: FeedConfiguration
 feedConfiguration = FeedConfiguration
   { feedTitle       = "ncaq"
@@ -217,27 +241,28 @@ feedConfiguration = FeedConfiguration
   , feedRoot        = "https://www.ncaq.net"
   }
 
+-- | ファイルパスのハイフンをディレクトリ区切りに変換して、
+-- 末尾に`index.html`を付与してディレクトリのデフォルトとして参照されるようにする。
 cleanRoute :: Routes
-cleanRoute = customRoute createIndexRoute `composeRoutes` customDateRoute
+cleanRoute = customRoute createIndexRoute `composeRoutes` customHyphenToSlash
   where createIndexRoute ident = takeBaseName (dropExtension (toFilePath ident)) </>
           "index.html"
 
-customDateRoute :: Routes
-customDateRoute = customRoute (replaceDate . toFilePath)
+-- | ファイルパスのハイフンをディレクトリの区切り文字に変換する。
+customHyphenToSlash :: Routes
+customHyphenToSlash = customRoute (replaceHyphenToSlash . toFilePath)
 
--- | 日付の区切り文字をディレクトリパスの区切り文字に変換する。
-replaceDate :: String -> String
-replaceDate = replace '-' '/'
-  where replace _ _ [] = []
-        replace from to (x : xs)
-          | x == from = to : replace from to xs
-          | otherwise = x  : replace from to xs
+-- | ハイフンをスラッシュに変換する。
+replaceHyphenToSlash :: String -> String
+replaceHyphenToSlash = convert . T.replace "-" "/" . convert
 
+-- | urlフィールドにファイルからではない適切なurlを入力する。
 cleanUrlField :: Context a
 cleanUrlField = field "url"
-  (fmap (maybe empty $ (replaceDate . cleanUrlString) . toUrl) .
+  (fmap (maybe empty $ (replaceHyphenToSlash . cleanUrlString) . toUrl) .
    getRoute . itemIdentifier)
 
+-- | 末尾のindex.htmlを除去してパスだけで閲覧できるようにする。
 cleanUrlString :: String -> String
 cleanUrlString = cleanIndex
   where cleanIndex path | "/index.html" `L.isSuffixOf` path = dropFileName path
