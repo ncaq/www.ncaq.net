@@ -276,8 +276,7 @@ feedConfiguration = FeedConfiguration
 -- 末尾に`index.html`を付与してディレクトリのデフォルトとして参照されるようにする。
 cleanRoute :: Routes
 cleanRoute = customRoute createIndexRoute `composeRoutes` customHyphenToSlash
-  where createIndexRoute ident = takeBaseName (dropExtension (toFilePath ident)) </>
-          "index.html"
+  where createIndexRoute ident = takeBaseName (dropExtension (toFilePath ident)) </> "index.html"
 
 -- | ファイルパスのハイフンをディレクトリの区切り文字に変換する。
 customHyphenToSlash :: Routes
