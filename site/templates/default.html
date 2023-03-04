@@ -23,17 +23,6 @@
     <meta name="updated" content="$updated$" />
     $endif$
 
-    <!-- JSON-LD -->
-    $if(jsonld)$ $jsonld("embed")$ $else$
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "headline": $title$
-      }
-    </script>
-    $endif$
-
     <!-- Open Graph protocol -->
     $if(opengraph)$ $opengraph$ $else$
     <meta property="og:type" content="$og-type$" />

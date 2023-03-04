@@ -188,7 +188,6 @@ entryContext =
         ]
   in mconcat
      [ context
-     , jsonldField "jsonld" context
      , openGraphField "opengraph" context
      ]
   where titleEscape = field "title"
