@@ -86,7 +86,7 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
           listField "entry" entryContext (L.take 5 . reverse <$> loadAll (fromGlob "entry/*.md")) <>
           entryIndexField <>
           constField "title" "ncaq" <>
-          constField "type" "website" <>
+          constField "og-type" "website" <>
           constField "og-description" "ncaq website root" <>
           cleanUrlField <>
           defaultContext
@@ -105,7 +105,7 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
                 listField "entry" entryContext (reverse <$> loadAll (fromGlob $ "entry/" <> year <> "*.md")) <>
                 entryIndexField <>
                 constField "title" (year <> "年の記事一覧 - ncaq") <>
-                constField "type" "website" <>
+                constField "og-type" "website" <>
                 constField "og-description" (year <> "年の記事一覧 - ncaq") <>
                 cleanUrlField <>
                 defaultContext
@@ -182,7 +182,7 @@ entryContext :: Context String
 entryContext = mconcat
   [ cleanUrlField
   , mconcat entryDate
-  , constField "type" "article"
+  , constField "og-type" "article"
   , titleEscape
   , teaserFieldByResource 256 "teaser" "content" id
   , teaserFieldByResource 180 "og-description" "content" escapeDoubleQuote
