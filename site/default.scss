@@ -51,6 +51,11 @@ $navbar-dark-disabled-color: rgba($base3, 0.25);
 $navbar-dark-toggler-bg: $base00;
 $navbar-dark-toggler-border: $base0;
 
+$dropdown-bg: $base02;
+$dropdown-border-color: $base0;
+$dropdown-color: $base1;
+$dropdown-link-color: $blue;
+
 $card-cap-bg: $base02;
 $card-bg: $base02;
 
@@ -85,13 +90,30 @@ $pre-color: $base0;
   border-width: thin;
 }
 
+// 日本語主体のコンテンツ向きの改行処理にする。
 body {
   line-break: strict;
   overflow-wrap: break-word;
 }
 
+@include media-breakpoint-up(md) {
+  // .containerではPCでは無意味に狭すぎる。
+  // サイドに自動広告表示したいなら良いかもしれませんが。
+  // デフォルトの.container-fluidの100%展開はPCではやりすぎなので中間点を設定。
+  .container-fluid {
+    width: 90vw;
+  }
+}
+
 a:visited {
   color: $violet;
+}
+
+.navbar a:visited {
+  // importantは使いたくないのですが、
+  // bootstrapの仕様で訪問済みリンクだろうとお構いなしに色が決定されてしまうため、
+  // 仕方ないので使用。
+  color: $violet !important;
 }
 
 header,
@@ -110,29 +132,32 @@ h1 {
   border-width: 0 0 thin 0;
 }
 
-@include media-breakpoint-up(md) {
-  .top-level-container {
-    width: 90%;
+header nav {
+  // ナビのフォントは大きく。
+  font-size: 300%;
+  // ナビ同士軽く隙間を空ける。
+  // アイコンの幅に食われないように。
+  .nav-item {
+    margin-right: $spacer;
   }
-
-  header nav {
-    font-size: 200%;
+  // アイコン扱いの画像や絵文字と少しだけ幅を空ける。
+  .icon {
+    margin-right: $spacer / 2;
   }
-
-  .create-update-timestamp {
-    font-size: 2rem;
+  // メニューのフォントサイズもナビの大きさに合わせる。
+  .dropdown-menu {
+    font-size: 100%;
   }
 }
 
+// imgをテキストと同じ高さにしてアイコンのように使う。
 .nav,
+.navbar,
 .my-social-links {
   img {
     width: 1em;
     height: 1em;
   }
-}
-
-.my-social-links {
   th:nth-child(1) {
     text-align: center;
   }
@@ -140,6 +165,11 @@ h1 {
     text-align: center;
     font-size: 200%;
   }
+}
+
+// 日付部分で大体の環境で改行が発生しないだろう幅を設定。
+.timestamp {
+  font-size: 1.5rem;
 }
 
 .icon-3ds {

@@ -56,13 +56,15 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
     route $ setExtension "css"
     compile $ unixFilter "yarn" ["run", "-s", "default.css"] "" >>= makeItem
 
+  let entryIndexField = listField "entry-index" defaultContext (pure $ (\x -> Item (fromFilePath x) x) <$> years)
+
   match "404.md" $ do
     route $ setExtension "html"
     compile $
       pandocCompilerCustom >>=
       saveSnapshot "content" >>=
       loadAndApplyTemplate "templates/entry.html" entryContext >>=
-      loadAndApplyTemplate "templates/default.html" (addTitleSuffix <> entryContext) >>=
+      loadAndApplyTemplate "templates/default.html" (addTitleWithSuffix <> entryIndexField <> entryContext) >>=
       tidyHtml
 
   match ("*.md" .||. "entry/*.md") $ do
@@ -71,14 +73,14 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
       pandocCompilerCustom >>=
       saveSnapshot "content" >>=
       loadAndApplyTemplate "templates/entry.html" entryContext >>=
-      loadAndApplyTemplate "templates/default.html" (addTitleSuffix <> entryContext) >>=
+      loadAndApplyTemplate "templates/default.html" (addTitleWithSuffix <> entryIndexField <> entryContext) >>=
       tidyHtml
 
   match "index.html" $ do
     route idRoute
     let indexContext =
           listField "entry" entryContext (L.take 5 . reverse <$> loadAll (fromGlob "entry/*.md")) <>
-          listField "entry-index" defaultContext (pure $ (\x -> Item (fromFilePath x) x) <$> years) <>
+          entryIndexField <>
           constField "title" "ncaq" <>
           constField "type" "website" <>
           constField "og-description" "ncaq website root" <>
@@ -95,6 +97,7 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
           route $ constRoute $ year <> "/index.html"
           let indexContext =
                 listField "entry" entryContext (reverse <$> loadAll (fromGlob $ "entry/" <> year <> "*.md")) <>
+                entryIndexField <>
                 constField "title" (year <> "年の記事一覧 - ncaq") <>
                 constField "type" "website" <>
                 constField "og-description" (year <> "年の記事一覧 - ncaq") <>
@@ -110,7 +113,7 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
     route idRoute
     let sitemapContext =
           listField "entry" entryContext (reverse . filter not404 <$> loadAll ("*.md" .||. "entry/*.md")) <>
-          listField "entry-index" defaultContext (pure $ (\x -> Item (fromFilePath x) x) <$> years)
+          entryIndexField
         not404 item = toFilePath (itemIdentifier item) /= "404.md"
     compile $
       getResourceBody >>=
@@ -200,8 +203,9 @@ dropWarningHtmlEntity entity =
   let (safety, _match, _after) = entity =~ ("&[^&;]*$" :: String) :: (String, String, String)
   in safety
 
-addTitleSuffix :: Context a
-addTitleSuffix = field "title" $ \item ->
+-- | サイトの名前込みのタイトルを設定する。
+addTitleWithSuffix :: Context a
+addTitleWithSuffix = field "title" $ \item ->
   (<> " - ncaq") . fromJust <$> getMetadataField (itemIdentifier item) "title"
 
 feedConfiguration :: FeedConfiguration

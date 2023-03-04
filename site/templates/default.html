@@ -59,33 +59,73 @@
     <link rel="stylesheet" href="/default.css" />
   </head>
   <body>
-    <div class="container-fluid top-level-container">
+    <div class="container-fluid">
       <header class="nocontent">
-        <nav class="nav nav-pills nav-fill">
-          <a class="nav-item nav-link" href="/">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a href="/">
             <img
+              class="icon"
               referrerpolicy="same-origin"
               src="/favicon.png"
               alt=""
               width="32"
               height="32"
-            />home
-          </a>
-          <a class="nav-item nav-link" href="/about/">👤about</a>
-          <a
-            class="nav-item nav-link"
-            rel="alternate"
-            type="application/atom+xml"
-            href="/feed.atom"
+              loading="lazy"
+            />home</a
           >
-            <img
-              referrerpolicy="same-origin"
-              src="/feed.svg"
-              alt=""
-              width="32"
-              height="32"
-            />feed
-          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target=".navbar-supported-content"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse navbar-supported-content">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/about/">
+                  <span class="icon">👤</span>about</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  rel="alternate"
+                  type="application/atom+xml"
+                  href="/feed.atom"
+                >
+                  <img
+                    class="icon"
+                    referrerpolicy="same-origin"
+                    src="/feed.svg"
+                    alt=""
+                    width="32"
+                    height="32"
+                    loading="lazy"
+                  />feed</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <span class="icon">🗂️</span>entry</a
+                >
+                <div class="dropdown-menu navbar-supported-content">
+                  $for(entry-index)$
+                  <a class="dropdown-item" href="/$body$/">$body$年</a>
+                  $endfor$
+                </div>
+              </li>
+            </ul>
+          </div>
         </nav>
       </header>
       <main>$body$</main>
@@ -94,8 +134,7 @@
           href="https://twitter.com/share"
           class="twitter-share-button"
           data-via="ncaq"
-        >
-          Tweet
+          >Tweet
         </a>
         <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button">
           <img
@@ -103,15 +142,13 @@
             src="https://b.st-hatena.com/images/entry-button/button-only@2x.png"
             alt="このエントリーをはてなブックマークに追加"
             loading="lazy"
-          />
-          hatena-bookmark
+          />hatena-bookmark
         </a>
         <a
           data-pocket-label="pocket"
           data-pocket-count="horizontal"
           class="pocket-btn"
-        >
-          pocket
+          >pocket
         </a>
       </div>
       <div class="container">
@@ -340,10 +377,24 @@
       async="async"
       src="https://widgets.getpocket.com/v1/j/btn.js?v=1"
     ></script>
+
     <script
       async="async"
       crossorigin="anonymous"
       src="https://kit.fontawesome.com/e1ccf9a1e8.js"
+    ></script>
+
+    <!-- bootstrap 4のJSがjQueryを必須とするため後に読み込まれる可能性を防ぐためにasyncはあえて付けない。 -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      async="async"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
     ></script>
   </body>
 </html>
