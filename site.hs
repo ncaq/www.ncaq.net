@@ -130,7 +130,7 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
   create ["feed.atom"] $ do
     route idRoute
     compile $ do
-      let feedContext = entryContext <> bodyField "description"
+      let feedContext = bodyField "description" <> entryContext
       entry <- take 20 . reverse <$> loadAllSnapshots "entry/*.md" "content"
       renderAtom feedConfiguration feedContext entry >>= tidyXml
 
@@ -182,6 +182,7 @@ entryContext =
         [ titleEscape
         , mconcat entryDate
         , teaserFieldByResource 256 "teaser" "content" id
+        , teaserFieldByResource 100 "description" "content" escapeDoubleQuote
         , teaserFieldByResource 180 "og-description" "content" escapeDoubleQuote
         , basicContext
         ]
@@ -213,6 +214,7 @@ indexContext :: String -> String -> String -> Context String -> Context String
 indexContext title description ogType entryIndexField =
   mconcat
   [ constField "title" title
+  , constField "description" description
   , constField "og-type" ogType
   , constField "og-description" description
   , entryIndexField
