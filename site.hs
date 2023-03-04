@@ -82,18 +82,17 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
   -- サイトのトップレベル。
   match "index.html" $ do
     route idRoute
-    let indexContext =
+    let context =
           listField "entry" entryContext (L.take 5 . reverse <$> loadAll (fromGlob "entry/*.md")) <>
-          entryIndexField <>
-          constField "title" "ncaq" <>
-          constField "og-type" "website" <>
-          constField "og-description" "ncaq website root" <>
-          cleanUrlField <>
-          defaultContext
+          indexContext
+          "ncaq"
+          "ncaq website root"
+          "website"
+          entryIndexField
     compile $
       getResourceBody >>=
-      applyAsTemplate indexContext >>=
-      loadAndApplyTemplate "templates/default.html" indexContext >>=
+      applyAsTemplate context >>=
+      loadAndApplyTemplate "templates/default.html" context >>=
       tidyHtml
 
   -- 年ごとの記事一覧。
@@ -101,18 +100,17 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
   let entryIndexOfYear year = do
         create [fromFilePath $ year <> "/index.html"] $ do
           route $ constRoute $ year <> "/index.html"
-          let indexContext =
+          let context =
                 listField "entry" entryContext (reverse <$> loadAll (fromGlob $ "entry/" <> year <> "*.md")) <>
-                entryIndexField <>
-                constField "title" (year <> "年の記事一覧 - ncaq") <>
-                constField "og-type" "website" <>
-                constField "og-description" (year <> "年の記事一覧 - ncaq") <>
-                cleanUrlField <>
-                defaultContext
+                indexContext
+                (year <> "年の記事一覧 - ncaq")
+                (year <> "年の記事一覧 - ncaq")
+                "website"
+                entryIndexField
           compile $
             makeItem entryIndex >>=
-            applyAsTemplate indexContext >>=
-            loadAndApplyTemplate "templates/default.html" indexContext
+            applyAsTemplate context >>=
+            loadAndApplyTemplate "templates/default.html" context
   mapM_ entryIndexOfYear years
 
   -- ファイル以外の情報を元にサイトマップを毎回更新する。
@@ -177,17 +175,21 @@ pandocCompilerCustom =
      -- 何故かコマンドラインオプションでは有効にならない。
      (bottomUpM transform . eastAsianLineBreakFilter)
 
--- | Markdownの記事として独立しているページ向けのコンテキスト。
+-- | Markdownの記事として独立しているページ向け。
 entryContext :: Context String
-entryContext = mconcat
-  [ cleanUrlField
-  , mconcat entryDate
-  , constField "og-type" "article"
-  , titleEscape
-  , teaserFieldByResource 256 "teaser" "content" id
-  , teaserFieldByResource 180 "og-description" "content" escapeDoubleQuote
-  , defaultContext
-  ]
+entryContext =
+  let context = mconcat
+        [ titleEscape
+        , mconcat entryDate
+        , teaserFieldByResource 256 "teaser" "content" id
+        , teaserFieldByResource 180 "og-description" "content" escapeDoubleQuote
+        , basicContext
+        ]
+  in mconcat
+     [ context
+     , jsonldField "jsonld" context
+     , openGraphField "opengraph" context
+     ]
   where titleEscape = field "title"
           (\item -> escapeHtml . fromJust <$> getMetadataField (itemIdentifier item) "title")
         entryDate = f <$> ["date", "published"]
@@ -205,6 +207,34 @@ entryContext = mconcat
           _ -> Nothing
           where f = toFilePath $ cleanIdentifier $ itemIdentifier item
                 cleanIdentifier = fromFilePath . dropExtension . takeFileName . toFilePath
+
+-- | Markdownの記事ではなくHTMLから生成する一覧ページ。
+indexContext :: String -> String -> String -> Context String -> Context String
+indexContext title description ogType entryIndexField =
+  mconcat
+  [ constField "title" title
+  , constField "og-type" ogType
+  , constField "og-description" description
+  , entryIndexField
+  , basicContext
+  ]
+
+-- | どのページにも共通する基本的な情報。
+basicContext :: Context String
+basicContext =
+  let context = mconcat
+        [ constField "root" "https://www.ncaq.net"
+        , cleanUrlField
+        , constField "og-image" "https://www.ncaq.net/favicon.png"
+        , constField "twitter-creator" "@ncaq"
+        , constField "twitter-site" "@ncaq"
+        , defaultContext
+        ]
+  in mconcat
+     -- JSON-LDやOpenGraphはtypeがハードコーディングされているからあえて入れない。
+     [ twitterCardField "twitter" context
+     , context
+     ]
 
 -- | 記事一覧などに利用するために記事の冒頭を指定された文字数で切り取ってキーに設定する。
 teaserFieldByResource :: Int -> String -> Snapshot -> (String -> String) -> Context a
