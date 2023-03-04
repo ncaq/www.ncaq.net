@@ -169,7 +169,13 @@ header nav {
 
 // 日付部分で大体の環境で改行が発生しないだろう幅を設定。
 .timestamp {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+}
+
+@include media-breakpoint-up(md) {
+  .timestamp {
+    font-size: 2rem;
+  }
 }
 
 .icon-3ds {
