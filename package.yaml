@@ -8,6 +8,8 @@ maintainer: ncaq@ncaq.net
 copyright: © ncaq
 license: MIT
 
+language: GHC2021
+
 dependencies:
   - base
   - convertible
