@@ -135,17 +135,15 @@ h1 {
 header nav {
   // ナビのフォントは大きく。
   font-size: 300%;
-  // ナビ同士軽く隙間を空ける。
-  // アイコンの幅に食われないように。
-  .nav-item {
-    margin-right: $spacer;
-  }
-  // アイコン扱いの画像や絵文字と少しだけ幅を空ける。
+  // 年の数字とかが揃わないのはメニューとして気持ち悪すぎるので等幅を指定。
+  font-family: $font-family-monospace;
   .icon {
-    margin-right: $spacer / 2;
+    // 環境によってはアイコンの幅が不揃いになって大変気持ち悪いので強制的に合わせる。
+    display: inline-block;
+    width: 50px;
   }
-  // メニューのフォントサイズもナビの大きさに合わせる。
   .dropdown-menu {
+    // メニューのフォントサイズもナビの大きさに合わせる。
     font-size: 100%;
   }
 }
