@@ -2,6 +2,7 @@
 set -eux
 
 git pull
+yarn install --frozen-lockfile
 poetry install
 stack build
 stack exec -- www-ncaq-net build
