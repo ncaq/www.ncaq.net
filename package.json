@@ -5,7 +5,7 @@
     "lint": "prettier --ignore-path .gitignore --ignore-unknown --check '**/*.{js,jsx,ts,tsx,json,html,css,less,sass,scss,yml,yaml}'"
   },
   "devDependencies": {
-    "prettier": "^2.8.4",
+    "prettier": "^2.8.8",
     "sass": "^1.58.3",
     "wrangler": "^2.12.0"
   },
