@@ -145,6 +145,8 @@ header nav {
     width: 60px;
     // 画像と絵文字を併用するので左端に揃えてくれることを期待する。
     margin-right: auto;
+    // 絵文字を画像と同じく中央揃いにします。
+    text-align: center;
   }
   .dropdown-menu {
     // メニューのフォントサイズもナビの大きさに合わせる。
