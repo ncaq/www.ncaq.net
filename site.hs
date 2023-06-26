@@ -1,8 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-|
-Copyright : © ncaq
-License   : MIT
--}
 module Main (main) where
 
 import           Control.Applicative

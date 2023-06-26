@@ -349,7 +349,7 @@ steps:
 # Set this to null to disable all line wrapping.
 #
 # Default: 80.
-columns: 100
+columns: 120
 
 # By default, line endings are converted according to the OS. You can override
 # preferred format here.
@@ -361,7 +361,7 @@ columns: 100
 # - crlf: Convert to CRLF ("\r\n").
 #
 # Default: native.
-newline: native
+newline: lf
 
 # Sometimes, language extensions are specified in a cabal file or from the
 # command line instead of using language pragmas in the file. stylish-haskell
