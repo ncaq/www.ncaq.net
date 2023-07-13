@@ -37,7 +37,6 @@
 :seti -XViewPatterns
 
 -- デバッグ時によく必要になる言語拡張を有効にします。
-
 :seti -XDuplicateRecordFields
 :seti -XNoFieldSelectors
 :seti -XTemplateHaskell
