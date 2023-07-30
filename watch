@@ -1,8 +1,5 @@
 #!/bin/zsh
 set -eux
 
-git pull
-yarn install --frozen-lockfile
-poetry install
-stack build
+$(dirname $0)/setup
 stack exec -- www-ncaq-net watch
