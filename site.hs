@@ -161,7 +161,7 @@ pandocCompilerCustom =
      { readerExtensions = extensions
      }
      defaultHakyllWriterOptions
-     { writerHTMLMathMethod = MathJax ""
+     { writerHTMLMathMethod = MathML
      , writerSectionDivs = True -- HTML sectionの方を使う。
      , writerExtensions = extensions
      , writerHighlightStyle = Nothing -- 対応言語が多いPygmentでシンタックスハイライトを行うためPandoc側では不要。
