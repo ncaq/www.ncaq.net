@@ -1,14 +1,13 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2022-11-10T20:43:23+09:00
+updated: 2023-08-07T00:51:21+09:00
 ---
 
 # 名前
 
 * ncaq
 * エヌユル
-* Haaaa_N
 
 # そこそこ使ったプログラミング言語
 
@@ -20,21 +19,21 @@ updated: 2022-11-10T20:43:23+09:00
 
 ## かなりすき
 
-* C++
 * D
 * Elm
 * Emacs Lisp
 * Prolog
 * PureScript
-* Scheme
 * TypeScript
 
 ## すき
 
 * C#
+* C++
 * Common Lisp
 * Raku
 * Ruby
+* Scheme
 * Swift
 
 ## ふつう
@@ -63,11 +62,8 @@ updated: 2022-11-10T20:43:23+09:00
 # その他趣味
 
 * ゲーム
-* アニメ
 * ネットサーフィン
 * ネット小説
-* 倫理
-* 雑学
 
 # 資格
 
