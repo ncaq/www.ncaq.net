@@ -88,7 +88,7 @@ updated: 2023-08-07T00:51:21+09:00
 * [ncaq/nlod: JLODを改良したMozc/Google日本語入力向けのDvorakローマ字テーブル](https://github.com/ncaq/nlod)
 * [ncaq/prohell: Prolog like programming language](https://github.com/ncaq/prohell)
 * [ncaq/recentf-remove-sudo-tramp-prefix: normalize recentf history](https://github.com/ncaq/recentf-remove-sudo-tramp-prefix)
-* [ncaq/uBlacklistRule: uBlacklist向けのルールです。Firefox for AndroidのuBlock Origin向けのルールもあります。](https://github.com/ncaq/uBlacklistRule/)
+* [ncaq/uBlacklistRule: This rule is for uBlacklist. there is also a rule for uBlock Origin in Firefox for Android.](https://github.com/ncaq/uBlacklistRule)
 * [ncaq/yesod-form-bootstrap4: yesod-form for bootstrap version 4](https://github.com/ncaq/yesod-form-bootstrap4)
 * [ncaq/yesod-recaptcha2: recaptcha2 for yesod](https://github.com/ncaq/yesod-recaptcha2)
 
@@ -318,7 +318,7 @@ TwitterやSlackなどで会話をする時は、
 * VBAプロジェクトが終わる
 * ネットワーク配信管理システムの改善を行う
 * 自然言語処理ソフトウェアをHaskellで書き始める
-* [ncaq/uBlacklistRule: uBlacklist向けのルールです。](https://github.com/ncaq/uBlacklistRule/)
+* [ncaq/uBlacklistRule: This rule is for uBlacklist. there is also a rule for uBlock Origin in Firefox for Android.](https://github.com/ncaq/uBlacklistRule)
 * [ncaq/google-search-title-qualified: Google will omit the title of the web page. With this add-on, the original title is used as much as possible.](https://github.com/ncaq/google-search-title-qualified)
 
 ## 2022年
