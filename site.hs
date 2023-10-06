@@ -185,8 +185,7 @@ entryContext =
      [ context
      , openGraphField "opengraph" context
      ]
-  where titleEscape = field "title"
-          (\item -> escapeHtml . fromJust <$> getMetadataField (itemIdentifier item) "title")
+  where titleEscape = mapTitleEx (fmap escapeHtml)
         entryDate = f <$> ["date", "published"]
           where f key = field key (\item -> do
                                       mMeta <- getMetadataField (itemIdentifier item) key
@@ -202,6 +201,18 @@ entryContext =
           _ -> Nothing
           where f = toFilePath $ cleanIdentifier $ itemIdentifier item
                 cleanIdentifier = fromFilePath . dropExtension . takeFileName . toFilePath
+
+-- | フィールドのtitleデータを編集します。
+-- タイトルが無い場合はエラーを出力して終了します。
+mapTitleEx :: MonadMetadata f => (f String -> Compiler String) -> Context a
+mapTitleEx f = field "title" (f . getTitleEx)
+
+-- | メタデータからtitleを取得します。
+-- タイトルが無い場合はエラーを出力して終了します。
+getTitleEx :: MonadMetadata f => Item a -> f String
+getTitleEx item =
+  fromMaybe (error "title not found") <$>
+  getMetadataField (itemIdentifier item) "title"
 
 -- | Markdownの記事ではなくHTMLから生成する一覧ページ。
 indexContext :: String -> String -> String -> Context String -> Context String
@@ -254,8 +265,7 @@ escapeDoubleQuote = convert . T.replace "\"" "&quot;" . convert
 
 -- | サイトの名前込みのタイトルを設定する。
 addTitleWithSuffix :: Context a
-addTitleWithSuffix = field "title" $ \item ->
-  (<> " - ncaq") . fromJust <$> getMetadataField (itemIdentifier item) "title"
+addTitleWithSuffix = mapTitleEx (fmap (<> " - ncaq"))
 
 -- | RSS Feed配信向けの設定。
 feedConfiguration :: FeedConfiguration
