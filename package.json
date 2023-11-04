@@ -1,4 +1,5 @@
 {
+  "packageManager": "yarn@4.0.1",
   "scripts": {
     "default.css": "sass site/default.scss",
     "fix": "yarn lint --write",
