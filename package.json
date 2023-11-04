@@ -1,16 +1,16 @@
 {
-  "packageManager": "yarn@4.0.1",
   "scripts": {
     "default.css": "sass site/default.scss",
     "fix": "yarn lint --write",
     "lint": "prettier --ignore-path .gitignore --ignore-unknown --check '**/*.{js,jsx,ts,tsx,json,html,css,less,sass,scss,yml,yaml}'"
+  },
+  "dependencies": {
+    "bootstrap": "^4.6.0"
   },
   "devDependencies": {
     "prettier": "^3.0.0",
     "sass": "^1.58.3",
     "wrangler": "^3.4.0"
   },
-  "dependencies": {
-    "bootstrap": "^4.6.0"
-  }
+  "packageManager": "yarn@4.0.1"
 }
