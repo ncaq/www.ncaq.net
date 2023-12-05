@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2023-08-07T00:51:21+09:00
+updated: 2023-12-05T14:02:21+09:00
 ---
 
 # 名前
@@ -327,3 +327,9 @@ TwitterやSlackなどで会話をする時は、
 * [yesodweb/serversession: Secure, modular server-side sessions.](https://github.com/yesodweb/serversession)のPR作ってたらメンテナになりました
 * NestJS+Reactでの企業向け動画保存・配信サービス
 * SwiftでのiOSアプリケーション
+
+## 2023年
+
+* 自然言語処理のためにHaskellでPrologのサブセットを実装
+* GitHub Enterprise Cloud向けセキュリティ基盤生成
+* NestJS+Next.jsでの企業向けグラフ表示サービス
