@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2023-12-12T16:51:04+09:00
+updated: 2024-12-31T15:53:21+09:00
 ---
 
 # 名前
@@ -333,3 +333,12 @@ TwitterやSlackなどで会話をする時は、
 * 自然言語処理のためにHaskellでPrologのサブセットを実装
 * GitHub Enterprise Cloud向けセキュリティ基盤生成
 * NestJS+Next.jsでの企業向けグラフ表示サービス
+
+## 2024年
+
+* 神奈川県に引っ越しました
+* 半年ぐらいメンタルの問題で実質的な休職状態になっていた
+* 自然言語処理のためのProlog処理系の実装継続
+* BaaS実装のためのデータベースの調査
+* [ncaq/typespec-ts-mode: Major mode for TypeSpec using tree-sitter](https://github.com/ncaq/typespec-ts-mode/)
+  * [happenslol/tree-sitter-typespec](https://github.com/happenslol/tree-sitter-typespec/)の改善
