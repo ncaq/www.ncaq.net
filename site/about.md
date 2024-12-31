@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2024-12-31T15:53:21+09:00
+updated: 2024-12-31T15:54:26+09:00
 ---
 
 # 名前
@@ -88,6 +88,7 @@ updated: 2024-12-31T15:53:21+09:00
 * [ncaq/nlod: JLODを改良したMozc/Google日本語入力向けのDvorakローマ字テーブル](https://github.com/ncaq/nlod)
 * [ncaq/prohell: Prolog like programming language](https://github.com/ncaq/prohell)
 * [ncaq/recentf-remove-sudo-tramp-prefix: normalize recentf history](https://github.com/ncaq/recentf-remove-sudo-tramp-prefix)
+* [ncaq/typespec-ts-mode: Major mode for TypeSpec using tree-sitter](https://github.com/ncaq/typespec-ts-mode/)
 * [ncaq/uBlacklistRule: This rule is for uBlacklist. there is also a rule for uBlock Origin in Firefox for Android.](https://github.com/ncaq/uBlacklistRule)
 * [ncaq/yesod-form-bootstrap4: yesod-form for bootstrap version 4](https://github.com/ncaq/yesod-form-bootstrap4)
 * [ncaq/yesod-recaptcha2: recaptcha2 for yesod](https://github.com/ncaq/yesod-recaptcha2)
