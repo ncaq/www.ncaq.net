@@ -50,7 +50,7 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
 
   match "default.scss" $ do
     route $ setExtension "css"
-    compile $ unixFilter "yarn" ["run", "-s", "default.css"] "" >>= makeItem
+    compile $ unixFilter "yarn" ["run", "default.css"] "" >>= makeItem
 
   let entryIndexField = listField "entry-index" defaultContext (pure $ (\x -> Item (fromFilePath x) x) <$> years)
 
