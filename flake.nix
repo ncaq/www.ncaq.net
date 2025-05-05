@@ -27,7 +27,11 @@
             html-tidy =
               prev.html-tidy.overrideAttrs (oldAttrs: { src = html-tidy-src; });
             www-ncaq-net = final.haskell-nix.stackProject' {
-              src = ./.;
+              src = final.haskell-nix.haskellLib.cleanSourceWith {
+                src = ./.;
+                name = "www-ncaq-net-source";
+              };
+              name = "www-ncaq-net";
               compiler-nix-name = "ghc966";
               shell.tools = {
                 fourmolu = "latest";
