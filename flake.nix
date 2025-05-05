@@ -48,6 +48,7 @@
 
                 # Python
                 poetry
+                python3
 
                 # Other
                 html-tidy
