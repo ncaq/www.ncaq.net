@@ -4,5 +4,4 @@ set -eux -o pipefail
 git pull
 yarn install --immutable
 poetry install --no-root
-stack build
-stack exec -- www-ncaq-net build
+nix run . -- build

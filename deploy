@@ -2,4 +2,4 @@
 set -eux -o pipefail
 
 $(dirname $0)/setup
-stack exec -- www-ncaq-net deploy
+nix run . -- deploy
