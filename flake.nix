@@ -9,15 +9,23 @@
       url = "github:SnO2WMaN/corepack-flake";
       inputs.flake-utils.follows = "flake-utils";
     };
+    html-tidy-src = {
+      url = "github:htacg/tidy-html5";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, flake-utils, haskellNix, corepack, ... }:
+  outputs =
+    { self, nixpkgs, flake-utils, haskellNix, corepack, html-tidy-src, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         overlays = [
           haskellNix.overlay
           corepack.overlays.default
           (final: prev: {
+            # 公式リリースがしばらくないのでGitHubの最新版を利用。
+            html-tidy =
+              prev.html-tidy.overrideAttrs (oldAttrs: { src = html-tidy-src; });
             www-ncaq-net = final.haskell-nix.stackProject' {
               src = ./.;
               compiler-nix-name = "ghc966";

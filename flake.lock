@@ -459,6 +459,22 @@
         "type": "github"
       }
     },
+    "html-tidy-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1643123835,
+        "narHash": "sha256-vbedA9J8LPSFmgrF8CTWoIvKO2SVp4LivBloY/lZk1s=",
+        "owner": "htacg",
+        "repo": "tidy-html5",
+        "rev": "d08ddc2860aa95ba8e301343a30837f157977cba",
+        "type": "github"
+      },
+      "original": {
+        "owner": "htacg",
+        "repo": "tidy-html5",
+        "type": "github"
+      }
+    },
     "iserv-proxy": {
       "flake": false,
       "locked": {
@@ -594,6 +610,7 @@
         "corepack": "corepack",
         "flake-utils": "flake-utils",
         "haskellNix": "haskellNix",
+        "html-tidy-src": "html-tidy-src",
         "nixpkgs": [
           "haskellNix",
           "nixpkgs-unstable"
