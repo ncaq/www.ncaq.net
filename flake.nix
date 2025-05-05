@@ -17,7 +17,7 @@
 
   outputs =
     { self, nixpkgs, flake-utils, haskellNix, corepack, html-tidy-src, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
+    flake-utils.lib.eachSystem ["x86_64-linux"] (system:
       let
         overlays = [
           haskellNix.overlay
