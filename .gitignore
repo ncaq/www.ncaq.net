@@ -218,14 +218,18 @@ out
 
 # End of https://www.toptal.com/developers/gitignore/api/emacs,haskell,node
 
+# Haskell for Application
+
+*.cabal
+
 # Nix
 
 .direnv/
 /result
 
-# ライブラリではなくアプリケーションなので自動生成cabalは除外。
-*.cabal
+.env*local
 
-# Hakyllの生成するファイル。
+# Hakyll
+
 _cache/
 _site/
