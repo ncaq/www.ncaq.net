@@ -2,9 +2,9 @@
   description = "www.ncaq.net from Hakyll project template from stack";
 
   inputs = {
+    nixpkgs.follows = "haskellNix/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     haskellNix.url = "github:input-output-hk/haskell.nix";
-    nixpkgs.follows = "haskellNix/nixpkgs-unstable";
     corepack = {
       url = "github:SnO2WMaN/corepack-flake";
       inputs.flake-utils.follows = "flake-utils";
@@ -16,7 +16,7 @@
   };
 
   outputs =
-    { self, nixpkgs, flake-utils, haskellNix, corepack, html-tidy-src, ... }:
+    { nixpkgs, flake-utils, haskellNix, corepack, html-tidy-src, ... }:
     flake-utils.lib.eachSystem ["x86_64-linux"] (system:
       let
         overlays = [
@@ -26,7 +26,7 @@
             # 公式リリースがしばらくないのでGitHubの最新版を利用。
             html-tidy =
               prev.html-tidy.overrideAttrs (oldAttrs: { src = html-tidy-src; });
-            www-ncaq-net = final.haskell-nix.stackProject' {
+            project = final.haskell-nix.stackProject' {
               src = final.haskell-nix.haskellLib.cleanSourceWith {
                 src = ./.;
                 name = "www-ncaq-net-source";
@@ -64,7 +64,7 @@
           inherit system overlays;
           inherit (haskellNix) config;
         };
-        flake = pkgs.www-ncaq-net.flake { };
+        flake = pkgs.project.flake { };
       in flake // {
         packages = flake.packages // {
           default = flake.packages."www-ncaq-net:exe:www-ncaq-net";
