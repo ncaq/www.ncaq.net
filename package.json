@@ -8,9 +8,9 @@
     "bootstrap": "^4.6.0"
   },
   "devDependencies": {
-    "prettier": "^3.0.0",
+    "prettier": "^3.6.2",
     "sass": "^1.58.3",
-    "wrangler": "^3.19.0"
+    "wrangler": "^3.114.14"
   },
-  "packageManager": "yarn@4.0.1"
+  "packageManager": "yarn@4.9.3"
 }
