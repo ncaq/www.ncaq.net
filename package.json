@@ -12,5 +12,5 @@
     "sass": "^1.58.3",
     "wrangler": "^3.19.0"
   },
-  "packageManager": "yarn@4.0.1"
+  "packageManager": "yarn@4.9.3"
 }
