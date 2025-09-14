@@ -154,8 +154,12 @@
     extra-substituters = [
       "https://cache.nixos.org"
       "https://cache.iog.io"
+      "https://www-ncaq-net.cachix.org"
     ];
-    extra-trusted-public-keys = [ "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=" ];
+    extra-trusted-public-keys = [
+      "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
+      "www-ncaq-net.cachix.org-1:muU00ItcyCf+F+lS//4w9XxW+UZYQxGa1cra1VXRH8c="
+    ];
     allow-import-from-derivation = true;
   };
 }

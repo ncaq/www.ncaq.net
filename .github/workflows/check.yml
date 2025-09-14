@@ -18,4 +18,8 @@ jobs:
         with:
           extra_nix_config: |
             accept-flake-config = true
+      - uses: cachix/cachix-action@v16
+        with:
+          name: www-ncaq-net
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - run: nix flake check
