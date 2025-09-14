@@ -4,6 +4,12 @@
   inputs = {
     nixpkgs.follows = "haskellNix/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs = {
+        nixpkgs.follows = "haskellNix/nixpkgs-unstable";
+      };
+    };
     haskellNix.url = "github:input-output-hk/haskell.nix";
     poetry2nix = {
       url = "github:nix-community/poetry2nix";
@@ -11,6 +17,7 @@
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
         systems.follows = "flake-utils/systems";
+        treefmt-nix.follows = "treefmt-nix";
       };
     };
     corepack = {
@@ -25,8 +32,10 @@
 
   outputs =
     {
+      self,
       nixpkgs,
       flake-utils,
+      treefmt-nix,
       haskellNix,
       poetry2nix,
       corepack,
@@ -98,6 +107,29 @@
           inherit (haskellNix) config;
         };
         flake = pkgs.project.flake { };
+        treefmtEval = treefmt-nix.lib.evalModule pkgs (_: {
+          # actionlintはセルフホストランナーの設定ファイルを正常に読み込まなかった。
+          # yamlfmtはprettierと競合する。
+          projectRootFile = "flake.nix";
+          programs = {
+            cabal-gild.enable = true;
+            deadnix.enable = true;
+            hlint.enable = true;
+            nixfmt.enable = true;
+            shellcheck.enable = true;
+            shfmt.enable = true;
+            statix.enable = true;
+
+            fourmolu = {
+              enable = true;
+              package = pkgs.fourmolu;
+            };
+            prettier = {
+              enable = true;
+              excludes = [ "*.md" ];
+            };
+          };
+        });
       in
       # hydraJobsもGitHub Actionsを使うため不要なので除外。
       builtins.removeAttrs flake [
@@ -105,6 +137,13 @@
         "hydraJobs"
       ]
       // {
+        checks =
+          flake.packages # テストがないパッケージもビルドしてエラーを検出する。
+          // flake.checks
+          // {
+            formatting = treefmtEval.config.build.check self;
+          };
+        formatter = treefmtEval.config.build.wrapper;
         packages = flake.packages // {
           default = flake.packages."www-ncaq-net:exe:www-ncaq-net";
         };
