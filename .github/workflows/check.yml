@@ -1,0 +1,25 @@
+name: check
+
+on:
+  push:
+    branches: master
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read # リポジトリコンテンツの読み取り
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: cachix/install-nix-action@v31
+        with:
+          extra_nix_config: |
+            accept-flake-config = true
+      - uses: cachix/cachix-action@v16
+        with:
+          name: www-ncaq-net
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - run: nix flake check
