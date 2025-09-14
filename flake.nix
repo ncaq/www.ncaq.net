@@ -7,8 +7,11 @@
     haskellNix.url = "github:input-output-hk/haskell.nix";
     poetry2nix = {
       url = "github:nix-community/poetry2nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+        systems.follows = "flake-utils/systems";
+      };
     };
     corepack = {
       url = "github:SnO2WMaN/corepack-flake";
