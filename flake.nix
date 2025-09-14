@@ -99,7 +99,11 @@
         };
         flake = pkgs.project.flake { };
       in
-      flake
+      # hydraJobsもGitHub Actionsを使うため不要なので除外。
+      builtins.removeAttrs flake [
+        "ciJobs"
+        "hydraJobs"
+      ]
       // {
         packages = flake.packages // {
           default = flake.packages."www-ncaq-net:exe:www-ncaq-net";
