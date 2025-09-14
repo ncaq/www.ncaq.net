@@ -5,6 +5,11 @@
     nixpkgs.follows = "haskellNix/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     haskellNix.url = "github:input-output-hk/haskell.nix";
+    poetry2nix = {
+      url = "github:nix-community/poetry2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
     corepack = {
       url = "github:SnO2WMaN/corepack-flake";
       inputs.flake-utils.follows = "flake-utils";
@@ -16,16 +21,30 @@
   };
 
   outputs =
-    { nixpkgs, flake-utils, haskellNix, corepack, html-tidy-src, ... }:
+    { nixpkgs, flake-utils, haskellNix, poetry2nix, corepack, html-tidy-src, ... }:
     flake-utils.lib.eachSystem ["x86_64-linux"] (system:
       let
         overlays = [
           haskellNix.overlay
+          poetry2nix.overlays.default
           corepack.overlays.default
           (final: prev: {
             # 公式リリースがしばらくないのでGitHubの最新版を利用。
             html-tidy =
               prev.html-tidy.overrideAttrs (oldAttrs: { src = html-tidy-src; });
+
+            # Poetry2nixでPythonパッケージを管理
+            pythonEnv = final.poetry2nix.mkPoetryEnv {
+              projectDir = ./.;
+              python = final.python312;
+              preferWheels = true;
+              overrides = final.poetry2nix.overrides.withDefaults (self: super: {
+                jsx-lexer = super.jsx-lexer.overridePythonAttrs (old: {
+                  buildInputs = (old.buildInputs or [ ]) ++ [ self.setuptools ];
+                });
+              });
+            };
+
             project = final.haskell-nix.stackProject' {
               src = final.haskell-nix.haskellLib.cleanSourceWith {
                 src = ./.;
@@ -51,8 +70,7 @@
                 (mkCorepack { pm = "yarn"; })
 
                 # Python
-                poetry
-                python3
+                pythonEnv
 
                 # Other
                 html-tidy

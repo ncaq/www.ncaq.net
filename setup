@@ -3,5 +3,4 @@ set -eux -o pipefail
 
 git pull
 yarn install --immutable
-poetry install --no-root
 nix run . -- build
