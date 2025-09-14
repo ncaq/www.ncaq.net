@@ -51,7 +51,7 @@
           corepack.overlays.default
           (final: prev: {
             # 公式リリースがしばらくないのでGitHubの最新版を利用。
-            html-tidy = prev.html-tidy.overrideAttrs (oldAttrs: {
+            html-tidy = prev.html-tidy.overrideAttrs (_oldAttrs: {
               src = html-tidy-src;
             });
 
