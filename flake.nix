@@ -76,29 +76,31 @@
               };
               name = "www-ncaq-net";
               compiler-nix-name = "ghc966";
-              shell.tools = {
-                fourmolu = "latest";
-                haskell-language-server = "latest";
-                hlint = "latest";
-                stack = "latest";
+              shell = {
+                tools = {
+                  fourmolu = "latest";
+                  haskell-language-server = "latest";
+                  hlint = "latest";
+                  stack = "latest";
+                };
+                buildInputs = with pkgs; [
+                  # Haskell
+                  (pkgs.writeScriptBin "haskell-language-server-wrapper" ''
+                    #!${pkgs.stdenv.shell}
+                    exec haskell-language-server "$@"
+                  '')
+
+                  # JavaScript
+                  nodejs
+                  (mkCorepack { pm = "yarn"; })
+
+                  # Python
+                  pythonEnv
+
+                  # Other
+                  html-tidy
+                ];
               };
-              shell.buildInputs = with pkgs; [
-                # Haskell
-                (pkgs.writeScriptBin "haskell-language-server-wrapper" ''
-                  #!${pkgs.stdenv.shell}
-                  exec haskell-language-server "$@"
-                '')
-
-                # JavaScript
-                nodejs
-                (mkCorepack { pm = "yarn"; })
-
-                # Python
-                pythonEnv
-
-                # Other
-                html-tidy
-              ];
             };
           })
         ];
