@@ -48,7 +48,6 @@ executables:
       - -Wincomplete-uni-patterns
       - -Wpartial-fields
       - -Wredundant-constraints
-      - -O2
       - -threaded
       - -rtsopts
       - -with-rtsopts=-N
