@@ -75,7 +75,6 @@
                 name = "www-ncaq-net-source";
               };
               name = "www-ncaq-net";
-              compiler-nix-name = "ghc966";
               shell = {
                 tools = {
                   fourmolu = "latest";
