@@ -10,7 +10,7 @@
   "devDependencies": {
     "prettier": "^3.7.3",
     "sass": "^1.58.3",
-    "wrangler": "^4.51.0"
+    "wrangler": "^4.53.0"
   },
   "packageManager": "yarn@4.9.3"
 }
