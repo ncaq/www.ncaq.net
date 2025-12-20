@@ -716,7 +716,7 @@
         "html-tidy-src": "html-tidy-src",
         "nixpkgs": [
           "haskellNix",
-          "nixpkgs-unstable"
+          "nixpkgs-2511"
         ],
         "poetry2nix": "poetry2nix",
         "treefmt-nix": "treefmt-nix"
@@ -756,8 +756,7 @@
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
-          "haskellNix",
-          "nixpkgs-unstable"
+          "nixpkgs"
         ]
       },
       "locked": {
