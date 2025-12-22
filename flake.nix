@@ -155,6 +155,10 @@
         "hydraJobs"
       ]
       // {
+        packages = flake.packages // {
+          default = flake.packages."www-ncaq-net:exe:www-ncaq-net";
+        };
+        formatter = treefmtEval.config.build.wrapper;
         checks =
           flake.packages # テストがないパッケージもビルドしてエラーを検出する。
           // flake.checks
@@ -162,10 +166,6 @@
             inherit (pkgs) nodeEnv-lint;
             formatting = treefmtEval.config.build.check self;
           };
-        formatter = treefmtEval.config.build.wrapper;
-        packages = flake.packages // {
-          default = flake.packages."www-ncaq-net:exe:www-ncaq-net";
-        };
       }
     );
 
