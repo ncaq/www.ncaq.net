@@ -46,7 +46,7 @@ flycheck_*.el
 .projectile
 
 # directory configuration
-# .dir-locals.el
+.dir-locals.el
 
 # network security
 /network-security.data
@@ -219,17 +219,15 @@ out
 # End of https://www.toptal.com/developers/gitignore/api/emacs,haskell,node
 
 # Haskell for Application
-
 *.cabal
 
 # Nix
-
 .direnv/
 /result
+/result-*
 
 .env*local
 
 # Hakyll
-
 _cache/
 _site/

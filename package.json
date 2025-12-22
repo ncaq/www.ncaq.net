@@ -1,7 +1,7 @@
 {
   "scripts": {
     "default.css": "sass site/default.scss",
-    "fix": "yarn lint --write",
+    "fix": "npm run lint -- --write",
     "lint": "prettier --ignore-path .gitignore --ignore-unknown --check '**/*.{js,jsx,ts,tsx,json,html,css,less,sass,scss,yml,yaml}'"
   },
   "dependencies": {
@@ -11,6 +11,5 @@
     "prettier": "^3.7.3",
     "sass": "^1.58.3",
     "wrangler": "^4.53.0"
-  },
-  "packageManager": "yarn@4.9.3"
+  }
 }

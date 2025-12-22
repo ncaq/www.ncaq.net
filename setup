@@ -2,5 +2,5 @@
 set -eux -o pipefail
 
 git pull
-yarn install --immutable
+npm ci
 nix run . -- build

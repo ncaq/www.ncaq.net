@@ -83,27 +83,6 @@
         "type": "github"
       }
     },
-    "corepack": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1667721335,
-        "narHash": "sha256-qx1f3IOSntgHHJ0W/YR1pxSokQKPDN16kud9Am782l0=",
-        "owner": "SnO2WMaN",
-        "repo": "corepack-flake",
-        "rev": "27e48017612380c0e7c2834f8e6924aadca88f6c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "SnO2WMaN",
-        "repo": "corepack-flake",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -532,22 +511,6 @@
         "type": "github"
       }
     },
-    "nixpkgs": {
-      "locked": {
-        "lastModified": 1667639549,
-        "narHash": "sha256-frqZKSG/933Ctwl9voSZnXDwo8CqddXcjQhnCzwNqaM=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "cae3751e9f74eea29c573d6c2f14523f41c2821a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-2305": {
       "locked": {
         "lastModified": 1705033721,
@@ -710,7 +673,6 @@
     },
     "root": {
       "inputs": {
-        "corepack": "corepack",
         "flake-utils": "flake-utils",
         "haskellNix": "haskellNix",
         "html-tidy-src": "html-tidy-src",
