@@ -58,6 +58,7 @@
               src = ./.;
               npmDeps = nodeEnv-npmDeps;
               inherit (pkgs.importNpmLock) npmConfigHook;
+              dontNpmBuild = true;
             };
             nodeEnv-lint = pkgs.buildNpmPackage {
               name = "www-ncaq-net-lint";
@@ -108,13 +109,8 @@
                     exec haskell-language-server "$@"
                   '')
 
-                  # JavaScript
-                  nodejs
-
-                  # Python
+                  nodeEnv
                   pythonEnv
-
-                  # Other
                   html-tidy
                 ];
               };
