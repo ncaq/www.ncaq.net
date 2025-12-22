@@ -20,10 +20,6 @@
         treefmt-nix.follows = "treefmt-nix";
       };
     };
-    corepack = {
-      url = "github:SnO2WMaN/corepack-flake";
-      inputs.flake-utils.follows = "flake-utils";
-    };
     html-tidy-src = {
       url = "github:htacg/tidy-html5";
       flake = false;
@@ -38,7 +34,6 @@
       treefmt-nix,
       haskellNix,
       poetry2nix,
-      corepack,
       html-tidy-src,
       ...
     }:
@@ -48,7 +43,6 @@
         overlays = [
           haskellNix.overlay
           poetry2nix.overlays.default
-          corepack.overlays.default
           (final: prev: {
             # 公式リリースがしばらくないのでGitHubの最新版を利用。
             html-tidy = prev.html-tidy.overrideAttrs (_oldAttrs: {
@@ -91,7 +85,6 @@
 
                   # JavaScript
                   nodejs
-                  (mkCorepack { pm = "yarn"; })
 
                   # Python
                   pythonEnv

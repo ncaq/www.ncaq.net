@@ -50,7 +50,7 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
 
   match "default.scss" $ do
     route $ setExtension "css"
-    compile $ unixFilter "yarn" ["run", "default.css"] "" >>= makeItem
+    compile $ unixFilter "npm" ["run", "default.css"] "" >>= makeItem
 
   let entryIndexField = listField "entry-index" defaultContext (pure $ (\x -> Item (fromFilePath x) x) <$> years)
 
@@ -134,7 +134,7 @@ conf :: Configuration
 conf =
   def
     { providerDirectory = "site"
-    , deployCommand = "yarn wrangler pages deploy _site --project-name www-ncaq-net"
+    , deployCommand = "npx wrangler pages deploy _site --project-name www-ncaq-net"
     }
 
 -- | Pandocの設定。
