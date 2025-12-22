@@ -59,6 +59,8 @@
               npmDeps = nodeEnv-npmDeps;
               inherit (pkgs.importNpmLock) npmConfigHook;
               dontNpmBuild = true;
+              # devDependenciesのsass, prettierなども含める
+              npmFlags = [ "--include=dev" ];
             };
             nodeEnv-lint = pkgs.buildNpmPackage {
               name = "www-ncaq-net-lint";
@@ -153,7 +155,15 @@
       ]
       // {
         packages = flake.packages // {
-          default = flake.packages."www-ncaq-net:exe:www-ncaq-net";
+          # npmとsassをPATHに含めるラッパースクリプト
+          default = pkgs.writeShellScriptBin "www-ncaq-net" ''
+            export PATH="${nodejs}/bin:${pkgs.nodeEnv}/lib/node_modules/www-ncaq-net/node_modules/.bin:$PATH"
+            # sassの--load-pathに加えてSASS_PATHでもnode_modulesを参照可能にする
+            export SASS_PATH="${pkgs.nodeEnv}/lib/node_modules/www-ncaq-net/node_modules:''${SASS_PATH:-}"
+            exec ${flake.packages."www-ncaq-net:exe:www-ncaq-net"}/bin/www-ncaq-net "$@"
+          '';
+          # ラップされていない元の実行ファイルも公開
+          unwrapped = flake.packages."www-ncaq-net:exe:www-ncaq-net";
         };
         formatter = treefmtEval.config.build.wrapper;
         checks =
