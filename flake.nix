@@ -62,6 +62,13 @@
               # devDependenciesのsass, prettierなども含める
               npmFlags = [ "--include=dev" ];
             };
+            # nodeEnvの.binディレクトリへのパスを$out/binに公開するラッパー
+            nodeEnvBin = pkgs.runCommand "nodeEnv-bin" { } ''
+              mkdir -p $out/bin
+              for f in ${final.nodeEnv}/lib/node_modules/www-ncaq-net/node_modules/.bin/*; do
+                ln -s "$f" $out/bin/
+              done
+            '';
             nodeEnv-lint = pkgs.buildNpmPackage {
               name = "www-ncaq-net-lint";
               src = ./.;
@@ -111,7 +118,8 @@
                     exec haskell-language-server "$@"
                   '')
 
-                  nodeEnv
+                  nodejs
+                  nodeEnvBin
                   pythonEnv
                   html-tidy
                 ];
@@ -174,16 +182,11 @@
             formatting = treefmtEval.config.build.check self;
           };
         devShells = flake.devShells // {
-          default = flake.devShells.default // {
-            packages = [
-              pkgs.importNpmLock.hooks.linkNodeModulesHook
-              nodejs
-            ];
-            npmDeps = pkgs.importNpmLock.buildNodeModules {
-              npmRoot = ./.;
-              inherit nodejs;
-            };
-          };
+          default = flake.devShells.default.overrideAttrs (old: {
+            shellHook = (old.shellHook or "") + ''
+              export SASS_PATH="${pkgs.nodeEnv}/lib/node_modules/www-ncaq-net/node_modules:''${SASS_PATH:-}"
+            '';
+          });
         };
       }
     );
