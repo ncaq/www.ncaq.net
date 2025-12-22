@@ -62,13 +62,6 @@
               # devDependenciesのsass, prettierなども含める
               npmFlags = [ "--include=dev" ];
             };
-            # nodeEnvの.binディレクトリへのパスを$out/binに公開するラッパー
-            nodeEnvBin = pkgs.runCommand "nodeEnv-bin" { } ''
-              mkdir -p $out/bin
-              for f in ${final.nodeEnv}/lib/node_modules/www-ncaq-net/node_modules/.bin/*; do
-                ln -s "$f" $out/bin/
-              done
-            '';
             nodeEnv-lint = pkgs.buildNpmPackage {
               name = "www-ncaq-net-lint";
               src = ./.;
@@ -119,7 +112,7 @@
                   '')
 
                   nodejs
-                  nodeEnvBin
+                  nodeEnv
                   pythonEnv
                   html-tidy
                 ];
