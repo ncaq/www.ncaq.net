@@ -1,4 +1,7 @@
 {
+  "name": "www-ncaq-net",
+  "version": "0.1.1.0",
+  "private": true,
   "scripts": {
     "default.css": "sass site/default.scss",
     "fix": "npm run lint -- --write",

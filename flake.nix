@@ -40,6 +40,7 @@
     flake-utils.lib.eachSystem [ "x86_64-linux" ] (
       system:
       let
+        nodeEnv-npmDeps = pkgs.importNpmLock { npmRoot = ./.; };
         overlays = [
           haskellNix.overlay
           poetry2nix.overlays.default
@@ -48,6 +49,29 @@
             html-tidy = prev.html-tidy.overrideAttrs (_oldAttrs: {
               src = html-tidy-src;
             });
+
+            # JavaScriptパッケージを管理
+            nodeEnv = pkgs.buildNpmPackage {
+              pname = "www-ncaq-net";
+              version = "0.1.1.0";
+              src = ./.;
+              npmDeps = nodeEnv-npmDeps;
+              inherit (pkgs.importNpmLock) npmConfigHook;
+            };
+            nodeEnv-lint = pkgs.buildNpmPackage {
+              name = "www-ncaq-net-lint";
+              src = ./.;
+              npmDeps = nodeEnv-npmDeps;
+              inherit (pkgs.importNpmLock) npmConfigHook;
+              npmBuildScript = "lint";
+              dontNpmInstall = true;
+              installPhase = ''
+                runHook preInstall
+                mkdir -p $out
+                touch $out/lint-passed
+                runHook postInstall
+              '';
+            };
 
             # Poetry2nixでPythonパッケージを管理
             pythonEnv = final.poetry2nix.mkPoetryEnv {
@@ -135,6 +159,7 @@
           flake.packages # テストがないパッケージもビルドしてエラーを検出する。
           // flake.checks
           // {
+            inherit (pkgs) nodeEnv-lint;
             formatting = treefmtEval.config.build.check self;
           };
         formatter = treefmtEval.config.build.wrapper;
