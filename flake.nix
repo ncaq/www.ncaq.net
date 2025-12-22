@@ -111,10 +111,10 @@
                     exec haskell-language-server "$@"
                   '')
 
-                  nodejs
-                  nodeEnv
-                  pythonEnv
                   html-tidy
+                  nodeEnv
+                  nodejs
+                  pythonEnv
                 ];
               };
             };
