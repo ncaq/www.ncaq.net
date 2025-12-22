@@ -40,6 +40,7 @@
     flake-utils.lib.eachSystem [ "x86_64-linux" ] (
       system:
       let
+        nodejs = pkgs.nodejs_24;
         nodeEnv-npmDeps = pkgs.importNpmLock { npmRoot = ./.; };
         overlays = [
           haskellNix.overlay
@@ -166,6 +167,18 @@
             inherit (pkgs) nodeEnv-lint;
             formatting = treefmtEval.config.build.check self;
           };
+        devShells = flake.devShells // {
+          default = flake.devShells.default // {
+            packages = [
+              pkgs.importNpmLock.hooks.linkNodeModulesHook
+              nodejs
+            ];
+            npmDeps = pkgs.importNpmLock.buildNodeModules {
+              npmRoot = ./.;
+              inherit nodejs;
+            };
+          };
+        };
       }
     );
 
