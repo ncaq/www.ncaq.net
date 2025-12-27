@@ -40,7 +40,6 @@
     flake-utils.lib.eachSystem [ "x86_64-linux" ] (
       system:
       let
-        nodeEnv-npmDeps = pkgs.importNpmLock { npmRoot = ./.; };
         overlays = [
           haskellNix.overlay
           poetry2nix.overlays.default
@@ -51,11 +50,12 @@
             });
 
             # JavaScriptパッケージを管理
+            nodeEnv-npmDeps = prev.importNpmLock { npmRoot = ./.; };
             nodeEnv = prev.buildNpmPackage {
               pname = "www-ncaq-net";
               version = "0.1.1.0";
               src = ./.;
-              npmDeps = nodeEnv-npmDeps;
+              npmDeps = final.nodeEnv-npmDeps;
               inherit (prev.importNpmLock) npmConfigHook;
               dontNpmBuild = true;
               # devDependenciesのsass, prettierなども含める
@@ -64,7 +64,7 @@
             nodeEnv-lint = prev.buildNpmPackage {
               name = "www-ncaq-net-lint";
               src = ./.;
-              npmDeps = nodeEnv-npmDeps;
+              npmDeps = final.nodeEnv-npmDeps;
               inherit (prev.importNpmLock) npmConfigHook;
               npmBuildScript = "lint";
               dontNpmInstall = true;
