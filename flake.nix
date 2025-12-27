@@ -49,6 +49,33 @@
               src = html-tidy-src;
             });
 
+            # JavaScriptパッケージを管理
+            nodeEnv-npmDeps = prev.importNpmLock { npmRoot = ./.; };
+            nodeEnv = prev.buildNpmPackage {
+              pname = "www-ncaq-net";
+              version = "0.1.1.0";
+              src = ./.;
+              npmDeps = final.nodeEnv-npmDeps;
+              inherit (prev.importNpmLock) npmConfigHook;
+              dontNpmBuild = true;
+              # devDependenciesのsass, prettierなども含める
+              npmFlags = [ "--include=dev" ];
+            };
+            nodeEnv-lint = prev.buildNpmPackage {
+              name = "www-ncaq-net-lint";
+              src = ./.;
+              npmDeps = final.nodeEnv-npmDeps;
+              inherit (prev.importNpmLock) npmConfigHook;
+              npmBuildScript = "lint";
+              dontNpmInstall = true;
+              installPhase = ''
+                runHook preInstall
+                mkdir -p $out
+                touch $out/lint-passed
+                runHook postInstall
+              '';
+            };
+
             # Poetry2nixでPythonパッケージを管理
             pythonEnv = final.poetry2nix.mkPoetryEnv {
               projectDir = ./.;
@@ -76,21 +103,17 @@
                   hlint = "latest";
                   stack = "latest";
                 };
-                buildInputs = with pkgs; [
+                buildInputs = with final; [
                   # Haskell
-                  (pkgs.writeScriptBin "haskell-language-server-wrapper" ''
-                    #!${pkgs.stdenv.shell}
+                  (writeScriptBin "haskell-language-server-wrapper" ''
+                    #!${stdenv.shell}
                     exec haskell-language-server "$@"
                   '')
 
-                  # JavaScript
-                  nodejs
-
-                  # Python
-                  pythonEnv
-
-                  # Other
                   html-tidy
+                  nodeEnv
+                  nodejs_24
+                  pythonEnv
                 ];
               };
             };
@@ -131,16 +154,17 @@
         "hydraJobs"
       ]
       // {
+        packages = flake.packages // {
+          default = flake.packages."www-ncaq-net:exe:www-ncaq-net";
+        };
+        formatter = treefmtEval.config.build.wrapper;
         checks =
           flake.packages # テストがないパッケージもビルドしてエラーを検出する。
           // flake.checks
           // {
+            inherit (pkgs) nodeEnv-lint;
             formatting = treefmtEval.config.build.check self;
           };
-        formatter = treefmtEval.config.build.wrapper;
-        packages = flake.packages // {
-          default = flake.packages."www-ncaq-net:exe:www-ncaq-net";
-        };
       }
     );
 

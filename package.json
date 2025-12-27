@@ -1,6 +1,9 @@
 {
+  "name": "www-ncaq-net",
+  "version": "0.1.1.0",
+  "private": true,
   "scripts": {
-    "default.css": "sass site/default.scss",
+    "default.css": "sass --load-path=node_modules site/default.scss",
     "fix": "npm run lint -- --write",
     "lint": "prettier --ignore-path .gitignore --ignore-unknown --check '**/*.{js,jsx,ts,tsx,json,html,css,less,sass,scss,yml,yaml}'"
   },
