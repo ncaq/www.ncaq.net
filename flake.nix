@@ -166,13 +166,6 @@
             inherit (pkgs) nodeEnv-lint;
             formatting = treefmtEval.config.build.check self;
           };
-        devShells = flake.devShells // {
-          default = flake.devShells.default.overrideAttrs (old: {
-            shellHook = (old.shellHook or "") + ''
-              export SASS_PATH="${pkgs.nodeEnv}/lib/node_modules/www-ncaq-net/node_modules:''${SASS_PATH:-}"
-            '';
-          });
-        };
       }
     );
 
