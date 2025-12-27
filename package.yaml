@@ -17,6 +17,7 @@ default-extensions:
   - GADTs
   - LambdaCase
   - MultiWayIf
+  - NoImportQualifiedPost
   - OverloadedStrings
   - PartialTypeSignatures
   - RecordWildCards
