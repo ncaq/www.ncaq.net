@@ -2,10 +2,10 @@ module Main (main) where
 
 import Control.Applicative
 import Data.Convertible
-import Data.List qualified as L
-import Data.List.Split qualified as L
+import qualified Data.List as L
+import qualified Data.List.Split as L
 import Data.Maybe
-import Data.Text qualified as T
+import qualified Data.Text as T
 import Hakyll
 import System.Directory
 import System.FilePath
