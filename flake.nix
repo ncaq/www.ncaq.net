@@ -40,7 +40,6 @@
     flake-utils.lib.eachSystem [ "x86_64-linux" ] (
       system:
       let
-        nodejs = pkgs.nodejs_24;
         nodeEnv-npmDeps = pkgs.importNpmLock { npmRoot = ./.; };
         overlays = [
           haskellNix.overlay
@@ -113,7 +112,7 @@
 
                   html-tidy
                   nodeEnv
-                  nodejs
+                  nodejs_24
                   pythonEnv
                 ];
               };
