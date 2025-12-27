@@ -52,21 +52,21 @@
             });
 
             # JavaScriptパッケージを管理
-            nodeEnv = pkgs.buildNpmPackage {
+            nodeEnv = prev.buildNpmPackage {
               pname = "www-ncaq-net";
               version = "0.1.1.0";
               src = ./.;
               npmDeps = nodeEnv-npmDeps;
-              inherit (pkgs.importNpmLock) npmConfigHook;
+              inherit (prev.importNpmLock) npmConfigHook;
               dontNpmBuild = true;
               # devDependenciesのsass, prettierなども含める
               npmFlags = [ "--include=dev" ];
             };
-            nodeEnv-lint = pkgs.buildNpmPackage {
+            nodeEnv-lint = prev.buildNpmPackage {
               name = "www-ncaq-net-lint";
               src = ./.;
               npmDeps = nodeEnv-npmDeps;
-              inherit (pkgs.importNpmLock) npmConfigHook;
+              inherit (prev.importNpmLock) npmConfigHook;
               npmBuildScript = "lint";
               dontNpmInstall = true;
               installPhase = ''
@@ -104,10 +104,10 @@
                   hlint = "latest";
                   stack = "latest";
                 };
-                buildInputs = with pkgs; [
+                buildInputs = with final; [
                   # Haskell
-                  (pkgs.writeScriptBin "haskell-language-server-wrapper" ''
-                    #!${pkgs.stdenv.shell}
+                  (writeScriptBin "haskell-language-server-wrapper" ''
+                    #!${stdenv.shell}
                     exec haskell-language-server "$@"
                   '')
 
