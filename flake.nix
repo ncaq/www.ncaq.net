@@ -60,6 +60,12 @@
               dontNpmBuild = true;
               # devDependenciesのsass, prettierなども含める
               npmFlags = [ "--include=dev" ];
+              # CLIツールをbinディレクトリに公開
+              postInstall = ''
+                mkdir -p $out/bin
+                ln -s $out/lib/node_modules/www-ncaq-net/node_modules/.bin/sass $out/bin/sass
+                ln -s $out/lib/node_modules/www-ncaq-net/node_modules/.bin/prettier $out/bin/prettier
+              '';
             };
             nodeEnv-lint = prev.buildNpmPackage {
               name = "www-ncaq-net-lint";
@@ -96,6 +102,26 @@
                 name = "www-ncaq-net-source";
               };
               name = "www-ncaq-net";
+              modules = [
+                {
+                  packages.www-ncaq-net.components.exes.www-ncaq-net = {
+                    # Hakyllは実行時にsass, html-tidy等の外部コマンドを呼び出すため、
+                    # makeWrapperでPATHに追加する。
+                    postInstall = ''
+                      wrapProgram $out/bin/www-ncaq-net \
+                        --prefix PATH : ${
+                          final.lib.makeBinPath [
+                            final.html-tidy
+                            final.nodeEnv
+                            final.nodejs_24
+                            final.pythonEnv
+                          ]
+                        } \
+                        --set NODE_PATH ${final.nodeEnv}/lib/node_modules/www-ncaq-net/node_modules
+                    '';
+                  };
+                }
+              ];
               shell = {
                 tools = {
                   fourmolu = "latest";
