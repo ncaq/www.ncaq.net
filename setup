@@ -1,5 +1,11 @@
 #!/usr/bin/env zsh
 set -eux -o pipefail
 
-git pull
+# トラッキングブランチが存在している場合のみ上書き防止のためにpullを行う。
+# 主な想定ブランチのmasterの場合は基本的にトラッキングブランチは存在すると思います。
+# スキップする設定は開発時に楽をするためのものです。
+if git rev-parse --abbrev-ref --symbolic-full-name @{u} &>/dev/null; then
+    git pull
+fi
+
 nix run . -- build
