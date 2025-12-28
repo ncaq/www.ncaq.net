@@ -8,6 +8,16 @@
 全角記号より半角記号を優先して使ってください。
 特に全角括弧は禁止。
 
+## ディレクトリ構成
+
+### プロンプト
+
+`CLAUDE.md`は`.github/copilot-instructions.md`のシンボリックリンクです。
+
+```
+CLAUDE.md -> .github/copilot-instructions.md
+```
+
 ## Markdown
 
 ### Pandoc
