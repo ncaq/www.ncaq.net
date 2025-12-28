@@ -134,7 +134,7 @@ conf :: Configuration
 conf =
   def
     { providerDirectory = "site"
-    , deployCommand = "npx wrangler pages deploy _site --project-name www-ncaq-net"
+    , deployCommand = "npm run deploy"
     }
 
 -- | Pandocの設定。

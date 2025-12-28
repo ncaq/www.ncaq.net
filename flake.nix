@@ -65,6 +65,7 @@
                 mkdir -p $out/bin
                 ln -s $out/lib/node_modules/www-ncaq-net/node_modules/.bin/sass $out/bin/sass
                 ln -s $out/lib/node_modules/www-ncaq-net/node_modules/.bin/prettier $out/bin/prettier
+                ln -s $out/lib/node_modules/www-ncaq-net/node_modules/.bin/wrangler $out/bin/wrangler
               '';
             };
             nodeEnv-lint = prev.buildNpmPackage {

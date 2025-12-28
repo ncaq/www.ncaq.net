@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "default.css": "sass --load-path=${NODE_PATH:-node_modules} site/default.scss",
+    "deploy": "wrangler pages deploy _site --project-name www-ncaq-net",
     "fix": "npm run lint -- --write",
     "lint": "prettier --ignore-path .gitignore --ignore-unknown --check '**/*.{js,jsx,ts,tsx,json,html,css,less,sass,scss,yml,yaml}'"
   },
