@@ -13,7 +13,7 @@ allowed-tools:
 # 手順
 
 1. `site/entry/`ディレクトリから最新の記事ファイル20件を特定してください
-   - ファイル名は`YYYY-MM-DD-HH-MM-SS.md`形式です
+   - ファイル名は`YYYY-MM-DD-HH-MM-SS.md`形式です(古い記事は`YYYY-MM-DD.md`形式)
    - 日付が新しいものを優先してください
 
 2. 特定した記事を読んでください
