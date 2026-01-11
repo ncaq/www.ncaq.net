@@ -1,6 +1,9 @@
 ---
 description: 筆者の文章スタイルを学習する
-allowed-tools: Read, Glob, Bash(ls:*)
+allowed-tools:
+  - Bash(ls:*)
+  - Glob
+  - Read
 ---
 
 # 文章スタイル学習
