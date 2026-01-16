@@ -13,9 +13,9 @@ allowed-tools:
 
 # 手順
 
-1. 以下のコマンドで最新の記事ファイル15件を特定してください
+1. 以下のコマンドで最新の記事ファイル5件を特定してください
    ```bash
-   ls -r site/entry/ | rg -m 15 '.'
+   ls -r site/entry/ | rg -m 5 '.'
    ```
    - ファイル名は`YYYY-MM-DD-HH-MM-SS.md`形式です(古い記事は`YYYY-MM-DD.md`形式)
 2. 特定した記事を読んでください
