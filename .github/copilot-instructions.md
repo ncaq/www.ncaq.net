@@ -18,6 +18,12 @@ ASCIIに対応する全角形(Fullwidth Forms)は使用禁止。
 
 # ディレクトリ構成
 
+## サイトの構築
+
+サイトの構築プログラムはほぼすべて`site.hs`ファイルに記述されています。
+
+Hakyllフレームワークを使っています。
+
 ## プロンプト
 
 `CLAUDE.md`は`.github/copilot-instructions.md`のシンボリックリンクです。
