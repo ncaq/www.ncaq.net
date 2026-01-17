@@ -1,16 +1,30 @@
-# For LLM Instructions
+# 出力設定
 
-## 出力設定
+## 言語
 
-日本語で応答してください。
-しかしコードのコメントなどは元の言語のままにしてください。
+AIは人間にテキストを出力するときは日本語で出力してください。
+しかし、コードのコメントなどが日本語ではない場合は元の言語のままにしてください。
 
-全角記号より半角記号を優先して使ってください。
-特に全角括弧は禁止。
+## 記号
 
-## ディレクトリ構成
+ASCIIに対応する全角形(Fullwidth Forms)は使用禁止。
 
-### プロンプト
+具体的には以下のような文字:
+
+- 全角括弧 `（）` → 半角 `()`
+- 全角コロン `：` → 半角 `:`
+- 全角カンマ `，` → 半角 `,`
+- 全角数字 `０-９` → 半角 `0-9`
+
+# ディレクトリ構成
+
+## サイトの構築
+
+サイトの構築プログラムはほぼすべて`site.hs`ファイルに記述されています。
+
+Hakyllフレームワークを使っています。
+
+## プロンプト
 
 `CLAUDE.md`は`.github/copilot-instructions.md`のシンボリックリンクです。
 
@@ -18,49 +32,65 @@
 CLAUDE.md -> .github/copilot-instructions.md
 ```
 
-## Markdown
+## アセット
 
-### Pandoc
+画像や動画などのアセットは`site/assets/`ディレクトリに格納してあります。
+スクリーンショットのファイル名は基本的に取得したときそのままのファイル名を使っています。
+それ以外のアセットは先頭に簡単なタイムスタンプを付与して後で分かりやすいようにしています。
+
+## 記事
+
+日時以外の属性を持たない特別ではない記事は全て`site/entry/`ディレクトリにMarkdownファイルとして格納されています。
+ファイル名は`YYYY-MM-DD-HH-MM-SS.md`形式です。
+
+古い記事は`YYYY-MM-DD.md`形式ですが、
+もうこの古い形式は使わないでください。
+
+# Markdown
+
+## Pandoc
 
 Markdownの処理系にはPandocを使っています。
 
-#### 設定
+Pandocの標準的拡張に加えて以下のように拡張を設定しています。
 
-Pandocの標準的拡張に加えて以下のように拡張を有効化しています。
+### 無効化
 
-```haskell
--- | Pandocの設定。
-pandocCompilerCustom :: Compiler (Item String)
-pandocCompilerCustom =
-  let extensions =
-        -- 大したこと無いように見えて結構パフォーマンスに影響するので無効化する。
-        disableExtension Ext_pandoc_title_block $
-          -- 記号を変に変えられるのは困るので無効化する。
-          disableExtension Ext_smart $
-            -- 一応自動見出し向けのidを入れる。
-            enableExtension Ext_auto_identifiers $
-              readerExtensions defaultHakyllReaderOptions
-      -- pygmentizeでシンタックスハイライト。
-      transform (CodeBlock (_identifier, classes, _keyValue) str) =
-        let fileName = T.unwords classes
-            fileKind = if T.null fileName then T.unwords classes else fileName
-         in RawBlock (Format "html") . convert
-              <$> unixFilter
-                "poetry"
-                (["run", "pygmentize", "-f", "html"] <> if T.null fileKind then [] else ["-l", convert fileKind])
-                (convert str)
-      transform x = return x
-   in pandocCompilerWithTransformM
-        defaultHakyllReaderOptions
-          { readerExtensions = extensions
-          }
-        defaultHakyllWriterOptions
-          { writerHTMLMathMethod = MathML
-          , writerSectionDivs = True -- HTML sectionの方を使う。
-          , writerExtensions = extensions
-          , writerHighlightStyle = Nothing -- 対応言語が多いPygmentでシンタックスハイライトを行うためPandoc側では不要。
-          }
-        -- 東アジアの文字列に余計な空白が入らないようにする。
-        -- 何故かコマンドラインオプションでは有効にならない。
-        (bottomUpM transform . eastAsianLineBreakFilter)
-```
+- `Ext_pandoc_title_block`：タイトルブロックの自動生成を無効化
+- `Ext_smart`：スマート引用符やダッシュの自動変換を無効化
+
+### 有効化
+
+- `Ext_auto_identifiers`：見出し向けIDの自動生成を有効化
+- `eastAsianLineBreakFilter`：改行を挟んだときに東アジアの文字列に余計な空白が入らないようにする自作フィルタ
+
+### シンタックスハイライト
+
+シンタックスハイライトにはpygmentsを使っています。
+
+# 記事のスタイル
+
+記事を書くときの基本的なスタイルについて指示します。
+
+## 文体
+
+文体は基本的にですます調を使ってください。
+
+## 句読点
+
+句読点を打った後は基本的に改行してください。
+しかし、数文字しか書いていない場合は改行しなくて良いです。
+改行制御はMarkdownに任せているので、
+編集しやすさのために長くならないことを重視しています。
+
+## 見出し
+
+書いてある内容が分かりやすくなるように、
+グループ化できるものには見出しをつけてください。
+
+## リンク
+
+過去の記事と関係する場合は積極的にリンクを貼ってください。
+
+外部のものに言及する場合も積極的にリンクを貼ってください。
+あまりにも一般的なものはリンクを貼らなくても良いです。
