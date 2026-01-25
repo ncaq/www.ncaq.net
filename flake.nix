@@ -6,18 +6,26 @@
     flake-utils.url = "github:numtide/flake-utils";
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     haskellNix.url = "github:input-output-hk/haskell.nix";
-    poetry2nix = {
-      url = "github:nix-community/poetry2nix";
+    pyproject-nix = {
+      url = "github:pyproject-nix/pyproject.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    uv2nix = {
+      url = "github:pyproject-nix/uv2nix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-        systems.follows = "flake-utils/systems";
-        treefmt-nix.follows = "treefmt-nix";
+        pyproject-nix.follows = "pyproject-nix";
+      };
+    };
+    pyproject-build-systems = {
+      url = "github:pyproject-nix/build-system-pkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        pyproject-nix.follows = "pyproject-nix";
+        uv2nix.follows = "uv2nix";
       };
     };
     html-tidy-src = {
@@ -33,7 +41,9 @@
       flake-utils,
       treefmt-nix,
       haskellNix,
-      poetry2nix,
+      pyproject-nix,
+      uv2nix,
+      pyproject-build-systems,
       html-tidy-src,
       ...
     }:
@@ -42,7 +52,6 @@
       let
         overlays = [
           haskellNix.overlay
-          poetry2nix.overlays.default
           (final: prev: {
             # 公式リリースがしばらくないのでGitHubの最新版を利用。
             html-tidy = prev.html-tidy.overrideAttrs (_oldAttrs: {
@@ -85,19 +94,21 @@
               '';
             };
 
-            # Poetry2nixでPythonパッケージを管理
-            pythonEnv = final.poetry2nix.mkPoetryEnv {
-              projectDir = ./.;
-              python = final.python312;
-              preferWheels = true;
-              overrides = final.poetry2nix.overrides.withDefaults (
-                self: super: {
-                  jsx-lexer = super.jsx-lexer.overridePythonAttrs (old: {
-                    buildInputs = (old.buildInputs or [ ]) ++ [ self.setuptools ];
-                  });
-                }
-              );
+            # uv2nixでPythonパッケージを管理
+            pythonWorkspace = uv2nix.lib.workspace.loadWorkspace { workspaceRoot = ./.; };
+            pythonOverlay = final.pythonWorkspace.mkPyprojectOverlay {
+              sourcePreference = "wheel";
             };
+            pythonBase = prev.callPackage pyproject-nix.build.packages {
+              python = final.python312;
+            };
+            pythonSet = final.pythonBase.overrideScope (
+              prev.lib.composeManyExtensions [
+                pyproject-build-systems.overlays.default
+                final.pythonOverlay
+              ]
+            );
+            pythonEnv = final.pythonSet.mkVirtualEnv "www-ncaq-net-python-env" final.pythonWorkspace.deps.default;
 
             project = final.haskell-nix.stackProject' {
               src = final.haskell-nix.haskellLib.cleanSourceWith {
@@ -142,6 +153,7 @@
                   nodeEnv
                   nodejs_24
                   pythonEnv
+                  uv
                 ];
               };
             };
