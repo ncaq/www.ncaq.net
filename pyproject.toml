@@ -1,13 +1,7 @@
-[tool.poetry]
+[project]
 name = "www-ncaq-net"
 version = "0.1.1.0"
 description = ""
-authors = ["ncaq <ncaq@ncaq.net>"]
-
-[tool.poetry.dependencies]
-python = "^3.12"
-pygments = "^2.19.0"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+authors = [{ name = "ncaq", email = "ncaq@ncaq.net" }]
+requires-python = ">=3.12"
+dependencies = ["pygments>=2.19.0"]
