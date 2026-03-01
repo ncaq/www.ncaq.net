@@ -1,7 +1,5 @@
 {
   "permissions": {
-    "allow": [
-      "Bash(uv lock:*)"
-    ]
+    "allow": ["Bash(uv lock:*)"]
   }
 }
