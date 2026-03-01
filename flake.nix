@@ -219,8 +219,10 @@
         devShells.default =
           flake.devShells.default
           // pkgs.mkShell {
-            packages = [
-              pkgs.importNpmLock.hooks.linkNodeModulesHook
+            packages = with pkgs; [
+              importNpmLock.hooks.linkNodeModulesHook
+              pythonEnv
+              uv
             ];
             npmDeps = pkgs.importNpmLock.buildNodeModules {
               inherit (pkgs) nodejs;
