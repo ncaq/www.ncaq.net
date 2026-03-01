@@ -52,11 +52,9 @@ executable www-ncaq-net
     directory,
     filepath,
     hakyll >=4.12.5.2,
-    pandoc,
+    pandoc >=3.2 && <3.8,
     regex-tdfa,
     split,
     text,
 
   main-is: site.hs
-  other-modules:
-    Paths_www_ncaq_net
