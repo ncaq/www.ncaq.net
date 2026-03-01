@@ -1,0 +1,60 @@
+cabal-version: 3.12
+name: www-ncaq-net
+version: 0.1.1.0
+synopsis: static site generator for www.ncaq.net by Hakyll
+category: Web
+homepage: https://github.com/ncaq/www.ncaq.net#readme
+bug-reports: https://github.com/ncaq/www.ncaq.net/issues
+author: ncaq
+maintainer: ncaq@ncaq.net
+copyright: ncaq
+license: MIT
+build-type: Simple
+
+source-repository head
+  type: git
+  location: https://github.com/ncaq/www.ncaq.net
+
+executable www-ncaq-net
+  ghc-options:
+    -Wall
+    -Wcompat
+    -Widentities
+    -Wincomplete-record-updates
+    -Wincomplete-uni-patterns
+    -Wpartial-fields
+    -Wredundant-constraints
+    -threaded
+    -rtsopts
+    -with-rtsopts=-N
+
+  default-language: GHC2021
+  default-extensions:
+    DataKinds
+    DefaultSignatures
+    FunctionalDependencies
+    GADTs
+    LambdaCase
+    MultiWayIf
+    NoImportQualifiedPost
+    OverloadedStrings
+    PartialTypeSignatures
+    RecordWildCards
+    TypeFamilies
+    ViewPatterns
+
+  other-extensions:
+    TemplateHaskell
+
+  build-depends:
+    base,
+    convertible,
+    directory,
+    filepath,
+    hakyll >=4.12.5.2,
+    pandoc ^>=3.7.0.2,
+    regex-tdfa,
+    split,
+    text,
+
+  main-is: site.hs
