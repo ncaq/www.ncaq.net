@@ -1,5 +1,5 @@
 {
-  description = "www.ncaq.net from Hakyll project template from stack";
+  description = "static site generate for www.ncaq.net by Hakyll";
 
   inputs = {
     nixpkgs.follows = "haskellNix/nixpkgs-2511";
