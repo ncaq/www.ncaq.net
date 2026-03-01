@@ -75,7 +75,6 @@
               pname = "www-ncaq-net";
               version = "0.1.1.0";
               src = ./.;
-              nodejs = final.nodejs_24;
               npmDeps = final.npmDeps;
               inherit (prev.importNpmLock) npmConfigHook;
               dontNpmBuild = true;
@@ -92,7 +91,6 @@
             nodeEnvLint = prev.buildNpmPackage {
               name = "www-ncaq-net-lint";
               src = ./.;
-              nodejs = final.nodejs_24;
               npmDeps = final.npmDeps;
               inherit (prev.importNpmLock) npmConfigHook;
               npmBuildScript = "lint";
@@ -170,7 +168,7 @@
 
                   html-tidy
                   nodeEnv
-                  nodejs_24
+                  nodejs
                   pythonEnv
                   uv
                 ];
