@@ -62,14 +62,15 @@
             });
 
             # JavaScriptパッケージを管理
+            npmRoot = final.lib.fileset.toSource {
+              root = ./.;
+              fileset = final.lib.fileset.unions [
+                ./package.json
+                ./package-lock.json
+              ];
+            };
             npmDeps = prev.importNpmLock {
-              npmRoot = final.lib.fileset.toSource {
-                root = ./.;
-                fileset = final.lib.fileset.unions [
-                  ./package.json
-                  ./package-lock.json
-                ];
-              };
+              npmRoot = final.npmRoot;
             };
             nodeEnv = prev.buildNpmPackage {
               pname = "www-ncaq-net";
@@ -80,13 +81,6 @@
               dontNpmBuild = true;
               # devDependenciesのsass, prettierなども含める
               npmFlags = [ "--include=dev" ];
-              # CLIツールをbinディレクトリに公開
-              postInstall = ''
-                mkdir -p $out/bin
-                ln -s $out/lib/node_modules/www-ncaq-net/node_modules/.bin/sass $out/bin/sass
-                ln -s $out/lib/node_modules/www-ncaq-net/node_modules/.bin/prettier $out/bin/prettier
-                ln -s $out/lib/node_modules/www-ncaq-net/node_modules/.bin/wrangler $out/bin/wrangler
-              '';
             };
             nodeEnvLint = prev.buildNpmPackage {
               name = "www-ncaq-net-lint";
@@ -221,6 +215,17 @@
           // {
             inherit (pkgs) nodeEnvLint;
             formatting = treefmtEval.config.build.check self;
+          };
+        devShells.default =
+          flake.devShells.default
+          // pkgs.mkShell {
+            packages = [
+              pkgs.importNpmLock.hooks.linkNodeModulesHook
+            ];
+            npmDeps = pkgs.importNpmLock.buildNodeModules {
+              inherit (pkgs) nodejs;
+              npmRoot = pkgs.npmRoot;
+            };
           };
       }
     );
