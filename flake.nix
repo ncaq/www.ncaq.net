@@ -40,6 +40,7 @@
   outputs =
     {
       self,
+      lib,
       nixpkgs,
       flake-utils,
       treefmt-nix,
@@ -62,7 +63,15 @@
             });
 
             # JavaScriptパッケージを管理
-            nodeEnv-npmDeps = prev.importNpmLock { npmRoot = ./.; };
+            nodeEnv-npmDeps = prev.importNpmLock {
+              npmRoot = lib.fileset.toSource {
+                root = ./.;
+                fileset = [
+                  "package.json"
+                  "package-lock.json"
+                ];
+              };
+            };
             nodeEnv = prev.buildNpmPackage {
               pname = "www-ncaq-net";
               version = "0.1.1.0";
