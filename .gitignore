@@ -218,9 +218,6 @@ out
 
 # End of https://www.toptal.com/developers/gitignore/api/emacs,haskell,node
 
-# Haskell for Application
-*.cabal
-
 # Nix
 .direnv/
 /result
