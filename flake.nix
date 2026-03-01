@@ -208,6 +208,5 @@
     extra-trusted-public-keys = [
       "www-ncaq-net.cachix.org-1:muU00ItcyCf+F+lS//4w9XxW+UZYQxGa1cra1VXRH8c="
     ];
-    allow-import-from-derivation = true;
   };
 }
