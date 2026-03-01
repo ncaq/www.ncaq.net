@@ -156,10 +156,10 @@
           };
 
           treefmt = {
-            # actionlintはセルフホストランナーの設定ファイルを正常に読み込まなかった。
             # yamlfmtはprettierと競合する。
             projectRootFile = "flake.nix";
             programs = {
+              actionlint.enable = true;
               cabal-gild.enable = true;
               deadnix.enable = true;
               fourmolu.enable = true;
