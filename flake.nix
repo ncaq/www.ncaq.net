@@ -63,7 +63,7 @@
             });
 
             # JavaScriptパッケージを管理
-            nodeEnv-npmDeps = prev.importNpmLock {
+            npmDeps = prev.importNpmLock {
               npmRoot = lib.fileset.toSource {
                 root = ./.;
                 fileset = [
@@ -77,7 +77,7 @@
               version = "0.1.1.0";
               src = ./.;
               nodejs = final.nodejs_24;
-              npmDeps = final.nodeEnv-npmDeps;
+              npmDeps = final.npmDeps;
               inherit (prev.importNpmLock) npmConfigHook;
               dontNpmBuild = true;
               # devDependenciesのsass, prettierなども含める
@@ -94,7 +94,7 @@
               name = "www-ncaq-net-lint";
               src = ./.;
               nodejs = final.nodejs_24;
-              npmDeps = final.nodeEnv-npmDeps;
+              npmDeps = final.npmDeps;
               inherit (prev.importNpmLock) npmConfigHook;
               npmBuildScript = "lint";
               dontNpmInstall = true;
