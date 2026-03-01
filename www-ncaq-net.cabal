@@ -52,7 +52,7 @@ executable www-ncaq-net
     directory,
     filepath,
     hakyll >=4.12.5.2,
-    pandoc >=3.2 && <3.8,
+    pandoc ^>=3.7.0.2,
     regex-tdfa,
     split,
     text,
