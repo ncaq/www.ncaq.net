@@ -151,11 +151,10 @@ pandocCompilerCustom =
       -- pygmentizeでシンタックスハイライト。
       transform (CodeBlock (_identifier, classes, _keyValue) str) =
         let fileName = T.unwords classes
-            fileKind = if T.null fileName then T.unwords classes else fileName
          in RawBlock (Format "html") . convert
               <$> unixFilter
                 "uv"
-                (["run", "pygmentize", "-f", "html"] <> if T.null fileKind then [] else ["-l", convert fileKind])
+                (["run", "pygmentize", "-f", "html"] <> if T.null fileName then [] else ["-l", convert fileName])
                 (convert str)
       transform x = return x
    in pandocCompilerWithTransformM
