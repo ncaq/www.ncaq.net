@@ -138,6 +138,7 @@
                   pkgs.lib.makeBinPath [
                     html-tidy
                     nodeEnv
+                    pkgs.nodejs
                     pkgs.uv
                     pythonEnv
                   ]
