@@ -10,7 +10,7 @@ import Hakyll
 import System.Directory
 import System.FilePath
 import Text.Pandoc
-import Text.Pandoc.Shared (eastAsianLineBreakFilter)
+import Text.Pandoc.Transforms (eastAsianLineBreakFilter)
 import Text.Regex.TDFA hiding (empty, match)
 
 main :: IO ()
