@@ -90,7 +90,7 @@
                 ln -s $out/lib/node_modules/www-ncaq-net/node_modules/.bin/wrangler $out/bin/wrangler
               '';
             };
-            nodeEnv-lint = prev.buildNpmPackage {
+            nodeEnvLint = prev.buildNpmPackage {
               name = "www-ncaq-net-lint";
               src = ./.;
               nodejs = final.nodejs_24;
@@ -222,7 +222,7 @@
           flake.packages # テストがないパッケージもビルドしてエラーを検出する。
           // flake.checks
           // {
-            inherit (pkgs) nodeEnv-lint;
+            inherit (pkgs) nodeEnvLint;
             formatting = treefmtEval.config.build.check self;
           };
       }
