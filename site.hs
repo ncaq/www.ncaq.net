@@ -1,10 +1,14 @@
 module Main (main) where
 
 import Control.Applicative
+import qualified Data.Aeson.Key as AK
+import qualified Data.Aeson.KeyMap as KeyMap
 import Data.Convertible
 import qualified Data.List as L
 import qualified Data.List.Split as L
 import Data.Maybe
+import Data.Set (Set)
+import qualified Data.Set as Set
 import qualified Data.Text as T
 import Hakyll
 import System.Directory
@@ -57,7 +61,9 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
   -- 404はCloudflare Pages的に404/index.htmlではなく404.htmlである必要があるため特別に処理する。
   match "404.md" $ do
     route $ setExtension "html"
-    compile $
+    compile $ do
+      identifier <- getUnderlying
+      validateMetadata identifier
       pandocCompilerCustom
         >>= saveSnapshot "content"
         >>= loadAndApplyTemplate "templates/entry.html" entryContext
@@ -67,7 +73,9 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
   -- 大多数の記事。
   match ("*.md" .||. "entry/*.md") $ do
     route cleanRoute
-    compile $
+    compile $ do
+      identifier <- getUnderlying
+      validateMetadata identifier
       pandocCompilerCustom
         >>= saveSnapshot "content"
         >>= loadAndApplyTemplate "templates/entry.html" entryContext
@@ -137,6 +145,21 @@ conf =
     , deployCommand = "npm run deploy"
     }
 
+-- | typoを検出するためメタデータの属性が許可されたものだけであるとバリデーションします。
+validateMetadata :: Identifier -> Compiler ()
+validateMetadata identifier = do
+  metadata <- getMetadata identifier
+  let unknownKeys = filter (`Set.notMember` allowedMetadataKeys) $ AK.toString <$> KeyMap.keys metadata
+  case unknownKeys of
+    [] -> return ()
+    keys -> fail $ "Unknown metadata keys in " <> toFilePath identifier <> ": " <> L.intercalate ", " keys
+
+-- | 許可されているメタデータ属性。
+-- `fail`や`toFilePath`が`String`を扱うため`Text`より`String`の方が都合が良い。
+-- これぐらいの数なら許容します。
+allowedMetadataKeys :: Set String
+allowedMetadataKeys = Set.fromList ["title", "date", "updated"]
+
 -- | Pandocの設定。
 pandocCompilerCustom :: Compiler (Item String)
 pandocCompilerCustom =
@@ -177,7 +200,7 @@ entryContext =
   let context =
         mconcat
           [ titleEscape
-          , mconcat entryDate
+          , entryDate
           , teaserFieldByResource 256 "teaser" "content" id
           , teaserFieldByResource 100 "description" "content" escapeDoubleQuote
           , teaserFieldByResource 180 "og-description" "content" escapeDoubleQuote
@@ -189,17 +212,14 @@ entryContext =
         ]
  where
   titleEscape = mapTitleEx (fmap escapeHtml)
-  entryDate = f <$> ["date", "published"]
-   where
-    f key =
-      field
-        key
-        ( \item -> do
-            mMeta <- getMetadataField (itemIdentifier item) key
-            case mMeta of
-              Nothing -> return $ fromMaybe empty $ mItemDate item
-              Just meta -> return meta
-        )
+  entryDate =
+    field
+      "date"
+      $ \item -> do
+        mMeta <- getMetadataField (itemIdentifier item) "date"
+        case mMeta of
+          Nothing -> return $ fromMaybe empty $ mItemDate item
+          Just meta -> return meta
   mItemDate item = case L.splitOneOf "-" f of
     [year, month, day, hour, minute, second] ->
       Just $ concat [year, "-", month, "-", day, "T", hour, ":", minute, ":", second, "+09:00"]

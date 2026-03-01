@@ -47,7 +47,9 @@ executable www-ncaq-net
     TemplateHaskell
 
   build-depends:
+    aeson,
     base,
+    containers,
     convertible,
     directory,
     filepath,
