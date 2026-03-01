@@ -154,7 +154,7 @@ pandocCompilerCustom =
             fileKind = if T.null fileName then T.unwords classes else fileName
          in RawBlock (Format "html") . convert
               <$> unixFilter
-                "poetry"
+                "uv"
                 (["run", "pygmentize", "-f", "html"] <> if T.null fileKind then [] else ["-l", convert fileKind])
                 (convert str)
       transform x = return x
