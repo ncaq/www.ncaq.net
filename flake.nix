@@ -40,7 +40,6 @@
   outputs =
     {
       self,
-      lib,
       nixpkgs,
       flake-utils,
       treefmt-nix,
@@ -64,11 +63,11 @@
 
             # JavaScriptパッケージを管理
             npmDeps = prev.importNpmLock {
-              npmRoot = lib.fileset.toSource {
+              npmRoot = final.lib.fileset.toSource {
                 root = ./.;
-                fileset = [
-                  "package.json"
-                  "package-lock.json"
+                fileset = final.lib.fileset.unions [
+                  ./package.json
+                  ./package-lock.json
                 ];
               };
             };
@@ -108,11 +107,11 @@
 
             # uv2nixでPythonパッケージを管理
             pythonWorkspace = uv2nix.lib.workspace.loadWorkspace {
-              workspaceRoot = lib.fileset.toSource {
+              workspaceRoot = final.lib.fileset.toSource {
                 root = ./.;
-                fileset = [
-                  "pyproject.toml"
-                  "uv.lock"
+                fileset = final.lib.fileset.unions [
+                  ./pyproject.toml
+                  ./uv.lock
                 ];
               };
             };
