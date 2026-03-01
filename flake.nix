@@ -107,7 +107,15 @@
             };
 
             # uv2nixでPythonパッケージを管理
-            pythonWorkspace = uv2nix.lib.workspace.loadWorkspace { workspaceRoot = ./.; };
+            pythonWorkspace = uv2nix.lib.workspace.loadWorkspace {
+              workspaceRoot = lib.fileset.toSource {
+                root = ./.;
+                fileset = [
+                  "pyproject.toml"
+                  "uv.lock"
+                ];
+              };
+            };
             pythonOverlay = final.pythonWorkspace.mkPyprojectOverlay {
               sourcePreference = "wheel";
             };
