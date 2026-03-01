@@ -1,5 +1,5 @@
 {
-  description = "static site generate for www.ncaq.net by Hakyll";
+  description = "static site generator for www.ncaq.net by Hakyll";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";

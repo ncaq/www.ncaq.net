@@ -1,7 +1,7 @@
 cabal-version: 3.12
 name: www-ncaq-net
 version: 0.1.1.0
-synopsis: static site generate for www.ncaq.net by Hakyll
+synopsis: static site generator for www.ncaq.net by Hakyll
 category: Web
 homepage: https://github.com/ncaq/www.ncaq.net#readme
 bug-reports: https://github.com/ncaq/www.ncaq.net/issues
