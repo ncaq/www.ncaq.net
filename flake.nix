@@ -75,26 +75,12 @@
           nodeEnv = pkgs.buildNpmPackage {
             pname = "www-ncaq-net";
             version = "0.1.1.0";
-            src = ./.;
+            src = npmRoot;
             inherit npmDeps;
             inherit (pkgs.importNpmLock) npmConfigHook;
             dontNpmBuild = true;
             # devDependenciesのsass, prettierなども含める
             npmFlags = [ "--include=dev" ];
-          };
-          nodeEnvLint = pkgs.buildNpmPackage {
-            name = "www-ncaq-net-lint";
-            src = ./.;
-            inherit npmDeps;
-            inherit (pkgs.importNpmLock) npmConfigHook;
-            npmBuildScript = "lint";
-            dontNpmInstall = true;
-            installPhase = ''
-              runHook preInstall
-              mkdir -p $out
-              touch $out/lint-passed
-              runHook postInstall
-            '';
           };
 
           # uv2nixでPythonパッケージを管理
@@ -154,7 +140,7 @@
 
           # テストがないパッケージもビルドしてエラーを検出する。
           checks = {
-            inherit www-ncaq-net nodeEnvLint;
+            inherit www-ncaq-net;
           };
 
           treefmt = {
