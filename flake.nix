@@ -75,7 +75,7 @@
           nodeEnv = pkgs.buildNpmPackage {
             pname = "www-ncaq-net";
             version = "0.1.1.0";
-            src = ./.;
+            src = npmRoot;
             inherit npmDeps;
             inherit (pkgs.importNpmLock) npmConfigHook;
             dontNpmBuild = true;
@@ -84,7 +84,7 @@
           };
           nodeEnvLint = pkgs.buildNpmPackage {
             name = "www-ncaq-net-lint";
-            src = ./.;
+            src = npmRoot;
             inherit npmDeps;
             inherit (pkgs.importNpmLock) npmConfigHook;
             npmBuildScript = "lint";
