@@ -22,5 +22,8 @@
     "stylelint-declaration-block-no-ignored-properties": "^3.0.0",
     "typescript": "^5.9.3",
     "wrangler": "^4.69.0"
+  },
+  "engines": {
+    "node": ">=22.22.0"
   }
 }
