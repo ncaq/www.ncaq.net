@@ -1,5 +1,5 @@
 {
   "permissions": {
-    "allow": ["Bash(uv lock:*)"]
+    "allow": ["Bash(./setup:*)", "Bash(nix-fast-build:*)", "Bash(uv lock:*)", "Skill(proofreading-ja)"]
   }
 }

@@ -167,6 +167,8 @@
           devShells.default = pkgs.mkShell {
             inputsFrom = [ www-ncaq-net-unwrapped ];
             packages = with pkgs; [
+              nix-fast-build
+
               cabal-install
               fourmolu
               haskell-language-server
