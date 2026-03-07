@@ -28,7 +28,7 @@ Hakyllフレームワークを使っています。
 
 `CLAUDE.md`は`.github/copilot-instructions.md`のシンボリックリンクです。
 
-```
+```console
 CLAUDE.md -> .github/copilot-instructions.md
 ```
 
