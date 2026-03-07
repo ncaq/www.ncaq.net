@@ -166,3 +166,9 @@ CLAUDE.md -> .github/copilot-instructions.md
 ```zsh
 nix-fast-build --option eval-cache false --no-link --skip-cache --no-nom
 ```
+
+記事ファイルが正常に作成されるかはリポジトリルートにあるsetupスクリプトを実行して確認できます。
+
+```zsh
+./setup
+```
