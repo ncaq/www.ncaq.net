@@ -158,3 +158,11 @@ CLAUDE.md -> .github/copilot-instructions.md
 
 古い記事は`YYYY-MM-DD.md`形式ですが、
 もうこの古い形式は使わないでください。
+
+# コマンド
+
+プログラム部分のビルドが正常かは以下のコマンドで確認できます。
+
+```zsh
+nix-fast-build --option eval-cache false --no-link --skip-cache --no-nom
+```
