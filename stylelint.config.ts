@@ -7,4 +7,4 @@ export default {
     "plugin/browser-compat": true,
     "plugin/declaration-block-no-ignored-properties": true,
   },
-} satisfies Config;
+} as const satisfies Config;
