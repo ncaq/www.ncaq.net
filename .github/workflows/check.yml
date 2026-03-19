@@ -20,7 +20,7 @@ jobs:
           # flake.nixの設定を受け入れると好きなキャッシュを入れられたりしてセキュリティリスクがあるため、
           # GitHubホストランナーでのみflake.nixの設定を自動で受け入れるようにしています。
           extra_nix_config: ${{ runner.environment == 'github-hosted' && 'accept-flake-config = true' || '' }}
-      - uses: cachix/cachix-action@v16
+      - uses: cachix/cachix-action@v17
         with:
           name: ncaq
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
