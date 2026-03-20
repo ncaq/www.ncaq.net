@@ -141,16 +141,12 @@
               fourmolu.enable = true;
               hlint.enable = true;
               nixfmt.enable = true;
+              prettier.enable = true;
               shellcheck.enable = true;
               shfmt.enable = true;
               statix.enable = true;
               typos.enable = true;
               zizmor.enable = true;
-
-              prettier = {
-                enable = true;
-                excludes = [ "*.md" ];
-              };
             };
             settings.formatter = {
               editorconfig-checker = {
