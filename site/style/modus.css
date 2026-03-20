@@ -98,26 +98,38 @@ a:visited {
 }
 
 h1 {
+  font-size: 2em;
+  font-weight: bold;
   color: var(--m-heading-1);
 }
 
 h2 {
+  font-size: 1.6em;
+  font-weight: bold;
   color: var(--m-heading-2);
 }
 
 h3 {
+  font-size: 1.35em;
+  font-weight: bold;
   color: var(--m-heading-3);
 }
 
 h4 {
+  font-size: 1.2em;
+  font-weight: bold;
   color: var(--m-heading-4);
 }
 
 h5 {
+  font-size: 1.1em;
+  font-weight: bold;
   color: var(--m-heading-5);
 }
 
 h6 {
+  font-size: 1.05em;
+  font-weight: bold;
   color: var(--m-heading-6);
 }
 
@@ -177,6 +189,7 @@ hr {
   .cm,
   .cs,
   .cp {
+    font-style: italic;
     color: var(--m-comment);
   }
 
@@ -185,10 +198,12 @@ hr {
   .kp,
   .kr,
   .kd {
+    font-weight: bold;
     color: var(--m-keyword);
   }
 
   .kt {
+    font-weight: bold;
     color: var(--m-type);
   }
 
@@ -205,6 +220,7 @@ hr {
   .dl,
   .sd,
   .sh {
+    font-style: italic;
     color: var(--m-string);
   }
 
@@ -232,14 +248,17 @@ hr {
 
   .nf,
   .fm {
+    font-weight: bold;
     color: var(--m-fnname);
   }
 
   .nc {
+    font-weight: bold;
     color: var(--m-type);
   }
 
   .nb {
+    font-weight: bold;
     color: var(--m-builtin);
   }
 
@@ -267,6 +286,7 @@ hr {
   }
 
   .ne {
+    font-weight: bold;
     color: var(--m-type);
   }
 
