@@ -2,29 +2,50 @@ version: 2
 updates:
   - package-ecosystem: github-actions
     directory: "/"
-    schedule:
-      interval: daily
+    open-pull-requests-limit: 20
     labels:
       - "Type: CI"
       - "Type: Dependencies"
+    schedule:
+      interval: daily
+    cooldown:
+      default-days: 7
   - package-ecosystem: "npm"
     directory: "/"
-    schedule:
-      interval: "monthly"
     open-pull-requests-limit: 20
+    labels:
+      - "Type: Dependencies"
+    schedule:
+      interval: monthly
+    cooldown:
+      default-days: 7
     groups:
       types:
         patterns:
           - "@types/*"
+        exclude-patterns:
+          - "@types/node"
       eslint:
         patterns:
           - "*eslint*"
-    labels:
-      - "Type: Dependencies"
+      vite:
+        patterns:
+          - "vite"
+          - "vite-*"
+          - "@vitejs/*"
+          - "vitest"
+          - "vitest-*"
+          - "@vitest/*"
+    ignore:
+      - dependency-name: "@types/node"
+        update-types:
+          - "version-update:semver-major"
   - package-ecosystem: "uv"
     directory: "/"
-    schedule:
-      interval: "monthly"
     open-pull-requests-limit: 20
     labels:
       - "Type: Dependencies"
+    schedule:
+      interval: monthly
+    cooldown:
+      default-days: 7

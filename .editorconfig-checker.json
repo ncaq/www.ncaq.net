@@ -1,6 +1,5 @@
 {
   "Disable": {
-    "IndentSize": true,
-    "MaxLineLength": true
+    "IndentSize": true
   }
 }
