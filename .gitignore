@@ -1,58 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/emacs,haskell,node
-# Edit at https://www.toptal.com/developers/gitignore?templates=emacs,haskell,node
+# Haskell
 
-### Emacs ###
-# -*- mode: gitignore; -*-
-*~
-\#*\#
-/.emacs.desktop
-/.emacs.desktop.lock
-*.elc
-auto-save-list
-tramp
-.\#*
-
-# Org-mode
-.org-id-locations
-*_archive
-
-# flymake-mode
-*_flymake.*
-
-# eshell files
-/eshell/history
-/eshell/lastdir
-
-# elpa packages
-/elpa/
-
-# reftex files
-*.rel
-
-# AUCTeX auto folder
-/auto/
-
-# cask packages
-.cask/
-dist/
-
-# Flycheck
-flycheck_*.el
-
-# server auth directory
-/server/
-
-# projectiles files
-.projectile
-
-# directory configuration
-.dir-locals.el
-
-# network security
-/network-security.data
-
-
-### Haskell ###
 dist
 dist-*
 cabal-dev
@@ -77,7 +24,20 @@ cabal.project.local~
 .HTF/
 .ghc.environment.*
 
-### Node ###
+# Nix
+
+# Ignore build outputs from performing a nix-build or `nix build` command
+result
+result-*
+
+# Ignore automatically generated direnv output
+.direnv
+
+# Ignore local override env
+.env.local
+
+# Node.js
+
 # Logs
 logs
 *.log
@@ -85,7 +45,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
-.pnpm-debug.log*
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -137,12 +96,6 @@ web_modules/
 # Optional stylelint cache
 .stylelintcache
 
-# Microbundle cache
-.rpt2_cache/
-.rts2_cache_cjs/
-.rts2_cache_es/
-.rts2_cache_umd/
-
 # Optional REPL history
 .node_repl_history
 
@@ -153,11 +106,9 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
+# .env
+# .env.*
+# !.env.example
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -169,6 +120,8 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
+dist
+.output
 
 # Gatsby files
 .cache/
@@ -181,6 +134,16 @@ out
 
 # vuepress v2.x temp and cache directory
 .temp
+.cache
+
+# Sveltekit cache directory
+.svelte-kit/
+
+# vitepress build output
+**/.vitepress/dist
+
+# vitepress cache directory
+**/.vitepress/cache
 
 # Docusaurus cache and generated files
 .docusaurus
@@ -194,37 +157,35 @@ out
 # DynamoDB Local files
 .dynamodb/
 
+# Firebase cache directory
+.firebase/
+
 # TernJS port file
 .tern-port
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
-# yarn v2
-.yarn/cache
-.yarn/unplugged
-.yarn/build-state.yml
-.yarn/install-state.gz
+# pnpm
+.pnpm-store
+
+# yarn v3
 .pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
-### Node Patch ###
-# Serverless Webpack directories
-.webpack/
+# Vite files
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+.vite/
 
-# Optional stylelint cache
-
-# SvelteKit build / generate output
-.svelte-kit
-
-# End of https://www.toptal.com/developers/gitignore/api/emacs,haskell,node
-
-# Nix
-.direnv/
-/result
-/result-*
-
-.env*local
+# Project
 
 # Hakyll
+
 _cache/
 _site/

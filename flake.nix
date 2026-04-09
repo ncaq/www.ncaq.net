@@ -3,10 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
+    flake-parts.url = "github:hercules-ci/flake-parts";
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -134,16 +131,7 @@
           });
         in
         {
-          packages = {
-            default = www-ncaq-net;
-          };
-
-          # テストがないパッケージもビルドしてエラーを検出する。
-          checks = {
-            inherit www-ncaq-net;
-          };
-
-          treefmt = {
+          treefmt.config = {
             # yamlfmtはprettierと競合する。
             projectRootFile = "flake.nix";
             programs = {
@@ -156,32 +144,73 @@
               shellcheck.enable = true;
               shfmt.enable = true;
               statix.enable = true;
+              typos.enable = true;
+              zizmor.enable = true;
 
               prettier = {
                 enable = true;
                 excludes = [ "*.md" ];
               };
             };
+            settings.formatter = {
+              editorconfig-checker = {
+                command = pkgs.editorconfig-checker;
+                includes = [ "*" ];
+              };
+              zizmor.options = [ "--pedantic" ];
+            };
+          };
+
+          # テストがないパッケージもビルドしてエラーを検出する。
+          checks = {
+            inherit www-ncaq-net;
+          };
+
+          packages = {
+            default = www-ncaq-net;
+            # flake.lockの管理バージョンをre-exportすることで安定した利用を促進。
+            inherit (pkgs) nix-fast-build;
           };
 
           devShells.default = pkgs.mkShell {
             inputsFrom = [ www-ncaq-net-unwrapped ];
             packages = with pkgs; [
+              # treefmtで指定したプログラムの単体版。
+              actionlint
+              deadnix
+              editorconfig-checker
+              nixfmt
+              prettier
+              shellcheck
+              shfmt
+              statix
+              typos
+              zizmor
+
+              # nixの関連ツール。
+              nil
               nix-fast-build
 
+              # GitHub関連ツール。
+              gh
+
+              # Haskell関連ツール。
               cabal-install
               fourmolu
               haskell-language-server
               hlint
 
-              html-tidy
-
+              # JavaScript関連ツール。
               importNpmLock.hooks.linkNodeModulesHook
               nodeEnv
               nodejs
 
+              # Python関連ツール。
               pythonEnv
               uv
+
+              # その他のツール。
+              html-tidy
             ];
             npmDeps = pkgs.importNpmLock.buildNodeModules {
               inherit (pkgs) nodejs;

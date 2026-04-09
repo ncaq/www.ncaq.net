@@ -1,0 +1,32 @@
+[files]
+# アセットにはSVGなどのバイナリライクなデータが含まれており誤検出が多いため除外。
+extend-exclude = [
+  # アセットにはSVGなどのバイナリライクなデータが含まれており誤検出が多いため除外。
+  "site/asset/",
+  # ブログ記事にはコードスニペット、プログラム出力の引用、URL等が含まれており、
+  # typosの誤検出(例: URL内の文字列やコード中の変数名の書き換え)が大量に発生するため除外。
+  "site/entry/",
+]
+
+[default.extend-words]
+# Part of "RGBa" (Pillow's pre-multiplied alpha RGB mode)
+Ba = "Ba"
+# HSA is something AMD uses for their GPUs
+HSA = "HSA"
+# 社名。分割で認識されなくなります。
+Hashi = "Hashi"
+# Immediately Invoked Function Expression (IIFE)の略語。camelCase分割で"IIF"をtypoと判定する。
+IIF = "IIF"
+# 記事内で提案された架空の型名 DBRunned。
+Runned = "Runned"
+# GHCが生成するHaskell Template Haskellの変数名の接尾辞。
+Ue = "Ue"
+atUe = "atUe"
+# PygmentsのCSS class名(Name.Decorator)。
+nd = "nd"
+# Debianのビルドデーモンの名前。
+buildd = "buildd"
+# GitHubユーザー名miguel-a-calles-mbaの一部。
+calles = "calles"
+# grub-installの出力に含まれるtypo。引用のため修正不可。
+repored = "repored"

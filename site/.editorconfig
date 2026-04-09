@@ -1,0 +1,5 @@
+[*.md]
+# 分割できない引用などが多いため改行制御が困難。
+max_line_length = unset
+# 引用コードブロックは制御できない。
+indent_style = unset
