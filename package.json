@@ -12,7 +12,7 @@
     "bootstrap": "^4.6.2"
   },
   "devDependencies": {
-    "@double-great/stylelint-a11y": "^3.4.5",
+    "@double-great/stylelint-a11y": "^3.4.10",
     "prettier": "^3.8.1",
     "sass": "^1.58.3",
     "stylelint": "^17.4.0",
