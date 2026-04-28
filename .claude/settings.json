@@ -4,13 +4,14 @@
       "source": {
         "source": "github",
         "repo": "ncaq/konoka",
-        "ref": "v6.2.0"
+        "ref": "v6.3.0"
       }
     }
   },
   "enabledPlugins": {
     "kyosei@konoka": true,
     "nix-tasuke@konoka": true,
+    "programming-tasuke@konoka": true,
     "web-tasuke@konoka": true
   },
   "enableAllProjectMcpServers": true,
@@ -92,6 +93,11 @@
       "mcp__github__search_users",
       "mcp__nixos"
     ],
-    "deny": ["Bash(npx:*)", "Bash(pnpm:*)", "Bash(pnpx:*)", "Bash(yarn:*)"]
+    "deny": [
+      "Bash(npx:*)",
+      "Bash(pnpm:*)",
+      "Bash(pnpx:*)",
+      "Bash(yarn:*)"
+    ]
   }
 }
