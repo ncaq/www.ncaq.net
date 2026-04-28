@@ -35,12 +35,12 @@ trim_trailing_whitespace = false
 indent_size = unset
 
 [*.{json,md,nix,yml,yaml}]
-# 設定やドキュメントのファイルはURLなど改行困難なものが多いため行幅制限を緩めます。
-max_line_length = 300
+# 設定やドキュメントのファイルはURLなど改行困難なものが多いため行幅制限を無効化します。
+max_line_length = unset
 
 [.env{,.*}]
 # 接続文字列やAPIキーなど長い設定値を含むため行幅制限を無効化します。
-max_line_length = off
+max_line_length = unset
 
 [*.bat]
 charset = latin1
