@@ -93,11 +93,6 @@
       "mcp__github__search_users",
       "mcp__nixos"
     ],
-    "deny": [
-      "Bash(npx:*)",
-      "Bash(pnpm:*)",
-      "Bash(pnpx:*)",
-      "Bash(yarn:*)"
-    ]
+    "deny": ["Bash(npx:*)", "Bash(pnpm:*)", "Bash(pnpx:*)", "Bash(yarn:*)"]
   }
 }
