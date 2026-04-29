@@ -52,10 +52,6 @@ hakyllRun (entryIndex, years) = hakyllWith conf $ do
     route idRoute
     compile copyFileCompiler
 
-  match "default.scss" $ do
-    route $ setExtension "css"
-    compile $ unixFilter "npm" ["run", "default.css"] "" >>= makeItem
-
   let entryIndexField = listField "entry-index" defaultContext (pure $ (\x -> Item (fromFilePath x) x) <$> years)
 
   -- 404はCloudflare Pages的に404/index.htmlではなく404.htmlである必要があるため特別に処理する。

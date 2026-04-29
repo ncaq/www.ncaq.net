@@ -3,7 +3,6 @@
   "version": "0.1.1.0",
   "private": true,
   "scripts": {
-    "default.css": "sass --load-path=${NODE_PATH:-node_modules} site/default.scss",
     "deploy": "wrangler pages deploy _site --project-name www-ncaq-net",
     "fix": "run-p fix:*",
     "fix:eslint": "stylelint --fix 'site/style/**/*.css'",
@@ -12,14 +11,10 @@
     "lint:prettier": "prettier --check .",
     "lint:stylelint": "stylelint 'site/style/**/*.css'"
   },
-  "dependencies": {
-    "bootstrap": "^4.6.2"
-  },
   "devDependencies": {
     "@double-great/stylelint-a11y": "^3.4.10",
     "npm-run-all2": "^8.0.4",
     "prettier": "^3.8.1",
-    "sass": "^1.58.3",
     "stylelint": "^17.8.0",
     "stylelint-browser-compat": "^1.0.0-beta.180",
     "stylelint-config-clean-order": "^8.0.1",
