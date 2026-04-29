@@ -2,18 +2,16 @@
 <div class="gcse-search"></div>
 
 $for(entry)$
-<a class="entry-link" href="$url$">
-  <div class="card mb-3">
-    <div class="card-header">
+<a href="$url$">
+  <section>
+    <header>
       <time datetime="$date$">$date$</time>
       $if(updated)$ :
       <time datetime="$updated$">$updated$</time>
       $endif$
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">$title$</h5>
-      <p class="card-text">$teaser$</p>
-    </div>
-  </div>
+    </header>
+    <h2>$title$</h2>
+    <p>$teaser$</p>
+  </section>
 </a>
 $endfor$
