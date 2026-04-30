@@ -71,7 +71,7 @@
           };
           nodeEnv = pkgs.buildNpmPackage {
             pname = "www-ncaq-net";
-            version = "0.1.1.0";
+            version = "1.0.0.0";
             src = npmRoot;
             inherit npmDeps;
             inherit (pkgs.importNpmLock) npmConfigHook;
