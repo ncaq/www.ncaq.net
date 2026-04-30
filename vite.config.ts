@@ -8,6 +8,5 @@ export default defineConfig({
         assetFileNames: "dist/css/bundle.css",
       },
     },
-    cssCodeSplit: false,
   },
 });
