@@ -58,5 +58,6 @@ executable www-ncaq-net
     regex-tdfa,
     split,
     text,
+    typed-process,
 
   main-is: site.hs

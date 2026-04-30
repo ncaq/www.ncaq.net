@@ -13,14 +13,41 @@ import qualified Data.Text as T
 import Hakyll
 import System.Directory
 import System.FilePath
+import qualified System.Process.Typed as P
 import Text.Pandoc
 import Text.Pandoc.Transforms (eastAsianLineBreakFilter)
 import Text.Regex.TDFA hiding (empty, match)
 
 main :: IO ()
-main =
-  getEntryAndYears
-    >>= hakyllRun
+main = do
+  options <- defaultParser conf
+  (entryIndex, years) <- getEntryAndYears
+  let runHakyll = hakyllRun options (entryIndex, years)
+  -- サイト生成を行うサブコマンドの場合のみ、Viteでスタイルシートをバンドルする。
+  -- `site/dist/bundle.css`がprovideDirectory配下に出力されるので、
+  -- 後続のHakyllが通常通り検出してコピーできる。
+  case optCommand options of
+    Build{} -> runViteBuild >> runHakyll
+    Rebuild -> runViteBuild >> runHakyll
+    -- watch/serverではViteもwatchモードで動かして、
+    -- スタイル変更時にバンドルを更新し続ける。
+    Watch{} -> withViteWatch runHakyll
+    Server{} -> withViteWatch runHakyll
+    _ -> runHakyll
+
+-- | `npm run build`を呼んでスタイルシートをバンドルする。
+runViteBuild :: IO ()
+runViteBuild = P.runProcess_ (P.proc "npm" ["run", "build"])
+
+-- | `npm run watch`をバックグラウンドで起動して、
+-- スタイル変更時にバンドルを更新し続ける。
+-- Hakyllの処理が終わったら(あるいは例外で抜けたら)Viteも停止します。
+-- watch起動直後はまだ初回ビルドが完了していないので、
+-- 先に`npm run build`を同期実行してHakyllが起動直後にバンドルを参照できる状態にしておきます。
+withViteWatch :: IO a -> IO a
+withViteWatch action = do
+  runViteBuild
+  P.withProcessTerm (P.proc "npm" ["run", "watch"]) (const action)
 
 -- | 年一覧をスマートにページネーションする方法がわからなかったので`IO`でごり押しする。
 -- `Rules`は内部的には`IO`をベースに持つが、
@@ -44,11 +71,17 @@ yearInEntry = do
   return $ reverse $ L.nub $ getYear <$> entryList
 
 -- | 下準備が終わった後hakyllを実際に起動する。
-hakyllRun :: (String, [String]) -> IO ()
-hakyllRun (entryIndex, years) = hakyllWith conf $ do
+hakyllRun :: Options -> (String, [String]) -> IO ()
+hakyllRun options (entryIndex, years) = hakyllWithArgs conf options $ do
   match "templates/*" $ compile templateCompiler
 
   match ("_headers" .||. "*.ico" .||. "*.png" .||. "*.webp" .||. "*.svg" .||. "*.txt" .||. "asset/*") $ do
+    route idRoute
+    compile copyFileCompiler
+
+  -- Viteによってバンドルされたスタイルシート。
+  -- 実体はmain関数側でHakyll起動前にViteを呼び出して生成しています。
+  match "dist/bundle.css" $ do
     route idRoute
     compile copyFileCompiler
 

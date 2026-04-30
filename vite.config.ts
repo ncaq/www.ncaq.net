@@ -3,10 +3,12 @@ import { defineConfig } from "vite";
 export default defineConfig({
   build: {
     minify: false,
+    outDir: "site/dist",
+    emptyOutDir: true,
     rolldownOptions: {
       input: "site/style/main.css",
       output: {
-        assetFileNames: "dist/bundle.css",
+        assetFileNames: "bundle.css",
       },
     },
   },
