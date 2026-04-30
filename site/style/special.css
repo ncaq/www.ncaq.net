@@ -1,0 +1,64 @@
+html {
+  /* 日本語主体の環境ではセリフ(明朝)よりサンセリフ(ゴシック)の方が読みやすいのでゴシックを指定。 */
+  font-family: sans-serif;
+  /* 日本語主体のサイト向きの改行処理にします。 */
+  line-break: strict;
+  overflow-wrap: break-word;
+}
+
+header nav {
+  /* ナビのフォントは大きく。 */
+  font-size: 300%;
+  /* 年の数字とかが揃わないのはメニューとして気持ち悪すぎるので等幅を指定。 */
+  font-family: monospace;
+}
+
+main {
+  article {
+    /* 日本語環境では記事の文字は大きめにしたほうが良いため。 */
+    font-size: 1.5rem;
+
+    /* 大きさなどだけでは見出しレベルが分かりにくいため、Markdown形式で見た目を装飾します。 */
+    h1::before {
+      content: "# ";
+    }
+    h2::before {
+      content: "## ";
+    }
+    h3::before {
+      content: "### ";
+    }
+    h4::before {
+      content: "#### ";
+    }
+    h5::before {
+      content: "##### ";
+    }
+    h6::before {
+      content: "###### ";
+    }
+  }
+
+  img,
+  video {
+    /* 画像や動画がだいたいひとつの画面内に収まるようにします。 */
+    max-width: 100%;
+    max-height: 90vh;
+  }
+}
+
+.icon {
+  /* 環境によってはアイコンの幅が不揃いになって大変気持ち悪いので強制的に合わせます。 */
+  display: inline-block;
+  /* 本体の大きさが想定できないのでmargin指定ではなく全体の大きさを期待します。 */
+  width: 60px;
+  /* 画像と絵文字を併用するので左端に揃えてくれることを期待します。 */
+  margin-right: auto;
+  /* 絵文字を画像と同じく中央揃いにします。 */
+  text-align: center;
+}
+
+.timestamp {
+  /** 日付部分で大体の環境で改行が発生しないだろう幅を設定。 */
+  font-size: 1.4rem;
+}
