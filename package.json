@@ -9,7 +9,8 @@
     "fix:stylelint": "stylelint --fix 'site/style/**/*.css'",
     "lint": "run-p lint:*",
     "lint:prettier": "prettier --check .",
-    "lint:stylelint": "stylelint 'site/style/**/*.css'"
+    "lint:stylelint": "stylelint 'site/style/**/*.css'",
+    "lint:tsc": "tsc --noEmit"
   },
   "devDependencies": {
     "@double-great/stylelint-a11y": "^3.4.10",
