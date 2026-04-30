@@ -2,6 +2,7 @@
   "name": "www-ncaq-net",
   "version": "1.0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "deploy": "wrangler pages deploy _site --project-name www-ncaq-net",
     "fix": "run-p fix:*",
