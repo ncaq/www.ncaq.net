@@ -1,1 +1,10 @@
 *.md
+
+.direnv/
+.venv/
+_cache/
+_site/
+dist-newstyle/
+node_modules/
+
+site/asset/
