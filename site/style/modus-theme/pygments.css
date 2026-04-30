@@ -2,7 +2,7 @@
  Pygmentsが出力するCSSクラスに対して変数を割り当てます。
  */
 
-@import url("./modus-color.css");
+@import url("./color.css");
 
 /* CSS変数を見ているため、ちゃんとcolor-schemeは尊重しているのでルールを無効化。 */
 /* stylelint-disable a11y/media-prefers-color-scheme */
