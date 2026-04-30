@@ -20,30 +20,39 @@ main {
     /* 日本語環境では記事の文字は大きめにしたほうが良いため。 */
     font-size: 1.5rem;
 
-    /* 大きさなどだけでは見出しレベルが分かりにくいため、Markdown形式で見た目を装飾します。 */
+    /*
+      大きさなどだけでは見出しレベルが分かりにくいため、
+      Markdown形式に似た記号で装飾します。
+
+      代替テキスト構文`/ ""`を併用し、
+      装飾用の文字をスクリーンリーダーには読み上げさせません。
+      代替テキスト構文の使用をstylelintのルールは認識してくれないのでここだけ無効化します。。
+     */
+    /* stylelint-disable a11y/content-property-no-static-value */
     h1::before {
-      content: "# ";
+      content: "# " / "";
     }
 
     h2::before {
-      content: "## ";
+      content: "## " / "";
     }
 
     h3::before {
-      content: "### ";
+      content: "### " / "";
     }
 
     h4::before {
-      content: "#### ";
+      content: "#### " / "";
     }
 
     h5::before {
-      content: "##### ";
+      content: "##### " / "";
     }
 
     h6::before {
-      content: "###### ";
+      content: "###### " / "";
     }
+    /* stylelint-enable a11y/content-property-no-static-value */
   }
 
   img,
