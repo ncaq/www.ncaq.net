@@ -6,7 +6,7 @@ export default defineConfig({
     rolldownOptions: {
       input: "site/style/main.css",
       output: {
-        assetFileNames: "dist/css/bundle.css",
+        assetFileNames: "dist/bundle.css",
       },
     },
   },
