@@ -7,6 +7,16 @@ html {
   overflow-wrap: break-word;
 }
 
+/* 大きい画面に対してフルの画面表示がされていると圧力が強すぎるので余白を作ります。 */
+@media (min-width: 992px) {
+  body {
+    /* 少しだけ余白を作ります。 */
+    width: 95vw;
+    /* 余白の場所を左右に作ります。 */
+    margin: 0 auto;
+  }
+}
+
 header nav {
   /* 年の数字とかが揃わないのはメニューとして気持ち悪すぎるので等幅を指定。 */
   font-family: monospace;
