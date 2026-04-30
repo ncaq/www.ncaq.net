@@ -5,8 +5,8 @@
   "scripts": {
     "deploy": "wrangler pages deploy _site --project-name www-ncaq-net",
     "fix": "run-p fix:*",
-    "fix:eslint": "stylelint --fix 'site/style/**/*.css'",
     "fix:prettier": "prettier --write .",
+    "fix:stylelint": "stylelint --fix 'site/style/**/*.css'",
     "lint": "run-p lint:*",
     "lint:prettier": "prettier --check .",
     "lint:stylelint": "stylelint 'site/style/**/*.css'"
