@@ -1,5 +1,6 @@
-#!/usr/bin/env zsh
-set -eux -o pipefail
+#!/usr/bin/env bash
+set -euo pipefail
+set -x
 
 # トラッキングブランチが存在している場合のみ上書き防止のためにpullを行う。
 # 主な想定ブランチのmasterの場合は基本的にトラッキングブランチは存在すると思います。

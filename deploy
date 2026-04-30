@@ -1,5 +1,6 @@
-#!/usr/bin/env zsh
-set -eux -o pipefail
+#!/usr/bin/env bash
+set -euo pipefail
+set -x
 
 $(dirname $0)/setup
 nix run . -- deploy
