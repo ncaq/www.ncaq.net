@@ -1,16 +1,18 @@
 html {
   /* 日本語主体の環境ではセリフ(明朝)よりサンセリフ(ゴシック)の方が読みやすいのでゴシックを指定。 */
   font-family: sans-serif;
+
   /* 日本語主体のサイト向きの改行処理にします。 */
   line-break: strict;
   overflow-wrap: break-word;
 }
 
 header nav {
-  /* ナビのフォントは大きく。 */
-  font-size: 300%;
   /* 年の数字とかが揃わないのはメニューとして気持ち悪すぎるので等幅を指定。 */
   font-family: monospace;
+
+  /* ナビのフォントは大きく。 */
+  font-size: 300%;
 }
 
 main {
@@ -22,18 +24,23 @@ main {
     h1::before {
       content: "# ";
     }
+
     h2::before {
       content: "## ";
     }
+
     h3::before {
       content: "### ";
     }
+
     h4::before {
       content: "#### ";
     }
+
     h5::before {
       content: "##### ";
     }
+
     h6::before {
       content: "###### ";
     }
@@ -50,10 +57,13 @@ main {
 .icon {
   /* 環境によってはアイコンの幅が不揃いになって大変気持ち悪いので強制的に合わせます。 */
   display: inline-block;
+
   /* 本体の大きさが想定できないのでmargin指定ではなく全体の大きさを期待します。 */
   width: 60px;
+
   /* 画像と絵文字を併用するので左端に揃えてくれることを期待します。 */
   margin-right: auto;
+
   /* 絵文字を画像と同じく中央揃いにします。 */
   text-align: center;
 }
