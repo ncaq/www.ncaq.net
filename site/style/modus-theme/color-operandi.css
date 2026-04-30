@@ -1,4 +1,28 @@
-/* modus-operandi Light theme palette */
+/*
+ * The modus-operandi Light theme palette.
+ *
+ * SPDX-FileCopyrightText: Copyright ncaq <ncaq@ncaq.net>
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * This file is part of www.ncaq.net.
+ * Licensed under the Apache License, Version 2.0.
+ * https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * ----------------------------------------------------------------------
+ *
+ * Color palette based on the Modus themes (modus-operandi).
+ *   Author: Protesilaos Stavrou
+ *   Source: https://protesilaos.com/emacs/modus-themes-colors
+ *   Repository: https://github.com/protesilaos/modus-themes
+ *
+ * The color values used in this file are taken from the Modus themes
+ * color palette, which the upstream author has dedicated to the public
+ * domain under the Creative Commons Zero (CC0) license.
+ *   https://creativecommons.org/publicdomain/zero/1.0/
+ *
+ * Attribution is not legally required for the color palette,
+ * but is provided here as a courtesy.
+ */
 @media (prefers-color-scheme: light) {
   :root {
     --m-bg-main: #fff;
