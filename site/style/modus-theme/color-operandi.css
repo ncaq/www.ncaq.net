@@ -1,0 +1,40 @@
+/* modus-operandi Light theme palette */
+@media (prefers-color-scheme: light) {
+  :root {
+    --m-bg-main: #fff;
+    --m-bg-dim: #f2f2f2;
+    --m-fg-main: #000;
+    --m-fg-dim: #595959;
+    --m-fg-alt: #193668;
+    --m-bg-active: #c4c4c4;
+    --m-bg-inactive: #e0e0e0;
+    --m-border: #9f9f9f;
+    --m-link: #3548cf;
+    --m-link-visited: #721045;
+    --m-heading-1: #000;
+    --m-heading-2: #624416;
+    --m-heading-3: #193668;
+    --m-heading-4: #721045;
+    --m-heading-5: #2a5045;
+    --m-heading-6: #7f0000;
+    --m-comment: #595959;
+    --m-keyword: #531ab6;
+    --m-string: #3548cf;
+    --m-type: #005f5f;
+    --m-constant: #0000b0;
+    --m-fnname: #721045;
+    --m-builtin: #8f0075;
+    --m-variable: #005e8b;
+    --m-property: #005e8b;
+    --m-preprocessor: #a0132f;
+    --m-rx-backslash: #721045;
+    --m-rx-construct: #00663f;
+    --m-err: #a60000;
+    --m-bg-added: #c1f2d1;
+    --m-fg-added: #005000;
+    --m-bg-removed: #ffd8d5;
+    --m-fg-removed: #8f1313;
+    --m-cyan-cooler: #005f5f;
+    --m-cyan-faint: #005077;
+  }
+}

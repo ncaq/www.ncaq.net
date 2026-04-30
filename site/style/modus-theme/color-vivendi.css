@@ -1,0 +1,40 @@
+/* modus-vivendi Dark theme palette */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --m-bg-main: #000;
+    --m-bg-dim: #1e1e1e;
+    --m-fg-main: #fff;
+    --m-fg-dim: #989898;
+    --m-fg-alt: #c6daff;
+    --m-bg-active: #535353;
+    --m-bg-inactive: #303030;
+    --m-border: #646464;
+    --m-link: #79a8ff;
+    --m-link-visited: #feacd0;
+    --m-heading-1: #fff;
+    --m-heading-2: #d2b580;
+    --m-heading-3: #82b0ec;
+    --m-heading-4: #feacd0;
+    --m-heading-5: #88ca9f;
+    --m-heading-6: #ff9580;
+    --m-comment: #989898;
+    --m-keyword: #b6a0ff;
+    --m-string: #79a8ff;
+    --m-type: #6ae4b9;
+    --m-constant: #00bcff;
+    --m-fnname: #feacd0;
+    --m-builtin: #f78fe7;
+    --m-variable: #00d3d0;
+    --m-property: #00d3d0;
+    --m-preprocessor: #ff7f86;
+    --m-rx-backslash: #feacd0;
+    --m-rx-construct: #00c06f;
+    --m-err: #ff5f59;
+    --m-bg-added: #00381f;
+    --m-fg-added: #a0e0a0;
+    --m-bg-removed: #4f1119;
+    --m-fg-removed: #ffbfbf;
+    --m-cyan-cooler: #6ae4b9;
+    --m-cyan-faint: #9ac8e0;
+  }
+}

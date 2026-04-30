@@ -1,0 +1,109 @@
+/**
+ * ModusテーマをHTMLの要素にある程度マッピングして適用。
+ * テーマでは色はもちろんある程度大きさなども定義されているため、
+ * 要素ごとに適用していきます。
+ */
+
+@import url("./modus-color.css");
+
+/* CSS変数を見ているため、ちゃんとcolor-schemeは尊重しているのでルールを無効化。 */
+/* stylelint-disable a11y/media-prefers-color-scheme */
+
+body {
+  color: var(--m-fg-main);
+  background-color: var(--m-bg-main);
+}
+
+a {
+  color: var(--m-link);
+}
+
+a:visited {
+  color: var(--m-link-visited);
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--m-heading-1);
+}
+
+h2 {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: var(--m-heading-2);
+}
+
+h3 {
+  font-size: 1.35em;
+  font-weight: bold;
+  color: var(--m-heading-3);
+}
+
+h4 {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--m-heading-4);
+}
+
+h5 {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: var(--m-heading-5);
+}
+
+h6 {
+  font-size: 1.05em;
+  font-weight: bold;
+  color: var(--m-heading-6);
+}
+
+code {
+  color: var(--m-fg-alt);
+  background-color: var(--m-bg-dim);
+}
+
+pre {
+  border: 1px solid var(--m-border);
+  color: var(--m-fg-main);
+  background-color: var(--m-bg-dim);
+}
+
+pre code {
+  background-color: transparent;
+}
+
+th,
+td {
+  border-color: var(--m-border);
+}
+
+th {
+  color: var(--m-fg-main);
+  background-color: var(--m-bg-inactive);
+}
+
+blockquote {
+  border-left-color: var(--m-border);
+  color: var(--m-fg-dim);
+}
+
+hr {
+  border-color: var(--m-border);
+}
+
+/*
+ * 記述現在では`::selection`はiOS Safariで使えないようです。
+ * しかしカラースキーマを定義している以上、
+ * 選択の色も一貫して変えないと見えにくいです。
+ * オプショナルな機能であり、
+ * ないと他が崩壊する機能ではないため、
+ * 非対応を許容します。
+ */
+/* stylelint-disable-next-line plugin/browser-compat */
+::selection {
+  color: var(--m-fg-main);
+  background-color: var(--m-bg-active);
+}
+
+/* stylelint-enable a11y/media-prefers-color-scheme */
