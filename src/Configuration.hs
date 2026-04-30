@@ -8,5 +8,5 @@ conf :: Configuration
 conf =
   def
     { providerDirectory = "site"
-    , deployCommand = "npm run deploy"
+    , deployCommand = "wrangler pages deploy _site --project-name www-ncaq-net"
     }

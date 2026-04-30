@@ -76,8 +76,6 @@
             inherit npmDeps;
             inherit (pkgs.importNpmLock) npmConfigHook;
             dontNpmBuild = true;
-            # devDependenciesのsass, prettierなども含める
-            npmFlags = [ "--include=dev" ];
           };
 
           # uv2nixでPythonパッケージを管理
@@ -113,16 +111,18 @@
               };
           www-ncaq-net = www-ncaq-net-unwrapped.overrideAttrs (oldAttrs: {
             nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [ pkgs.makeWrapper ];
-            # Hakyllは実行時にsass, html-tidy等の外部コマンドを呼び出すため、
+            # Hakyllは実行時に外部コマンドを呼び出すため、
             # makeWrapperでPATHに追加する。
             postInstall = (oldAttrs.postInstall or "") + ''
               wrapProgram $out/bin/www-ncaq-net \
                 --prefix PATH : ${
                   pkgs.lib.makeBinPath [
-                    html-tidy
-                    nodeEnv
                     pkgs.nodejs
                     pkgs.uv
+                    pkgs.wrangler
+
+                    html-tidy
+                    nodeEnv
                     pythonEnv
                   ]
                 } \
@@ -175,6 +175,9 @@
               actionlint
               deadnix
               editorconfig-checker
+              fourmolu
+              haskellPackages.cabal-gild
+              hlint
               nixfmt
               prettier
               shellcheck
@@ -192,9 +195,7 @@
 
               # Haskell関連ツール。
               cabal-install
-              fourmolu
               haskell-language-server
-              hlint
 
               # JavaScript関連ツール。
               importNpmLock.hooks.linkNodeModulesHook
@@ -207,6 +208,7 @@
 
               # その他のツール。
               html-tidy
+              wrangler
             ];
             npmDeps = pkgs.importNpmLock.buildNodeModules {
               inherit (pkgs) nodejs;
