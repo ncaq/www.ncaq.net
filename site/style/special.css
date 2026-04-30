@@ -1,7 +1,4 @@
 html {
-  /* 日本語主体の環境ではセリフ(明朝)よりサンセリフ(ゴシック)の方が読みやすいのでゴシックを指定。 */
-  font-family: sans-serif;
-
   /* 日本語主体のサイト向きの改行処理にします。 */
   line-break: strict;
   overflow-wrap: break-word;
