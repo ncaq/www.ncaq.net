@@ -8,7 +8,7 @@ bug-reports: https://github.com/ncaq/www.ncaq.net/issues
 author: ncaq
 maintainer: ncaq@ncaq.net
 copyright: ncaq
-license: MIT
+license: Apache-2.0
 build-type: Simple
 
 source-repository head
