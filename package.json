@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "vite build",
     "deploy": "wrangler pages deploy _site --project-name www-ncaq-net",
     "fix": "run-p fix:*",
     "fix:prettier": "prettier --write .",
