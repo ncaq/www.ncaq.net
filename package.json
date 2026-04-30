@@ -12,7 +12,8 @@
     "lint": "run-p lint:*",
     "lint:prettier": "prettier --check .",
     "lint:stylelint": "stylelint 'site/style/**/*.css'",
-    "lint:tsc": "tsc --noEmit"
+    "lint:tsc": "tsc --noEmit",
+    "watch": "vite build --watch"
   },
   "devDependencies": {
     "@double-great/stylelint-a11y": "^3.4.10",
