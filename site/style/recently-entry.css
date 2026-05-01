@@ -13,4 +13,6 @@
 
 .entry-preview {
   border: thick outset var(--m-border);
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
