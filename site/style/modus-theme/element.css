@@ -12,6 +12,7 @@
 body {
   color: var(--m-fg-main);
   background-color: var(--m-bg-main);
+  caret-color: var(--m-cursor);
 }
 
 a {
@@ -58,19 +59,53 @@ h6 {
   color: var(--m-fg-heading-6);
 }
 
-code {
-  color: var(--m-fg-alt);
-  background-color: var(--m-bg-dim);
-}
-
 pre {
   border: 1px solid var(--m-border);
   color: var(--m-fg-main);
   background-color: var(--m-bg-dim);
 }
 
+code {
+  color: var(--m-fg-alt);
+  background-color: var(--m-bg-dim);
+}
+
 pre code {
   background-color: transparent;
+}
+
+kbd {
+  border: 1px solid var(--m-border);
+  color: var(--m-keybind);
+  background-color: var(--m-bg-dim);
+}
+
+mark {
+  color: var(--m-fg-main);
+  background-color: var(--m-bg-search-current);
+}
+
+ins {
+  color: var(--m-fg-added);
+  background-color: var(--m-bg-added);
+}
+
+del {
+  color: var(--m-fg-removed);
+  background-color: var(--m-bg-removed);
+}
+
+blockquote {
+  border-left-color: var(--m-border);
+  color: var(--m-fg-dim);
+}
+
+summary {
+  background-color: var(--m-bg-inactive);
+}
+
+hr {
+  border-color: var(--m-border);
 }
 
 th,
@@ -83,13 +118,12 @@ th {
   background-color: var(--m-bg-inactive);
 }
 
-blockquote {
-  border-left-color: var(--m-border);
-  color: var(--m-fg-dim);
+tbody tr:hover {
+  background-color: var(--m-bg-hover);
 }
 
-hr {
-  border-color: var(--m-border);
+:focus-visible {
+  outline: 2px solid var(--m-border-mode-line-active);
 }
 
 /*
@@ -103,7 +137,7 @@ hr {
 /* stylelint-disable-next-line plugin/browser-compat */
 ::selection {
   color: var(--m-fg-main);
-  background-color: var(--m-bg-active);
+  background-color: var(--m-bg-region);
 }
 
 /* stylelint-enable a11y/media-prefers-color-scheme */
