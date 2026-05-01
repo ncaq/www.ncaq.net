@@ -15,47 +15,47 @@ body {
 }
 
 a {
-  color: var(--m-link);
+  color: var(--m-fg-link);
 }
 
 a:visited {
-  color: var(--m-link-visited);
+  color: var(--m-fg-link-visited);
 }
 
 h1 {
   font-size: 2em;
   font-weight: bold;
-  color: var(--m-heading-1);
+  color: var(--m-fg-heading-1);
 }
 
 h2 {
   font-size: 1.6em;
   font-weight: bold;
-  color: var(--m-heading-2);
+  color: var(--m-fg-heading-2);
 }
 
 h3 {
   font-size: 1.35em;
   font-weight: bold;
-  color: var(--m-heading-3);
+  color: var(--m-fg-heading-3);
 }
 
 h4 {
   font-size: 1.2em;
   font-weight: bold;
-  color: var(--m-heading-4);
+  color: var(--m-fg-heading-4);
 }
 
 h5 {
   font-size: 1.1em;
   font-weight: bold;
-  color: var(--m-heading-5);
+  color: var(--m-fg-heading-5);
 }
 
 h6 {
   font-size: 1.05em;
   font-weight: bold;
-  color: var(--m-heading-6);
+  color: var(--m-fg-heading-6);
 }
 
 code {

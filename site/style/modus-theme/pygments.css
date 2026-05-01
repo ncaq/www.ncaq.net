@@ -158,11 +158,11 @@
   }
 
   .gh {
-    color: var(--m-heading-1);
+    color: var(--m-fg-heading-1);
   }
 
   .gu {
-    color: var(--m-heading-2);
+    color: var(--m-fg-heading-2);
   }
 
   .ge {

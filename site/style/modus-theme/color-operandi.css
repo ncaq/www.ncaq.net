@@ -25,6 +25,7 @@
  */
 @media (prefers-color-scheme: light) {
   :root {
+    /* Basic values */
     --m-bg-main: #fff;
     --m-bg-dim: #f2f2f2;
     --m-fg-main: #000;
@@ -33,32 +34,272 @@
     --m-bg-active: #c4c4c4;
     --m-bg-inactive: #e0e0e0;
     --m-border: #9f9f9f;
-    --m-link: #3548cf;
-    --m-link-visited: #bf94fe;
-    --m-heading-1: #000;
-    --m-heading-2: #624416;
-    --m-heading-3: #193668;
-    --m-heading-4: #721045;
-    --m-heading-5: #2a5045;
-    --m-heading-6: #7f0000;
-    --m-comment: #595959;
-    --m-keyword: #531ab6;
-    --m-string: #3548cf;
-    --m-type: #005f5f;
-    --m-constant: #0000b0;
-    --m-fnname: #721045;
-    --m-builtin: #8f0075;
-    --m-variable: #005e8b;
-    --m-property: #005e8b;
-    --m-preprocessor: #a0132f;
-    --m-rx-backslash: #721045;
-    --m-rx-construct: #00663f;
-    --m-err: #a60000;
-    --m-bg-added: #c1f2d1;
-    --m-fg-added: #005000;
-    --m-bg-removed: #ffd8d5;
-    --m-fg-removed: #8f1313;
+
+    /* Common accent foregrounds */
+    --m-red: #a60000;
+    --m-red-warmer: #972500;
+    --m-red-cooler: #a0132f;
+    --m-red-faint: #7f0000;
+    --m-red-intense: #d00000;
+    --m-green: #006800;
+    --m-green-warmer: #316500;
+    --m-green-cooler: #00663f;
+    --m-green-faint: #2a5045;
+    --m-green-intense: #008900;
+    --m-yellow: #6f5500;
+    --m-yellow-warmer: #884900;
+    --m-yellow-cooler: #7a4f2f;
+    --m-yellow-faint: #624416;
+    --m-yellow-intense: #808000;
+    --m-blue: #0031a9;
+    --m-blue-warmer: #3548cf;
+    --m-blue-cooler: #0000b0;
+    --m-blue-faint: #003497;
+    --m-blue-intense: #0000ff;
+    --m-magenta: #721045;
+    --m-magenta-warmer: #8f0075;
+    --m-magenta-cooler: #531ab6;
+    --m-magenta-faint: #7c318f;
+    --m-magenta-intense: #dd22dd;
+    --m-cyan: #005e8b;
+    --m-cyan-warmer: #3f578f;
     --m-cyan-cooler: #005f5f;
     --m-cyan-faint: #005077;
+    --m-cyan-intense: #008899;
+
+    /* Uncommon accent foregrounds */
+    --m-rust: #8a290f;
+    --m-gold: #6c501c;
+    --m-olive: #4c6000;
+    --m-slate: #2f3f83;
+    --m-indigo: #4a3a8a;
+    --m-maroon: #731c52;
+    --m-pink: #7b435c;
+
+    /* Common accent backgrounds */
+    --m-bg-red-intense: #ff8f88;
+    --m-bg-green-intense: #8adf80;
+    --m-bg-yellow-intense: #f3d000;
+    --m-bg-blue-intense: #bfc9ff;
+    --m-bg-magenta-intense: #dfa0f0;
+    --m-bg-cyan-intense: #a4d5f9;
+    --m-bg-red-subtle: #ffcfbf;
+    --m-bg-green-subtle: #b3fabf;
+    --m-bg-yellow-subtle: #fff576;
+    --m-bg-blue-subtle: #ccdfff;
+    --m-bg-magenta-subtle: #ffddff;
+    --m-bg-cyan-subtle: #bfefff;
+    --m-bg-red-nuanced: #ffe8e8;
+    --m-bg-green-nuanced: #e0f6e0;
+    --m-bg-yellow-nuanced: #f8f0d0;
+    --m-bg-blue-nuanced: #ecedff;
+    --m-bg-magenta-nuanced: #f8e6f5;
+    --m-bg-cyan-nuanced: #e0f2fa;
+
+    /* Uncommon accent background and foreground pairs */
+    --m-bg-clay: #f1c8b5;
+    --m-fg-clay: #63192a;
+    --m-bg-ochre: #f0e3c0;
+    --m-fg-ochre: #573a30;
+    --m-bg-lavender: #dfcdfa;
+    --m-fg-lavender: #443379;
+    --m-bg-sage: #c0e7d4;
+    --m-fg-sage: #124b41;
+
+    /* Graphs */
+    --m-bg-graph-red-0: #ef7969;
+    --m-bg-graph-red-1: #ffaab4;
+    --m-bg-graph-green-0: #45c050;
+    --m-bg-graph-green-1: #75ef30;
+    --m-bg-graph-yellow-0: #ffcf00;
+    --m-bg-graph-yellow-1: #f9ff00;
+    --m-bg-graph-blue-0: #7f90ff;
+    --m-bg-graph-blue-1: #a6c0ff;
+    --m-bg-graph-magenta-0: #e07fff;
+    --m-bg-graph-magenta-1: #fad0ff;
+    --m-bg-graph-cyan-0: #70d3f0;
+    --m-bg-graph-cyan-1: #afefff;
+
+    /* Special purpose */
+    --m-bg-completion: #c0deff;
+    --m-bg-popup: #f3f3f3;
+    --m-bg-hover: #b2e4dc;
+    --m-bg-hover-secondary: #f5d0a0;
+    --m-bg-hl-line: #dae5ec;
+    --m-bg-region: #bdbdbd;
+    --m-bg-mode-line-active: #c8c8c8;
+    --m-border-mode-line-active: #5a5a5a;
+    --m-bg-mode-line-inactive: #e6e6e6;
+    --m-fg-mode-line-inactive: #585858;
+    --m-border-mode-line-inactive: #a3a3a3;
+    --m-modeline-err: #7f0000;
+    --m-modeline-warning: #5f0070;
+    --m-modeline-info: #002580;
+    --m-bg-tab-bar: #dfdfdf;
+    --m-bg-tab-current: #fff;
+    --m-bg-tab-other: #c2c2c2;
+
+    /* Diffs */
+    --m-bg-added: #c1f2d1;
+    --m-bg-added-faint: #d8f8e1;
+    --m-bg-added-refine: #aee5be;
+    --m-bg-added-fringe: #6cc06c;
+    --m-fg-added: #005000;
+    --m-fg-added-intense: #006700;
+    --m-bg-changed: #ffdfa9;
+    --m-bg-changed-faint: #ffefbf;
+    --m-bg-changed-refine: #fac090;
+    --m-bg-changed-fringe: #d7c20a;
+    --m-fg-changed: #553d00;
+    --m-fg-changed-intense: #655000;
+    --m-bg-removed: #ffd8d5;
+    --m-bg-removed-faint: #ffe9e9;
+    --m-bg-removed-refine: #f3b5af;
+    --m-bg-removed-fringe: #d84a4f;
+    --m-fg-removed: #8f1313;
+    --m-fg-removed-intense: #aa2222;
+    --m-bg-diff-context: #f3f3f3;
+
+    /* Paren match */
+    --m-bg-paren-match: #5fcfff;
+    --m-bg-paren-expression: #efd3f5;
+
+    /* General mappings */
+    --m-cursor: var(--m-fg-main);
+    --m-keybind: var(--m-blue-cooler);
+    --m-name: var(--m-magenta);
+    --m-identifier: var(--m-yellow-cooler);
+    --m-err: var(--m-red);
+    --m-warning: var(--m-yellow-warmer);
+    --m-info: var(--m-cyan-cooler);
+    --m-underline-err: var(--m-red-intense);
+    --m-underline-warning: var(--m-yellow-intense);
+    --m-underline-note: var(--m-cyan-intense);
+    --m-bg-prominent-err: var(--m-bg-red-intense);
+    --m-fg-prominent-err: var(--m-fg-main);
+    --m-bg-prominent-warning: var(--m-bg-yellow-intense);
+    --m-fg-prominent-warning: var(--m-fg-main);
+    --m-bg-prominent-note: var(--m-bg-cyan-intense);
+    --m-fg-prominent-note: var(--m-fg-main);
+    --m-bg-active-argument: var(--m-bg-yellow-nuanced);
+    --m-fg-active-argument: var(--m-yellow-warmer);
+    --m-bg-active-value: var(--m-bg-cyan-nuanced);
+    --m-fg-active-value: var(--m-cyan-warmer);
+
+    /* Code mappings */
+    --m-builtin: var(--m-magenta-warmer);
+    --m-comment: var(--m-fg-dim);
+    --m-constant: var(--m-blue-cooler);
+    --m-docstring: var(--m-green-faint);
+    --m-fnname: var(--m-magenta);
+    --m-fnname-call: var(--m-pink);
+    --m-keyword: var(--m-magenta-cooler);
+    --m-preprocessor: var(--m-red-cooler);
+    --m-property: var(--m-cyan);
+    --m-rx-backslash: var(--m-magenta);
+    --m-rx-construct: var(--m-green-cooler);
+    --m-string: var(--m-blue-warmer);
+    --m-type: var(--m-cyan-cooler);
+    --m-variable: var(--m-cyan);
+    --m-variable-use: var(--m-slate);
+
+    /* Accent mappings */
+    --m-accent-0: var(--m-blue);
+    --m-accent-1: var(--m-magenta-warmer);
+    --m-accent-2: var(--m-cyan);
+    --m-accent-3: var(--m-red);
+
+    /* Completion mappings */
+    --m-fg-completion-match-0: var(--m-blue);
+    --m-fg-completion-match-1: var(--m-magenta-warmer);
+    --m-fg-completion-match-2: var(--m-cyan);
+    --m-fg-completion-match-3: var(--m-red);
+
+    /* Date mappings */
+    --m-date-common: var(--m-cyan);
+    --m-date-deadline: var(--m-red-cooler);
+    --m-date-deadline-subtle: var(--m-red-faint);
+    --m-date-event: var(--m-fg-alt);
+    --m-date-holiday: var(--m-red);
+    --m-date-holiday-other: var(--m-blue);
+    --m-date-range: var(--m-fg-alt);
+    --m-date-scheduled: var(--m-yellow);
+    --m-date-scheduled-subtle: var(--m-yellow-faint);
+    --m-date-weekday: var(--m-cyan);
+    --m-date-weekend: var(--m-magenta);
+
+    /* Link mappings */
+    --m-fg-link: var(--m-blue-warmer);
+    --m-underline-link: var(--m-blue-warmer);
+    --m-fg-link-symbolic: var(--m-cyan);
+    --m-underline-link-symbolic: var(--m-cyan);
+    /* webの慣習に合わせて紫に寄せたいため上流の`--m-magenta`指定から外しています。 */
+    --m-fg-link-visited: var(--m-magenta-cooler);
+    --m-underline-link-visited: var(--m-magenta);
+
+    /* Mail mappings */
+    --m-mail-cite-0: var(--m-blue-faint);
+    --m-mail-cite-1: var(--m-yellow-warmer);
+    --m-mail-cite-2: var(--m-cyan-cooler);
+    --m-mail-cite-3: var(--m-red-cooler);
+    --m-mail-part: var(--m-cyan);
+    --m-mail-recipient: var(--m-magenta-cooler);
+    --m-mail-subject: var(--m-magenta-warmer);
+    --m-mail-other: var(--m-magenta-faint);
+
+    /* Mark mappings */
+    --m-bg-mark-delete: var(--m-bg-red-subtle);
+    --m-fg-mark-delete: var(--m-red);
+    --m-bg-mark-select: var(--m-bg-cyan-subtle);
+    --m-fg-mark-select: var(--m-cyan);
+    --m-bg-mark-other: var(--m-bg-yellow-subtle);
+    --m-fg-mark-other: var(--m-yellow);
+
+    /* Prompt mappings */
+    --m-fg-prompt: var(--m-cyan-cooler);
+
+    /* Prose mappings */
+    --m-fg-prose-code: var(--m-cyan-cooler);
+    --m-fg-prose-macro: var(--m-magenta-cooler);
+    --m-fg-prose-verbatim: var(--m-magenta-warmer);
+    --m-prose-done: var(--m-green);
+    --m-prose-todo: var(--m-red);
+    --m-prose-metadata: var(--m-fg-dim);
+    --m-prose-metadata-value: var(--m-fg-alt);
+    --m-prose-table: var(--m-fg-alt);
+    --m-prose-table-formula: var(--m-magenta-warmer);
+    --m-prose-tag: var(--m-magenta-faint);
+
+    /* Rainbow mappings */
+    --m-rainbow-0: var(--m-fg-main);
+    --m-rainbow-1: var(--m-magenta-intense);
+    --m-rainbow-2: var(--m-cyan-intense);
+    --m-rainbow-3: var(--m-red-warmer);
+    --m-rainbow-4: var(--m-yellow-intense);
+    --m-rainbow-5: var(--m-magenta-cooler);
+    --m-rainbow-6: var(--m-green-intense);
+    --m-rainbow-7: var(--m-blue-warmer);
+    --m-rainbow-8: var(--m-magenta-warmer);
+
+    /* Search mappings */
+    --m-bg-search-current: var(--m-bg-yellow-intense);
+    --m-bg-search-lazy: var(--m-bg-cyan-intense);
+    --m-bg-search-static: var(--m-bg-magenta-subtle);
+    --m-bg-search-replace: var(--m-bg-red-intense);
+    --m-bg-search-rx-group-0: var(--m-bg-blue-intense);
+    --m-bg-search-rx-group-1: var(--m-bg-green-intense);
+    --m-bg-search-rx-group-2: var(--m-bg-red-subtle);
+    --m-bg-search-rx-group-3: var(--m-bg-magenta-subtle);
+
+    /* Heading mappings */
+    --m-fg-heading-0: var(--m-cyan-cooler);
+    --m-fg-heading-1: var(--m-fg-main);
+    --m-fg-heading-2: var(--m-yellow-faint);
+    --m-fg-heading-3: var(--m-fg-alt);
+    --m-fg-heading-4: var(--m-magenta);
+    --m-fg-heading-5: var(--m-green-faint);
+    --m-fg-heading-6: var(--m-red-faint);
+    --m-fg-heading-7: var(--m-cyan-warmer);
+    --m-fg-heading-8: var(--m-fg-dim);
   }
 }
