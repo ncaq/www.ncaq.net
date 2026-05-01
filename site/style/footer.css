@@ -4,18 +4,23 @@ footer {
     width: 100%;
 
     /* 文字を大きめにし一覧を読みやすく見せます。 */
-    font-size: 150%;
+    font-size: 120%;
 
     /* セルの罫線を共有して綺麗な格子状にします。 */
     border-collapse: collapse;
 
     th,
     td {
-      /* セル間の隙間を埋め、内容と罫線の余白を確保します。 */
-      padding: 0.5rem 1rem;
+      /* セル間の隙間をなくして小さいモバイル端末にも優しくします。 */
+      padding: 0;
 
       /* modusテーマで色だけ定義されている罫線に実体を与えます。 */
       border: 1px solid var(--m-border);
+    }
+
+    td:nth-child(1) {
+      /* keyの要素を中央寄せにします。 */
+      text-align: center;
     }
 
     /* 背景色を一行ごとに変えて見やすくします。 */
