@@ -61,6 +61,12 @@ header nav {
     list-style: none;
   }
 
+  summary {
+    /* 余白がないと窮屈に見えるので追加。 */
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
 }
 
 main {
