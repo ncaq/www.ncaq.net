@@ -19,20 +19,21 @@ hakyllRun options (entryIndex, years) = hakyllWithArgs conf options $ do
 
   -- 現在トップレベルから自動転写する画像の拡張子一覧。
   let imageExtension :: Pattern =
-        foldr (.||.) "" $
-          fromGlob
-            <$> [ "*.avif"
-                , "*.bmp"
-                , "*.gif"
-                , "*.ico"
-                , "*.jpeg"
-                , "*.jpg"
-                , "*.png"
-                , "*.svg"
-                , "*.tif"
-                , "*.tiff"
-                , "*.webp"
-                ]
+        foldr
+          ((.||.) . fromGlob)
+          ""
+          [ "*.avif"
+          , "*.bmp"
+          , "*.gif"
+          , "*.ico"
+          , "*.jpeg"
+          , "*.jpg"
+          , "*.png"
+          , "*.svg"
+          , "*.tif"
+          , "*.tiff"
+          , "*.webp"
+          ]
 
   match (imageExtension .||. "*.txt" .||. "_headers" .||. "asset/*") $ do
     route idRoute
