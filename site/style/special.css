@@ -51,6 +51,12 @@ header nav {
    */
   display: flex;
 
+  /*
+    detailsの展開でul側の高さが変わってもhomeが引き伸ばされて
+    位置が動かないように、上端揃えに固定します。
+   */
+  align-items: flex-start;
+
   > ul {
     /* 直下のナビはメニュー項目を横並びにします。 */
     display: flex;
