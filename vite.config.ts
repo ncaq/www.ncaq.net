@@ -6,7 +6,7 @@ export default defineConfig({
     outDir: "site/dist",
     emptyOutDir: true,
     rolldownOptions: {
-      input: "site/style/entry-point.css",
+      input: "site/style/index.css",
       output: {
         assetFileNames: "bundle.css",
       },
