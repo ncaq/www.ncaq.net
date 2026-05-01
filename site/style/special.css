@@ -20,6 +20,11 @@ header nav {
   /* 色を変えます。 */
   background-color: var(--m-bg-dim);
   color: var(--m-fg-dim);
+
+  /* 位置的に強調します。 */
+  margin: 1rem;
+  padding: 1rem;
+
   /* 年の数字とかが揃わないのはメニューとして気持ち悪すぎるので等幅を指定。 */
   font-family: monospace;
 
