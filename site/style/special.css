@@ -16,6 +16,10 @@ html {
 }
 
 header nav {
+  /* ナビを他のものから目立たせます。 */
+  /* 色を変えます。 */
+  background-color: var(--m-bg-dim);
+  color: var(--m-fg-dim);
   /* 年の数字とかが揃わないのはメニューとして気持ち悪すぎるので等幅を指定。 */
   font-family: monospace;
 
