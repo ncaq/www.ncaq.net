@@ -100,8 +100,8 @@ blockquote {
   color: var(--m-fg-dim);
 }
 
-summary {
-  background-color: var(--m-bg-inactive);
+details[open] {
+  background-color: var(--m-bg-active);
 }
 
 hr {

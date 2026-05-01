@@ -54,13 +54,4 @@ header nav {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
   }
-
-  details {
-    /* メニュー本体と区別するための背景と縁取り。 */
-    background-color: var(--m-bg-main);
-    border: 1px solid var(--m-border);
-
-    /* むやみに狭くなって改行が発生しないようにします。 */
-    width: 100%;
-  }
 }
