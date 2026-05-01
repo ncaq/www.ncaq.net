@@ -1,9 +1,13 @@
 .recently-entry {
   background-color: var(--m-bg-dim);
+  h1 {
+    font-size: 300%;
+  }
 }
 
 .entry-preview-list {
   list-style: none;
+  margin: 0;
   padding: 0;
 }
 

@@ -3,7 +3,7 @@ main {
     /* 記事の文字は大きめにして読みやすくします。 */
     font-size: 120%;
 
-    > h1 {
+    > h1:first-of-type {
       /* 記事直下の見出しは内部のh1見出しと区別するためサイズを更に増大させます。 */
       font-size: 200%;
     }
@@ -41,13 +41,6 @@ main {
       content: "###### " / "";
     }
     /* stylelint-enable a11y/content-property-no-static-value */
-  }
-
-  section {
-    /* セクションの見出しも増大させます。 */
-    > h1 {
-      font-size: 200%;
-    }
   }
 
   img,
