@@ -17,7 +17,24 @@ hakyllRun :: Options -> (String, [String]) -> IO ()
 hakyllRun options (entryIndex, years) = hakyllWithArgs conf options $ do
   match "templates/*" $ compile templateCompiler
 
-  match ("_headers" .||. "*.ico" .||. "*.png" .||. "*.webp" .||. "*.svg" .||. "*.txt" .||. "asset/*") $ do
+  -- 現在トップレベルから自動転写する画像の拡張子一覧。
+  let imageExtension :: Pattern =
+        foldr (.||.) "" $
+          fromGlob
+            <$> [ "*.avif"
+                , "*.bmp"
+                , "*.gif"
+                , "*.ico"
+                , "*.jpeg"
+                , "*.jpg"
+                , "*.png"
+                , "*.svg"
+                , "*.tif"
+                , "*.tiff"
+                , "*.webp"
+                ]
+
+  match (imageExtension .||. "*.txt" .||. "_headers" .||. "asset/*") $ do
     route idRoute
     compile copyFileCompiler
 
