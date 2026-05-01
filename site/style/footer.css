@@ -23,8 +23,11 @@ footer {
       text-align: center;
     }
 
-    /* 背景色を一行ごとに変えて見やすくします。 */
-    tr:nth-child(even) {
+    /*
+      背景色を一行ごとに変えて見やすくします。
+      ホバーにも配慮します。
+     */
+    tr:nth-child(even):not(:hover) {
       background-color: var(--m-bg-dim);
     }
   }
