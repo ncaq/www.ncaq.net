@@ -1,8 +1,7 @@
 header nav {
   /* ナビを他のものから目立たせます。 */
-  /* 色を変えます。 */
+  /* 背景色を変えます。 */
   background-color: var(--m-bg-dim);
-  color: var(--m-fg-dim);
 
   /* 位置的に強調します。 */
   margin: 1rem;
