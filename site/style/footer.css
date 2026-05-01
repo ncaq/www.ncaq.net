@@ -4,7 +4,7 @@ footer {
     width: 100%;
 
     /* 文字を大きめにし一覧を読みやすく見せます。 */
-    font-size: 200%;
+    font-size: 150%;
 
     /* セルの罫線を共有して綺麗な格子状にします。 */
     border-collapse: collapse;
