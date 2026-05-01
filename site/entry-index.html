@@ -1,17 +1,21 @@
 <script defer="defer" src="https://cse.google.com/cse.js?cx=004447714709742723527:gfxoo7p4yao"></script>
 <div class="gcse-search"></div>
 
-$for(entry)$
-<a href="$url$">
-  <section>
-    <header>
-      <time datetime="$date$">$date$</time>
-      $if(updated)$ :
-      <time datetime="$updated$">$updated$</time>
-      $endif$
-    </header>
-    <h2>$title$</h2>
-    <p>$teaser$</p>
-  </section>
-</a>
-$endfor$
+<ol class="entry-preview-list">
+  $for(entry)$
+  <li>
+    <a href="$url$">
+      <section class="entry-preview">
+        <header>
+          <time datetime="$date$">$date$</time>
+          $if(updated)$ :
+          <time datetime="$updated$">$updated$</time>
+          $endif$
+        </header>
+        <h2>$title$</h2>
+        <p>$teaser$</p>
+      </section>
+    </a>
+  </li>
+  $endfor$
+</ol>

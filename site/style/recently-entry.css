@@ -1,0 +1,12 @@
+.recently-entry {
+  background-color: var(--m-bg-dim);
+}
+
+.entry-preview-list {
+  list-style: none;
+  padding: 0;
+}
+
+.entry-preview {
+  border: thick outset var(--m-border);
+}
