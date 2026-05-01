@@ -12,7 +12,7 @@
     和文を指定すると欧文も指定する必要があるため、
     設定量が増えます。
    */
-  --monospace: ui-monospace, "SF Mono", menlo, monaco, "Cascadia Mono", consolas, "BIZ UDGothic", meiryo, monospace;
+  --monospace: ui-monospace, "SF Mono", menlo, monaco, "Cascadia Mono", consolas, meiryo, monospace;
 }
 
 html {
