@@ -89,14 +89,17 @@
             </a>
           </li>
           <li>
-            <span class="icon">🗂️</span>entry
-            <ol>
-              $for(entry-index)$
-              <li>
-                <a href="/$body$/">$body$年</a>
-              </li>
-              $endfor$
-            </ol>
+            <details>
+              <summary><span class="icon">🗂️</span>entry</summary>
+              <section class="entry-of-year">
+                <h1>年度別記事一覧</h1>
+                <ol>
+                  $for(entry-index)$
+                  <li><a href="/$body$/">$body$年</a></li>
+                  $endfor$
+                </ol>
+              </section>
+            </details>
           </li>
         </ul>
       </nav>
