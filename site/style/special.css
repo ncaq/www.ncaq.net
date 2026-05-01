@@ -50,10 +50,9 @@ header nav {
     nav自体をflexにすることでhomeとulを横並びにします。
    */
   display: flex;
-  align-items: center;
 
   > ul {
-    /* メニュー項目を横並びにします。 */
+    /* 直下のナビはメニュー項目を横並びにします。 */
     display: flex;
 
     /* リストマーカーと初期インデントを除去します。 */
