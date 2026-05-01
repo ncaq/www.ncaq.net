@@ -1,0 +1,5 @@
+html {
+  /* 日本語主体のサイト向きの改行処理にします。 */
+  line-break: strict;
+  overflow-wrap: break-word;
+}
