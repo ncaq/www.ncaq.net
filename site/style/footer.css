@@ -1,0 +1,26 @@
+footer {
+  table {
+    /* テーブル一覧を画面全体に広げて見やすくします。 */
+    width: 100%;
+
+    /* 文字を大きめにし一覧を読みやすく見せます。 */
+    font-size: 200%;
+
+    /* セルの罫線を共有して綺麗な格子状にします。 */
+    border-collapse: collapse;
+
+    th,
+    td {
+      /* セル間の隙間を埋め、内容と罫線の余白を確保します。 */
+      padding: 0.5rem 1rem;
+
+      /* modusテーマで色だけ定義されている罫線に実体を与えます。 */
+      border: 1px solid var(--m-border);
+    }
+
+    /* 背景色を一行ごとに変えて見やすくします。 */
+    tr:nth-child(even) {
+      background-color: var(--m-bg-dim);
+    }
+  }
+}
