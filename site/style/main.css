@@ -43,6 +43,13 @@ main {
     /* stylelint-enable a11y/content-property-no-static-value */
   }
 
+  section {
+    /* セクションの見出しも増大させます。 */
+    > h1 {
+      font-size: 200%;
+    }
+  }
+
   img,
   video {
     /* 画像や動画がだいたいひとつの画面内に収まるようにします。 */
