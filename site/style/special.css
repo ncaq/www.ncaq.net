@@ -25,6 +25,24 @@ header nav {
 
   /* ナビのフォントは大きくします。 */
   font-size: 300%;
+
+  /*
+    homeリンクは常時表示扱いとして<ul>の外側に置いており、
+    nav自体をflexにすることでhomeとulを横並びにします。
+   */
+  display: flex;
+  align-items: center;
+
+  > ul {
+    /* メニュー項目を横並びにします。 */
+    display: flex;
+
+    /* リストマーカーと初期インデントを除去します。 */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
 }
 
 main {
