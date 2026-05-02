@@ -55,17 +55,17 @@
     --m-blue-warmer: #3548cf;
     --m-blue-cooler: #0000b0;
     --m-blue-faint: #003497;
-    --m-blue-intense: #0000ff;
+    --m-blue-intense: #00f;
     --m-magenta: #721045;
     --m-magenta-warmer: #8f0075;
     --m-magenta-cooler: #531ab6;
     --m-magenta-faint: #7c318f;
-    --m-magenta-intense: #dd22dd;
+    --m-magenta-intense: #d2d;
     --m-cyan: #005e8b;
     --m-cyan-warmer: #3f578f;
     --m-cyan-cooler: #005f5f;
     --m-cyan-faint: #005077;
-    --m-cyan-intense: #008899;
+    --m-cyan-intense: #089;
 
     /* Uncommon accent foregrounds */
     --m-rust: #8a290f;
@@ -87,7 +87,7 @@
     --m-bg-green-subtle: #b3fabf;
     --m-bg-yellow-subtle: #fff576;
     --m-bg-blue-subtle: #ccdfff;
-    --m-bg-magenta-subtle: #ffddff;
+    --m-bg-magenta-subtle: #fdf;
     --m-bg-cyan-subtle: #bfefff;
     --m-bg-red-nuanced: #ffe8e8;
     --m-bg-green-nuanced: #e0f6e0;
@@ -157,7 +157,7 @@
     --m-bg-removed-refine: #f3b5af;
     --m-bg-removed-fringe: #d84a4f;
     --m-fg-removed: #8f1313;
-    --m-fg-removed-intense: #aa2222;
+    --m-fg-removed-intense: #a22;
     --m-bg-diff-context: #f3f3f3;
 
     /* Paren match */
@@ -233,8 +233,7 @@
     --m-underline-link: var(--m-blue-warmer);
     --m-fg-link-symbolic: var(--m-cyan);
     --m-underline-link-symbolic: var(--m-cyan);
-    /* webの慣習に合わせて紫に寄せたいため上流の`--m-magenta`指定から外しています。 */
-    --m-fg-link-visited: var(--m-magenta-cooler);
+    --m-fg-link-visited: var(--m-magenta-cooler); /* webの慣習に合わせて紫に寄せたいため改変。 */
     --m-underline-link-visited: var(--m-magenta);
 
     /* Mail mappings */

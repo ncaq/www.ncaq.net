@@ -60,7 +60,7 @@
     --m-magenta-warmer: #f78fe7;
     --m-magenta-cooler: #b6a0ff;
     --m-magenta-faint: #caa6df;
-    --m-magenta-intense: #ff66ff;
+    --m-magenta-intense: #f6f;
     --m-cyan: #00d3d0;
     --m-cyan-warmer: #4ae2f0;
     --m-cyan-cooler: #6ae4b9;
@@ -233,8 +233,7 @@
     --m-underline-link: var(--m-blue-warmer);
     --m-fg-link-symbolic: var(--m-cyan);
     --m-underline-link-symbolic: var(--m-cyan);
-    /* webの慣習に合わせて紫に寄せたいため上流の`--m-magenta`指定から外しています。 */
-    --m-fg-link-visited: var(--m-magenta-cooler);
+    --m-fg-link-visited: var(--m-magenta-cooler); /* webの慣習に合わせて紫に寄せたいため改変。 */
     --m-underline-link-visited: var(--m-magenta);
 
     /* Mail mappings */

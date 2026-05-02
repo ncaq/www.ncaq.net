@@ -1,13 +1,13 @@
 footer {
   table {
+    /* セルの罫線を共有して綺麗な格子状にします。 */
+    border-collapse: collapse;
+
     /* テーブル一覧を画面全体に広げて見やすくします。 */
     width: 100%;
 
     /* 文字を大きめにし一覧を読みやすく見せます。 */
     font-size: 120%;
-
-    /* セルの罫線を共有して綺麗な格子状にします。 */
-    border-collapse: collapse;
 
     th,
     td {
@@ -27,7 +27,8 @@ footer {
       背景色を一行ごとに変えて見やすくします。
       ホバーにも配慮します。
      */
-    tr:nth-child(even):not(:hover) {
+    tr:nth-child(even):not(:hover),
+    tr:nth-child(even):not(:focus) {
       background-color: var(--m-bg-dim);
     }
   }

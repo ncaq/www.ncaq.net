@@ -119,7 +119,9 @@ th {
 }
 
 li:hover,
-tr:hover {
+tr:hover,
+li:focus,
+tr:focus {
   background-color: var(--m-bg-hover);
 }
 

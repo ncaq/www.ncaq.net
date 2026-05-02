@@ -1,18 +1,19 @@
 .recently-entry {
   background-color: var(--m-bg-dim);
+
   h1 {
     font-size: 300%;
   }
 }
 
 .entry-preview-list {
-  list-style: none;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 .entry-preview {
-  border: thick outset var(--m-border);
-  padding-left: 1rem;
   padding-right: 1rem;
+  padding-left: 1rem;
+  border: thick outset var(--m-border);
 }

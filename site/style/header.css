@@ -1,32 +1,4 @@
 header nav {
-  /* ナビを他のものから目立たせます。 */
-  /* 背景色を変えます。 */
-  background-color: var(--m-bg-dim);
-
-  /* 位置的に強調します。 */
-  margin: 1rem;
-  padding: 1rem;
-
-  /* 年の数字とかが揃わないのはメニューとして気持ち悪すぎるので等幅を指定。 */
-  font-family: monospace;
-
-  /* ナビのフォントは大きくします。 */
-  font-size: 300%;
-
-  .icon {
-    /*
-      ナビ部分のアイコンは下揃えであることを期待します。
-      ナビ部分のアイコンは文字とそのまま隣接させると特に絵文字などはめり込んでしまうので、
-      少し左右に隙間を入れます。
-     */
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    img {
-      /* 画像のアイコンと絵文字のアイコンの位置をある程度揃えます。 */
-      vertical-align: text-bottom;
-    }
-  }
-
   /*
     homeリンクは常時表示扱いとして<ul>の外側に置いており、
     nav自体をflexにすることでhomeとulを横並びにします。
@@ -38,6 +10,34 @@ header nav {
     位置が動かないように、上端揃えに固定します。
    */
   align-items: flex-start;
+
+  /* 位置的に強調します。 */
+  margin: 1rem;
+  padding: 1rem;
+
+  /* 年の数字とかが揃わないのはメニューとして気持ち悪すぎるので等幅を指定。 */
+  font-family: monospace;
+
+  /* ナビのフォントは大きくします。 */
+  font-size: 300%;
+
+  /* ナビを他のものから目立たせるため背景色を変えます。 */
+  background-color: var(--m-bg-dim);
+
+  .icon {
+    /*
+      ナビ部分のアイコンは下揃えであることを期待します。
+      ナビ部分のアイコンは文字とそのまま隣接させると特に絵文字などはめり込んでしまうので、
+      少し左右に隙間を入れます。
+     */
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+
+    img {
+      /* 画像のアイコンと絵文字のアイコンの位置をある程度揃えます。 */
+      vertical-align: text-bottom;
+    }
+  }
 
   > ul {
     /* 直下のナビはメニュー項目を横並びにします。 */
@@ -51,7 +51,7 @@ header nav {
 
   summary {
     /* 余白がないと窮屈に見えるので追加。 */
-    margin-left: 0.5rem;
     margin-right: 0.5rem;
+    margin-left: 0.5rem;
   }
 }
