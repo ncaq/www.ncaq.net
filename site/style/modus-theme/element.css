@@ -118,7 +118,8 @@ th {
   background-color: var(--m-bg-inactive);
 }
 
-li:hover, tr:hover {
+li:hover,
+tr:hover {
   background-color: var(--m-bg-hover);
 }
 
