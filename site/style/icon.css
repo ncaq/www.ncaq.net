@@ -1,6 +1,6 @@
+address img,
 .icon,
-.icon img,
-address img {
+.icon img {
   /* 環境によってはアイコンの幅が不揃いになって大変気持ち悪いので強制的に合わせます。 */
   display: inline-block;
 
