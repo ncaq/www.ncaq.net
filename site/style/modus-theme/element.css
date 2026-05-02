@@ -142,5 +142,3 @@ tr:focus {
   color: var(--m-fg-main);
   background-color: var(--m-bg-region);
 }
-
-/* stylelint-enable a11y/media-prefers-color-scheme */

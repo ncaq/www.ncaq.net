@@ -1,3 +1,5 @@
+/* CSS変数を見ているため、ちゃんとcolor-schemeは尊重しているのでルールを無効化。 */
+/* stylelint-disable a11y/media-prefers-color-scheme */
 footer {
   table {
     /* セルの罫線を共有して綺麗な格子状にします。 */

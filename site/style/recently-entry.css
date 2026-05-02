@@ -1,3 +1,5 @@
+/* CSS変数を見ているため、ちゃんとcolor-schemeは尊重しているのでルールを無効化。 */
+/* stylelint-disable a11y/media-prefers-color-scheme */
 .recently-entry {
   background-color: var(--m-bg-dim);
 
