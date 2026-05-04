@@ -1,4 +1,4 @@
-*.md
+site/**/*.md
 
 .direnv/
 .venv/
