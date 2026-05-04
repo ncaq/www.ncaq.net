@@ -9,7 +9,12 @@ footer {
     width: 100%;
 
     /* 文字を大きめにし一覧を読みやすく見せます。 */
-    font-size: 120%;
+    @media (576px <= width < 992px) {
+      font-size: 120%;
+    }
+    @media (992px <= width) {
+      font-size: 150%;
+    }
 
     th,
     td {
