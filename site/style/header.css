@@ -1,59 +1,61 @@
 /* CSS変数を見ているため、ちゃんとcolor-schemeは尊重しているのでルールを無効化。 */
 /* stylelint-disable a11y/media-prefers-color-scheme */
-header nav {
-  /*
+header {
+  nav {
+    /*
     homeリンクは常時表示扱いとして<ul>の外側に置いており、
     nav自体をflexにすることでhomeとulを横並びにします。
-   */
-  display: flex;
+     */
+    display: flex;
 
-  /*
+    /*
     detailsの展開でul側の高さが変わってもhomeが引き伸ばされて
     位置が動かないように、上端揃えに固定します。
-   */
-  align-items: flex-start;
+     */
+    align-items: flex-start;
 
-  /* 位置的に強調します。 */
-  margin: 1rem;
-  padding: 1rem;
+    /* 位置的に強調します。 */
+    margin: 1rem;
+    padding: 1rem;
 
-  /* 年の数字とかが揃わないのはメニューとして気持ち悪すぎるので等幅を指定。 */
-  font-family: monospace;
+    /* 年の数字とかが揃わないのはメニューとして気持ち悪すぎるので等幅を指定。 */
+    font-family: monospace;
 
-  /* ナビのフォントは大きくします。 */
-  font-size: 300%;
+    /* ナビのフォントは大きくします。 */
+    font-size: 300%;
 
-  /* ナビを他のものから目立たせるため背景色を変えます。 */
-  background-color: var(--m-bg-dim);
+    /* ナビを他のものから目立たせるため背景色を変えます。 */
+    background-color: var(--m-bg-dim);
 
-  .icon {
-    /*
+    .icon {
+      /*
       ナビ部分のアイコンは下揃えであることを期待します。
       ナビ部分のアイコンは文字とそのまま隣接させると特に絵文字などはめり込んでしまうので、
       少し左右に隙間を入れます。
-     */
-    margin-right: 0.5rem;
-    margin-left: 0.5rem;
+       */
+      margin-right: 0.5rem;
+      margin-left: 0.5rem;
 
-    img {
-      /* 画像のアイコンと絵文字のアイコンの位置をある程度揃えます。 */
-      vertical-align: text-bottom;
+      img {
+        /* 画像のアイコンと絵文字のアイコンの位置をある程度揃えます。 */
+        vertical-align: text-bottom;
+      }
     }
-  }
 
-  > ul {
-    /* 直下のナビはメニュー項目を横並びにします。 */
-    display: flex;
+    > ul {
+      /* 直下のナビはメニュー項目を横並びにします。 */
+      display: flex;
 
-    /* リストマーカーと初期インデントを除去します。 */
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+      /* リストマーカーと初期インデントを除去します。 */
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
 
-  summary {
-    /* 余白がないと窮屈に見えるので追加。 */
-    margin-right: 0.5rem;
-    margin-left: 0.5rem;
+    summary {
+      /* 余白がないと窮屈に見えるので追加。 */
+      margin-right: 0.5rem;
+      margin-left: 0.5rem;
+    }
   }
 }
