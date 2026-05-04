@@ -1,3 +1,8 @@
+/*
+  エントリーポイント。
+  ここからグローバルに必要なCSSを全て読み込みます。
+*/
+
 @import url("./modus-theme/element.css");
 @import url("./modus-theme/pygments.css");
 
