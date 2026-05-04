@@ -9,7 +9,7 @@
     "lint": "prettier --ignore-path .gitignore --ignore-unknown --check '**/*.{js,jsx,ts,tsx,json,html,css,less,sass,scss,yml,yaml}'"
   },
   "dependencies": {
-    "bootstrap": "^4.6.2"
+    "bootstrap": "^5.0.0"
   },
   "devDependencies": {
     "@double-great/stylelint-a11y": "^3.4.10",
