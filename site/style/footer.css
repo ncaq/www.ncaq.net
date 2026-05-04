@@ -29,8 +29,7 @@ footer {
       背景色を一行ごとに変えて見やすくします。
       ホバーにも配慮します。
      */
-    tr:nth-child(even):not(:hover),
-    tr:nth-child(even):not(:focus) {
+    tr:nth-child(even):not(:hover):not(:hover) {
       background-color: var(--m-bg-dim);
     }
   }
