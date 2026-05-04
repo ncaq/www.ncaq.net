@@ -7,6 +7,7 @@ header {
     nav自体をflexにすることでhomeとulを横並びにします。
      */
     display: flex;
+
     /* モバイル端末などでは改行します。 */
     flex-wrap: wrap;
 
@@ -47,12 +48,14 @@ header {
     > ul {
       /* 直下のナビはメニュー項目を横並びにします。 */
       display: flex;
+
       /* モバイル端末などでは改行します。 */
       flex-wrap: wrap;
 
       /* リストマーカーと初期インデントを除去します。 */
       margin: 0;
       padding: 0;
+
       list-style: none;
     }
 

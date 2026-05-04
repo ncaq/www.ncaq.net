@@ -8,14 +8,6 @@ footer {
     /* テーブル一覧を画面全体に広げて見やすくします。 */
     width: 100%;
 
-    /* 文字を大きめにし一覧を読みやすく見せます。 */
-    @media (576px <= width < 992px) {
-      font-size: 120%;
-    }
-    @media (992px <= width) {
-      font-size: 150%;
-    }
-
     th,
     td {
       /* セル間の隙間をなくして小さいモバイル端末にも優しくします。 */
@@ -34,8 +26,17 @@ footer {
       背景色を一行ごとに変えて見やすくします。
       ホバーにも配慮します。
      */
-    tr:nth-child(even):not(:hover):not(:hover) {
+    tr:nth-child(even):not(:hover, :focus) {
       background-color: var(--m-bg-dim);
+    }
+
+    /* 文字を大きめにし一覧を読みやすく見せます。 */
+    @media (576px <= width < 992px) {
+      font-size: 120%;
+    }
+
+    @media (992px <= width) {
+      font-size: 150%;
     }
   }
 }
