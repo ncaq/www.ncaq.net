@@ -5,5 +5,5 @@ time {
 
 .timestamp {
   /* 日時部分を改行が発生しない程度に読みやすくする。 */
-  font-size: 120%;
+  font-size: 110%;
 }
