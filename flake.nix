@@ -183,6 +183,7 @@
           # テストがないパッケージもビルドしてエラーを検出する。
           checks = {
             inherit www-ncaq-net;
+            build = mkNpmCheck "build" "build";
             lint-prettier = mkNpmCheck "lint-prettier" "lint:prettier";
             lint-stylelint = mkNpmCheck "lint-stylelint" "lint:stylelint";
             lint-tsc = mkNpmCheck "lint-tsc" "lint:tsc";
