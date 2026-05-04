@@ -98,6 +98,7 @@
               ''
                 cp -r ${npmSrc}/. .
                 ln -s ${nodeModules}/node_modules node_modules
+                chmod -R u+w $NIX_BUILD_TOP
                 npm run ${script}
                 touch $out
               '';
