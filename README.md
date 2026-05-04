@@ -12,7 +12,7 @@ GitHub向けのREADMEです。
 
 # ライセンス
 
-サイトをビルドするためのコード([site.hs](site.hs)など)は、
+サイトをビルドするためのコード([src/](src/)など)は、
 [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0)ライセンスです。
 
 その他の[site/以下](site/)などの細かいライセンスは特記されていなければ定めていません。
