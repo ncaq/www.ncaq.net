@@ -51,7 +51,7 @@
       ];
 
       perSystem =
-        { pkgs, ... }:
+        { pkgs, lib, ... }:
         let
           # 公式リリースがしばらくないのでGitHubの最新版を利用。
           html-tidy = pkgs.html-tidy.overrideAttrs (_oldAttrs: {
@@ -59,24 +59,48 @@
           });
 
           # JavaScriptパッケージを管理
+          inherit (pkgs) nodejs; # nixpkgsのstableのバージョンを基本的に利用。
           npmRoot = pkgs.lib.fileset.toSource {
             root = ./.;
             fileset = pkgs.lib.fileset.unions [
-              ./package.json
               ./package-lock.json
+              ./package.json
             ];
           };
-          npmDeps = pkgs.importNpmLock {
-            inherit npmRoot;
+          nodeModules = pkgs.importNpmLock.buildNodeModules {
+            inherit
+              nodejs
+              npmRoot
+              ;
           };
-          nodeEnv = pkgs.buildNpmPackage {
-            pname = "www-ncaq-net";
-            version = "1.0.0.0";
-            src = npmRoot;
-            inherit npmDeps;
-            inherit (pkgs.importNpmLock) npmConfigHook;
-            dontNpmBuild = true;
+          # npmツールが参照するソース。
+          npmSrc = lib.fileset.toSource {
+            root = ./.;
+            fileset = lib.fileset.unions [
+              ./.editorconfig
+              ./.gitignore
+              ./.prettierignore
+              ./package-lock.json
+              ./package.json
+              ./site
+              ./stylelint.config.ts
+              ./tsconfig.json
+              ./vite.config.ts
+            ];
           };
+          # npm run経由でスクリプト実行を簡単にするためのヘルパー。
+          mkNpmCheck =
+            name: script:
+            pkgs.runCommand name
+              {
+                nativeBuildInputs = [ nodejs ];
+              }
+              ''
+                cp -r ${npmSrc}/. .
+                ln -s ${nodeModules}/node_modules node_modules
+                npm run ${script}
+                touch $out
+              '';
 
           # uv2nixでPythonパッケージを管理
           pythonWorkspace = uv2nix.lib.workspace.loadWorkspace {
@@ -122,11 +146,10 @@
                     pkgs.wrangler
 
                     html-tidy
-                    nodeEnv
                     pythonEnv
                   ]
                 } \
-                --set NODE_PATH ${nodeEnv}/lib/node_modules/www-ncaq-net/node_modules
+                --set NODE_PATH ${nodeModules}/node_modules
             '';
           });
         in
@@ -160,6 +183,9 @@
           # テストがないパッケージもビルドしてエラーを検出する。
           checks = {
             inherit www-ncaq-net;
+            lint-prettier = mkNpmCheck "lint-prettier" "lint:prettier";
+            lint-stylelint = mkNpmCheck "lint-stylelint" "lint:stylelint";
+            lint-tsc = mkNpmCheck "lint-tsc" "lint:tsc";
           };
 
           packages = {
@@ -199,7 +225,6 @@
 
               # JavaScript関連ツール。
               importNpmLock.hooks.linkNodeModulesHook
-              nodeEnv
               nodejs
 
               # Python関連ツール。
