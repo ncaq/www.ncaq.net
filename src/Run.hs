@@ -41,7 +41,8 @@ hakyllRun options (entryIndex, years) = hakyllWithArgs conf options $ do
 
   -- Viteによってバンドルされたスタイルシート。
   -- 実体はmain関数側でHakyll起動前にViteを呼び出して生成しています。
-  match "dist/bundle.css" $ do
+  -- バンドル後もブラウザの開発者ツールから元のCSSを参照できるようにソースマップも転写します。
+  match ("dist/bundle.css" .||. "dist/bundle.css.map") $ do
     route idRoute
     compile copyFileCompiler
 
