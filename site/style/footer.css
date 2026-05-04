@@ -25,8 +25,11 @@ footer {
     /*
       背景色を一行ごとに変えて見やすくします。
       ホバーにも配慮します。
+      Opera Androidが`selectors.not.selector_list`に対応していないため、
+      `selector-not-notation`を許容します。
      */
-    tr:nth-child(even):not(:hover, :focus) {
+    /* stylelint-disable-next-line selector-not-notation */
+    tr:nth-child(even):not(:hover):not(:focus) {
       background-color: var(--m-bg-dim);
     }
 
