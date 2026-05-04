@@ -2,5 +2,10 @@
 set -euo pipefail
 set -x
 
-"$(dirname "$0")"/setup
+# トラッキングブランチが存在している場合のみ上書き防止のためにpullを行います。
+if git rev-parse --abbrev-ref --symbolic-full-name @{u} &>/dev/null; then
+  git pull
+fi
+
+nix run . -- build
 nix run . -- deploy
