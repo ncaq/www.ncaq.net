@@ -2,7 +2,7 @@
 /* stylelint-disable a11y/media-prefers-color-scheme */
 .entry-of-year {
   /* 記事カテゴリという割と大きなものなので大きなサイズで表示します。 */
-  font-size: 3rem;
+  font-size: 2rem;
 
   /* 色を変えて目立たせます。 */
   background-color: var(--m-bg-dim);
@@ -22,6 +22,9 @@
 
     /* 数字を等幅にします。 */
     font-family: var(--monospace);
+
+    /* 押しやすいように少し大きく。 */
+    font-size: 130%;
 
     /*
       年そのものがリストの番号を表しているので、
