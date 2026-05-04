@@ -3,7 +3,9 @@ time {
   font-family: var(--monospace);
 }
 
-.timestamp {
-  /* 日時部分を改行が発生しない程度に読みやすくする。 */
-  font-size: 110%;
+@media (992px <= width) {
+  /* モバイルで日時部分で改行が発生しにくいように画面条件を限定。 */
+  .timestamp {
+    font-size: 140%;
+  }
 }
