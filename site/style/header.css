@@ -7,6 +7,8 @@ header {
     nav自体をflexにすることでhomeとulを横並びにします。
      */
     display: flex;
+    /* モバイル端末などでは改行します。 */
+    flex-wrap: wrap;
 
     /*
     detailsの展開でul側の高さが変わってもhomeが引き伸ばされて
@@ -45,6 +47,8 @@ header {
     > ul {
       /* 直下のナビはメニュー項目を横並びにします。 */
       display: flex;
+      /* モバイル端末などでは改行します。 */
+      flex-wrap: wrap;
 
       /* リストマーカーと初期インデントを除去します。 */
       margin: 0;
