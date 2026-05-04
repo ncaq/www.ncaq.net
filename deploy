@@ -2,5 +2,5 @@
 set -euo pipefail
 set -x
 
-$(dirname $0)/setup
+"$(dirname "$0")"/setup
 nix run . -- deploy
