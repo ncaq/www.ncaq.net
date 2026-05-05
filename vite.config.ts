@@ -64,7 +64,7 @@ function collectUnusedCustomProperties(): string[] {
   const reachable = new Set(externalReferences);
   const queue = [...externalReferences];
   while (0 < queue.length) {
-    const name = queue.shift();
+    const name = queue.pop();
     if (name == null) {
       continue;
     }
