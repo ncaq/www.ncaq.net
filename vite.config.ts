@@ -6,9 +6,9 @@ import { defineConfig, type Plugin } from "vite";
 
 const outDir = "site/dist" as const;
 
-const cssEntryPoint = "site/style/index.css" as const;
+const cssEntryPoint = "style/index.css" as const;
 
-const cssSourceGlob = "site/style/**/*.css" as const;
+const cssSourceGlob = "style/**/*.css" as const;
 
 const cssOutFile = "bundle.css" as const;
 

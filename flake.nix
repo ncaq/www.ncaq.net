@@ -82,7 +82,7 @@
               ./.prettierignore
               ./package-lock.json
               ./package.json
-              ./site
+              ./style
               ./stylelint.config.ts
               ./tsconfig.json
               ./vite.config.ts

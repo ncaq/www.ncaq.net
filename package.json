@@ -7,10 +7,10 @@
     "build": "vite build",
     "fix": "run-p fix:*",
     "fix:prettier": "prettier --write .",
-    "fix:stylelint": "stylelint --fix 'site/style/**/*.css'",
+    "fix:stylelint": "stylelint --fix 'style/**/*.css'",
     "lint": "run-p lint:*",
     "lint:prettier": "prettier --check .",
-    "lint:stylelint": "stylelint 'site/style/**/*.css'",
+    "lint:stylelint": "stylelint 'style/**/*.css'",
     "lint:tsc": "tsc --noEmit",
     "watch": "vite build --watch"
   },
