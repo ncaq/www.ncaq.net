@@ -1,4 +1,18 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>ncaq/renovate-config"]
+  "extends": ["github>ncaq/renovate-config"],
+  "packageRules": [
+    {
+      "description": "viteと関連する依存をまとめる",
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["*vite*", "*lightningcss*"],
+      "groupName": "vite"
+    },
+    {
+      "description": "stylelintと関連する依存をまとめる",
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["*stylelint*"],
+      "groupName": "stylelint"
+    }
+  ]
 }
