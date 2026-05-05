@@ -51,7 +51,7 @@
       ];
 
       perSystem =
-        { pkgs, ... }:
+        { pkgs, lib, ... }:
         let
           # 公式リリースがしばらくないのでGitHubの最新版を利用。
           html-tidy = pkgs.html-tidy.overrideAttrs (_oldAttrs: {
@@ -59,26 +59,48 @@
           });
 
           # JavaScriptパッケージを管理
+          inherit (pkgs) nodejs; # nixpkgsのstableのバージョンを基本的に利用。
           npmRoot = pkgs.lib.fileset.toSource {
             root = ./.;
             fileset = pkgs.lib.fileset.unions [
-              ./package.json
               ./package-lock.json
+              ./package.json
             ];
           };
-          npmDeps = pkgs.importNpmLock {
-            inherit npmRoot;
+          nodeModules = pkgs.importNpmLock.buildNodeModules {
+            inherit
+              nodejs
+              npmRoot
+              ;
           };
-          nodeEnv = pkgs.buildNpmPackage {
-            pname = "www-ncaq-net";
-            version = "0.1.1.0";
-            src = npmRoot;
-            inherit npmDeps;
-            inherit (pkgs.importNpmLock) npmConfigHook;
-            dontNpmBuild = true;
-            # devDependenciesのsass, prettierなども含める
-            npmFlags = [ "--include=dev" ];
+          npmSrc = lib.fileset.toSource {
+            root = ./.;
+            fileset = lib.fileset.unions [
+              ./.editorconfig
+              ./.gitignore
+              ./.prettierignore
+              ./package-lock.json
+              ./package.json
+              ./style
+              ./stylelint.config.ts
+              ./tsconfig.json
+              ./vite.config.ts
+            ];
           };
+          # npm run経由でスクリプト実行を簡単にするためのヘルパー。
+          mkNpmCheck =
+            name: script:
+            pkgs.runCommand name
+              {
+                nativeBuildInputs = [ nodejs ];
+              }
+              ''
+                cp -r ${npmSrc}/. .
+                ln -s ${nodeModules}/node_modules node_modules
+                chmod -R u+w $NIX_BUILD_TOP
+                npm run ${script}
+                touch $out
+              '';
 
           # uv2nixでPythonパッケージを管理
           pythonWorkspace = uv2nix.lib.workspace.loadWorkspace {
@@ -104,29 +126,37 @@
           );
           pythonEnv = pythonSet.mkVirtualEnv "www-ncaq-net-python-env" pythonWorkspace.deps.default;
 
-          # Haskellビルド
+          # Haskellパッケージを管理
+          haskellSrc = pkgs.lib.fileset.toSource {
+            root = ./.;
+            fileset = pkgs.lib.fileset.unions [
+              ./src
+              ./www-ncaq-net.cabal
+            ];
+          };
           www-ncaq-net-unwrapped =
-            pkgs.haskell.lib.overrideCabal (pkgs.haskellPackages.callCabal2nix "www-ncaq-net" ./. { })
+            pkgs.haskell.lib.overrideCabal (pkgs.haskellPackages.callCabal2nix "www-ncaq-net" haskellSrc { })
               {
                 # cabal buildでzlibのC依存を解決するために必要。
                 executablePkgconfigDepends = with pkgs; [ zlib ];
               };
           www-ncaq-net = www-ncaq-net-unwrapped.overrideAttrs (oldAttrs: {
             nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [ pkgs.makeWrapper ];
-            # Hakyllは実行時にsass, html-tidy等の外部コマンドを呼び出すため、
+            # Hakyllは実行時に外部コマンドを呼び出すため、
             # makeWrapperでPATHに追加する。
             postInstall = (oldAttrs.postInstall or "") + ''
               wrapProgram $out/bin/www-ncaq-net \
                 --prefix PATH : ${
                   pkgs.lib.makeBinPath [
-                    html-tidy
-                    nodeEnv
                     pkgs.nodejs
                     pkgs.uv
+                    pkgs.wrangler
+
+                    html-tidy
                     pythonEnv
                   ]
                 } \
-                --set NODE_PATH ${nodeEnv}/lib/node_modules/www-ncaq-net/node_modules
+                --set NODE_PATH ${nodeModules}/node_modules
             '';
           });
         in
@@ -141,16 +171,12 @@
               fourmolu.enable = true;
               hlint.enable = true;
               nixfmt.enable = true;
+              prettier.enable = true;
               shellcheck.enable = true;
               shfmt.enable = true;
               statix.enable = true;
               typos.enable = true;
               zizmor.enable = true;
-
-              prettier = {
-                enable = true;
-                excludes = [ "*.md" ];
-              };
             };
             settings.formatter = {
               editorconfig-checker = {
@@ -164,6 +190,10 @@
           # テストがないパッケージもビルドしてエラーを検出する。
           checks = {
             inherit www-ncaq-net;
+            build = mkNpmCheck "build" "build";
+            lint-prettier = mkNpmCheck "lint-prettier" "lint:prettier";
+            lint-stylelint = mkNpmCheck "lint-stylelint" "lint:stylelint";
+            lint-tsc = mkNpmCheck "lint-tsc" "lint:tsc";
           };
 
           packages = {
@@ -179,6 +209,9 @@
               actionlint
               deadnix
               editorconfig-checker
+              fourmolu
+              haskellPackages.cabal-gild
+              hlint
               nixfmt
               prettier
               shellcheck
@@ -196,13 +229,10 @@
 
               # Haskell関連ツール。
               cabal-install
-              fourmolu
               haskell-language-server
-              hlint
 
               # JavaScript関連ツール。
               importNpmLock.hooks.linkNodeModulesHook
-              nodeEnv
               nodejs
 
               # Python関連ツール。
@@ -211,6 +241,7 @@
 
               # その他のツール。
               html-tidy
+              wrangler
             ];
             npmDeps = pkgs.importNpmLock.buildNodeModules {
               inherit (pkgs) nodejs;

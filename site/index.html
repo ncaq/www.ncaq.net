@@ -1,31 +1,35 @@
 <script defer="defer" src="https://cse.google.com/cse.js?cx=004447714709742723527:gfxoo7p4yao"></script>
 <div class="gcse-search"></div>
 
-<section>
-  <h1 class="text-center">直近5記事</h1>
-  $for(entry)$
-  <a class="entry-link" href="$url$">
-    <div class="card mb-3">
-      <div class="card-header">
-        <time datetime="$date$">$date$</time>
-        $if(updated)$ :
-        <time datetime="$updated$">$updated$</time>
-        $endif$
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">$title$</h5>
-        <p class="card-text">$teaser$</p>
-      </div>
-    </div>
-  </a>
-  $endfor$
+<section class="recently-entry">
+  <h1>直近5記事</h1>
+  <ol class="entry-preview-list">
+    $for(entry)$
+    <li>
+      <a href="$url$">
+        <section class="entry-preview">
+          <header>
+            <time datetime="$date$">$date$</time>
+            $if(updated)$ :
+            <time datetime="$updated$">$updated$</time>
+            $endif$
+          </header>
+          <h2>$title$</h2>
+          <p>$teaser$</p>
+        </section>
+      </a>
+    </li>
+    $endfor$
+  </ol>
 </section>
 
-<section class="text-center">
+<hr />
+
+<section class="entry-of-year">
   <h1>年度別記事一覧</h1>
-  <ol class="list-group">
+  <ol>
     $for(entry-index)$
-    <a class="list-group-item display-4" href="/$body$/">$body$年</a>
+    <li><a href="/$body$/">$body$年</a></li>
     $endfor$
   </ol>
 </section>

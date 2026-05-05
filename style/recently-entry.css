@@ -1,0 +1,21 @@
+/* CSS変数を見ているため、ちゃんとcolor-schemeは尊重しているのでルールを無効化。 */
+/* stylelint-disable a11y/media-prefers-color-scheme */
+.recently-entry {
+  background-color: var(--m-bg-dim);
+
+  h1 {
+    font-size: 300%;
+  }
+}
+
+.entry-preview-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.entry-preview {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  border: thick outset var(--m-border);
+}

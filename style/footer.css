@@ -1,0 +1,45 @@
+/* CSS変数を見ているため、ちゃんとcolor-schemeは尊重しているのでルールを無効化。 */
+/* stylelint-disable a11y/media-prefers-color-scheme */
+footer {
+  table {
+    /* セルの罫線を共有して綺麗な格子状にします。 */
+    border-collapse: collapse;
+
+    /* テーブル一覧を画面全体に広げて見やすくします。 */
+    width: 100%;
+
+    th,
+    td {
+      /* セル間の隙間をなくして小さいモバイル端末にも優しくします。 */
+      padding: 0;
+
+      /* modusテーマで色だけ定義されている罫線に実体を与えます。 */
+      border: 1px solid var(--m-border);
+    }
+
+    td:nth-child(1) {
+      /* keyの要素を中央寄せにします。 */
+      text-align: center;
+    }
+
+    /*
+      背景色を一行ごとに変えて見やすくします。
+      ホバーにも配慮します。
+      Opera Androidが`selectors.not.selector_list`に対応していないため、
+      `selector-not-notation`を許容します。
+     */
+    /* stylelint-disable-next-line selector-not-notation */
+    tr:nth-child(even):not(:hover):not(:focus) {
+      background-color: var(--m-bg-dim);
+    }
+
+    /* 文字を大きめにし一覧を読みやすく見せます。 */
+    @media (576px <= width < 992px) {
+      font-size: 120%;
+    }
+
+    @media (992px <= width) {
+      font-size: 150%;
+    }
+  }
+}

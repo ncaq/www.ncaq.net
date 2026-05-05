@@ -1,0 +1,47 @@
+:root {
+  /* ユーザが指定したフォントをなるべく優先するべきなので総称フォントをそのまま使います。 */
+  --sans-serif: sans-serif;
+
+  /* ユーザが指定したフォントをなるべく優先するべきなので総称フォントをそのまま使います。 */
+  --serif: serif;
+
+  /*
+    なるべくユーザの指定フォントを尊重するべきですが、
+    等幅フォントがMSゴシックになるのは流石に許容できないので、
+    等幅フォントは指定していきます。
+    和文を指定すると欧文も指定する必要があるため、
+    設定量が増えます。
+   */
+  --monospace: ui-monospace, "SF Mono", menlo, monaco, "Cascadia Mono", consolas, meiryo, monospace;
+}
+
+html {
+  /*
+    日本語主体の環境ではセリフ(明朝)よりサンセリフ(ゴシック)の方が読みやすいので、
+    デフォルト本文にはゴシックを指定。
+   */
+  font-family: var(--sans-serif);
+}
+
+/* メリハリをつけるために見出しや引用などには明朝を使用。 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+q,
+cite,
+figcaption {
+  font-family: var(--serif);
+}
+
+/* コードスニペットには等幅フォントを使用。 */
+code,
+kbd,
+samp,
+pre,
+var {
+  font-family: var(--monospace);
+}

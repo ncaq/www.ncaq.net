@@ -1,0 +1,40 @@
+/* CSS変数を見ているため、ちゃんとcolor-schemeは尊重しているのでルールを無効化。 */
+/* stylelint-disable a11y/media-prefers-color-scheme */
+.entry-of-year {
+  /* 記事カテゴリという割と大きなものなので大きなサイズで表示します。 */
+  font-size: 2rem;
+
+  /* 色を変えて目立たせます。 */
+  background-color: var(--m-bg-dim);
+
+  h1 {
+    /* 記事リストの中の余白は大きすぎるので無効化。 */
+    margin: 0;
+
+    /* 記事一覧の見出しを大きくする必要はないので通常サイズにします。 */
+    font-size: 100%;
+  }
+
+  ol {
+    /* 記事リストの中の余白は大きすぎるので無効化。 */
+    margin: 0;
+    padding-left: 2em;
+
+    /* 数字を等幅にします。 */
+    font-family: var(--monospace);
+
+    /* 押しやすいように少し大きく。 */
+    font-size: 130%;
+
+    /*
+      年そのものがリストの番号を表しているので、
+      順序に意味はありますが番号ではなくします。
+     */
+    list-style: circle;
+
+    li {
+      /* ボーダーを入れて区別しやすくします。 */
+      border-bottom: thin solid var(--m-border);
+    }
+  }
+}

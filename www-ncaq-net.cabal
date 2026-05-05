@@ -1,6 +1,6 @@
 cabal-version: 3.12
 name: www-ncaq-net
-version: 0.1.1.0
+version: 1.0.0.0
 synopsis: static site generator for www.ncaq.net by Hakyll
 category: Web
 homepage: https://github.com/ncaq/www.ncaq.net#readme
@@ -8,7 +8,8 @@ bug-reports: https://github.com/ncaq/www.ncaq.net/issues
 author: ncaq
 maintainer: ncaq@ncaq.net
 copyright: ncaq
-license: MIT
+license: Apache-2.0
+license-file: src/LICENSE
 build-type: Simple
 
 source-repository head
@@ -16,6 +17,8 @@ source-repository head
   location: https://github.com/ncaq/www.ncaq.net
 
 executable www-ncaq-net
+  main-is: Main.hs
+  hs-source-dirs: src
   ghc-options:
     -Wall
     -Wcompat
@@ -51,6 +54,7 @@ executable www-ncaq-net
     base,
     containers,
     convertible,
+    data-default,
     directory,
     filepath,
     hakyll >=4.12.5.2,
@@ -58,5 +62,24 @@ executable www-ncaq-net
     regex-tdfa,
     split,
     text,
+    typed-process,
 
-  main-is: site.hs
+  -- cabal-gild: discover ./src --exclude=**/Main.hs
+  other-modules:
+    BasicContext
+    Configuration
+    EntryAndYears
+    EntryContext
+    Escape
+    Feed
+    IndexContext
+    Integration
+    Metadata
+    Pandoc
+    Route
+    Run
+    Runner
+    Teaser
+    Tidy
+    Title
+    Vite

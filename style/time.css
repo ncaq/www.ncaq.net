@@ -1,0 +1,11 @@
+time {
+  /* 日時表記が並んでいる時に内容によって幅が変わったらキモいので等幅を指定。 */
+  font-family: var(--monospace);
+}
+
+@media (992px <= width) {
+  /* モバイルで日時部分で改行が発生しにくいように画面条件を限定。 */
+  .timestamp {
+    font-size: 140%;
+  }
+}

@@ -17,7 +17,6 @@
   "enableAllProjectMcpServers": true,
   "permissions": {
     "allow": [
-      "Bash(./setup:*)",
       "Bash(actionlint:*)",
       "Bash(deadnix:*)",
       "Bash(editorconfig-checker:*)",

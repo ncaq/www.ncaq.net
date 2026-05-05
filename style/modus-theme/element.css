@@ -1,0 +1,144 @@
+/**
+ * ModusテーマをHTMLの要素にある程度マッピングして適用。
+ * テーマでは色はもちろんある程度大きさなども定義されているため、
+ * 要素ごとに適用していきます。
+ */
+
+@import url("./color.css");
+
+/* CSS変数を見ているため、ちゃんとcolor-schemeは尊重しているのでルールを無効化。 */
+/* stylelint-disable a11y/media-prefers-color-scheme */
+
+body {
+  color: var(--m-fg-main);
+  background-color: var(--m-bg-main);
+  caret-color: var(--m-cursor);
+}
+
+a {
+  color: var(--m-fg-link);
+}
+
+a:visited {
+  color: var(--m-fg-link-visited);
+}
+
+h1 {
+  font-size: 160%;
+  font-weight: bold;
+  color: var(--m-fg-heading-1);
+}
+
+h2 {
+  font-size: 150%;
+  font-weight: bold;
+  color: var(--m-fg-heading-2);
+}
+
+h3 {
+  font-size: 140%;
+  font-weight: bold;
+  color: var(--m-fg-heading-3);
+}
+
+h4 {
+  font-size: 130%;
+  font-weight: bold;
+  color: var(--m-fg-heading-4);
+}
+
+h5 {
+  font-size: 120%;
+  font-weight: bold;
+  color: var(--m-fg-heading-5);
+}
+
+h6 {
+  font-size: 110%;
+  font-weight: bold;
+  color: var(--m-fg-heading-6);
+}
+
+pre {
+  border: 1px solid var(--m-border);
+  color: var(--m-fg-main);
+  background-color: var(--m-bg-dim);
+}
+
+code {
+  color: var(--m-fg-alt);
+  background-color: var(--m-bg-dim);
+}
+
+pre code {
+  background-color: transparent;
+}
+
+kbd {
+  border: 1px solid var(--m-border);
+  color: var(--m-keybind);
+  background-color: var(--m-bg-dim);
+}
+
+mark {
+  color: var(--m-fg-main);
+  background-color: var(--m-bg-search-current);
+}
+
+ins {
+  color: var(--m-fg-added);
+  background-color: var(--m-bg-added);
+}
+
+del {
+  color: var(--m-fg-removed);
+  background-color: var(--m-bg-removed);
+}
+
+blockquote {
+  border-left-color: var(--m-border);
+  color: var(--m-fg-dim);
+}
+
+details[open] {
+  background-color: var(--m-bg-active);
+}
+
+hr {
+  border-color: var(--m-border);
+}
+
+th,
+td {
+  border-color: var(--m-border);
+}
+
+th {
+  color: var(--m-fg-main);
+  background-color: var(--m-bg-inactive);
+}
+
+li:hover,
+tr:hover,
+li:focus,
+tr:focus {
+  background-color: var(--m-bg-hover);
+}
+
+:focus-visible {
+  outline: 2px solid var(--m-border-mode-line-active);
+}
+
+/*
+ * 記述現在では`::selection`はiOS Safariで使えないようです。
+ * しかしカラースキーマを定義している以上、
+ * 選択の色も一貫して変えないと見えにくいです。
+ * オプショナルな機能であり、
+ * ないと他が崩壊する機能ではないため、
+ * 非対応を許容します。
+ */
+/* stylelint-disable-next-line plugin/browser-compat */
+::selection {
+  color: var(--m-fg-main);
+  background-color: var(--m-bg-region);
+}

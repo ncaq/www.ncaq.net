@@ -1,0 +1,181 @@
+/**
+ Pygmentsが出力するCSSクラスに対して変数を割り当てます。
+ */
+
+@import url("./color.css");
+
+/* CSS変数を見ているため、ちゃんとcolor-schemeは尊重しているのでルールを無効化。 */
+/* stylelint-disable a11y/media-prefers-color-scheme */
+.highlight {
+  .c,
+  .c1,
+  .ch,
+  .cm,
+  .cs,
+  .cp {
+    font-style: italic;
+    color: var(--m-comment);
+  }
+
+  .k,
+  .kn,
+  .kp,
+  .kr,
+  .kd {
+    font-weight: bold;
+    color: var(--m-keyword);
+  }
+
+  .kt {
+    font-weight: bold;
+    color: var(--m-type);
+  }
+
+  .kc {
+    color: var(--m-constant);
+  }
+
+  .s,
+  .s1,
+  .s2,
+  .sa,
+  .sb,
+  .sc,
+  .dl,
+  .sd,
+  .sh {
+    font-style: italic;
+    color: var(--m-string);
+  }
+
+  .se {
+    color: var(--m-rx-backslash);
+  }
+
+  .sr {
+    color: var(--m-rx-construct);
+  }
+
+  .si {
+    color: var(--m-cyan-cooler);
+  }
+
+  .m,
+  .mi,
+  .mf,
+  .mh,
+  .mo,
+  .mb,
+  .il {
+    color: var(--m-constant);
+  }
+
+  .nf,
+  .fm {
+    font-weight: bold;
+    color: var(--m-fnname);
+  }
+
+  .nc {
+    font-weight: bold;
+    color: var(--m-type);
+  }
+
+  .nb {
+    font-weight: bold;
+    color: var(--m-builtin);
+  }
+
+  .nd {
+    color: var(--m-preprocessor);
+  }
+
+  .nv,
+  .vi,
+  .vg,
+  .vc {
+    color: var(--m-variable);
+  }
+
+  .nt {
+    color: var(--m-keyword);
+  }
+
+  .na {
+    color: var(--m-property);
+  }
+
+  .no {
+    color: var(--m-constant);
+  }
+
+  .ne {
+    font-weight: bold;
+    color: var(--m-type);
+  }
+
+  .n,
+  .nn,
+  .nx {
+    color: var(--m-fg-main);
+  }
+
+  .nl {
+    color: var(--m-cyan-faint);
+  }
+
+  .o,
+  .ow {
+    color: var(--m-keyword);
+  }
+
+  .p {
+    color: var(--m-fg-main);
+  }
+
+  .l,
+  .ld {
+    color: var(--m-constant);
+  }
+
+  .err {
+    color: var(--m-err);
+  }
+
+  .gd {
+    color: var(--m-fg-removed);
+    background-color: var(--m-bg-removed);
+  }
+
+  .gi {
+    color: var(--m-fg-added);
+    background-color: var(--m-bg-added);
+  }
+
+  .gr,
+  .gt {
+    color: var(--m-err);
+  }
+
+  .gh {
+    color: var(--m-fg-heading-1);
+  }
+
+  .gu {
+    color: var(--m-fg-heading-2);
+  }
+
+  .ge {
+    font-style: italic;
+  }
+
+  .gs {
+    font-weight: bold;
+  }
+
+  .gp,
+  .go,
+  .w {
+    color: var(--m-fg-dim);
+  }
+}
