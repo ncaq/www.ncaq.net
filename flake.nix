@@ -73,7 +73,6 @@
               npmRoot
               ;
           };
-          # npmツールが参照するソース。
           npmSrc = lib.fileset.toSource {
             root = ./.;
             fileset = lib.fileset.unions [
@@ -127,9 +126,16 @@
           );
           pythonEnv = pythonSet.mkVirtualEnv "www-ncaq-net-python-env" pythonWorkspace.deps.default;
 
-          # Haskellビルド
+          # Haskellパッケージを管理
+          haskellSrc = pkgs.lib.fileset.toSource {
+            root = ./.;
+            fileset = pkgs.lib.fileset.unions [
+              ./src
+              ./www-ncaq-net.cabal
+            ];
+          };
           www-ncaq-net-unwrapped =
-            pkgs.haskell.lib.overrideCabal (pkgs.haskellPackages.callCabal2nix "www-ncaq-net" ./. { })
+            pkgs.haskell.lib.overrideCabal (pkgs.haskellPackages.callCabal2nix "www-ncaq-net" haskellSrc { })
               {
                 # cabal buildでzlibのC依存を解決するために必要。
                 executablePkgconfigDepends = with pkgs; [ zlib ];
