@@ -26,6 +26,11 @@ const dummyCssEntry = "virtual:css-bundle-noop" as const;
  * Declaration/DeclarationExit visitorで現在のcustom property名をスタックに積めば、
  * Variable visitorは現在地が内側か外側かを判定できる。
  *
+ * `Declaration.custom`はlightningcssがパースできなかった宣言全般に呼ばれるため、
+ * `content: "..." / "..."`のような未対応構文の宣言名(`content`等)が混入する。
+ * これを`unusedSymbols`に渡すと該当ルール自体が削除されてしまうため、
+ * `--`で始まる本物のcustom propertyだけを対象に絞る。
+ *
  * 結果はlightningcssの`unusedSymbols`にそのまま渡せる`--`付きの名前。
  */
 function collectUnusedCustomProperties(): string[] {
@@ -39,6 +44,9 @@ function collectUnusedCustomProperties(): string[] {
       Declaration: {
         custom(property) {
           const name = property.name;
+          if (!name.startsWith("--")) {
+            return;
+          }
           currentCustomProperty = name;
           if (!definitions.has(name)) {
             definitions.set(name, new Set<string>());
@@ -46,7 +54,10 @@ function collectUnusedCustomProperties(): string[] {
         },
       },
       DeclarationExit: {
-        custom() {
+        custom(property) {
+          if (!property.name.startsWith("--")) {
+            return;
+          }
           currentCustomProperty = undefined;
         },
       },
