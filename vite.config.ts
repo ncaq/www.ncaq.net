@@ -29,7 +29,7 @@ const dummyCssEntry = "virtual:css-bundle-noop" as const;
  * 結果はlightningcssの`unusedSymbols`にそのまま渡せる`--`付きの名前。
  */
 function collectUnusedCustomProperties(): string[] {
-  const customPropertyStack: string[] = [];
+  let currentCustomProperty: string | undefined;
   const definitions = new Map<string, Set<string>>();
   const externalReferences = new Set<string>();
   bundle({
@@ -39,7 +39,7 @@ function collectUnusedCustomProperties(): string[] {
       Declaration: {
         custom(property) {
           const name = property.name;
-          customPropertyStack.push(name);
+          currentCustomProperty = name;
           if (!definitions.has(name)) {
             definitions.set(name, new Set<string>());
           }
@@ -47,16 +47,15 @@ function collectUnusedCustomProperties(): string[] {
       },
       DeclarationExit: {
         custom() {
-          customPropertyStack.pop();
+          currentCustomProperty = undefined;
         },
       },
       Variable(variable) {
         const name = variable.name.ident;
-        const current = customPropertyStack.at(-1);
-        if (current == null) {
+        if (currentCustomProperty == null) {
           externalReferences.add(name);
         } else {
-          definitions.get(current)?.add(name);
+          definitions.get(currentCustomProperty)?.add(name);
         }
       },
     },
