@@ -35,7 +35,7 @@ hakyllRun options (entryIndex, years) = hakyllWithArgs conf options $ do
           , "*.webp"
           ]
 
-  match (imageExtension .||. "*.txt" .||. "_headers" .||. "asset/*") $ do
+  match (imageExtension .||. "*.txt" .||. "_headers" .||. "asset/**/*") $ do
     route idRoute
     compile copyFileCompiler
 

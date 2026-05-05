@@ -1,3 +1,5 @@
+/* CSS変数を見ているため、ちゃんとcolor-schemeは尊重しているのでルールを無効化。 */
+/* stylelint-disable a11y/media-prefers-color-scheme */
 address img,
 .icon,
 .icon img {
@@ -8,10 +10,11 @@ address img,
   width: 1em;
   height: 1em;
 
-  /* 画像と絵文字を併用するので同じ場所に揃えてくれることを期待します。 */
-
   /* 画像用に自動マージンを入れて中央へ誘導する設定。 */
   margin: auto;
+
+  /* SVG画像をカラーテーマに合わせた表示にします。 */
+  color: var(--m-fg-main);
 
   /* テキスト用に中央へ誘導する設定。 */
   text-align: center;
