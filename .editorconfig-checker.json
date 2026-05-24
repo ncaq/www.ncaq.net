@@ -1,5 +1,18 @@
 {
-  "Disable": {
-    "IndentSize": true
-  }
+  "Exclude": [
+    "(^|/)LICENSE(\\..+)?$",
+    "(^|/)NOTICE(\\..+)?$",
+    "(^|/)\\.env$",
+    "(^|/)\\.env\\.",
+    "\\.gpg$",
+    "\\.json$",
+    "\\.json5$",
+    "\\.jsonc$",
+    "\\.md$",
+    "\\.nix$",
+    "\\.sops\\.?.*",
+    "\\.tf$",
+    "\\.yaml$",
+    "\\.yml$"
+  ]
 }
