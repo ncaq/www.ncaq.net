@@ -1,5 +1,5 @@
 /**
- Pygmentsが出力するCSSクラスに対して変数を割り当てます。
+ * Pygmentsが出力するCSSクラスに対して変数を割り当てます。
  */
 
 @import url("./color.css");

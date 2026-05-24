@@ -11,10 +11,14 @@ import Hakyll
 validateMetadata :: Identifier -> Compiler ()
 validateMetadata identifier = do
   metadata <- getMetadata identifier
-  let unknownKeys = filter (`Set.notMember` allowedMetadataKeys) $ AK.toString <$> KeyMap.keys metadata
+  let unknownKeys =
+        filter (`Set.notMember` allowedMetadataKeys) $
+          AK.toString <$> KeyMap.keys metadata
   case unknownKeys of
     [] -> return ()
-    keys -> fail $ "Unknown metadata keys in " <> toFilePath identifier <> ": " <> L.intercalate ", " keys
+    keys ->
+      fail $
+        "Unknown metadata keys in " <> toFilePath identifier <> ": " <> L.intercalate ", " keys
 
 -- | 許可されているメタデータ属性。
 -- `fail`や`toFilePath`が`String`を扱うため`Text`より`String`の方が都合が良い。

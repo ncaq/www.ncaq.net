@@ -46,7 +46,10 @@ hakyllRun options (entryIndex, years) = hakyllWithArgs conf options $ do
     route idRoute
     compile copyFileCompiler
 
-  let entryIndexField = listField "entry-index" defaultContext (pure $ (\x -> Item (fromFilePath x) x) <$> years)
+  let entryIndexField =
+        listField "entry-index" defaultContext (pure $ (\x -> Item (fromFilePath x) x) <$> years)
+      entryDefaultContext =
+        addTitleWithSuffix <> entryIndexField <> entryContext
 
   -- 404はCloudflare Pages的に404/index.htmlではなく404.htmlである必要があるため特別に処理する。
   match "404.md" $ do
@@ -57,7 +60,7 @@ hakyllRun options (entryIndex, years) = hakyllWithArgs conf options $ do
       pandocCompilerCustom
         >>= saveSnapshot "content"
         >>= loadAndApplyTemplate "templates/entry.html" entryContext
-        >>= loadAndApplyTemplate "templates/default.html" (addTitleWithSuffix <> entryIndexField <> entryContext)
+        >>= loadAndApplyTemplate "templates/default.html" entryDefaultContext
         >>= tidyHtml
 
   -- 大多数の記事。
@@ -69,14 +72,17 @@ hakyllRun options (entryIndex, years) = hakyllWithArgs conf options $ do
       pandocCompilerCustom
         >>= saveSnapshot "content"
         >>= loadAndApplyTemplate "templates/entry.html" entryContext
-        >>= loadAndApplyTemplate "templates/default.html" (addTitleWithSuffix <> entryIndexField <> entryContext)
+        >>= loadAndApplyTemplate "templates/default.html" entryDefaultContext
         >>= tidyHtml
 
   -- サイトのトップレベル。
   match "index.html" $ do
     route idRoute
     let context =
-          listField "entry" entryContext (L.take 5 . reverse <$> loadAll (fromGlob "entry/*.md"))
+          listField
+            "entry"
+            entryContext
+            (L.take 5 . reverse <$> loadAll (fromGlob "entry/*.md"))
             <> indexContext
               "ncaq"
               "ncaq website root"
@@ -94,7 +100,10 @@ hakyllRun options (entryIndex, years) = hakyllWithArgs conf options $ do
         create [fromFilePath $ year <> "/index.html"] $ do
           route $ constRoute $ year <> "/index.html"
           let context =
-                listField "entry" entryContext (reverse <$> loadAll (fromGlob $ "entry/" <> year <> "*.md"))
+                listField
+                  "entry"
+                  entryContext
+                  (reverse <$> loadAll (fromGlob $ "entry/" <> year <> "*.md"))
                   <> indexContext
                     (year <> "年の記事一覧 - ncaq")
                     (year <> "年の記事一覧 - ncaq")
@@ -110,7 +119,10 @@ hakyllRun options (entryIndex, years) = hakyllWithArgs conf options $ do
   create ["sitemap.xml"] $ do
     route idRoute
     let sitemapContext =
-          listField "entry" entryContext (reverse . filter not404 <$> loadAll ("*.md" .||. "entry/*.md"))
+          listField
+            "entry"
+            entryContext
+            (reverse . filter not404 <$> loadAll ("*.md" .||. "entry/*.md"))
             <> entryIndexField
         not404 item = toFilePath (itemIdentifier item) /= "404.md"
     compile $

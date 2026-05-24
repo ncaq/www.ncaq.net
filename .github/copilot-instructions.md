@@ -37,17 +37,19 @@ npmを使用します。
 
 Markdownの処理系にはPandocを使っています。
 
-Pandocの標準的拡張に加えて以下のように拡張を設定しています。
+Pandocの標準的拡張に加えて以下のように設定しています。
 
 ### 無効化
 
-- `Ext_pandoc_title_block`：タイトルブロックの自動生成を無効化
-- `Ext_smart`：スマート引用符やダッシュの自動変換を無効化
+- `Ext_pandoc_title_block`: タイトルブロックの自動生成を無効化
+- `Ext_smart`: スマート引用符やダッシュの自動変換を無効化
 
 ### 有効化
 
-- `Ext_auto_identifiers`：見出し向けIDの自動生成を有効化
-- `eastAsianLineBreakFilter`：改行を挟んだときに東アジアの文字列に余計な空白が入らないようにする自作フィルタ
+- `Ext_auto_identifiers`: 見出し向けIDの自動生成を有効化
+- `eastAsianLineBreakFilter`による変換:
+  改行を挟んだときに、
+  東アジアの文字列に余計な空白が入らないようにする
 
 ### シンタックスハイライト
 
@@ -77,7 +79,9 @@ nix-fast-build --option eval-cache false --no-link --skip-cached --no-nom
 
 # リポジトリ構成
 
-Codex向けの`AGENTS.md`とClaude Code向けの`CLAUDE.md`は以下のように`.github/copilot-instructions.md`のシンボリックリンクになっています。
+Codex向けの`AGENTS.md`と、
+Claude Code向けの`CLAUDE.md`は、
+以下のように`.github/copilot-instructions.md`のシンボリックリンクになっています。
 
 ```console
 AGENTS.md -> .github/copilot-instructions.md
