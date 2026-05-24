@@ -23,7 +23,9 @@ pandocCompilerCustom =
          in RawBlock (Format "html") . convert
               <$> unixFilter
                 "uv"
-                (["run", "pygmentize", "-f", "html"] <> if T.null fileName then [] else ["-l", convert fileName])
+                ( ["run", "pygmentize", "-f", "html"]
+                    <> if T.null fileName then [] else ["-l", convert fileName]
+                )
                 (convert str)
       transform x = return x
    in pandocCompilerWithTransformM
@@ -34,7 +36,7 @@ pandocCompilerCustom =
           { writerHTMLMathMethod = MathML
           , writerSectionDivs = True -- HTML sectionの方を使う。
           , writerExtensions = extensions
-          , writerHighlightStyle = Nothing -- 対応言語が多いPygmentでシンタックスハイライトを行うためPandoc側では不要。
+          , writerHighlightStyle = Nothing -- Pygmentを使うのでPandocのハイライトは不要。
           }
         -- 東アジアの文字列に余計な空白が入らないようにする。
         -- 何故かコマンドラインオプションでは有効にならない。
