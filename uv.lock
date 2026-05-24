@@ -2,6 +2,10 @@ version = 1
 revision = 3
 requires-python = ">=3.12"
 
+[options]
+exclude-newer = "2026-05-21T03:44:00.59810674Z"
+exclude-newer-span = "P3D"
+
 [[package]]
 name = "pygments"
 version = "2.20.0"
