@@ -151,6 +151,7 @@
                     pkgs.nodejs
                     pkgs.uv
                     pkgs.wrangler
+                    pkgs.xdg-utils
 
                     html-tidy
                     pythonEnv
