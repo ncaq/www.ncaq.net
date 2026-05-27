@@ -58,6 +58,7 @@ executable www-ncaq-net
     directory,
     filepath,
     hakyll >=4.12.5.2,
+    network,
     pandoc ^>=3.7.0.2,
     regex-tdfa,
     split,
@@ -67,6 +68,7 @@ executable www-ncaq-net
   -- cabal-gild: discover ./src --exclude=**/Main.hs
   other-modules:
     BasicContext
+    Browser
     Configuration
     EntryAndYears
     EntryContext

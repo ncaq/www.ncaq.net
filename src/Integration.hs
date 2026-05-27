@@ -1,5 +1,7 @@
 module Integration (integrateExec) where
 
+import Browser
+import Control.Monad
 import Hakyll
 import Vite
 
@@ -15,6 +17,11 @@ integrateExec options runHakyll = do
     Rebuild -> runViteBuild >> runHakyll
     -- watch/serverではViteもwatchモードで動かして、
     -- スタイル変更時にバンドルを更新し続ける。
-    Watch{} -> withViteWatch runHakyll
-    Server{} -> withViteWatch runHakyll
+    -- 合わせてプレビューサーバが起動したらwebブラウザでプレビューを開く。
+    Watch{host, port, no_server} -> do
+      unless no_server $ void $ openBrowserWhenReady host port
+      withViteWatch runHakyll
+    Server{host, port} -> do
+      void $ openBrowserWhenReady host port
+      withViteWatch runHakyll
     _ -> runHakyll
