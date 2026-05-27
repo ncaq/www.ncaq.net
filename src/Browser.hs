@@ -30,26 +30,23 @@ waitForPort host port = go 600
   go n
     | n <= 0 = pure False
     | otherwise = do
-        connected <- tryConnect host port
-        if connected
-          then return True
-          else threadDelay 100000 >> go (n - 1)
+        connected <- tryConnectToServer host port
+        case connected of
+          Right () -> return True
+          _ -> threadDelay 100000 >> go (n - 1)
 
--- | TCPポートへの接続を一度だけ試みます。
-tryConnect :: String -> Int -> IO Bool
-tryConnect host port = do
+-- | サーバへの接続を一度だけ試みます。
+tryConnectToServer :: (Show a) => HostName -> a -> IO (Either SomeException ())
+tryConnectToServer host port = try $ do
   let hints = defaultHints{addrSocketType = Stream}
   addrs <- getAddrInfo (Just hints) (Just host) (Just (show port))
-  result <- try $ case addrs of
+  case addrs of
     [] -> throwIO $ userError "アドレス解決に失敗しました"
     addr : _ ->
       bracket
         (socket (addrFamily addr) (addrSocketType addr) (addrProtocol addr))
         close
         (`connect` addrAddress addr)
-  return $ case result :: Either SomeException () of
-    Left _ -> False
-    Right () -> True
 
 -- | URLを開きます。
 openBrowser :: String -> Int -> IO ()
