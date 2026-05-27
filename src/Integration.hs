@@ -3,11 +3,12 @@ module Integration (integrateExec) where
 import Hakyll
 import Vite
 
--- | Viteの処理とHakyllの処理を統合する関数。
+-- | Hakyllの処理とViteなど外部プロセスの処理を統合してコマンドを実行します。
 integrateExec :: Options -> IO () -> IO ()
 integrateExec options runHakyll = do
-  -- サイト生成を行うサブコマンドの場合のみ、Viteでスタイルシートをバンドルする。
-  -- `site/dist/bundle.css`がprovideDirectory配下に出力されるので、
+  -- サイト生成を行うサブコマンドの場合のみ、
+  -- Viteでスタイルシートをバンドルする。
+  -- `site/dist/bundle.css`が`provideDirectory`配下に出力されるので、
   -- 後続のHakyllが通常通り検出してコピーできる。
   case optCommand options of
     Build{} -> runViteBuild >> runHakyll
