@@ -131,9 +131,13 @@
           # `cabal.project`の`with-compiler`で指定したGHCバージョンを尊重し、
           # 対応するnixpkgsのパッケージセットを選択します。
           # こうすることでGHCバージョンの管理が`cabal.project`に一元化されます。
-          cabalHaskellGhcVersion = builtins.head (
-            builtins.match ".*with-compiler:[[:space:]]*ghc-([0-9.]+).*" (builtins.readFile ./cabal.project)
-          );
+          cabalHaskellGhcVersion =
+            let
+              m = builtins.match ".*with-compiler:[[:space:]]*ghc-([0-9.]+).*" (
+                builtins.readFile ./cabal.project
+              );
+            in
+            if m == null then throw "cabal.projectにwith-compilerが見つかりません" else builtins.head m;
           # このプロジェクトで使うHaskellのパッケージセット。
           haskellPackages =
             pkgs.haskell.packages."ghc${builtins.replaceStrings [ "." ] [ "" ] cabalHaskellGhcVersion}";
