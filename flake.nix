@@ -127,15 +127,30 @@
           pythonEnv = pythonSet.mkVirtualEnv "www-ncaq-net-python-env" pythonWorkspace.deps.default;
 
           # Haskellパッケージを管理
-          haskellSrc = pkgs.lib.fileset.toSource {
+
+          # `cabal.project`の`with-compiler`で指定したGHCバージョンを尊重し、
+          # 対応するnixpkgsのパッケージセットを選択します。
+          # こうすることでGHCバージョンの管理が`cabal.project`に一元化されます。
+          cabalHaskellGhcVersion =
+            let
+              m = builtins.match ".*with-compiler:[[:space:]]*ghc-([0-9.]+).*" (
+                builtins.readFile ./cabal.project
+              );
+            in
+            if m == null then throw "cabal.projectにwith-compilerが見つかりません" else builtins.head m;
+          # このプロジェクトで使うHaskellのパッケージセット。
+          haskellPackages =
+            pkgs.haskell.packages."ghc${builtins.replaceStrings [ "." ] [ "" ] cabalHaskellGhcVersion}";
+          haskellSrc = lib.fileset.toSource {
             root = ./.;
-            fileset = pkgs.lib.fileset.unions [
+            fileset = lib.fileset.unions [
+              ./cabal.project
               ./src
               ./www-ncaq-net.cabal
             ];
           };
           www-ncaq-net-unwrapped =
-            pkgs.haskell.lib.overrideCabal (pkgs.haskellPackages.callCabal2nix "www-ncaq-net" haskellSrc { })
+            pkgs.haskell.lib.overrideCabal (haskellPackages.callCabal2nix "www-ncaq-net" haskellSrc { })
               {
                 # cabal buildでzlibのC依存を解決するために必要。
                 executablePkgconfigDepends = with pkgs; [ zlib ];
@@ -167,7 +182,6 @@
             projectRootFile = "flake.nix";
             programs = {
               actionlint.enable = true;
-              cabal-gild.enable = true;
               deadnix.enable = true;
               fourmolu.enable = true;
               hlint.enable = true;
@@ -180,6 +194,37 @@
               zizmor.enable = true;
             };
             settings.formatter = {
+              # cabal-gildのモジュール自動発見機能に対応するため、
+              # Haskellソースファイルの変更も検知してcabal-gildを実行します。
+              # treefmt-nixの上流では、
+              # 変更されたファイルだけを修正したいと言われてマージされていませんが、
+              # ローカルで使う分には問題ありません。
+              # [cabal-gild discover module](https://github.com/numtide/treefmt-nix/pull/384)
+              cabal-gild = {
+                command = lib.getExe (
+                  pkgs.writeShellApplication {
+                    name = "cabal-gild-wrapper";
+                    runtimeInputs = with pkgs; [
+                      git
+                      haskellPackages.cabal-gild
+                      parallel
+                    ];
+                    text = ''
+                      git ls-files -z "*.cabal" | parallel --null "cabal-gild --io {}"
+                    '';
+                  }
+                );
+                includes = [
+                  "*.cabal"
+                  # Haskellソースファイルの変更を検知するために含める
+                  "*.hs"
+                  "*.lhs"
+                  "*.hsc"
+                  "*.chs"
+                  "*.hsig"
+                  "*.lhsig"
+                ];
+              };
               editorconfig-checker = {
                 command = pkgs.editorconfig-checker;
                 includes = [ "*" ];
@@ -190,7 +235,10 @@
 
           # テストがないパッケージもビルドしてエラーを検出する。
           checks = {
-            inherit www-ncaq-net;
+            www-ncaq-net = pkgs.haskell.lib.compose.appendConfigureFlags [
+              "--ghc-options=-Werror"
+            ] www-ncaq-net;
+
             build = mkNpmCheck "build" "build";
             lint-prettier = mkNpmCheck "lint-prettier" "lint:prettier";
             lint-stylelint = mkNpmCheck "lint-stylelint" "lint:stylelint";
@@ -230,7 +278,7 @@
 
               # Haskell関連ツール。
               cabal-install
-              haskell-language-server
+              haskellPackages.haskell-language-server
 
               # JavaScript関連ツール。
               importNpmLock.hooks.linkNodeModulesHook
