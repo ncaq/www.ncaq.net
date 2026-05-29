@@ -127,7 +127,6 @@
           pythonEnv = pythonSet.mkVirtualEnv "www-ncaq-net-python-env" pythonWorkspace.deps.default;
 
           # Haskellパッケージを管理
-
           # `cabal.project`の`with-compiler`で指定したGHCバージョンを尊重し、
           # 対応するnixpkgsのパッケージセットを選択します。
           # こうすることでGHCバージョンの管理が`cabal.project`に一元化されます。
@@ -149,13 +148,10 @@
               ./www-ncaq-net.cabal
             ];
           };
-          www-ncaq-net-unwrapped =
-            pkgs.haskell.lib.overrideCabal (haskellPackages.callCabal2nix "www-ncaq-net" haskellSrc { })
-              {
-                # cabal buildでzlibのC依存を解決するために必要。
-                executablePkgconfigDepends = with pkgs; [ zlib ];
-              };
-          www-ncaq-net = www-ncaq-net-unwrapped.overrideAttrs (oldAttrs: {
+          haskellProject = haskellPackages.callCabal2nix "www-ncaq-net" haskellSrc { };
+
+          # 全体プロジェクトを統合。
+          www-ncaq-net = haskellProject.overrideAttrs (oldAttrs: {
             nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [ pkgs.makeWrapper ];
             # Hakyllは実行時に外部コマンドを呼び出すため、
             # makeWrapperでPATHに追加する。
@@ -252,7 +248,7 @@
           };
 
           devShells.default = pkgs.mkShell {
-            inputsFrom = [ www-ncaq-net-unwrapped ];
+            inputsFrom = [ haskellProject ];
             packages = with pkgs; [
               # treefmtで指定したプログラムの単体版。
               actionlint
