@@ -2,6 +2,7 @@ module IndexContext (indexContext) where
 
 import BasicContext
 import Hakyll
+import Himari hiding (Context)
 
 -- | Markdownの記事ではなくHTMLから生成する一覧ページ。
 indexContext :: String -> String -> String -> Context String -> Context String

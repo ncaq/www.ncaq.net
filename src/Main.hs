@@ -1,5 +1,6 @@
 module Main (main) where
 
+import Himari
 import Integration
 import Runner
 

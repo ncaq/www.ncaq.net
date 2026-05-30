@@ -2,12 +2,8 @@ module Browser
   ( openBrowserWhenReady
   ) where
 
-import Control.Concurrent
-import Control.Exception
-import Control.Monad
+import Himari
 import Network.Socket
-import System.Exit
-import qualified System.Process.Typed as P
 
 -- | プレビューサーバが起動した後にwebブラウザでプレビューを開きます。
 -- Hakyllのプレビューサーバ起動はブロッキングなので別スレッドで処理します。
@@ -52,7 +48,7 @@ tryConnectToServer host port = try $ do
 openBrowser :: String -> Int -> IO ()
 openBrowser host port = do
   let url = "http://" <> host <> ":" <> show port
-  exitCode <- P.runProcess $ P.proc "xdg-open" [url]
+  exitCode <- runProcess $ proc "xdg-open" [url]
   unless (exitCode == ExitSuccess) $
     throwIO $
       userError $

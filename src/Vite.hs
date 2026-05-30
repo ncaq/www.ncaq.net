@@ -1,10 +1,10 @@
 module Vite (runViteBuild, withViteWatch) where
 
-import qualified System.Process.Typed as P
+import Himari
 
 -- | `npm run build`を呼んでスタイルシートをバンドルする。
 runViteBuild :: IO ()
-runViteBuild = P.runProcess_ (P.proc "npm" ["run", "build"])
+runViteBuild = runProcess_ (proc "npm" ["run", "build"])
 
 -- | `npm run watch`をバックグラウンドで起動して、
 -- スタイル変更時にバンドルを更新し続ける。
@@ -14,4 +14,4 @@ runViteBuild = P.runProcess_ (P.proc "npm" ["run", "build"])
 withViteWatch :: IO a -> IO a
 withViteWatch action = do
   runViteBuild
-  P.withProcessTerm (P.proc "npm" ["run", "watch"]) (const action)
+  withProcessTerm (proc "npm" ["run", "watch"]) (const action)

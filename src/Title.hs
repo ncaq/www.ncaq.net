@@ -3,8 +3,8 @@ module Title
   , mapTitleEx
   ) where
 
-import Data.Maybe
 import Hakyll
+import Himari hiding (Context)
 
 -- | サイトの名前込みのタイトルを設定する。
 addTitleWithSuffix :: Context a

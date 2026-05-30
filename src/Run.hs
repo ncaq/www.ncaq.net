@@ -1,10 +1,11 @@
 module Run (hakyllRun) where
 
 import Configuration
-import qualified Data.List as L
+import Data.List qualified as L
 import EntryContext
 import Feed
 import Hakyll
+import Himari hiding (Context)
 import IndexContext
 import Metadata
 import Pandoc

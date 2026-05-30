@@ -1,6 +1,7 @@
 module Tidy (tidyHtml, tidyXml) where
 
 import Hakyll
+import Himari
 
 -- | HTMLとして正しいかをチェックだけして、
 -- 内容は変更せずに返す。

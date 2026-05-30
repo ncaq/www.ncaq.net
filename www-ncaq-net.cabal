@@ -72,13 +72,16 @@ executable www-ncaq-net
     ViewPatterns
 
   build-depends:
+    aeson,
     base,
+    containers,
     hakyll >=4.12.5.2,
     himari ^>=1.1.2.2,
     network,
     pandoc ^>=3.7.0.2,
     regex-tdfa,
     split,
+    text,
 
   -- cabal-gild: discover ./src --exclude=**/Main.hs
   other-modules:

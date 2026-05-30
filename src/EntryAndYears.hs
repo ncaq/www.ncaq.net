@@ -1,7 +1,7 @@
 module EntryAndYears (getEntryAndYears) where
 
-import qualified Data.List as L
-import System.Directory
+import Data.List qualified as L
+import Himari
 
 -- | 年一覧をスマートにページネーションする方法がわからなかったので`IO`でごり押しする。
 -- `Rules`は内部的には`IO`をベースに持つが、

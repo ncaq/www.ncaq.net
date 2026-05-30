@@ -1,11 +1,9 @@
 module Route (cleanRoute, cleanUrlField) where
 
-import Control.Applicative
-import Data.Convertible
-import qualified Data.List as L
-import qualified Data.Text as T
+import Data.List qualified as L
+import Data.Text qualified as T
 import Hakyll
-import System.FilePath
+import Himari hiding (Context)
 
 -- | ファイルパスのハイフンをディレクトリ区切りに変換して、
 -- 末尾に`index.html`を付与してディレクトリのデフォルトとして参照されるようにする。

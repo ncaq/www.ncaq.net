@@ -1,12 +1,10 @@
 module EntryContext (entryContext) where
 
 import BasicContext
-import Control.Applicative
-import qualified Data.List.Split as L
-import Data.Maybe
+import Data.List.Split qualified as L
 import Escape
 import Hakyll
-import System.FilePath
+import Himari hiding (Context)
 import Teaser
 import Title
 
