@@ -31,6 +31,10 @@
       url = "github:htacg/tidy-html5";
       flake = false;
     };
+    himari-src = {
+      url = "github:ncaq/himari/v1.1.2.2";
+      flake = false;
+    };
   };
 
   outputs =
@@ -139,7 +143,14 @@
             if m == null then throw "cabal.projectにwith-compilerが見つかりません" else builtins.head m;
           # このプロジェクトで使うHaskellのパッケージセット。
           haskellPackages =
-            pkgs.haskell.packages."ghc${builtins.replaceStrings [ "." ] [ "" ] cabalHaskellGhcVersion}";
+            pkgs.haskell.packages."ghc${builtins.replaceStrings [ "." ] [ "" ] cabalHaskellGhcVersion}".override
+              {
+                overrides = hself: _hsuper: {
+                  # himariはまだstableなnixpkgsに入っていないため、
+                  # オーバーライドで追加します。
+                  himari = pkgs.haskell.lib.compose.doJailbreak (hself.callCabal2nix "himari" inputs.himari-src { });
+                };
+              };
           haskellSrc = lib.fileset.toSource {
             root = ./.;
             fileset = lib.fileset.unions [

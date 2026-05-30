@@ -18,6 +18,23 @@
         "type": "github"
       }
     },
+    "himari-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1779962902,
+        "narHash": "sha256-9DaHOg4ETIzhcfA/zxaqnzyi41gKeT1O+4wKBypetqo=",
+        "owner": "ncaq",
+        "repo": "himari",
+        "rev": "69d5ab17706953905e8f86e66b45e287b2957150",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ncaq",
+        "ref": "v1.1.2.2",
+        "repo": "himari",
+        "type": "github"
+      }
+    },
     "html-tidy-src": {
       "flake": false,
       "locked": {
@@ -114,6 +131,7 @@
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
+        "himari-src": "himari-src",
         "html-tidy-src": "html-tidy-src",
         "nixpkgs": "nixpkgs",
         "pyproject-build-systems": "pyproject-build-systems",
