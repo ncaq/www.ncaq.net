@@ -19,9 +19,9 @@
     "allow": [
       "Bash(* --help:*)",
       "Bash(* --version)",
+      "Bash(./build:*)",
       "Bash(actionlint:*)",
       "Bash(awk:*)",
-      "Bash(build:*)",
       "Bash(cabal build:*)",
       "Bash(cabal check:*)",
       "Bash(cabal clean:*)",
