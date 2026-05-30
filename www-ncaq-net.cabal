@@ -53,7 +53,6 @@ executable www-ncaq-net
     NegativeLiterals
     NoFieldSelectors
     NoImplicitPrelude
-    NumericUnderscores
     OverloadedLabels
     OverloadedRecordDot
     OverloadedStrings
