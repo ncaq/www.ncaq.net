@@ -33,21 +33,43 @@ executable www-ncaq-net
 
   default-language: GHC2021
   default-extensions:
+    ApplicativeDo
+    BlockArguments
+    CPP
     DataKinds
     DefaultSignatures
+    DerivingStrategies
+    DerivingVia
+    DisambiguateRecordFields
+    DuplicateRecordFields
+    ExplicitNamespaces
     FunctionalDependencies
     GADTs
     LambdaCase
+    LexicalNegation
+    LinearTypes
+    MonadComprehensions
     MultiWayIf
-    NoImportQualifiedPost
+    NegativeLiterals
+    NoFieldSelectors
+    NoImplicitPrelude
+    OverloadedLabels
+    OverloadedRecordDot
     OverloadedStrings
-    PartialTypeSignatures
+    ParallelListComp
+    PatternSynonyms
+    QualifiedDo
+    QuantifiedConstraints
+    QuasiQuotes
     RecordWildCards
-    TypeFamilies
-    ViewPatterns
-
-  other-extensions:
+    RecursiveDo
+    RoleAnnotations
+    StrictData
     TemplateHaskell
+    TypeData
+    TypeFamilies
+    TypeFamilyDependencies
+    ViewPatterns
 
   build-depends:
     base,
