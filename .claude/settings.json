@@ -17,7 +17,7 @@
   "enableAllProjectMcpServers": true,
   "permissions": {
     "allow": [
-      "Bash(* --help *)",
+      "Bash(* --help:*)",
       "Bash(* --version)",
       "Bash(actionlint:*)",
       "Bash(awk:*)",
