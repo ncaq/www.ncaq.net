@@ -16,20 +16,22 @@ openBrowserWhenReady host port = async $ do
     then openBrowser host port
     else throwM $ userError "サーバの起動に失敗しました"
 
--- | 指定したポートにTCP接続できるようになるまで一定間隔で待ちます。
+-- | 指定したポートにTCP接続できるようになるまでリトライしつつ一定時間待ちます。
 -- 接続できたら`True`、
--- 規定回数試しても駄目なら`False`を返します。
+-- 規定時間試しても駄目なら`False`を返します。
+-- ネットワーク接続待ちの定番として、
+-- 初期50ms・最大1sの指数バックオフで累積60秒まで再試行する設定にしています。
 waitForPort :: String -> Int -> IO Bool
-waitForPort host port = go 600
- where
-  go :: Int -> IO Bool
-  go n
-    | n <= 0 = pure False
-    | otherwise = do
-        connected <- tryConnectToServer host port
-        case connected of
-          Right () -> return True
-          _ -> threadDelay 100000 >> go (n - 1)
+waitForPort host port = do
+  let policy =
+        limitRetriesByCumulativeDelay 60_000_000
+          . capDelay 1_000_000
+          $ exponentialBackoff 50_000
+  isRight
+    <$> retrying
+      policy
+      (\_ r -> pure $ isLeft r)
+      (\_ -> tryConnectToServer host port)
 
 -- | サーバへの接続を一度だけ試みます。
 tryConnectToServer :: (Show a) => HostName -> a -> IO (Either SomeException ())
