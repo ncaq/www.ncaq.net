@@ -1,6 +1,7 @@
 module BasicContext (basicContext) where
 
 import Hakyll
+import Himari hiding (Context)
 import Route
 
 -- | どのページにも共通する基本的な情報。

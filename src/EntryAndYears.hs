@@ -1,7 +1,8 @@
 module EntryAndYears (getEntryAndYears) where
 
-import qualified Data.List as L
-import System.Directory
+import Data.Containers.ListUtils (nubOrd)
+import Data.List qualified as L
+import Himari
 
 -- | 年一覧をスマートにページネーションする方法がわからなかったので`IO`でごり押しする。
 -- `Rules`は内部的には`IO`をベースに持つが、
@@ -22,4 +23,4 @@ yearInEntry :: IO [String]
 yearInEntry = do
   entryList <- L.sort <$> listDirectory "site/entry"
   let getYear = L.takeWhile (/= '-')
-  return $ reverse $ L.nub $ getYear <$> entryList
+  return . reverse . nubOrd $ getYear <$> entryList

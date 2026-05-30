@@ -1,11 +1,11 @@
 module Metadata (validateMetadata) where
 
-import qualified Data.Aeson.Key as AK
-import qualified Data.Aeson.KeyMap as KeyMap
-import qualified Data.List as L
-import Data.Set (Set)
-import qualified Data.Set as Set
+import Data.Aeson.Key qualified as Key
+import Data.Aeson.KeyMap qualified as KeyMap
+import Data.List qualified as L
+import Data.Set qualified as Set
 import Hakyll
+import Himari
 
 -- | typoを検出するためメタデータの属性が許可されたものだけであるとバリデーションします。
 validateMetadata :: Identifier -> Compiler ()
@@ -13,7 +13,7 @@ validateMetadata identifier = do
   metadata <- getMetadata identifier
   let unknownKeys =
         filter (`Set.notMember` allowedMetadataKeys) $
-          AK.toString <$> KeyMap.keys metadata
+          Key.toString <$> KeyMap.keys metadata
   case unknownKeys of
     [] -> return ()
     keys ->

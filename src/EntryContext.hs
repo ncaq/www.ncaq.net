@@ -1,12 +1,10 @@
 module EntryContext (entryContext) where
 
 import BasicContext
-import Control.Applicative
-import qualified Data.List.Split as L
-import Data.Maybe
+import Data.List.Split qualified as L
 import Escape
 import Hakyll
-import System.FilePath
+import Himari hiding (Context)
 import Teaser
 import Title
 
@@ -34,7 +32,7 @@ entryContext =
       $ \item -> do
         mMeta <- getMetadataField (itemIdentifier item) "date"
         case mMeta of
-          Nothing -> return $ fromMaybe empty $ mItemDate item
+          Nothing -> return . fromMaybe empty $ mItemDate item
           Just meta -> return meta
   mItemDate item = case L.splitOneOf "-" f of
     [year, month, day, hour, minute, second] ->
@@ -43,5 +41,5 @@ entryContext =
       Just $ concat [year, "-", month, "-", day]
     _ -> Nothing
    where
-    f = toFilePath $ cleanIdentifier $ itemIdentifier item
+    f = toFilePath . cleanIdentifier $ itemIdentifier item
     cleanIdentifier = fromFilePath . dropExtension . takeFileName . toFilePath

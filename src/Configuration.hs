@@ -1,7 +1,7 @@
 module Configuration (conf) where
 
-import Data.Default
 import Hakyll
+import Himari
 
 -- | Hakyllに渡す設定。
 conf :: Configuration

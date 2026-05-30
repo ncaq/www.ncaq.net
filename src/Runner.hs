@@ -3,6 +3,7 @@ module Runner (Runner (..), getRunner) where
 import Configuration
 import EntryAndYears
 import Hakyll
+import Himari
 import Run
 
 data Runner = Runner

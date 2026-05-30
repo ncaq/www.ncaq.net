@@ -3,8 +3,8 @@ module Escape
   , escapeDoubleQuote
   ) where
 
-import Data.Convertible
-import qualified Data.Text as T
+import Data.Text qualified as T
+import Himari
 import Text.Regex.TDFA
 
 -- | HTMLエスケープされた記号が中途半端に残って別の意味になるのを防ぐため、
