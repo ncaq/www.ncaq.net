@@ -99,7 +99,7 @@ hakyllRun options (entryIndex, years) = hakyllWithArgs conf options $ do
   -- 何でも良いけれど適当に区切らないとGoogleがインデックスを拒否する。
   let entryIndexOfYear year = do
         create [fromFilePath $ year <> "/index.html"] $ do
-          route $ constRoute $ year <> "/index.html"
+          route . constRoute $ year <> "/index.html"
           let context =
                 listField
                   "entry"

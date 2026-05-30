@@ -19,7 +19,7 @@ integrateExec options runHakyll = do
     -- スタイル変更時にバンドルを更新し続ける。
     -- 合わせてプレビューサーバが起動したらwebブラウザでプレビューを開く。
     Watch{host, port, no_server} -> do
-      unless no_server $ void $ openBrowserWhenReady host port
+      unless no_server . void $ openBrowserWhenReady host port
       withViteWatch runHakyll
     Server{host, port} -> do
       void $ openBrowserWhenReady host port

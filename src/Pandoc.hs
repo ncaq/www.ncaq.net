@@ -11,12 +11,12 @@ pandocCompilerCustom :: Compiler (Item String)
 pandocCompilerCustom =
   let extensions =
         -- 大したこと無いように見えて結構パフォーマンスに影響するので無効化する。
-        disableExtension Ext_pandoc_title_block $
+        disableExtension Ext_pandoc_title_block
           -- 記号を変に変えられるのは困るので無効化する。
-          disableExtension Ext_smart $
-            -- 一応自動見出し向けのidを入れる。
-            enableExtension Ext_auto_identifiers $
-              readerExtensions defaultHakyllReaderOptions
+          . disableExtension Ext_smart
+          -- 一応自動見出し向けのidを入れる。
+          . enableExtension Ext_auto_identifiers
+          $ readerExtensions defaultHakyllReaderOptions
       -- pygmentizeでシンタックスハイライト。
       transformBlock (CodeBlock (_identifier, classes, _keyValue) str) =
         let fileName = T.unwords classes
