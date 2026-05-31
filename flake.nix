@@ -32,7 +32,7 @@
       flake = false;
     };
     himari-src = {
-      url = "github:ncaq/himari/v1.1.2.2";
+      url = "github:ncaq/himari/v1.1.3.0";
       flake = false;
     };
   };
@@ -148,7 +148,7 @@
                 overrides = hself: _hsuper: {
                   # himariはまだstableなnixpkgsに入っていないため、
                   # オーバーライドで追加します。
-                  himari = pkgs.haskell.lib.compose.doJailbreak (hself.callCabal2nix "himari" inputs.himari-src { });
+                  himari = hself.callCabal2nix "himari" inputs.himari-src { };
                 };
               };
           haskellSrc = lib.fileset.toSource {

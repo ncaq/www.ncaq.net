@@ -21,16 +21,16 @@
     "himari-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1779962902,
-        "narHash": "sha256-9DaHOg4ETIzhcfA/zxaqnzyi41gKeT1O+4wKBypetqo=",
+        "lastModified": 1780124485,
+        "narHash": "sha256-y/lnu2R+1POrvWk3u/z/Bp1N0FvHWidLrvx1DsfAYng=",
         "owner": "ncaq",
         "repo": "himari",
-        "rev": "69d5ab17706953905e8f86e66b45e287b2957150",
+        "rev": "264ae8e235dee1aaedc49c9d059954b672d8cecf",
         "type": "github"
       },
       "original": {
         "owner": "ncaq",
-        "ref": "v1.1.2.2",
+        "ref": "v1.1.3.0",
         "repo": "himari",
         "type": "github"
       }
