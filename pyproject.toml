@@ -5,3 +5,6 @@ description = ""
 authors = [{ name = "ncaq", email = "ncaq@ncaq.net" }]
 requires-python = ">=3.12"
 dependencies = ["pygments>=2.19.0"]
+
+[tool.uv]
+exclude-newer = "P3D"
