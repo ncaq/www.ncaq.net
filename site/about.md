@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2025-11-14T12:04:53+09:00
+updated: 2026-06-08T19:36:31+09:00
 ---
 
 # 名前
@@ -31,6 +31,7 @@ updated: 2025-11-14T12:04:53+09:00
 - C#
 - C++
 - Common Lisp
+- Nix
 - Raku
 - Ruby
 - Scheme
@@ -85,6 +86,8 @@ updated: 2025-11-14T12:04:53+09:00
 - [ncaq/goodbye-rfc-2822-date-time: I hate the date and time notation method like RFC 2822. This extension converts time notation to native language as much as possible.](https://github.com/ncaq/goodbye-rfc-2822-date-time)
 - [ncaq/google-search-title-qualified: Google will omit the title of the web page. With this add-on, the original title is used as much as possible.](https://github.com/ncaq/google-search-title-qualified)
 - [ncaq/haskell-import-graph: create haskell import graph for graphviz](https://github.com/ncaq/haskell-import-graph)
+- [ncaq/himari: A standard library for Haskell as an alternative to rio](https://github.com/ncaq/himari/)
+- [ncaq/konoka: AI prompts, agents, and skills as loadable plugins.](https://github.com/ncaq/konoka)
 - [ncaq/nlod: JLODを改良したMozc/Google日本語入力向けのDvorakローマ字テーブル](https://github.com/ncaq/nlod)
 - [ncaq/prohell: Prolog like programming language](https://github.com/ncaq/prohell)
 - [ncaq/recentf-remove-sudo-tramp-prefix: normalize recentf history](https://github.com/ncaq/recentf-remove-sudo-tramp-prefix)
@@ -213,17 +216,24 @@ TwitterやSlackなどで会話をする時は、
 - 2chの[ソフトウェア板](https://potato.2ch.net/software/)でソフトウェアに興味を持ちました
 - 特にwebブラウザに興味を持つようになり、様々なwebブラウザを試してみました
 - そこでOperaのUser CSS機能を知りました
-- 当時のwebサイトは大量のヘッドラインがあることが多く、デザインに不満を持つようになり、ヘッダを消したり不要なサイドカラムを消したくなりました
+- 当時のwebサイトは大量のヘッドラインがあることが多く、
+  デザインに不満を持つようになり、
+  ヘッダを消したり不要なサイドカラムを消したくなりました
 - 自分でCSSを書くようになりました
 
 ## 2010年
 
-- 中学を不登校のまま卒業することになって、親が高校に行かせようと様々な高校のオープンキャンパスに私を連れて行きました
-- [クラーク記念国際高等学校 秋葉原ITキャンパス](https://www.clark.ed.jp/kanto/it/)のオープンキャンパスで簡単なノベルゲームの作成をして、私は自分でゲームを作れることに感動して、この高校に通うことにしました
+- 中学を不登校のまま卒業することになって、
+  親が高校に行かせようと様々な高校のオープンキャンパスに私を連れて行きました
+- [クラーク記念国際高等学校 秋葉原ITキャンパス](https://www.clark.ed.jp/kanto/it/)の、
+  オープンキャンパスで簡単なノベルゲームの作成をして、
+  私は自分でゲームを作れることに感動して、
+  この高校に通うことにしました
 
 ## 2011年
 
-- [NScripter](http://www.nscripter.com/)でテトリスを作りました[ncaq/NoveIf: NScripterを使って作成したテトリスです](https://github.com/ncaq/NoveIf)
+- [NScripter](http://www.nscripter.com/)でテトリスを作りました
+  [ncaq/NoveIf: NScripterを使って作成したテトリスです](https://github.com/ncaq/NoveIf)
 - C++と[DXライブラリ](http://dxlib.o.oo7.jp/)でオセロゲームを作りました
 
 ## 2012年
@@ -235,10 +245,15 @@ TwitterやSlackなどで会話をする時は、
 
 ## 2013年
 
-- GNU/Linuxをメイン環境にしたので、Visual Studioが使えなくなったので、Emacs Lispを書きました[ncaq/.emacs.d: Emacsの設定ディレクトリ](https://github.com/ncaq/.emacs.d)
+- GNU/Linuxをメイン環境にしたので、
+  Visual Studioが使えなくなったので、
+  Emacs Lispを書きました[ncaq/.emacs.d: Emacsの設定ディレクトリ](https://github.com/ncaq/.emacs.d)
 - Emacs Lispを管理するためにgitやsshやzshを学習しました[ncaq/.zsh.d](https://github.com/ncaq/.zsh.d)
 - [すごいHaskellたのしく学ぼう!](https://estore.ohmsha.co.jp/titles/978427406885P)を読みふけりました
-- D言語で[glfw](http://www.glfw.org/)だけでFPSを作ろうとして[OpenGLプログラミングガイド](http://amzn.to/2yZShev)を買ってカメラと弾発射機構を作って挫折しました[ncaq/dogd: FPS(開発中止)](https://github.com/ncaq/dogd)
+- D言語で[glfw](http://www.glfw.org/)だけでFPSを作ろうとして、
+  [OpenGLプログラミングガイド](http://amzn.to/2yZShev)を買って、
+  カメラと弾発射機構を作って挫折しました
+  [ncaq/dogd: FPS(開発中止)](https://github.com/ncaq/dogd)
 - [ncaq/auto-sudoedit: sudo tramp when rootfire](https://github.com/ncaq/auto-sudoedit)
 - [ncaq/recentf-remove-sudo-tramp-prefix: emacs extension](https://github.com/ncaq/recentf-remove-sudo-tramp-prefix)
 - [ncaq/symbolword-mode: word split overhaul](https://github.com/ncaq/symbolword-mode)
@@ -249,8 +264,11 @@ TwitterやSlackなどで会話をする時は、
 ## 2014年
 
 - 大学受験をしました
-  - 膨大な読書のおかげで、現代文と倫理だけは無勉強でも出来たので、数学と生物だけを勉強してセンター利用受験をしました
-  - その結果[専修大学 ネットワーク情報学部](https://www.senshu-u.ac.jp/sc_grsc/network.html)になんとか合格しました(前期は落ちて後期に受かった)
+  - 膨大な読書のおかげで、
+    現代文と倫理だけは無勉強でも出来たので、
+    数学と生物だけを勉強してセンター利用受験をしました
+  - その結果[専修大学 ネットワーク情報学部](https://www.senshu-u.ac.jp/sc_grsc/network.html)に、
+    なんとか合格しました(前期は落ちて後期に受かった)
 - 英語と数学などの教養科目と闘いました
 - プログラミングの課題で遊ぶ[ncaq/poker: コマンドライン用ポーカー](https://github.com/ncaq/poker)
 - [ncaq/wikipedia_solarized_dark_for_programmer](https://github.com/ncaq/wikipedia_solarized_dark_for_programmer)
@@ -263,24 +281,33 @@ TwitterやSlackなどで会話をする時は、
 - [ncaq/run-or-raise: focus or exec command script for generic window manager](https://github.com/ncaq/run-or-raise)
 - [ncaq/uniq-deep: alternative of unix uniq command. 'uniq-deep' detect repeated lines unless they are adjacent.](https://github.com/ncaq/uniq-deep)
 - [ncaq/nlod: JLODを改良したMozc/Google日本語入力向けのDvorakローマ字テーブル](https://github.com/ncaq/nlod)
-- YesodでPDFをSVGに変換するしてスライドを閲覧出来るようにするwebアプリケーションを途中まで作りました(PDFのリンクなどを含むテキストが抽出困難だったので開発中止)
+- YesodでPDFをSVGに変換するしてスライドを閲覧出来るようにするwebアプリケーションを途中まで作りました
+  (PDFのリンクなどを含むテキストが抽出困難だったので開発中止)
 - Javaの学習
   - [ncaq/radixconv: GUIを用いた基数変換器](https://github.com/ncaq/radixconv)
   - [ncaq/chat.sd: チャットツール](https://github.com/ncaq/chat.sd)
-- Ruby on Railsによるwebアプリケーション開発の学習[ncaq/ticketol: チケット予約サービス](https://github.com/ncaq/ticketol)
+- Ruby on Railsによるwebアプリケーション開発の学習
+  [ncaq/ticketol: チケット予約サービス](https://github.com/ncaq/ticketol)
 - [ncaq/haskell-import-graph: create haskell import graph for graphviz](https://github.com/ncaq/haskell-import-graph)
 
 ## 2016年
 
-- ゲーム販売webアプリケーション[SYAKERAKE](https://www.syakerake.jp/)の開発を本格的に開始しました。Haskellと[Yesod](https://www.yesodweb.com/)を使って初期はフルスタックに全部担当しました。[ゲーム販売webアプリケーションSYAKERAKEを支える技術, HaskellとYesodで作られています - ncaq](https://www.ncaq.net/2017/12/03/00/00/00/)
-- 分散情報システムの講義中に[Maude](http://maude.cs.illinois.edu/w/index.php?title=The_Maude_System)を学習[ncaq/sub-maude: Maude language subset](https://github.com/ncaq/sub-maude)
+- ゲーム販売webアプリケーション[SYAKERAKE](https://www.syakerake.jp/)の開発を本格的に開始しました。
+  Haskellと[Yesod](https://www.yesodweb.com/)を使って初期はフルスタックに全部担当しました。
+  [ゲーム販売webアプリケーションSYAKERAKEを支える技術, HaskellとYesodで作られています - ncaq](https://www.ncaq.net/2017/12/03/00/00/00/)
+- 分散情報システムの講義中に、
+  [Maude](http://maude.cs.illinois.edu/w/index.php?title=The_Maude_System)を学習
+  [ncaq/sub-maude: Maude language subset](https://github.com/ncaq/sub-maude)
 - [ncaq/unown-expl: Pokemon exp programming language](https://github.com/ncaq/unown-expl)
 - 情報セキュリティスペシャリスト合格
-- ネットワークスペシャリスト合格[ネットワークスペシャリスト試験に合格したので学習方法などを書いておきます - ncaq](https://www.ncaq.net/2016/12/31/)
-- このサイトを[Hakyll](https://jaspervdj.be/hakyll/)で作成[ncaq/www.ncaq.net: ncaq website](https://github.com/ncaq/www.ncaq.net)
+- ネットワークスペシャリスト合格
+  [ネットワークスペシャリスト試験に合格したので学習方法などを書いておきます - ncaq](https://www.ncaq.net/2016/12/31/)
+- このサイトを[Hakyll](https://jaspervdj.be/hakyll/)で作成
+  [ncaq/www.ncaq.net: ncaq website](https://github.com/ncaq/www.ncaq.net)
 - [ncaq/mikutter_sub_parts_image_flex: mikutterで画像をシンプルにインライン表示するプラグイン](https://github.com/ncaq/mikutter_sub_parts_image_flex)
 - [ncaq/mikutter_header_client: viaをheaderに表示します](https://github.com/ncaq/mikutter_header_client)
-- テキスト処理の講義でPrologのような動作をするプログラミング言語を実装[ncaq/prohell: Prolog like programming language](https://github.com/ncaq/prohell)
+- テキスト処理の講義でPrologのような動作をするプログラミング言語を実装
+  [ncaq/prohell: Prolog like programming language](https://github.com/ncaq/prohell)
 
 ## 2017年
 
@@ -302,13 +329,15 @@ TwitterやSlackなどで会話をする時は、
 - [Syake株式会社](https://syake.co.jp/)継続
 - [UNIPRO Inc.](https://unipro.co.jp/)入社
 - データベーススペシャリスト合格[データベーススペシャリスト試験に2回目の挑戦で合格しました - ncaq](https://www.ncaq.net/2018/06/20/15/19/54/)
-- Rustと[Actix Web](https://github.com/actix/actix-web)とTypeScriptとReactによるネットワーク配信管理システムの開発
+- Rustと[Actix Web](https://github.com/actix/actix-web)とTypeScriptとReactによる、
+  ネットワーク配信管理システムの開発
 
 ## 2019年
 
 - [ncaq/goodbye-rfc-2822-date-time: I hate the date and time notation method like RFC 2822. This extension converts time notation to native language as much as possible.](https://github.com/ncaq/goodbye-rfc-2822-date-time)
 - プロジェクトマネージャになる
-- 自然言語処理ソフトウェアをJavaにScalaをねじ込んで書き始める[経験5年のHaskellユーザがScalaを仕事で半年使ってみた - ncaq](https://www.ncaq.net/2020/11/18/19/02/59/)
+- 自然言語処理ソフトウェアをJavaにScalaをねじ込んで書き始める
+  [経験5年のHaskellユーザがScalaを仕事で半年使ってみた - ncaq](https://www.ncaq.net/2020/11/18/19/02/59/)
 - [精神障害者保健福祉手帳を更新して2級にしましたけどよく考えたらメリットが見いだせません - ncaq](https://www.ncaq.net/2019/12/03/20/14/47/)
 
 ## 2020年
@@ -330,7 +359,8 @@ TwitterやSlackなどで会話をする時は、
 ## 2022年
 
 - Haskellでの自然言語処理を続行
-- [yesodweb/serversession: Secure, modular server-side sessions.](https://github.com/yesodweb/serversession)のPR作ってたらメンテナになりました
+- [yesodweb/serversession: Secure, modular server-side sessions.](https://github.com/yesodweb/serversession)の、
+  PR作ってたらメンテナになりました
 - NestJS+Reactでの企業向け動画保存・配信サービス
 - SwiftでのiOSアプリケーション
 
@@ -348,3 +378,48 @@ TwitterやSlackなどで会話をする時は、
 - BaaS実装のためのデータベースの調査
 - [ncaq/typespec-ts-mode: Major mode for TypeSpec using tree-sitter](https://github.com/ncaq/typespec-ts-mode/)
   - [happenslol/tree-sitter-typespec](https://github.com/happenslol/tree-sitter-typespec/)の改善
+
+## 2025年
+
+- 環境を[NixOS](https://nixos.org/)に乗り換えました。
+- BaaS実装プロジェクトに取り組んでいました。
+- 7月頃から原因不明の微熱が頻繁に発生するようになり、
+  風邪を引いていない時も37度台の微熱が発生するようになり、
+  体調が非常に悪くなりました。
+- BaaSプロジェクトのために、
+  HaskellでErlang/OTPライクなプロセス間通信ライブラリを、
+  Protocol BufferとQUICで実装しました。
+  実装したのはHaskell向けだけですが言語中立になるように努めたので、
+  TypeScript/Node.jsなどにも実装して相互通信できるはずです。
+- BaaSプロジェクトのデモを実装するために、
+  GraphQLの使い方をある程度理解しました。
+
+## 2026年
+
+- 前からではありましたがBaaSプロジェクトで、
+  [rio: A standard library for Haskell](https://hackage.haskell.org/package/rio)
+  への不満が強まってきました。
+  しかし不満点の修正をすると互換性のないレベルになってしまうので、
+  メンテナ的にはそういうPRは受け入れがたいだろうなと思ったので、
+  自分で代わりになるhimariライブラリを作っていくことにしました。
+  [himari: A standard library for Haskell as an alternative to rio](https://hackage.haskell.org/package/himari)
+- 議事録の作成や要約や補足を管理するためのwebアプリケーションを、
+  TypeScript+React+Hono+[Drizzle](https://orm.drizzle.team/)で実装するチームの一人として行いました。
+  - その際Drizzleをアプリケーションに組み込む方法の一つに、
+    [Drizzle ORM - Effect Postgres](https://orm.drizzle.team/docs/connect-effect-postgres)
+    があったので、
+    [fp-ts](https://gcanti.github.io/fp-ts/)は前から使っていて興味もあったので、
+    [Effect – The best way to build robust apps in TypeScript](https://effect.website/)
+    を使ってみたら、
+    コンテキストの管理がHaskellの、
+    [The ReaderT Design Pattern](https://academy.fpblock.com/blog/2017/06/readert-design-pattern/)
+    に似た感じだったり、
+    色々と高水準にコードが書ける仕組みが用意されていてファンになりました。
+    もちろん[io-ts](https://gcanti.github.io/io-ts/)のように、
+    スキーマを定義してバリデーションを型レベルで行えたりもします。
+- このプロジェクトを行っている時に、
+  Claudeのデフォルトのコードレビューの仕組みなどが使いにくいなと思ったので色々工夫して、
+  それらを含めた成果を、
+  [ncaq/konoka: AI prompts, agents, and skills as loadable plugins.](https://github.com/ncaq/konoka)
+  として公開しています。
+- 5月中旬から精神的に不安定になり休職することにしました。
