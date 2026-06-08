@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2026-06-08T19:02:17+09:00
+updated: 2026-06-08T19:20:51+09:00
 ---
 
 # 名前
@@ -391,3 +391,33 @@ TwitterやSlackなどで会話をする時は、
   実装したのはHaskell向けだけですが言語中立になるように努めたので、
   TypeScript/Node.jsなどにも実装して相互通信できるはずです。
 - BasSプロジェクトのデモを実装するためにGraphQLの使い方をある程度理解しました。
+
+## 2026年
+
+- 前からではありましたがBaaSプロジェクトで、
+  [rio: A standard library for Haskell](https://hackage.haskell.org/package/rio)
+  への不満が強まってきました。
+  しかし不満点の修正をすると互換性のないレベルになってしまうので、
+  メンテナ的にはそういうPRは受け入れがたいだろうなと思ったので、
+  自分で代わりになるhimariライブラリを作っていくことにしました。
+  [himari: A standard library for Haskell as an alternative to rio](https://hackage.haskell.org/package/himari)
+- 議事録の作成や要約や補足を管理するためのwebアプリケーションを、
+  TypeScript+React+Hono+[Drizzle](https://orm.drizzle.team/)で実装するチームの一人として行いました。
+  - その際Drizzleをアプリケーションに組み込む方法の一つに、
+    [Drizzle ORM - Effect Postgres](https://orm.drizzle.team/docs/connect-effect-postgres)
+    があったので、
+    [fp-ts](https://gcanti.github.io/fp-ts/)は前から使っていて興味もあったので、
+    [Effect – The best way to build robust apps in TypeScript](https://effect.website/)
+    を使ってみたら、
+    コンテキストの管理がHaskellの、
+    [The ReaderT Design Pattern](https://academy.fpblock.com/blog/2017/06/readert-design-pattern/)
+    に似た感じだったり、
+    色々と高水準にコードが書ける仕組みが用意されていてファンになりました。
+    もちろん[io-ts](https://gcanti.github.io/io-ts/)のように、
+    スキーマを定義してバリデーションを型レベルで行えたりもします。
+- このプロジェクトを行っている時に、
+  Claudeのデフォルトのコードレビューの仕組みなどが使いにくいなと思ったので色々工夫して、
+  それらを含めた成果を、
+  [ncaq/konoka: AI prompts, agents, and skills as loadable plugins.](https://github.com/ncaq/konoka)
+  として公開しています。
+- 5月中旬から精神的に不安定になり休職することにしました。
