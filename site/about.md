@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2026-06-08T19:20:51+09:00
+updated: 2026-06-08T19:22:08+09:00
 ---
 
 # 名前
@@ -31,6 +31,7 @@ updated: 2026-06-08T19:20:51+09:00
 - C#
 - C++
 - Common Lisp
+- Nix
 - Raku
 - Ruby
 - Scheme
