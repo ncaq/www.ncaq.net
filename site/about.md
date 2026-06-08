@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2026-06-08T18:52:20+09:00
+updated: 2026-06-08T19:02:17+09:00
 ---
 
 # 名前
@@ -377,3 +377,17 @@ TwitterやSlackなどで会話をする時は、
 - BaaS実装のためのデータベースの調査
 - [ncaq/typespec-ts-mode: Major mode for TypeSpec using tree-sitter](https://github.com/ncaq/typespec-ts-mode/)
   - [happenslol/tree-sitter-typespec](https://github.com/happenslol/tree-sitter-typespec/)の改善
+
+## 2025年
+
+- 環境を[NixOS](https://nixos.org/)に乗り換えました。
+- BaaS実装プロジェクトに取り組んでいました。
+- 7月頃から原因不明の微熱が頻繁に発生するようになり、
+  風邪を引いていない時も37度台の微熱が発生するようになり、
+  体調が非常に悪くなりました。
+- BasSプロジェクトのために、
+  HaskellでErlang/OTPライクなプロセス間通信ライブラリを、
+  Protocol BufferとQUICで実装しました。
+  実装したのはHaskell向けだけですが言語中立になるように努めたので、
+  TypeScript/Node.jsなどにも実装して相互通信できるはずです。
+- BasSプロジェクトのデモを実装するためにGraphQLの使い方をある程度理解しました。
