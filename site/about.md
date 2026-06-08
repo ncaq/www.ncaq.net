@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2025-11-14T12:04:53+09:00
+updated: 2026-06-08T18:52:20+09:00
 ---
 
 # 名前
@@ -85,6 +85,8 @@ updated: 2025-11-14T12:04:53+09:00
 - [ncaq/goodbye-rfc-2822-date-time: I hate the date and time notation method like RFC 2822. This extension converts time notation to native language as much as possible.](https://github.com/ncaq/goodbye-rfc-2822-date-time)
 - [ncaq/google-search-title-qualified: Google will omit the title of the web page. With this add-on, the original title is used as much as possible.](https://github.com/ncaq/google-search-title-qualified)
 - [ncaq/haskell-import-graph: create haskell import graph for graphviz](https://github.com/ncaq/haskell-import-graph)
+- [ncaq/himari: A standard library for Haskell as an alternative to rio](https://github.com/ncaq/himari/)
+- [ncaq/konoka: AI prompts, agents, and skills as loadable plugins.](https://github.com/ncaq/konoka)
 - [ncaq/nlod: JLODを改良したMozc/Google日本語入力向けのDvorakローマ字テーブル](https://github.com/ncaq/nlod)
 - [ncaq/prohell: Prolog like programming language](https://github.com/ncaq/prohell)
 - [ncaq/recentf-remove-sudo-tramp-prefix: normalize recentf history](https://github.com/ncaq/recentf-remove-sudo-tramp-prefix)
