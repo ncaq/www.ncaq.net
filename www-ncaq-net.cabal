@@ -82,6 +82,7 @@ executable www-ncaq-net
     regex-tdfa,
     split,
     text,
+    time,
 
   -- cabal-gild: discover ./src --exclude=**/Main.hs
   other-modules:
@@ -101,5 +102,6 @@ executable www-ncaq-net
     Runner
     Teaser
     Tidy
+    Timestamp
     Title
     Vite
