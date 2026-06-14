@@ -31,21 +31,15 @@ executable www-ncaq-net
     -rtsopts
     -with-rtsopts=-N
 
-  default-language: GHC2021
+  default-language: GHC2024
   default-extensions:
     ApplicativeDo
     BlockArguments
     CPP
-    DataKinds
     DefaultSignatures
-    DerivingStrategies
     DerivingVia
-    DisambiguateRecordFields
     DuplicateRecordFields
-    ExplicitNamespaces
     FunctionalDependencies
-    GADTs
-    LambdaCase
     LexicalNegation
     LinearTypes
     MonadComprehensions
@@ -63,7 +57,6 @@ executable www-ncaq-net
     QuasiQuotes
     RecordWildCards
     RecursiveDo
-    RoleAnnotations
     StrictData
     TemplateHaskell
     TypeData
