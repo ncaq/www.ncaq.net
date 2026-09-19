@@ -15,7 +15,7 @@
     "watch": "vite build --watch"
   },
   "devDependencies": {
-    "@double-great/stylelint-a11y": "3.5.2",
+    "@double-great/stylelint-a11y": "3.5.4",
     "@types/node": "22.20.3",
     "lightningcss": "1.33.0",
     "npm-run-all2": "9.0.3",
