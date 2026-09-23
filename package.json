@@ -19,7 +19,7 @@
     "@types/node": "22.20.3",
     "lightningcss": "1.33.0",
     "npm-run-all2": "9.0.3",
-    "prettier": "3.9.7",
+    "prettier": "3.9.8",
     "stylelint": "17.15.0",
     "stylelint-browser-compat": "1.0.0-beta.180",
     "stylelint-config-clean-order": "10.0.0",
