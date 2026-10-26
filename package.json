@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@double-great/stylelint-a11y": "3.8.1",
-    "@types/node": "22.20.4",
+    "@types/node": "22.20.5",
     "lightningcss": "1.33.0",
     "npm-run-all2": "9.0.4",
     "prettier": "3.9.10",
