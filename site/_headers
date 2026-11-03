@@ -1,0 +1,6 @@
+# Preference signals for AI usage. See robots.txt for details.
+# Content-Usage: https://datatracker.ietf.org/doc/draft-ietf-aipref-attach/
+# tdm-reservation: https://www.w3.org/community/reports/tdmrep/CG-FINAL-tdmrep-20240510/
+/*
+  Content-Usage: search=y, ai-use=y, train-ai=y
+  tdm-reservation: 0
