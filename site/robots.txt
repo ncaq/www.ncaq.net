@@ -1,1 +1,17 @@
+# You may freely view, download, index, and use the contents of this site
+# as AI input or AI training data.
+# No explicit license is granted, because some articles contain
+# third-party material whose status (quotation or reproduction)
+# even the author cannot determine.
+# Use at your own risk.
+# No rights are reserved under Article 4 of Directive (EU) 2019/790.
+#
+# Content-Signal: https://contentsignals.org/
+# Content-Usage: https://datatracker.ietf.org/doc/draft-ietf-aipref-attach/
+
+User-agent: *
+Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Content-Usage: search=y, ai-use=y, train-ai=y
+
 Sitemap: https://www.ncaq.net/sitemap.xml
