@@ -1,7 +1,7 @@
 ---
 title: about
 date: 2016-10-17T22:33:29+09:00
-updated: 2026-11-15T19:43:23+09:00
+updated: 2026-11-15T19:45:56+09:00
 ---
 
 # 名前
@@ -427,3 +427,8 @@ TwitterやSlackなどで会話をする時は、
   [ncaq/konoka: AI prompts, agents, and skills as loadable plugins.](https://github.com/ncaq/konoka)
   として公開しています。
 - 5月中旬から精神的に不安定になり休職することにしました。
+- [ncaq/blue-prompt: LLMにブルーアーカイブを扱わせる時に役に立つリポジトリ](https://github.com/ncaq/blue-prompt)
+  を本格的に作成しました。
+  スクレイピングに向いた言語としてF#を採用しました。
+  ロールプレイはClaudeで小説などを書くときや、
+  Claude Codeでの作業のモチベーション向上に役立っています。
