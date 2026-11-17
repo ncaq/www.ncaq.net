@@ -1,7 +1,6 @@
 module Run (hakyllRun) where
 
 import Configuration
-import Data.List qualified as L
 import EntryContext
 import Feed
 import Hakyll
@@ -14,8 +13,8 @@ import Tidy
 import Title
 
 -- | 下準備が終わった後hakyllを実際に起動する。
-hakyllRun :: Options -> (String, [String]) -> IO ()
-hakyllRun options (entryIndex, years) = hakyllWithArgs conf options $ do
+hakyllRun :: (MonadIO m) => Options -> (String, [String]) -> m ()
+hakyllRun options (entryIndex, years) = liftIO . hakyllWithArgs conf options $ do
   match "templates/*" $ compile templateCompiler
 
   -- 現在トップレベルから自動転写する画像の拡張子一覧。
@@ -83,7 +82,7 @@ hakyllRun options (entryIndex, years) = hakyllWithArgs conf options $ do
           listField
             "entry"
             entryContext
-            (L.take 5 . reverse <$> loadAll (fromGlob "entry/*.md"))
+            (take 5 . reverse <$> loadAll (fromGlob "entry/*.md"))
             <> indexContext
               "ncaq"
               "ncaq website root"

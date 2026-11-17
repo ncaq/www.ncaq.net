@@ -3,7 +3,7 @@ module Vite (runViteBuild, withViteWatch) where
 import Himari
 
 -- | `npm run build`を呼んでスタイルシートをバンドルする。
-runViteBuild :: IO ()
+runViteBuild :: (MonadIO m) => m ()
 runViteBuild = runProcess_ (proc "npm" ["run", "build"])
 
 -- | `npm run watch`をバックグラウンドで起動して、
@@ -11,7 +11,7 @@ runViteBuild = runProcess_ (proc "npm" ["run", "build"])
 -- Hakyllの処理が終わったら(あるいは例外で抜けたら)Viteも停止します。
 -- watch起動直後はまだ初回ビルドが完了していないので、
 -- 先に`npm run build`を同期実行してHakyllが起動直後にバンドルを参照できる状態にしておきます。
-withViteWatch :: IO a -> IO a
+withViteWatch :: (MonadUnliftIO m) => m a -> m a
 withViteWatch action = do
   runViteBuild
   withProcessTerm (proc "npm" ["run", "watch"]) (const action)
