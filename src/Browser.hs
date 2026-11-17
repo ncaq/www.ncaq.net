@@ -1,12 +1,13 @@
 module Browser
-  ( BrowserException (..)
-  , openBrowserWhenReady
+  ( openBrowserWhenReady
   ) where
 
 import Himari
 import Network.Socket
 
 -- | プレビューをwebブラウザで開く処理で発生する例外。
+-- 失敗は`openBrowserWhenReady`の中でログに出すため、
+-- このモジュールの外には送出されません。
 data BrowserException
   = -- | 規定時間待ってもサーバに接続できなかった。
     ServerNotReady
@@ -15,6 +16,9 @@ data BrowserException
       Int
       -- ^ 接続しようとしたポート番号。
   | -- | ホスト名からアドレスを解決できなかった。
+    -- 接続試行の中でだけ使われ、
+    -- `waitForPort`の再試行の対象になります。
+    -- 再試行が尽きた場合は`ServerNotReady`として扱われます。
     AddressNotResolved
       HostName
       -- ^ 解決しようとしたホスト名。
