@@ -17,74 +17,100 @@ reexports:
   - module Himari exports "himari" Himari.Prelude
 
   # Himari.Prelude → 外部モジュール
-  - module Himari.Prelude exports "base" Control.Applicative
-  - module Himari.Prelude exports "base" Control.Monad
-  - module Himari.Prelude exports "base" Control.Monad.ST
-  - module Himari.Prelude exports "base" Data.Bifoldable
-  - module Himari.Prelude exports "base" Data.Bitraversable
-  - module Himari.Prelude exports "base" Data.Bool
   - module Himari.Prelude exports "base" Data.Coerce
-  - module Himari.Prelude exports "base" Data.Complex
-  - module Himari.Prelude exports "base" Data.Either
-  - module Himari.Prelude exports "base" Data.Eq
-  - module Himari.Prelude exports "base" Data.Fixed
-  - module Himari.Prelude exports "base" Data.Foldable
-  - module Himari.Prelude exports "base" Data.Function
-  - module Himari.Prelude exports "base" Data.Functor.Compose
-  - module Himari.Prelude exports "base" Data.Int
-  - module Himari.Prelude exports "base" Data.Kind
-  - module Himari.Prelude exports "base" Data.Maybe
-  - module Himari.Prelude exports "base" Data.Ord
-  - module Himari.Prelude exports "base" Data.Proxy
-  - module Himari.Prelude exports "base" Data.Ratio
-  - module Himari.Prelude exports "base" Data.String
-  - module Himari.Prelude exports "base" Data.Traversable
-  - module Himari.Prelude exports "base" Data.Tuple
-  - module Himari.Prelude exports "base" Data.Void
-  - module Himari.Prelude exports "base" Data.Word
-  - module Himari.Prelude exports "base" GHC.Stack
-  - module Himari.Prelude exports "base" Numeric
-  - module Himari.Prelude exports "base" Numeric.Natural
-  - module Himari.Prelude exports "base" Prelude
-  - module Himari.Prelude exports "base" Text.Show
-  - module Himari.Prelude exports "convertible" Data.Convertible
-  - module Himari.Prelude exports "deepseq" Control.DeepSeq
-  - module Himari.Prelude exports "hashable" Data.Hashable
-  - module Himari.Prelude exports "lens" Control.Lens
-  - module Himari.Prelude exports "monad-logger" Control.Monad.Logger
-  - module Himari.Prelude exports "mtl" Control.Monad.Cont
-  - module Himari.Prelude exports "mtl" Control.Monad.Reader
-  - module Himari.Prelude exports "mtl" Control.Monad.State.Strict
-  - module Himari.Prelude exports "mtl" Control.Monad.Writer.CPS
   - module Himari.Prelude exports "pretty-simple" Debug.Pretty.Simple
-  - module Himari.Prelude exports "pretty-simple" Text.Pretty.Simple
   - module Himari.Prelude exports "primitive" Control.Monad.Primitive
-  - module Himari.Prelude exports "time" Data.Time
+  - module Himari.Prelude exports "retry" UnliftIO.Retry
   - module Himari.Prelude exports "unliftio" UnliftIO
   - module Himari.Prelude exports "unliftio" UnliftIO.Concurrent
   - module Himari.Prelude exports "unliftio" UnliftIO.Directory
-  - module Himari.Prelude exports "unliftio" UnliftIO.Environment
   - module Himari.Prelude exports "unliftio" UnliftIO.Exception.Lens
   - module Himari.Prelude exports "unliftio" UnliftIO.IO.File
   # Himari.Prelude → 内部サブモジュール
   - module Himari.Prelude exports "himari" Himari.Prelude.Aeson
-  - module Himari.Prelude exports "himari" Himari.Prelude.Arrow
-  - module Himari.Prelude exports "himari" Himari.Prelude.Catch
-  - module Himari.Prelude exports "himari" Himari.Prelude.Category
-  - module Himari.Prelude exports "himari" Himari.Prelude.Data
-  - module Himari.Prelude exports "himari" Himari.Prelude.FilePath
-  - module Himari.Prelude exports "himari" Himari.Prelude.Generics
-  - module Himari.Prelude exports "himari" Himari.Prelude.Monoid
+  - module Himari.Prelude exports "himari" Himari.Prelude.Casing
+  - module Himari.Prelude exports "himari" Himari.Prelude.Here
   - module Himari.Prelude exports "himari" Himari.Prelude.Process
-  - module Himari.Prelude exports "himari" Himari.Prelude.Safe
-  - module Himari.Prelude exports "himari" Himari.Prelude.Type
   - module Himari.Prelude exports "himari" Himari.Prelude.TypeLevel
+  - module Himari.Prelude exports "himari" Himari.Prelude.UUID
+  - module Himari.Prelude exports "himari" Himari.SafePrelude
+
+  # Himari.SafePrelude → 外部モジュール
+  - module Himari.SafePrelude exports "base" Control.Applicative
+  - module Himari.SafePrelude exports "base" Control.Monad
+  - module Himari.SafePrelude exports "base" Control.Monad.ST
+  - module Himari.SafePrelude exports "base" Data.Bifoldable
+  - module Himari.SafePrelude exports "base" Data.Bitraversable
+  - module Himari.SafePrelude exports "base" Data.Bool
+  - module Himari.SafePrelude exports "base" Data.Complex
+  - module Himari.SafePrelude exports "base" Data.Either
+  - module Himari.SafePrelude exports "base" Data.Eq
+  - module Himari.SafePrelude exports "base" Data.Fixed
+  - module Himari.SafePrelude exports "base" Data.Foldable
+  - module Himari.SafePrelude exports "base" Data.Function
+  - module Himari.SafePrelude exports "base" Data.Functor.Compose
+  - module Himari.SafePrelude exports "base" Data.Int
+  - module Himari.SafePrelude exports "base" Data.Kind
+  - module Himari.SafePrelude exports "base" Data.Maybe
+  - module Himari.SafePrelude exports "base" Data.Ord
+  - module Himari.SafePrelude exports "base" Data.Proxy
+  - module Himari.SafePrelude exports "base" Data.Ratio
+  - module Himari.SafePrelude exports "base" Data.String
+  - module Himari.SafePrelude exports "base" Data.Traversable
+  - module Himari.SafePrelude exports "base" Data.Tuple
+  - module Himari.SafePrelude exports "base" Data.Void
+  - module Himari.SafePrelude exports "base" Data.Word
+  - module Himari.SafePrelude exports "base" GHC.Stack
+  - module Himari.SafePrelude exports "base" Numeric
+  - module Himari.SafePrelude exports "base" Numeric.Natural
+  - module Himari.SafePrelude exports "base" Prelude
+  - module Himari.SafePrelude exports "base" Text.Show
+  - module Himari.SafePrelude exports "convertible" Data.Convertible
+  - module Himari.SafePrelude exports "data-default" Data.Default
+  - module Himari.SafePrelude exports "deepseq" Control.DeepSeq
+  - module Himari.SafePrelude exports "hashable" Data.Hashable
+  - module Himari.SafePrelude exports "lens" Control.Lens
+  - module Himari.SafePrelude exports "monad-logger" Control.Monad.Logger
+  - module Himari.SafePrelude exports "mtl" Control.Monad.Cont
+  - module Himari.SafePrelude exports "mtl" Control.Monad.Reader
+  - module Himari.SafePrelude exports "mtl" Control.Monad.State.Strict
+  - module Himari.SafePrelude exports "mtl" Control.Monad.Writer.CPS
+  - module Himari.SafePrelude exports "pretty-simple" Text.Pretty.Simple
+  - module Himari.SafePrelude exports "time" Data.Time
+  - module Himari.SafePrelude exports "time" Data.Time.Calendar.Easter
+  - module Himari.SafePrelude exports "time" Data.Time.Calendar.Julian
+  - module Himari.SafePrelude exports "time" Data.Time.Calendar.Month
+  - module Himari.SafePrelude exports "time" Data.Time.Calendar.MonthDay
+  - module Himari.SafePrelude exports "time" Data.Time.Calendar.OrdinalDate
+  - module Himari.SafePrelude exports "time" Data.Time.Calendar.Quarter
+  - module Himari.SafePrelude exports "time" Data.Time.Calendar.WeekDate
+  - module Himari.SafePrelude exports "time" Data.Time.Clock.POSIX
+  - module Himari.SafePrelude exports "time" Data.Time.Clock.System
+  - module Himari.SafePrelude exports "time" Data.Time.Clock.TAI
+  - module Himari.SafePrelude exports "time" Data.Time.Format.ISO8601
+  - module Himari.SafePrelude exports "unliftio" UnliftIO.Environment
+  # Himari.SafePrelude → 内部サブモジュール
+  - module Himari.SafePrelude exports "himari" Himari.Prelude.Arrow
+  - module Himari.SafePrelude exports "himari" Himari.Prelude.Catch
+  - module Himari.SafePrelude exports "himari" Himari.Prelude.Category
+  - module Himari.SafePrelude exports "himari" Himari.Prelude.Data
+  - module Himari.SafePrelude exports "himari" Himari.Prelude.FilePath
+  - module Himari.SafePrelude exports "himari" Himari.Prelude.Generics
+  - module Himari.SafePrelude exports "himari" Himari.Prelude.Monoid
+  - module Himari.SafePrelude exports "himari" Himari.Prelude.Safe
+  - module Himari.SafePrelude exports "himari" Himari.Prelude.Type
 
   # Himari.Prelude.Aeson → 外部モジュール
   - module Himari.Prelude.Aeson exports "aeson" Data.Aeson
   - module Himari.Prelude.Aeson exports "aeson" Data.Aeson.QQ.Simple
   - module Himari.Prelude.Aeson exports "aeson-pretty" Data.Aeson.Encode.Pretty
   - module Himari.Prelude.Aeson exports "deriving-aeson" Deriving.Aeson
+
+  # Himari.Prelude.Casing → 外部モジュール
+  - module Himari.Prelude.Casing exports "casing" Text.Casing
+
+  # Himari.Prelude.Here → 外部モジュール
+  - module Himari.Prelude.Here exports "here" Data.String.Here
 
   # Himari.Prelude.Category → 外部モジュール
   - module Himari.Prelude.Category exports "base" Control.Category
@@ -137,6 +163,10 @@ reexports:
   # Himari.Prelude.TypeLevel → 外部モジュール
   - module Himari.Prelude.TypeLevel exports "base" Data.Type.Coercion
   - module Himari.Prelude.TypeLevel exports "base" Data.Type.Equality
+
+  # Himari.Prelude.UUID → 外部モジュール
+  - module Himari.Prelude.UUID exports "uuid" Data.UUID
+  - module Himari.Prelude.UUID exports "uuid" Data.UUID.V4
 
 # 利用者向けの汎用的なfixity設定
 # hspecは既にfourmoluによってサポートされているため不要

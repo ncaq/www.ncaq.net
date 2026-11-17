@@ -534,86 +534,14 @@
     - message: "Partial: throws on empty Seq."
       name: Data.Sequence.scanr1
       within: []
-- hint:
-    lhs: Data.Text.pack
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.Text.unpack
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.Text.Lazy.pack
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.Text.Lazy.unpack
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.Text.Lazy.toStrict
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.Text.Lazy.fromStrict
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.Text.Encoding.encodeUtf8
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.Text.Encoding.decodeUtf8
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.Text.Lazy.Encoding.encodeUtf8
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.Text.Lazy.Encoding.decodeUtf8
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.ByteString.pack
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.ByteString.unpack
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.ByteString.Lazy.pack
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.ByteString.Lazy.unpack
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.ByteString.Lazy.toStrict
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.ByteString.Lazy.fromStrict
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.Text.Lazy.Builder.fromText
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.Text.Lazy.Builder.fromLazyText
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.Text.Lazy.Builder.fromString
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
-- hint:
-    lhs: Data.Text.Lazy.Builder.toLazyText
-    note: Use convert from Data.Convertible for uniform type conversion
-    rhs: convert
+- functions:
+    - message: Use safeConvert from Data.Convertible to surface conversion errors as Either ConvertError instead of relying on a partial function
+      name: Data.Text.Encoding.decodeUtf8
+      within: []
+- functions:
+    - message: Use safeConvert from Data.Convertible to surface conversion errors as Either ConvertError instead of relying on a partial function
+      name: Data.Text.Lazy.Encoding.decodeUtf8
+      within: []
 - functions:
     - message: "Don't throw in pure code. Use throwM in MonadThrow context."
       name: throw
@@ -908,6 +836,9 @@
     - as: L
       importStyle: explicitOrQualified
       name: Data.List
+    - as: L
+      importStyle: explicitOrQualified
+      name: Data.Containers.ListUtils
     - as: NE
       importStyle: explicitOrQualified
       name: Data.List.NonEmpty
