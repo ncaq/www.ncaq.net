@@ -6,7 +6,7 @@ import Himari
 import Vite
 
 -- | Hakyllの処理とViteなど外部プロセスの処理を統合してコマンドを実行します。
-integrateExec :: Options -> IO () -> IO ()
+integrateExec :: (MonadThrow m, MonadUnliftIO m) => Options -> m () -> m ()
 integrateExec options runHakyll = do
   -- サイト生成を行うサブコマンドの場合のみ、
   -- Viteでスタイルシートをバンドルする。

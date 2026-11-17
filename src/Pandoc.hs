@@ -27,7 +27,7 @@ pandocCompilerCustom =
                     <> if T.null fileName then [] else ["-l", convert fileName]
                 )
                 (convert str)
-      transformBlock x = return x
+      transformBlock x = pure x
    in pandocCompilerWithTransformM
         defaultHakyllReaderOptions
           { readerExtensions = extensions

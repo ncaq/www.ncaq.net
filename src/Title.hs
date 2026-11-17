@@ -22,4 +22,4 @@ getTitleEx item = do
   mTitle <- getMetadataField (itemIdentifier item) "title"
   case mTitle of
     Nothing -> fail "title not found"
-    Just title -> return title
+    Just title -> pure title

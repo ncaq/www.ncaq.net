@@ -15,7 +15,7 @@ validateMetadata identifier = do
         filter (`Set.notMember` allowedMetadataKeys) $
           Key.toString <$> KeyMap.keys metadata
   case unknownKeys of
-    [] -> return ()
+    [] -> pure ()
     keys ->
       fail $
         "Unknown metadata keys in " <> toFilePath identifier <> ": " <> L.intercalate ", " keys
