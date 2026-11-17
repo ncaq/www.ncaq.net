@@ -34,12 +34,18 @@ instance Exception BrowserException
 -- Hakyllのプレビューサーバ起動はブロッキングなので別スレッドで処理します。
 -- ポートに接続できるようになるまで待ってからブラウザを起動することで、
 -- サーバの初回ビルド完了前にブラウザを開いてしまうことを防ぎます。
+-- ブラウザが開けなくてもプレビューサーバ自体は使えるので、
+-- 失敗は標準エラー出力にログを出すだけで呼び出し元へは伝播しません。
 openBrowserWhenReady :: (MonadThrow m, MonadUnliftIO m) => HostName -> Int -> m (Async ())
-openBrowserWhenReady host port = async $ do
+openBrowserWhenReady host port = async . handleAny logFailure $ do
   ready <- waitForPort host port
   if ready
     then openBrowser host port
     else throwM $ ServerNotReady host port
+ where
+  logFailure e =
+    runStderrLoggingT . logErrorN $
+      "ブラウザでプレビューを開けませんでした: " <> convert (displayException e)
 
 -- | 指定したポートにTCP接続できるようになるまでリトライしつつ一定時間待ちます。
 -- 接続できたら`True`、
