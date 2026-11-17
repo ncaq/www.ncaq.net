@@ -32,7 +32,7 @@
       flake = false;
     };
     himari-src = {
-      url = "github:ncaq/himari/v1.1.3.0";
+      url = "github:ncaq/himari/v1.1.6.2";
       flake = false;
     };
   };

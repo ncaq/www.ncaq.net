@@ -2,7 +2,6 @@ module Timestamp
   ( formatJapanese
   ) where
 
-import Data.Time.Format.ISO8601 (iso8601ParseM)
 import Himari hiding (Context)
 
 -- | ISO 8601形式の日時文字列を日本人向けの表記に変換する。
