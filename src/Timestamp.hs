@@ -2,7 +2,7 @@ module Timestamp
   ( formatJapanese
   ) where
 
-import Himari hiding (Context)
+import Himari
 
 -- | ISO 8601形式の日時文字列を日本人向けの表記に変換する。
 -- 日時を含む場合は @2025年12月30日(火)15時41分18秒@、

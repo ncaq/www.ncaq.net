@@ -1,6 +1,6 @@
 module EntryAndYears (getEntryAndYears) where
 
-import Data.Containers.ListUtils (nubOrd)
+import Data.Containers.ListUtils qualified as L
 import Data.List qualified as L
 import Himari
 
@@ -23,4 +23,4 @@ yearInEntry :: IO [String]
 yearInEntry = do
   entryList <- L.sort <$> listDirectory "site/entry"
   let getYear = L.takeWhile (/= '-')
-  return . reverse . nubOrd $ getYear <$> entryList
+  return . reverse . L.nubOrd $ getYear <$> entryList
