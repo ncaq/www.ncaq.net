@@ -5,7 +5,7 @@ import Data.Aeson.KeyMap qualified as KeyMap
 import Data.List qualified as L
 import Data.Set qualified as Set
 import Hakyll
-import Himari
+import Himari hiding (Identifier)
 
 -- | typoを検出するためメタデータの属性が許可されたものだけであるとバリデーションします。
 validateMetadata :: Identifier -> Compiler ()

@@ -32,12 +32,31 @@ pandocCompilerCustom =
         defaultHakyllReaderOptions
           { readerExtensions = extensions
           }
-        defaultHakyllWriterOptions
-          { writerHTMLMathMethod = MathML
-          , writerSectionDivs = True -- HTML sectionの方を使う。
-          , writerExtensions = extensions
-          , writerHighlightStyle = Nothing -- Pygmentを使うのでPandocのハイライトは不要。
-          }
+        ( setMathML . disableHighlight $
+            defaultHakyllWriterOptions
+              { writerSectionDivs = True -- HTML sectionの方を使う。
+              , writerExtensions = extensions
+              }
+        )
         -- 東アジアの文字列に余計な空白が入らないようにする。
         -- 何故かコマンドラインオプションでは有効にならない。
         (bottomUpM transformBlock . eastAsianLineBreakFilter)
+
+-- nixpkgsとHackageの最新でpandocのバージョンが異なるため、
+-- WriterOptionsのフィールド名の変更をCPPで吸収する。
+
+-- | 数式をMathMLで出力する。
+setMathML :: WriterOptions -> WriterOptions
+#if MIN_VERSION_pandoc(3, 11, 0)
+setMathML opts = opts{writerMathMethod = MathML}
+#else
+setMathML opts = opts{writerHTMLMathMethod = MathML}
+#endif
+
+-- | Pygmentを使うのでPandocのハイライトは無効化する。
+disableHighlight :: WriterOptions -> WriterOptions
+#if MIN_VERSION_pandoc(3, 8, 0)
+disableHighlight opts = opts{writerHighlightMethod = NoHighlighting}
+#else
+disableHighlight opts = opts{writerHighlightStyle = Nothing}
+#endif
