@@ -9,11 +9,23 @@ import Network.Socket
 -- | プレビューをwebブラウザで開く処理で発生する例外。
 data BrowserException
   = -- | 規定時間待ってもサーバに接続できなかった。
-    ServerNotReady HostName Int
+    ServerNotReady
+      HostName
+      -- ^ 接続しようとしたホスト名。
+      Int
+      -- ^ 接続しようとしたポート番号。
   | -- | ホスト名からアドレスを解決できなかった。
-    AddressNotResolved HostName Int
+    AddressNotResolved
+      HostName
+      -- ^ 解決しようとしたホスト名。
+      Int
+      -- ^ 接続しようとしたポート番号。
   | -- | ブラウザを起動するコマンドが失敗した。
-    BrowserLaunchFailed String ExitCode
+    BrowserLaunchFailed
+      String
+      -- ^ ブラウザで開こうとしたURL。
+      ExitCode
+      -- ^ ブラウザを起動するコマンドの終了コード。
   deriving stock (Show)
 
 instance Exception BrowserException

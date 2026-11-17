@@ -6,11 +6,12 @@ import Hakyll
 import Himari
 import Run
 
--- | コマンドライン引数の解析結果と、
--- それを元にHakyllを実行するアクションの組。
+-- | サイトのビルドを実行するための情報。
 data Runner = Runner
   { options :: Options
+  -- ^ Hakyllのコマンドライン引数の解析結果。
   , runHakyll :: IO ()
+  -- ^ 解析結果を元にHakyllを実行するアクション。
   }
 
 -- | サイトのビルドに必要なデータを入手。
