@@ -1,2 +1,22 @@
 @import url("./color-operandi.css");
 @import url("./color-vivendi.css");
+
+/*
+  ライトとダークの両方に対応していることをwebブラウザに伝えます。
+  スクロールバーやフォーム部品などwebブラウザが描画する部分も配色に追従します。
+  CSSの読み込み前にも伝えるため、HTMLの`meta`要素でも同じ値を指定しています。
+ */
+:root {
+  color-scheme: light dark;
+}
+
+/*
+  埋め込み先の文書とカラースキームが食い違うと、
+  webブラウザは`iframe`の透過背景を不透明な色で塗りつぶします。
+  ツイートの埋め込みなどは`color-scheme`を宣言していないライト扱いの文書なので、
+  ダーク表示で角丸の外側が白く塗られてしまいます。
+  `iframe`はライトに固定して食い違いを防ぎます。
+ */
+iframe {
+  color-scheme: light;
+}
